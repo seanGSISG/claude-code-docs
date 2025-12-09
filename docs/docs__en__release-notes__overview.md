@@ -20,6 +20,9 @@ For updates to Claude Code, see the [complete CHANGELOG.md](https://github.com/a
 - We've launched the [effort parameter](/docs/en/build-with-claude/effort) in public beta for Claude Opus 4.5, allowing you to control token usage by trading off between response thoroughness and efficiency.
 - We've added [client-side compaction](/docs/en/build-with-claude/context-editing#client-side-compaction-sdk) to our Python and TypeScript SDKs, automatically managing conversation context through summarization when using `tool_runner`.
 
+### November 21, 2025
+- Search result content blocks are now generally available on Amazon Bedrock. Learn more in our [search results documentation](/docs/en/build-with-claude/search-results).
+
 ### November 19, 2025
 - We've launched a **new documentation platform** at [platform.claude.com/docs](https://platform.claude.com/docs). Our documentation now lives side by side with the Claude Console, providing a unified developer experience. The previous docs site at docs.claude.com will redirect to the new location.
 

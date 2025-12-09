@@ -693,6 +693,6 @@ Citations are all-or-nothing: either all search results in a request must have c
 
 ## Limitations
 
-- Search result content blocks are available on Claude API and Google Cloud's Vertex AI
+- Search result content blocks are available on Claude API, Amazon Bedrock, and Google Cloud's Vertex AI
 - Only text content is supported within search results (no images or other media)
 - The `content` array must contain at least one text block
