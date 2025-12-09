@@ -2859,8 +2859,8 @@
     "claude-code__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/overview",
       "original_md_url": "https://platform.claude.com/docs/en/overview.md",
-      "hash": "228640f1a0eb82e35e8b5f560146158b6f1dfb9c215114dbc97ff48a7428b1d2",
-      "last_updated": "2025-12-08T06:15:03.717705"
+      "hash": "1bfaa9213cf3ca5674bc5179cd33df9e0fc847e02a8127a3277d7631f91dcd7d",
+      "last_updated": "2025-12-09T03:35:25.492704"
     },
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
@@ -3285,8 +3285,8 @@
     "claude-code__sandboxing.md": {
       "original_url": "https://platform.claude.com/docs/en/sandboxing",
       "original_md_url": "https://platform.claude.com/docs/en/sandboxing.md",
-      "hash": "d6a79ac25885826ad31c15d9a0f25bdf9f95104327f88f5c8b347c2546ee3129",
-      "last_updated": "2025-12-08T06:15:48.166952"
+      "hash": "bcdc06de16c420371e610419230b3f8a6039df5f60b54b8a31a7f5c0a9dbdbec",
+      "last_updated": "2025-12-09T03:36:09.231446"
     },
     "claude-code__sdk__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/sdk/migration-guide",
@@ -3309,8 +3309,8 @@
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
       "original_md_url": "https://platform.claude.com/docs/en/setup.md",
-      "hash": "322d138e5e559243bb1a546dfc7a2e5fcad4000c43746bb06bbf2d155296c05d",
-      "last_updated": "2025-12-08T21:11:15.533194"
+      "hash": "683b0cf69987aa8f1bfc5338564d601a350ccec61f1a374d05d1e561a60d5ccb",
+      "last_updated": "2025-12-09T03:36:11.687259"
     },
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
@@ -3423,14 +3423,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "0bd492410c9b25c5f887e42f0f83ee270b8c22d35dc2dea9fe36a78de2d00570",
-      "last_updated": "2025-12-07T12:14:48.062864",
+      "hash": "dbe12a139b6cea4f2b95bf91e4240920bb294fbe64e82a40d12c0b80f9733785",
+      "last_updated": "2025-12-09T03:36:24.006024",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-09T00:31:47.065918",
-    "fetch_duration_seconds": 388.007964,
+    "last_fetch_completed": "2025-12-09T03:36:24.006125",
+    "fetch_duration_seconds": 353.075041,
     "total_pages_discovered": 574,
     "pages_fetched_successfully": 571,
     "pages_failed": 4,
@@ -3445,7 +3445,7 @@
     "total_files": 571,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2025-12-09T00:31:47.065939",
+  "last_updated": "2025-12-09T03:36:24.006144",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
