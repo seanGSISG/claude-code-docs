@@ -1,10 +1,10 @@
 # Quickstart
 
-Build an AI agent that finds and fixes bugs autonomously
+Get started with the Python or TypeScript Agent SDK to build AI agents that work autonomously
 
 ---
 
-Build an AI agent that reads your code, finds bugs, and fixes them, all without manual intervention.
+Use the Agent SDK to build an AI agent that reads your code, finds bugs, and fixes them, all without manual intervention.
 
 **What you'll do:**
 1. Set up a project with the Agent SDK
@@ -101,7 +101,7 @@ Build an AI agent that reads your code, finds bugs, and fixes them, all without 
 
 ## Create a buggy file
 
-Your agent needs something to fix. Create `utils.py` in the `my-agent` directory and paste the following code:
+This quickstart walks you through building an agent that can find and fix bugs in code. First, you need a file with some intentional bugs for the agent to fix. Create `utils.py` in the `my-agent` directory and paste the following code:
 
 ```python
 def calculate_average(numbers):
@@ -178,11 +178,11 @@ for await (const message of query({
 
 This code has three main parts:
 
-1. **`query`**: the main entry point that creates the agentic loop. It returns an async iterator, so you use `async for` to stream messages as Claude works. See the full API in the [TypeScript](/docs/en/agent-sdk/typescript#query) or [Python](/docs/en/agent-sdk/python#query) SDK reference.
+1. **`query`**: the main entry point that creates the agentic loop. It returns an async iterator, so you use `async for` to stream messages as Claude works. See the full API in the [Python](/docs/en/agent-sdk/python#query) or [TypeScript](/docs/en/agent-sdk/typescript#query) SDK reference.
 
 2. **`prompt`**: what you want Claude to do. Claude figures out which tools to use based on the task.
 
-3. **`options`**: configuration for the agent. This example uses `allowedTools` to restrict Claude to `Read`, `Edit`, and `Glob`, and `permissionMode: "acceptEdits"` to auto-approve file changes. Other options include `systemPrompt`, `mcpServers`, and more. See [all options](/docs/en/agent-sdk/typescript#claudeagentoptions).
+3. **`options`**: configuration for the agent. This example uses `allowedTools` to restrict Claude to `Read`, `Edit`, and `Glob`, and `permissionMode: "acceptEdits"` to auto-approve file changes. Other options include `systemPrompt`, `mcpServers`, and more. See all options for [Python](/docs/en/agent-sdk/python#claudeagentoptions) or [TypeScript](/docs/en/agent-sdk/typescript#claudeagentoptions).
 
 The `async for` loop keeps running as Claude thinks, calls tools, observes results, and decides what to do next. Each iteration yields a message: Claude's reasoning, a tool call, a tool result, or the final outcome. The SDK handles the orchestration (tool execution, context management, retries) so you just consume the stream. The loop ends when Claude finishes the task or hits an error.
 
@@ -194,7 +194,7 @@ This example uses streaming to show progress in real-time. If you don't need liv
 
 ### Run your agent
 
-Your agent is ready to try out. Run your agent with the following command:
+Your agent is ready. Run it with the following command:
 
 <CodeGroup>
 ```bash Python
@@ -218,9 +218,9 @@ This is what makes the Agent SDK different: Claude executes tools directly inste
 If you see "Claude Code not found", [install Claude Code](#install-claude-code) and restart your terminal. For "API key not found", [set your API key](#set-your-api-key). See the [full troubleshooting guide](https://docs.anthropic.com/en/docs/claude-code/troubleshooting) for more help.
 </Note>
 
-### Try it yourself
+### Try other prompts
 
-Now that your agent is set up, try different prompts:
+Now that your agent is set up, try some different prompts:
 
 - `"Add docstrings to all functions in utils.py"`
 - `"Add type hints to all functions in utils.py"`
