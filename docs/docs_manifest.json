@@ -999,8 +999,8 @@
     "docs__en__api__ip-addresses.md": {
       "original_url": "https://platform.claude.com/docs/en/api/ip-addresses",
       "original_md_url": "https://platform.claude.com/docs/en/api/ip-addresses.md",
-      "hash": "516e1374410cd4c922e00e1c19cd3e9e43ff330faae2aa417f33b78ae5610ff7",
-      "last_updated": "2025-12-05T22:27:40.979349"
+      "hash": "76826b85a3a62f49c8275b90a0ad9deae561dcc6ed0d4b14eb0543a603f43ce8",
+      "last_updated": "2025-12-15T21:08:04.511128"
     },
     "docs__en__api__java__beta.md": {
       "original_url": "https://platform.claude.com/docs/en/api/java/beta",
@@ -2877,20 +2877,20 @@
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
       "original_md_url": "https://platform.claude.com/docs/en/plugin-marketplaces.md",
-      "hash": "f9d70aff1d2cbf04fa77c06b6118f6afa10ab1562ae06c6a52e12e41d426b933",
-      "last_updated": "2025-12-08T00:30:32.218946"
+      "hash": "1b2daac5086b55d1ffc6ab98d80519abc29211019863d57717d9b037eadb9efd",
+      "last_updated": "2025-12-15T21:11:59.318079"
     },
     "claude-code__plugins.md": {
       "original_url": "https://platform.claude.com/docs/en/plugins",
       "original_md_url": "https://platform.claude.com/docs/en/plugins.md",
-      "hash": "1709e7105b34ecc569ca20d5348b918da78c731ab24cd1943401bb7ae72f0b61",
-      "last_updated": "2025-12-08T06:15:04.892652"
+      "hash": "6b67f5a49fc07fa63a20d7b67d5c13354a36e5ffcd4624546ba0c113402c9f7a",
+      "last_updated": "2025-12-15T21:11:59.930247"
     },
     "claude-code__plugins-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/plugins-reference",
       "original_md_url": "https://platform.claude.com/docs/en/plugins-reference.md",
-      "hash": "564f1fd7b7d2daaf94a5023d996f1d5e8ba49de97b2411a20a69e4502ac9178b",
-      "last_updated": "2025-12-05T22:31:56.341786"
+      "hash": "5df4ab29b0d042c590cd2950bd2eadba980f27b41fb360f756522f0772fd9781",
+      "last_updated": "2025-12-15T21:12:00.526013"
     },
     "claude-code__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/quickstart",
@@ -3441,8 +3441,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-15T18:15:26.307433",
-    "fetch_duration_seconds": 393.350015,
+    "last_fetch_completed": "2025-12-15T21:13:21.260014",
+    "fetch_duration_seconds": 446.179277,
     "total_pages_discovered": 576,
     "pages_fetched_successfully": 573,
     "pages_failed": 4,
@@ -3457,7 +3457,7 @@
     "total_files": 573,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2025-12-15T18:15:26.307459",
+  "last_updated": "2025-12-15T21:13:21.260039",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
