@@ -267,8 +267,8 @@
     "docs__en__agents-and-tools__tool-use__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
       "original_md_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview.md",
-      "hash": "f94ea3bfa814b08722bd1696803c7222b6287d6a7c378a67a223680edf22ac33",
-      "last_updated": "2025-12-05T22:25:30.110176"
+      "hash": "c6e1d80d0fde4f64f8e18c96dfff6060580791364a3b59cb8945ef4127931dbc",
+      "last_updated": "2025-12-15T18:09:22.044096"
     },
     "docs__en__agents-and-tools__tool-use__programmatic-tool-calling.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling",
@@ -2715,8 +2715,8 @@
     "claude-code__cli-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-reference",
       "original_md_url": "https://platform.claude.com/docs/en/cli-reference.md",
-      "hash": "0008d7582dd382b277eccd67ec9ae51744d9d47942ef6ae5513dbfac9e8bc43c",
-      "last_updated": "2025-12-08T00:30:14.977965"
+      "hash": "1f74e23fa86b4371fc33681751e303252a7b222d2da28beaf28c3e09b5bee882",
+      "last_updated": "2025-12-15T18:14:07.008018"
     },
     "claude-code__common-workflows.md": {
       "original_url": "https://platform.claude.com/docs/en/common-workflows",
@@ -2775,8 +2775,8 @@
     "claude-code__headless.md": {
       "original_url": "https://platform.claude.com/docs/en/headless",
       "original_md_url": "https://platform.claude.com/docs/en/headless.md",
-      "hash": "7e52e398c60c0ca0fa4c5b39c28bba4d80ba78907d0039e03075fb9243e3a7cf",
-      "last_updated": "2025-12-08T06:14:54.218932"
+      "hash": "a9ccdc4e232e12284c55680ba2cb91ce03576b93a4828cecbbefcceab8ed087a",
+      "last_updated": "2025-12-15T18:14:13.112800"
     },
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
@@ -3441,8 +3441,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-15T15:15:54.197045",
-    "fetch_duration_seconds": 448.770588,
+    "last_fetch_completed": "2025-12-15T18:15:26.307433",
+    "fetch_duration_seconds": 393.350015,
     "total_pages_discovered": 576,
     "pages_fetched_successfully": 573,
     "pages_failed": 4,
@@ -3457,7 +3457,7 @@
     "total_files": 573,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2025-12-15T15:15:54.197067",
+  "last_updated": "2025-12-15T18:15:26.307459",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
