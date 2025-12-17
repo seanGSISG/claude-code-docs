@@ -261,8 +261,8 @@
     "docs__en__agents-and-tools__tool-use__memory-tool.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
       "original_md_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool.md",
-      "hash": "be2796bd40d1bb36c23f1ccb1a9619b73fc9151cc9e055eb3dbdd65476d42d0b",
-      "last_updated": "2025-12-05T22:25:29.262553"
+      "hash": "bd2136d34056cc2f1a3f00beca5b1b4971f77bdd3f43cd8718f208c2fb1c5e79",
+      "last_updated": "2025-12-17T21:06:40.849423"
     },
     "docs__en__agents-and-tools__tool-use__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
@@ -3441,8 +3441,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-17T18:16:38.083091",
-    "fetch_duration_seconds": 416.493326,
+    "last_fetch_completed": "2025-12-17T21:13:55.430784",
+    "fetch_duration_seconds": 463.72279,
     "total_pages_discovered": 576,
     "pages_fetched_successfully": 573,
     "pages_failed": 4,
@@ -3457,7 +3457,7 @@
     "total_files": 573,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2025-12-17T18:16:38.083122",
+  "last_updated": "2025-12-17T21:13:55.430806",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
