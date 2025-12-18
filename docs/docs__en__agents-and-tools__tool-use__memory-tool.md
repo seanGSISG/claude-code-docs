@@ -282,8 +282,8 @@ Replace text in a file:
 #### Error handling
 
 - **File does not exist**: `"Error: The path {path} does not exist. Please provide a valid path."`
-- **Text not found**: `"No replacement was performed, old_str \`{old_str}\` did not appear verbatim in {path}."`
-- **Duplicate text**: When `old_str` appears multiple times, return: `"No replacement was performed. Multiple occurrences of old_str \`{old_str}\` in lines: {line_numbers}. Please ensure it is unique"`
+- **Text not found**: ``"No replacement was performed, old_str `{old_str}` did not appear verbatim in {path}."``
+- **Duplicate text**: When `old_str` appears multiple times, return: ``"No replacement was performed. Multiple occurrences of old_str `{old_str}` in lines: {line_numbers}. Please ensure it is unique"``
 
 #### Directory handling
 
@@ -308,7 +308,7 @@ Insert text at a specific line:
 #### Error handling
 
 - **File does not exist**: `"Error: The path {path} does not exist"`
-- **Invalid line number**: `"Error: Invalid \`insert_line\` parameter: {insert_line}. It should be within the range of lines of the file: [0, {n_lines}]"`
+- **Invalid line number**: ``"Error: Invalid `insert_line` parameter: {insert_line}. It should be within the range of lines of the file: [0, {n_lines}]"``
 
 #### Directory handling
 
