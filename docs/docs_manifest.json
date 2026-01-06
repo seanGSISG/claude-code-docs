@@ -3321,8 +3321,8 @@
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
       "original_md_url": "https://platform.claude.com/docs/en/setup.md",
-      "hash": "19f8fdc52ee223ad2a86b031f4bf147662a5cb77bf7050523414f0e5184aa721",
-      "last_updated": "2025-12-16T18:16:05.865949"
+      "hash": "82a61ea4a6d21bd058f0ba5d3f230b9591183f2963c1dc848898394f1e406810",
+      "last_updated": "2026-01-06T03:41:42.644592"
     },
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
@@ -3423,8 +3423,8 @@
     "claude-code__troubleshooting.md": {
       "original_url": "https://platform.claude.com/docs/en/troubleshooting",
       "original_md_url": "https://platform.claude.com/docs/en/troubleshooting.md",
-      "hash": "ce6a9638581ae4efba3cf10bc38ba1dd9bfb640227528dc2349cd11971ef2d87",
-      "last_updated": "2025-12-16T18:16:17.125526"
+      "hash": "46549e4ceca1fc625679f4b10444d2772482cac1987fa19279e52c98686c452b",
+      "last_updated": "2026-01-06T03:41:54.629705"
     },
     "claude-code__vs-code.md": {
       "original_url": "https://platform.claude.com/docs/en/vs-code",
@@ -3441,8 +3441,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-06T00:32:38.638618",
-    "fetch_duration_seconds": 380.159416,
+    "last_fetch_completed": "2026-01-06T03:41:55.323152",
+    "fetch_duration_seconds": 425.889506,
     "total_pages_discovered": 578,
     "pages_fetched_successfully": 573,
     "pages_failed": 6,
@@ -3459,7 +3459,7 @@
     "total_files": 573,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-06T00:32:38.638643",
+  "last_updated": "2026-01-06T03:41:55.323177",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
