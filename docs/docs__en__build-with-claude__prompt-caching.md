@@ -507,7 +507,7 @@ Here are 3 examples. This depicts the input tokens of 3 requests, each of which 
 ---
 ## Prompt caching examples
 
-To help you get started with prompt caching, we've prepared a [prompt caching cookbook](https://github.com/anthropics/anthropic-cookbook/blob/main/misc/prompt_caching.ipynb) with detailed examples and best practices.
+To help you get started with prompt caching, we've prepared a [prompt caching cookbook](https://platform.claude.com/cookbook/misc-prompt-caching) with detailed examples and best practices.
 
 Below, we've included several code snippets that showcase various prompt caching patterns. These examples demonstrate how to implement caching in different scenarios, helping you understand the practical applications of this feature:
 

@@ -523,7 +523,7 @@ Every tool referenced must have a corresponding tool definition in the top-level
 The `tool_search_tool_result` format shown in the [Response format](#response-format) section is the server-side format used internally by Anthropic's built-in tool search. For custom client-side implementations, always use the standard `tool_result` format with `tool_reference` content blocks as shown above.
 </Note>
 
-For a complete example using embeddings, see our [tool search with embeddings cookbook](https://github.com/anthropics/anthropic-cookbook).
+For a complete example using embeddings, see our [tool search with embeddings cookbook](https://platform.claude.com/cookbooks).
 
 ## Error handling
 
