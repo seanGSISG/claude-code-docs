@@ -2727,14 +2727,14 @@
     "claude-code__cli-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-reference",
       "original_md_url": "https://platform.claude.com/docs/en/cli-reference.md",
-      "hash": "4b3ab44ce77627dc513601c05897cd56fb1db7107bc6f5c0d5665f608380c83c",
-      "last_updated": "2025-12-19T21:11:09.900429"
+      "hash": "e4ae955c30c4a39e0525b40aabade5e7ca552b2bbbecf8157a8c26c8895b9be6",
+      "last_updated": "2026-01-07T18:14:37.993983"
     },
     "claude-code__common-workflows.md": {
       "original_url": "https://platform.claude.com/docs/en/common-workflows",
       "original_md_url": "https://platform.claude.com/docs/en/common-workflows.md",
-      "hash": "5a3b795e8c5b95d08648e95e62c8df60830659dbdacae0ae4afb43a55f6967b2",
-      "last_updated": "2025-12-17T15:12:22.230205"
+      "hash": "d502394556caa7c5f3d33da99da2ec2e16581276f3a88bab483602cd54101532",
+      "last_updated": "2026-01-07T18:14:38.599081"
     },
     "claude-code__costs.md": {
       "original_url": "https://platform.claude.com/docs/en/costs",
@@ -2907,8 +2907,8 @@
     "claude-code__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/quickstart",
       "original_md_url": "https://platform.claude.com/docs/en/quickstart.md",
-      "hash": "31e5f9b68261cd560c63b22c0fdefab0926bac931b7ebe92b9276c80e9fcc1e3",
-      "last_updated": "2025-12-19T21:11:29.313563"
+      "hash": "876285828b33281f88ab06d83e24ad59280e85624a9390c83771d84697a12385",
+      "last_updated": "2026-01-07T18:14:56.599202"
     },
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
@@ -3333,8 +3333,8 @@
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
       "original_md_url": "https://platform.claude.com/docs/en/skills.md",
-      "hash": "3b235f36f90f4caa5095bcef11ac7e07f6173f19ffff6f2d5b6aaf55bfe98305",
-      "last_updated": "2025-12-27T03:38:52.253523"
+      "hash": "142eb6a5de83c7c825c549aa3f051b4a7e0c7568aca66f0ad3e40772ffdd3ffb",
+      "last_updated": "2026-01-07T18:15:44.745369"
     },
     "claude-code__slash-commands.md": {
       "original_url": "https://platform.claude.com/docs/en/slash-commands",
@@ -3447,8 +3447,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-07T15:18:11.817754",
-    "fetch_duration_seconds": 618.768202,
+    "last_fetch_completed": "2026-01-07T18:15:56.935475",
+    "fetch_duration_seconds": 411.917975,
     "total_pages_discovered": 579,
     "pages_fetched_successfully": 574,
     "pages_failed": 6,
@@ -3465,7 +3465,7 @@
     "total_files": 574,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-07T15:18:11.817781",
+  "last_updated": "2026-01-07T18:15:56.935499",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
