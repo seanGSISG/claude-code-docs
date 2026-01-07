@@ -261,6 +261,8 @@ In addition to providing token and request charts, the Usage page provides two s
 
 ## Setting lower limits for Workspaces
 
+For more about workspaces, see [Workspaces](/docs/en/build-with-claude/workspaces).
+
 In order to protect Workspaces in your Organization from potential overuse, you can set custom spend and rate limits per Workspace.
 
 Example: If your Organization's limit is 40,000 input tokens per minute and 8,000 output tokens per minute, you might limit one Workspace to 30,000 total tokens per minute. This protects other Workspaces from potential overuse and ensures a more equitable distribution of resources across your Organization. The remaining unused tokens per minute (or more, if that Workspace doesn't use the limit) are then available for other Workspaces to use.
