@@ -552,6 +552,12 @@
       "hash": "2b61447f2dec655fb6bd94bc35fe196af9a565726deeffb6b4462a96156021c0",
       "last_updated": "2025-12-18T21:07:01.701066"
     },
+    "docs__en__api__beta__files__download.md": {
+      "original_url": "https://platform.claude.com/docs/en/api/beta/files/download",
+      "original_md_url": "https://platform.claude.com/docs/en/api/beta/files/download.md",
+      "hash": "feb6a14a0317d14f9414929637fce5d5f13708208fd27541c47dffac0b7caeef",
+      "last_updated": "2026-01-08T09:11:06.832150"
+    },
     "docs__en__api__beta__files__list.md": {
       "original_url": "https://platform.claude.com/docs/en/api/beta/files/list",
       "original_md_url": "https://platform.claude.com/docs/en/api/beta/files/list.md",
@@ -3447,14 +3453,13 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-08T06:18:57.379125",
-    "fetch_duration_seconds": 562.986769,
+    "last_fetch_completed": "2026-01-08T09:20:11.530162",
+    "fetch_duration_seconds": 617.843852,
     "total_pages_discovered": 580,
-    "pages_fetched_successfully": 574,
-    "pages_failed": 7,
+    "pages_fetched_successfully": 575,
+    "pages_failed": 6,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
-      "/docs/en/api/beta/files/download",
       "/docs/en/chrome",
       "/docs/en/discover-plugins",
       "/docs/en/resources/overview",
@@ -3463,10 +3468,10 @@
     ],
     "sitemap_url": "https://platform.claude.com/sitemap.xml",
     "base_url": "https://platform.claude.com",
-    "total_files": 574,
+    "total_files": 575,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-08T06:18:57.379142",
+  "last_updated": "2026-01-08T09:20:11.530190",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
