@@ -2733,14 +2733,14 @@
     "claude-code__cli-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-reference",
       "original_md_url": "https://platform.claude.com/docs/en/cli-reference.md",
-      "hash": "e4ae955c30c4a39e0525b40aabade5e7ca552b2bbbecf8157a8c26c8895b9be6",
-      "last_updated": "2026-01-07T18:14:37.993983"
+      "hash": "80819aa262fbe2d75e447c729ff85cf2bf9a412361a2e10b59cd4d0da451d230",
+      "last_updated": "2026-01-08T03:40:13.165609"
     },
     "claude-code__common-workflows.md": {
       "original_url": "https://platform.claude.com/docs/en/common-workflows",
       "original_md_url": "https://platform.claude.com/docs/en/common-workflows.md",
-      "hash": "d502394556caa7c5f3d33da99da2ec2e16581276f3a88bab483602cd54101532",
-      "last_updated": "2026-01-07T18:14:38.599081"
+      "hash": "91b186ff5c430188f1ef7e71eefcafc824169f1fd9f08305ba3e02c90f077601",
+      "last_updated": "2026-01-08T03:40:13.759754"
     },
     "claude-code__costs.md": {
       "original_url": "https://platform.claude.com/docs/en/costs",
@@ -3345,8 +3345,8 @@
     "claude-code__slash-commands.md": {
       "original_url": "https://platform.claude.com/docs/en/slash-commands",
       "original_md_url": "https://platform.claude.com/docs/en/slash-commands.md",
-      "hash": "a45c95d290277d1f80b1f9fb120e645194023b0ce4662ef331ccf59d7cbd2c0f",
-      "last_updated": "2025-12-18T21:13:03.333774"
+      "hash": "bc627ceda7280c34ea2f23c82ed2328a9956482867253ef643bad05457ddc9e5",
+      "last_updated": "2026-01-08T03:41:21.993080"
     },
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
@@ -3363,8 +3363,8 @@
     "claude-code__terminal-config.md": {
       "original_url": "https://platform.claude.com/docs/en/terminal-config",
       "original_md_url": "https://platform.claude.com/docs/en/terminal-config.md",
-      "hash": "dd803385fd46710016a9448f44c3e5940e1b0f7a3fee516b4e9653ae1310f4b9",
-      "last_updated": "2025-12-08T06:15:53.646673"
+      "hash": "32266d5df37b014f004e21c199c15a3ca03576ca62eeaf28fb6d7f25769be3fd",
+      "last_updated": "2026-01-08T03:41:23.813912"
     },
     "docs__en__test-and-evaluate__define-success.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
@@ -3453,8 +3453,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-08T00:40:17.111419",
-    "fetch_duration_seconds": 828.248397,
+    "last_fetch_completed": "2026-01-08T03:41:32.029842",
+    "fetch_duration_seconds": 413.577287,
     "total_pages_discovered": 580,
     "pages_fetched_successfully": 575,
     "pages_failed": 6,
@@ -3471,7 +3471,7 @@
     "total_files": 575,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-08T00:40:17.111439",
+  "last_updated": "2026-01-08T03:41:32.029871",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
