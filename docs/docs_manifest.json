@@ -3156,12 +3156,6 @@
       "hash": "0d25fa39d685c1e5bb23ad3f441508d50f9375be05a1b4ace5d4e155ce481309",
       "last_updated": "2025-12-05T22:32:27.226419"
     },
-    "docs__en__resources__prompt-library__motivational-muse.md": {
-      "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/motivational-muse",
-      "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/motivational-muse.md",
-      "hash": "57f44075b1f043025d4468867482776b61c363979a0634c6cd3f5572656e85b9",
-      "last_updated": "2025-12-05T22:32:28.408185"
-    },
     "docs__en__resources__prompt-library__neologism-creator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/neologism-creator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/neologism-creator.md",
@@ -3453,25 +3447,26 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-15T15:24:43.535738",
-    "fetch_duration_seconds": 1018.19673,
+    "last_fetch_completed": "2026-01-15T18:26:51.891418",
+    "fetch_duration_seconds": 885.882429,
     "total_pages_discovered": 580,
-    "pages_fetched_successfully": 575,
-    "pages_failed": 6,
+    "pages_fetched_successfully": 574,
+    "pages_failed": 7,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/chrome",
       "/docs/en/discover-plugins",
       "/docs/en/resources/overview",
       "/docs/en/resources/prompt-library/library",
+      "/docs/en/resources/prompt-library/motivational-muse",
       "/docs/en/slack"
     ],
     "sitemap_url": "https://platform.claude.com/sitemap.xml",
     "base_url": "https://platform.claude.com",
-    "total_files": 575,
+    "total_files": 574,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-15T15:24:43.535764",
+  "last_updated": "2026-01-15T18:26:51.891439",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
