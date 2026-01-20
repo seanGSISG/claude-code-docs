@@ -3447,26 +3447,25 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-20T15:43:18.573313",
-    "fetch_duration_seconds": 1945.50297,
-    "total_pages_discovered": 580,
+    "last_fetch_completed": "2026-01-20T18:24:19.480983",
+    "fetch_duration_seconds": 829.057573,
+    "total_pages_discovered": 579,
     "pages_fetched_successfully": 574,
-    "pages_failed": 7,
+    "pages_failed": 6,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/chrome",
       "/docs/en/discover-plugins",
       "/docs/en/resources/overview",
       "/docs/en/resources/prompt-library/library",
-      "/docs/en/slack",
-      "/docs/en/slash-commands"
+      "/docs/en/slack"
     ],
     "sitemap_url": "https://platform.claude.com/sitemap.xml",
     "base_url": "https://platform.claude.com",
     "total_files": 574,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-20T15:43:18.573335",
+  "last_updated": "2026-01-20T18:24:19.481001",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
