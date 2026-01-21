@@ -2739,14 +2739,14 @@
     "claude-code__common-workflows.md": {
       "original_url": "https://platform.claude.com/docs/en/common-workflows",
       "original_md_url": "https://platform.claude.com/docs/en/common-workflows.md",
-      "hash": "29c3d6b8d725d1b201199edb2142ee77182ba16546d64cbb22cb18023a7d87e7",
-      "last_updated": "2026-01-20T15:37:25.581178"
+      "hash": "446b4f3e9c595756853be3fa979bb02b55bdc52095f134bd00f001a864877cca",
+      "last_updated": "2026-01-21T21:20:59.387708"
     },
     "claude-code__costs.md": {
       "original_url": "https://platform.claude.com/docs/en/costs",
       "original_md_url": "https://platform.claude.com/docs/en/costs.md",
-      "hash": "4ab6c0584a533b7d748f4d5fac426cbecff92b821b3a4412de604f8b17ae91f8",
-      "last_updated": "2026-01-20T21:17:48.888670"
+      "hash": "c7f0b537687d53d11896e408f64b2c7923429c47aa8c0e5eb881af9b53a9baf6",
+      "last_updated": "2026-01-21T21:20:59.954833"
     },
     "claude-code__data-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/data-usage",
@@ -2853,8 +2853,8 @@
     "claude-code__memory.md": {
       "original_url": "https://platform.claude.com/docs/en/memory",
       "original_md_url": "https://platform.claude.com/docs/en/memory.md",
-      "hash": "b83194cef72334c8261a24388cf7666913dc68eedad93fc9886509e811ffb66d",
-      "last_updated": "2026-01-20T15:37:57.029157"
+      "hash": "579bf4c6609db387f6644a1c4b7a9fb579f798d50f439970d1d256b4dca4a582",
+      "last_updated": "2026-01-21T21:21:15.111632"
     },
     "claude-code__microsoft-foundry.md": {
       "original_url": "https://platform.claude.com/docs/en/microsoft-foundry",
@@ -3447,15 +3447,17 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-21T18:29:47.378939",
-    "fetch_duration_seconds": 759.206384,
-    "total_pages_discovered": 579,
+    "last_fetch_completed": "2026-01-21T21:22:33.479536",
+    "fetch_duration_seconds": 720.126246,
+    "total_pages_discovered": 581,
     "pages_fetched_successfully": 574,
-    "pages_failed": 6,
+    "pages_failed": 8,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/chrome",
       "/docs/en/discover-plugins",
+      "/docs/en/features-overview",
+      "/docs/en/how-claude-code-works",
       "/docs/en/resources/overview",
       "/docs/en/resources/prompt-library/library",
       "/docs/en/slack"
@@ -3465,7 +3467,7 @@
     "total_files": 574,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-21T18:29:47.378961",
+  "last_updated": "2026-01-21T21:22:33.479556",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
