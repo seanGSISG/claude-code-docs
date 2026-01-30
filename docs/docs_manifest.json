@@ -168,6 +168,12 @@
       "hash": "7ad2150a79b94e99f11419f8f372c0cd967d4754fe1c6819284a6b6074b933e5",
       "last_updated": "2025-12-05T22:25:15.482537"
     },
+    "docs__en__agent-sdk__streaming-output.md": {
+      "original_url": "https://platform.claude.com/docs/en/agent-sdk/streaming-output",
+      "original_md_url": "https://platform.claude.com/docs/en/agent-sdk/streaming-output.md",
+      "hash": "45381d4710b1d1431f60fc7f7136113162751eb6c116761ba789f3ea5c682c15",
+      "last_updated": "2026-01-30T03:49:02.202444"
+    },
     "docs__en__agent-sdk__streaming-vs-single-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/agent-sdk/streaming-vs-single-mode",
       "original_md_url": "https://platform.claude.com/docs/en/agent-sdk/streaming-vs-single-mode.md",
@@ -3183,10 +3189,10 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-30T00:36:35.746152",
-    "fetch_duration_seconds": 348.500385,
-    "total_pages_discovered": 584,
-    "pages_fetched_successfully": 530,
+    "last_fetch_completed": "2026-01-30T03:55:01.858722",
+    "fetch_duration_seconds": 379.338476,
+    "total_pages_discovered": 585,
+    "pages_fetched_successfully": 531,
     "pages_failed": 55,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
@@ -3247,10 +3253,10 @@
     ],
     "sitemap_url": "https://platform.claude.com/sitemap.xml",
     "base_url": "https://platform.claude.com",
-    "total_files": 530,
+    "total_files": 531,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-01-30T00:36:35.746205",
+  "last_updated": "2026-01-30T03:55:01.858745",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
