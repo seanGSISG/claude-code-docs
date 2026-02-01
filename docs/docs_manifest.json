@@ -2493,8 +2493,8 @@
     "claude-code__data-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/data-usage",
       "original_md_url": "https://platform.claude.com/docs/en/data-usage.md",
-      "hash": "64670fc2f2be58616d2a4e39e9396efa949be45903c38f87879bb41e1f06d739",
-      "last_updated": "2026-01-24T03:38:52.012130"
+      "hash": "cb2029c9c23c0226b49613cebcd96576b6a6bdf39231e7884c5da76de0f79c76",
+      "last_updated": "2026-02-01T18:14:37.436251"
     },
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
@@ -2559,8 +2559,8 @@
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
       "original_md_url": "https://platform.claude.com/docs/en/interactive-mode.md",
-      "hash": "95700823f78d873e8bb523d284e9115496517cae16c93f29ac27b5f55fc86b3a",
-      "last_updated": "2026-01-31T03:52:00.476375"
+      "hash": "6c327c0f22c77f828c6cf9790581cdd0bce3a9dd1f5dad85b14bb33b8ea9342d",
+      "last_updated": "2026-02-01T18:14:44.630220"
     },
     "docs__en__intro.md": {
       "original_url": "https://platform.claude.com/docs/en/intro",
@@ -3069,8 +3069,8 @@
     "claude-code__settings.md": {
       "original_url": "https://platform.claude.com/docs/en/settings",
       "original_md_url": "https://platform.claude.com/docs/en/settings.md",
-      "hash": "339b856e672be3dbfa9c43484a6ff813a1c0f828ebc8ce713a5f15b64a59a564",
-      "last_updated": "2026-01-31T03:52:54.834788"
+      "hash": "5a2b764953a1d3669ebebffd03747b321e03db0ae15184b6bef5c41c11f86c09",
+      "last_updated": "2026-02-01T18:15:37.043907"
     },
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
@@ -3189,8 +3189,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-02-01T15:13:39.727129",
-    "fetch_duration_seconds": 365.975604,
+    "last_fetch_completed": "2026-02-01T18:15:48.070387",
+    "fetch_duration_seconds": 341.622493,
     "total_pages_discovered": 585,
     "pages_fetched_successfully": 531,
     "pages_failed": 55,
@@ -3256,7 +3256,7 @@
     "total_files": 531,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-02-01T15:13:39.727157",
+  "last_updated": "2026-02-01T18:15:48.070406",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
