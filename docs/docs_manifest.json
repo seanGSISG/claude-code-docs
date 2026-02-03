@@ -2667,8 +2667,8 @@
     "docs__en__release-notes__system-prompts.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
       "original_md_url": "https://platform.claude.com/docs/en/release-notes/system-prompts.md",
-      "hash": "8377ee2de42da290b8e675e67a2e434c1d79ba39a5cf41d47459555160f8e4fc",
-      "last_updated": "2025-12-05T22:31:58.957990"
+      "hash": "8bf6d2baabd201e06e21e61fc8a35e1bb31796507aec7d2c3519676c0b8ea534",
+      "last_updated": "2026-02-03T00:37:56.108258"
     },
     "docs__en__resources__prompt-library__adaptive-editor.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/adaptive-editor",
@@ -3189,8 +3189,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-02-02T18:21:07.479835",
-    "fetch_duration_seconds": 362.076718,
+    "last_fetch_completed": "2026-02-03T00:38:56.229715",
+    "fetch_duration_seconds": 354.179237,
     "total_pages_discovered": 585,
     "pages_fetched_successfully": 531,
     "pages_failed": 55,
@@ -3256,7 +3256,7 @@
     "total_files": 531,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-02-02T18:21:07.479873",
+  "last_updated": "2026-02-03T00:38:56.229745",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
