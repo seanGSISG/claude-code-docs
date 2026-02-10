@@ -2577,8 +2577,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "ffc7f096c8d316593a237e3ec7a1e895268043cb03f12959e1c29dad371ed1ad",
-      "last_updated": "2026-02-03T03:54:27.250514"
+      "hash": "e2c9214852fc13e4893be29ce435591d2058bfa8dfca958d4ebc6ae65e05f805",
+      "last_updated": "2026-02-10T04:04:36.311284"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -3255,14 +3255,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "b8425e77b0c43e23cd1ff14733b2ebc3d0964934f7cbd6630c979a7b320f0b8e",
-      "last_updated": "2026-02-07T21:15:22.520188",
+      "hash": "740ea540eedd418a033b18d24e33f532ca1d51ddbcf1812a72afb3c8cb2ed04a",
+      "last_updated": "2026-02-10T04:05:47.679916",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-02-10T00:43:51.986370",
-    "fetch_duration_seconds": 358.788265,
+    "last_fetch_completed": "2026-02-10T04:05:47.680025",
+    "fetch_duration_seconds": 362.614934,
     "total_pages_discovered": 601,
     "pages_fetched_successfully": 543,
     "pages_failed": 59,
@@ -3332,7 +3332,7 @@
     "total_files": 543,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-02-10T00:43:51.986392",
+  "last_updated": "2026-02-10T04:05:47.680044",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
