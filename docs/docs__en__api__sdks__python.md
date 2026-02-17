@@ -636,7 +636,7 @@ We introduce beta features before they are generally available to get early feed
 
 You can access most beta API features through the `beta` property of the client. To enable a particular beta feature, you need to add the appropriate [beta header](/docs/en/api/beta-headers) to the `betas` field when creating a message.
 
-For example, to use code execution:
+For example, to use the [Files API](/docs/en/build-with-claude/files):
 
 ```python
 from anthropic import Anthropic
@@ -644,26 +644,24 @@ from anthropic import Anthropic
 client = Anthropic()
 
 response = client.beta.messages.create(
-    max_tokens=1024,
     model="claude-opus-4-6",
+    max_tokens=1024,
     messages=[
         {
             "role": "user",
             "content": [
+                {"type": "text", "text": "Please summarize this document for me."},
                 {
-                    "type": "text",
-                    "text": "What's 4242424242 * 4242424242?",
+                    "type": "document",
+                    "source": {
+                        "type": "file",
+                        "file_id": "file_abc123",
+                    },
                 },
             ],
         },
     ],
-    tools=[
-        {
-            "name": "code_execution",
-            "type": "code_execution_20250522",
-        },
-    ],
-    betas=["code-execution-2025-05-22"],
+    betas=["files-api-2025-04-14"],
 )
 ```
 

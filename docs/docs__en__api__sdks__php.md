@@ -161,7 +161,7 @@ $client = new Client(
   apiKey: getenv("ANTHROPIC_API_KEY") ?: "my-anthropic-api-key"
 );
 
-$page = $client->beta->messages->batches->list();
+$page = $client->messages->batches->list();
 
 var_dump($page);
 

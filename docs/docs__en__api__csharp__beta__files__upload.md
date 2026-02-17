@@ -1,22 +1,22 @@
-## Delete
+## Upload
 
-`DeletedFile Beta.Files.Delete(FileDeleteParamsparameters, CancellationTokencancellationToken = default)`
+`FileMetadata Beta.Files.Upload(FileUploadParamsparameters, CancellationTokencancellationToken = default)`
 
-**delete** `/v1/files/{file_id}`
+**post** `/v1/files`
 
-Delete File
+Upload File
 
 ### Parameters
 
-- `FileDeleteParams parameters`
+- `FileUploadParams parameters`
 
-  - `required string fileID`
+  - `required string file`
 
-    ID of the File.
+    Body param: The file to upload
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
-    Optional header to specify the beta version(s) you want to use.
+    Header param: Optional header to specify the beta version(s) you want to use.
 
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
@@ -60,26 +60,46 @@ Delete File
 
 ### Returns
 
-- `class DeletedFile:`
+- `class FileMetadata:`
 
   - `required string ID`
 
-    ID of the deleted file.
+    Unique object identifier.
 
-  - `Type Type`
+    The format and length of IDs may change over time.
 
-    Deleted object type.
+  - `required DateTimeOffset CreatedAt`
 
-    For file deletion, this is always `"file_deleted"`.
+    RFC 3339 datetime string representing when the file was created.
 
-    - `"file_deleted"FileDeleted`
+  - `required string Filename`
+
+    Original filename of the uploaded file.
+
+  - `required string MimeType`
+
+    MIME type of the file.
+
+  - `required Long SizeBytes`
+
+    Size of the file in bytes.
+
+  - `JsonElement Type "file"constant`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+  - `Boolean Downloadable`
+
+    Whether the file can be downloaded.
 
 ### Example
 
 ```csharp
-FileDeleteParams parameters = new() { FileID = "file_id" };
+FileUploadParams parameters = new() { File = Encoding.UTF8.GetBytes("text") };
 
-var deletedFile = await client.Beta.Files.Delete(parameters);
+var fileMetadata = await client.Beta.Files.Upload(parameters);
 
-Console.WriteLine(deletedFile);
+Console.WriteLine(fileMetadata);
 ```

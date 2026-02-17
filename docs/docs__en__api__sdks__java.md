@@ -1478,21 +1478,21 @@ To access undocumented response properties, use the `_additionalProperties()` me
 
 You can access most beta API features through the `beta()` method on the client. To check the availability of all of Claude's capabilities and tools, see the [build with Claude overview](/docs/en/build-with-claude/overview).
 
-For example, to use structured outputs:
+For example, to use the [Files API](/docs/en/build-with-claude/files):
 
 ```java
+import com.anthropic.models.beta.AnthropicBeta;
 import com.anthropic.models.beta.messages.MessageCreateParams;
-import com.anthropic.models.beta.messages.StructuredMessageCreateParams;
 import com.anthropic.models.messages.Model;
 
-StructuredMessageCreateParams<BookList> createParams = MessageCreateParams.builder()
+MessageCreateParams params = MessageCreateParams.builder()
         .model(Model.CLAUDE_OPUS_4_6)
-        .maxTokens(2048)
-        .outputConfig(BookList.class)
-        .addUserMessage("List some famous late twentieth century novels.")
+        .maxTokens(1024L)
+        .addUserMessage("Please summarize this document for me.")
+        .addBeta(AnthropicBeta.FILES_API_2025_04_14)
         .build();
 
-client.beta().messages().create(createParams);
+client.beta().messages().create(params);
 ```
 
 ## Frequently asked questions

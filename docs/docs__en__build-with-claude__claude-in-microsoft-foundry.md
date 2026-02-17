@@ -66,7 +66,7 @@ After creating your resource, deploy a Claude model to make it available for API
 
 1. In the Foundry portal, navigate to your resource
 2. Go to **Models + endpoints** and select **+ Deploy model** > **Deploy base model**
-3. Search for and select a Claude model (e.g., `claude-sonnet-4-5`)
+3. Search for and select a Claude model (e.g., `claude-sonnet-4-6`)
 4. Configure deployment settings:
    - **Deployment name**: Defaults to the model ID, but you can customize it (e.g., `my-claude-deployment`). The deployment name cannot be changed after it has been created.
    - **Deployment type**: Select Global Standard (recommended for Claude)
@@ -265,12 +265,13 @@ For details on response headers specific to Foundry, see the [correlation reques
 
 ## API model IDs and deployments
 
-The following Claude models are available through Foundry. The latest generation models (Opus 4.6, Sonnet 4.5, and Haiku 4.5) offer the most advanced capabilities:
+The following Claude models are available through Foundry. The latest generation models (Opus 4.6, Sonnet 4.6, and Haiku 4.5) offer the most advanced capabilities:
 
 | Model             | Default Deployment Name     |
 | :---------------- | :-------------------------- |
 | Claude Opus 4.6     | `claude-opus-4-6`             |
 | Claude Opus 4.5   | `claude-opus-4-5`           |
+| Claude Sonnet 4.6 | `claude-sonnet-4-6`         |
 | Claude Sonnet 4.5 | `claude-sonnet-4-5`         |
 | Claude Opus 4.1   | `claude-opus-4-1`           |
 | Claude Haiku 4.5  | `claude-haiku-4-5`          |
@@ -319,7 +320,7 @@ Foundry does not include Anthropic's standard rate limit headers (`anthropic-rat
 
 **Error**: `Model not found` or `Deployment not found`
 
-- **Solution**: Verify you're using the correct deployment name. If you haven't created a custom deployment, use the default model ID (e.g., `claude-sonnet-4-5`).
+- **Solution**: Verify you're using the correct deployment name. If you haven't created a custom deployment, use the default model ID (e.g., `claude-sonnet-4-6`).
 - **Solution**: Ensure the model/deployment is available in your Azure region.
 
 **Error**: `Invalid model parameter`

@@ -11,6 +11,10 @@ Batch processing is a powerful approach for handling large volumes of requests e
 
 The Message Batches API is our first implementation of this pattern.
 
+<Note>
+This feature is **not** covered by [Zero Data Retention (ZDR)](/docs/en/build-with-claude/zero-data-retention) arrangements. Data is retained according to the feature's standard retention policy.
+</Note>
+
 ---
 
 # Message Batches API
@@ -71,6 +75,7 @@ The Batches API offers significant cost savings. All usage is charged at 50% of 
 | Claude Opus 4.5     | $2.50 / MTok     | $12.50 / MTok   |
 | Claude Opus 4.1     | $7.50 / MTok     | $37.50 / MTok   |
 | Claude Opus 4     | $7.50 / MTok     | $37.50 / MTok   |
+| Claude Sonnet 4.6   | $1.50 / MTok     | $7.50 / MTok    |
 | Claude Sonnet 4.5   | $1.50 / MTok     | $7.50 / MTok    |
 | Claude Sonnet 4   | $1.50 / MTok     | $7.50 / MTok    |
 | Claude Sonnet 3.7 ([deprecated](/docs/en/about-claude/model-deprecations)) | $1.50 / MTok     | $7.50 / MTok    |

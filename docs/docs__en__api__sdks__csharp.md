@@ -238,7 +238,7 @@ To iterate through all results across all pages, use the `Paginate` method, whic
 ```csharp
 using System;
 
-var page = await client.Beta.Messages.Batches.List(parameters);
+var page = await client.Messages.Batches.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
@@ -252,7 +252,7 @@ To access individual page items and manually request the next page, use the `Ite
 ```csharp
 using System;
 
-var page = await client.Beta.Messages.Batches.List();
+var page = await client.Messages.Batches.List();
 while (true)
 {
     foreach (var item in page.Items)
