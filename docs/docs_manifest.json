@@ -2541,8 +2541,8 @@
     "docs__en__build-with-claude__batch-processing.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing.md",
-      "hash": "605c977d13aac874099ad43aa031d3dcb7ce286bd029e827848cd327bbceade6",
-      "last_updated": "2026-02-17T18:28:39.351173"
+      "hash": "87ce0da3ff82742496151cf7d5080fd2833aa89ba9443ffe8632134010905d28",
+      "last_updated": "2026-02-18T00:38:33.211069"
     },
     "docs__en__build-with-claude__citations.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/citations",
@@ -3003,296 +3003,296 @@
     "docs__en__resources__prompt-library__adaptive-editor.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/adaptive-editor",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/adaptive-editor.md",
-      "hash": "5ce70c7318f1cf7fc1d488eed7fdf4129667b2958441781df51be7fac074511e",
-      "last_updated": "2026-02-11T18:30:15.026905"
+      "hash": "213bd63912313d0579f194fb201ed0e51a378346a364bff870b8cf777bbb3f8f",
+      "last_updated": "2026-02-18T00:39:23.676105"
     },
     "docs__en__resources__prompt-library__airport-code-analyst.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/airport-code-analyst",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/airport-code-analyst.md",
-      "hash": "1d0eb2bdbb3c68102aadc9faf0050027b3ed611384fd96a840b535f8beb98b55",
-      "last_updated": "2026-02-11T18:30:15.640334"
+      "hash": "c14ea3c0159aba4f08ff0aab20c5b7066dcaea85629530125323390790d921da",
+      "last_updated": "2026-02-18T00:39:24.318383"
     },
     "docs__en__resources__prompt-library__alien-anthropologist.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/alien-anthropologist",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/alien-anthropologist.md",
-      "hash": "44cb204c9a62c6069593821ce4f85e5a0354948b72ec9df8bbafe29fe4fe3c68",
-      "last_updated": "2026-02-11T18:30:16.303775"
+      "hash": "1d58f605758d99079249d3c3910a6c664828e13e96fb496b98dcd3fafd42dbd8",
+      "last_updated": "2026-02-18T00:39:24.923694"
     },
     "docs__en__resources__prompt-library__alliteration-alchemist.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/alliteration-alchemist",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/alliteration-alchemist.md",
-      "hash": "3e3f2294ff267e698175aed8bc76439071db7bf9afafc0798d6decd01f4e7e5d",
-      "last_updated": "2026-02-11T18:30:16.939457"
+      "hash": "7ef86fbe5b3232953cb13587830a72bd4fe3592fae1ed78832d99e2963aa1ed6",
+      "last_updated": "2026-02-18T00:39:25.529632"
     },
     "docs__en__resources__prompt-library__babels-broadcasts.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/babels-broadcasts",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/babels-broadcasts.md",
-      "hash": "2a4e0bcb1562c87e2d2b780f72f741906366e61e9eca89ea3c61969086c1247c",
-      "last_updated": "2026-02-11T18:30:17.593335"
+      "hash": "bb59537e936ca265a2e93baad64e9d602d4c021cee13a77bb9dd609eb13dde49",
+      "last_updated": "2026-02-18T00:39:26.149334"
     },
     "docs__en__resources__prompt-library__brand-builder.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/brand-builder",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/brand-builder.md",
-      "hash": "a15b58d6f385c0352a878ce0bbfaf68eddf942ed97cceb52f9ea8c93ce95294e",
-      "last_updated": "2026-02-11T18:30:18.207661"
+      "hash": "802786c636ed2d92828f5164ce4ce377692008bb26247016e4cc1cc4b02a972d",
+      "last_updated": "2026-02-18T00:39:26.755934"
     },
     "docs__en__resources__prompt-library__career-coach.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/career-coach",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/career-coach.md",
-      "hash": "d806346d931527d7e7cb0d44d271699813bc2f757c3becc10e7f3bf7ab31617d",
-      "last_updated": "2026-02-13T03:58:59.083861"
+      "hash": "a75607299c4a3d65e8287a151bc87bf13ab79b99cded03b0f06ba82d606d6f13",
+      "last_updated": "2026-02-18T00:39:27.361448"
     },
     "docs__en__resources__prompt-library__cite-your-sources.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/cite-your-sources",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/cite-your-sources.md",
-      "hash": "54d4917c16bcdb09ad0a624a8a7def9415878ba8d8f11f9e48974ab105326d7e",
-      "last_updated": "2026-02-11T18:30:19.610712"
+      "hash": "c861297c8a39550d7c3772a705cdf4e199bd51046cb39be6d8584e5d6fb8a032",
+      "last_updated": "2026-02-18T00:39:27.973730"
     },
     "docs__en__resources__prompt-library__code-clarifier.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/code-clarifier",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/code-clarifier.md",
-      "hash": "7269164578014cb2b77993593714381c3f1e241b1987dfb5b7bc4721446a5ec5",
-      "last_updated": "2026-02-11T18:30:20.294452"
+      "hash": "6363ed756ee77d4eff46d2beff1a47228f012d34110824d98322cf0c5349a1e7",
+      "last_updated": "2026-02-18T00:39:28.649669"
     },
     "docs__en__resources__prompt-library__code-consultant.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/code-consultant",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/code-consultant.md",
-      "hash": "354b2f68c18d488ee016ebc46354885f9c6e0a6d18a41b35ed8b54536ca2e409",
-      "last_updated": "2026-02-13T03:59:00.865228"
+      "hash": "c1f1aab7d75808311e33e0e814c46ea33a913fdb101a12e9af1ed15ca45eb68b",
+      "last_updated": "2026-02-18T00:39:29.238233"
     },
     "docs__en__resources__prompt-library__corporate-clairvoyant.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/corporate-clairvoyant",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/corporate-clairvoyant.md",
-      "hash": "1a5a27f125d0e8c1cfa118aa5706d2dab7e39eebbaf4f9dbba245152990b1355",
-      "last_updated": "2026-02-11T18:30:21.631864"
+      "hash": "b5aa3ef047ddb551d43419fffa638b107bdf7a00547e9b8077bad90b319dca2e",
+      "last_updated": "2026-02-18T00:39:29.898415"
     },
     "docs__en__resources__prompt-library__cosmic-keystrokes.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/cosmic-keystrokes",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/cosmic-keystrokes.md",
-      "hash": "840285918c6c1498f0f5f827f7162ad25c6eb56a7acd0346f353ab01f5f899e1",
-      "last_updated": "2026-02-11T18:30:22.269335"
+      "hash": "f2268496b0f642a29ba8e9c7ba7971bbce475b5a602030167e82cefabc767805",
+      "last_updated": "2026-02-18T00:39:30.514026"
     },
     "docs__en__resources__prompt-library__csv-converter.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/csv-converter",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/csv-converter.md",
-      "hash": "b48f7b5ea037015ac74400d191fa6d4e740d30e5594e1b72a8e479ae7c57369b",
-      "last_updated": "2026-02-11T18:30:22.919490"
+      "hash": "cd42cc949726ae063fb9cee008d95f23e4c9791e85d34b81a42d6eeae5febeb8",
+      "last_updated": "2026-02-18T00:39:31.135672"
     },
     "docs__en__resources__prompt-library__culinary-creator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/culinary-creator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/culinary-creator.md",
-      "hash": "7259befb75e793200f483d0d3cbb26fcd34d93c04709a62157043ba47ea1735b",
-      "last_updated": "2026-02-11T18:30:23.573776"
+      "hash": "21b711b88b9f10d61b75388dc049c1bf2735590c548ac13a6323a8fb112de32f",
+      "last_updated": "2026-02-18T00:39:31.773463"
     },
     "docs__en__resources__prompt-library__data-organizer.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/data-organizer",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/data-organizer.md",
-      "hash": "77a11098f2f5fb957e12e575fa4a9f2cdc1ecb6355c50feb1b4e60e6448ac0e3",
-      "last_updated": "2026-02-11T18:30:24.185641"
+      "hash": "4ae8b0a1587aba8a2f9e098715ef2573149cd2d61bed664c5ff6bf5ad39491d0",
+      "last_updated": "2026-02-18T00:39:32.395812"
     },
     "docs__en__resources__prompt-library__direction-decoder.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/direction-decoder",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/direction-decoder.md",
-      "hash": "11de5a2a65d65a1596d3451e9c056401042cbfdd78c1bc951ed48fc566f2ea1d",
-      "last_updated": "2026-02-11T18:30:24.853875"
+      "hash": "0ff66a26cd5e3f78a8c9868580b1b10723914d5854faf6cc69cd49e206b30a03",
+      "last_updated": "2026-02-18T00:39:33.038534"
     },
     "docs__en__resources__prompt-library__dream-interpreter.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/dream-interpreter",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/dream-interpreter.md",
-      "hash": "b57e03fe36754129ad8d9e270a77716eeba2d700b569108ec0b3f4680df77804",
-      "last_updated": "2026-02-11T18:30:25.511354"
+      "hash": "59ca016a03e2b8bb86eb5933f5961f2e9b00da9da45a50bcaf8c7b31a764ad23",
+      "last_updated": "2026-02-18T00:39:33.642881"
     },
     "docs__en__resources__prompt-library__efficiency-estimator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/efficiency-estimator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/efficiency-estimator.md",
-      "hash": "9d554726301eb1c6fa2ba2c7b22ed8bbe0614a18011fd26df7277df28d0954c3",
-      "last_updated": "2026-02-13T03:59:05.662170"
+      "hash": "56fcfbfdc2a7963addcef29a8d32ca05453077db7db50c251b69873c14c5b364",
+      "last_updated": "2026-02-18T00:39:34.257706"
     },
     "docs__en__resources__prompt-library__email-extractor.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/email-extractor",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/email-extractor.md",
-      "hash": "f933557f79776d06ce3b225163ea093148e287b6535ade74d9da6eacc1a4d651",
-      "last_updated": "2026-02-11T18:30:26.794413"
+      "hash": "cb49c5fc28ccc77551510e3c919c6b5940a30a7879190151a843f75f8b246ba2",
+      "last_updated": "2026-02-18T00:39:34.862940"
     },
     "docs__en__resources__prompt-library__emoji-encoder.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/emoji-encoder",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/emoji-encoder.md",
-      "hash": "f65eb170e2d709c7a77ddf094dad5810dbb6399b2b6988e7ab142c6d714056da",
-      "last_updated": "2026-02-11T18:30:27.515921"
+      "hash": "80944d4de1f2dc67f86c0d9c097061ba7cea87dbfc1af267a097bf1e2d7b7d9a",
+      "last_updated": "2026-02-18T00:39:35.474541"
     },
     "docs__en__resources__prompt-library__ethical-dilemma-navigator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/ethical-dilemma-navigator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/ethical-dilemma-navigator.md",
-      "hash": "a33bee0f4d7f311279118b15369928d00c267910eb696c024acd656a9957754f",
-      "last_updated": "2026-02-11T18:30:28.127655"
+      "hash": "0f5bf9b9ac6a84eba7e072bd3eaaeffe11ff7468417e757931f523e55e9a1dd6",
+      "last_updated": "2026-02-18T00:39:36.090623"
     },
     "docs__en__resources__prompt-library__excel-formula-expert.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/excel-formula-expert",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/excel-formula-expert.md",
-      "hash": "9d892b03d11f0bf56125e661f7bc3a4e0e62f52d1c7aa8b2052a3a56c1eef6f2",
-      "last_updated": "2026-02-11T18:30:28.769666"
+      "hash": "f5f7ded6f110596743d14634a53ac4ebb4bbbc31c3f6417320cf5b47348b4461",
+      "last_updated": "2026-02-18T00:39:36.741907"
     },
     "docs__en__resources__prompt-library__function-fabricator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/function-fabricator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/function-fabricator.md",
-      "hash": "49fefcc5ad7d2d10ea0cef98673476f7080fc3e5bd3e1e1c42476965aec3cc30",
-      "last_updated": "2026-02-11T18:30:29.442962"
+      "hash": "6eb8c02c919c0de308f52ae5b8bc1aeec3f376090a033c9b4d1cce5b16e8aaff",
+      "last_updated": "2026-02-18T00:39:37.366237"
     },
     "docs__en__resources__prompt-library__futuristic-fashion-advisor.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/futuristic-fashion-advisor",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/futuristic-fashion-advisor.md",
-      "hash": "3e3d24eea05eba49ed8e23af43195087110e5893f5adadd248609afa22e6934a",
-      "last_updated": "2026-02-11T18:30:30.103067"
+      "hash": "1747743348c5d5726ac3b6e939396d0ff81dda19e8deddd57bec055a60f2a81f",
+      "last_updated": "2026-02-18T00:39:37.966042"
     },
     "docs__en__resources__prompt-library__git-gud.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/git-gud",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/git-gud.md",
-      "hash": "7cc7820b748820ccfdebf346be82c48b22eed9afbbc05162d32b5f4e86297ff9",
-      "last_updated": "2026-02-13T03:59:09.825962"
+      "hash": "9c3e05f6f2f8e9aa8f0e6621cd022ed939872563a38b4cc5d09c8c14ca9f5507",
+      "last_updated": "2026-02-18T00:39:38.577320"
     },
     "docs__en__resources__prompt-library__google-apps-scripter.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/google-apps-scripter",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/google-apps-scripter.md",
-      "hash": "fd93936577f203f06c34e6287de42900f1eea3a0cd0b715ec06b1493f21dd305",
-      "last_updated": "2026-02-11T18:30:31.375884"
+      "hash": "da41c2564ee9cb994fda906f8696598025ae7f6f75a4c374474340edf72371e9",
+      "last_updated": "2026-02-18T00:39:39.198527"
     },
     "docs__en__resources__prompt-library__grading-guru.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/grading-guru",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/grading-guru.md",
-      "hash": "060f1ce543ac3cf5ca93785db66a56508673b23d61733386783adeda9d5c0149",
-      "last_updated": "2026-02-11T18:30:32.009192"
+      "hash": "2857ebd185e8f3aadc1a3013c773ae904306c3142fc32915c69866c679bc2c15",
+      "last_updated": "2026-02-18T00:39:39.804765"
     },
     "docs__en__resources__prompt-library__grammar-genie.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/grammar-genie",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/grammar-genie.md",
-      "hash": "857f044200464e2879b0847e64f07e905445f22670c30303faa50999f8087c5d",
-      "last_updated": "2026-02-11T18:30:32.624421"
+      "hash": "24391b86c1a462ebc018e134268895603dade10ee2e654cbc436670b9ac70a89",
+      "last_updated": "2026-02-18T00:39:40.425143"
     },
     "docs__en__resources__prompt-library__hal-the-humorous-helper.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/hal-the-humorous-helper",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/hal-the-humorous-helper.md",
-      "hash": "8fde9745ad6c0dd9f7a4d6a480e339e976b31e2903f80680e64a0a9b8bc71c29",
-      "last_updated": "2026-02-11T18:30:33.273663"
+      "hash": "54c786d9066cbe7f9594c0788056a68f16b14b9a746117b9688530b48c976b87",
+      "last_updated": "2026-02-18T00:39:41.055372"
     },
     "docs__en__resources__prompt-library__idiom-illuminator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/idiom-illuminator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/idiom-illuminator.md",
-      "hash": "f00e840dc55ad5801eca209d0002e7bd25d7be4c31d8fb8b483597feee51c3b3",
-      "last_updated": "2026-02-11T18:30:33.894927"
+      "hash": "cdc5c776ac07a262ba0d04afc8f4b969840e9ec77a0ade22675c1eda6f0cb4c7",
+      "last_updated": "2026-02-18T00:39:41.949369"
     },
     "docs__en__resources__prompt-library__interview-question-crafter.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/interview-question-crafter",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/interview-question-crafter.md",
-      "hash": "6697783a59fdbe9a4fd7454dbca71845121d41267086d5a33c7793c5d847eb7f",
-      "last_updated": "2026-02-11T18:30:34.545163"
+      "hash": "09b764ec2cdd5afcb8481dd9acfe51e7793d6dd4aa5aa200a50458158e4247ba",
+      "last_updated": "2026-02-18T00:39:42.551333"
     },
     "docs__en__resources__prompt-library__latex-legend.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/latex-legend",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/latex-legend.md",
-      "hash": "255fd308abba1f6bbba8f37dd6fde4f1b8d126e8886ec8f6bcb2f43bbbba3632",
-      "last_updated": "2026-02-13T03:59:14.035766"
+      "hash": "58be43f1c11700b308d59e04d4e89651143c9661ee664cbf663870dc147d5e3a",
+      "last_updated": "2026-02-18T00:39:43.168843"
     },
     "docs__en__resources__prompt-library__lesson-planner.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/lesson-planner",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/lesson-planner.md",
-      "hash": "b84dc200e933ecd386d85ab732f0f4aae3ee437da995584d5561d629bf36180c",
-      "last_updated": "2026-02-11T18:30:35.802256"
+      "hash": "8d351689ec1020233eb8103bc2d1951bd07239a1590e87110ad5c2e7f9fcdc2e",
+      "last_updated": "2026-02-18T00:39:43.787859"
     },
     "docs__en__resources__prompt-library__master-moderator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/master-moderator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/master-moderator.md",
-      "hash": "cfcf281fcadb22677f5c39bbeddd3dfd413a7a4f9314a24bbdac435392955b6c",
-      "last_updated": "2026-02-11T18:30:36.644707"
+      "hash": "ed3c226cdf089db05c403ad6e34b488dd600b6d6b44d50a5cadf4085f85995bf",
+      "last_updated": "2026-02-18T00:39:44.511494"
     },
     "docs__en__resources__prompt-library__meeting-scribe.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/meeting-scribe",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/meeting-scribe.md",
-      "hash": "3b376e58e8b301d4627cd44bb99230f76f1045ab088251250242c4eeddff8d4d",
-      "last_updated": "2026-02-11T18:30:37.334719"
+      "hash": "de7cfd65ae0d43fef73f8bc570da716616cbb28f52a8fc0dfa4dc51fe0550e62",
+      "last_updated": "2026-02-18T00:39:45.111441"
     },
     "docs__en__resources__prompt-library__memo-maestro.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/memo-maestro",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/memo-maestro.md",
-      "hash": "1759c19437a553fd5983bea7c51aa474031db0c79d94f359648926e33854d68e",
-      "last_updated": "2026-02-11T18:30:37.993785"
+      "hash": "73e60b41f1e9bbb89419bee2dc6010263ec3ab99b5957b37589f9fa6ea483f56",
+      "last_updated": "2026-02-18T00:39:45.740835"
     },
     "docs__en__resources__prompt-library__mindfulness-mentor.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/mindfulness-mentor",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/mindfulness-mentor.md",
-      "hash": "823db928035297b31f48cba1173e5d8b680c80bd33753caef8db0fba7f1ba952",
-      "last_updated": "2026-02-11T18:30:38.641859"
+      "hash": "5fbf83a1d4b4e6237704388620fb6886bacdb7ae6974ec15301d12a3e1fc6bd0",
+      "last_updated": "2026-02-18T00:39:46.331620"
     },
     "docs__en__resources__prompt-library__mood-colorizer.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/mood-colorizer",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/mood-colorizer.md",
-      "hash": "a469807be44688c5aab80793db042c488b551e24ffb558874baa872579500a74",
-      "last_updated": "2026-02-11T18:30:39.279683"
+      "hash": "aa1b94d35a06942beb377dd14862053f7d152dfbd2fdc528ef1c30b08bee0093",
+      "last_updated": "2026-02-18T00:39:46.964830"
     },
     "docs__en__resources__prompt-library__motivational-muse.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/motivational-muse",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/motivational-muse.md",
-      "hash": "15f4263aaed59363e3264bbbc8936caf4a481b0188dbd767e05086103167cc4c",
-      "last_updated": "2026-02-11T18:30:39.895492"
+      "hash": "a1767a56bf0cf5ecc120cf2bd028f2988e5705c1ab55ddcf1d692e381ccbab83",
+      "last_updated": "2026-02-18T00:39:47.584974"
     },
     "docs__en__resources__prompt-library__neologism-creator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/neologism-creator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/neologism-creator.md",
-      "hash": "1bfc49a973f284324e51c4b15806472d914d7a0fe4b566763951c9812485a2c7",
-      "last_updated": "2026-02-11T18:30:40.510188"
+      "hash": "db0b2389b64383c7d609a72af2f6215f60e93cc1bb38a0f8d5b7c1230950e277",
+      "last_updated": "2026-02-18T00:39:48.185514"
     },
     "docs__en__resources__prompt-library__perspectives-ponderer.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/perspectives-ponderer",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/perspectives-ponderer.md",
-      "hash": "2c0e48c0f2ebe6adc30fc7d99cd1f09257cfb5db6d115c674f9c423441deab60",
-      "last_updated": "2026-02-11T18:30:41.168872"
+      "hash": "0d5d8b5604f919fff0fef73511709716107384047f2fbec32b9a102e89c18420",
+      "last_updated": "2026-02-18T00:39:48.818918"
     },
     "docs__en__resources__prompt-library__philosophical-musings.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/philosophical-musings",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/philosophical-musings.md",
-      "hash": "5ab0819196441c1c8ae50d13ecd9aabc89329694a470ebec09a88930bbf0bc8c",
-      "last_updated": "2026-02-11T18:30:41.799127"
+      "hash": "04cc7466ead39c8003d17d240060d227e0e106198f23200977ed76e473691959",
+      "last_updated": "2026-02-18T00:39:49.411393"
     },
     "docs__en__resources__prompt-library__pii-purifier.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/pii-purifier",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/pii-purifier.md",
-      "hash": "2766388e4ffb320cb3fb09c61a7531d66ddac3ac80311f27c0d6b57a6dfbd290",
-      "last_updated": "2026-02-11T18:30:42.444724"
+      "hash": "58bdb750c0f9cc11ef423fcfa218d949ea93eb78529fe222a834c7b5b6b8390b",
+      "last_updated": "2026-02-18T00:39:50.025354"
     },
     "docs__en__resources__prompt-library__polyglot-superpowers.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/polyglot-superpowers",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/polyglot-superpowers.md",
-      "hash": "5be0076146f19ecf0d8e55803aabcd377b430d834de21995b5d354895f2c2616",
-      "last_updated": "2026-02-11T18:30:43.057575"
+      "hash": "1808e4a639b913e415730c342b555481e4a93897cef59a7c33633f7d1c668d7a",
+      "last_updated": "2026-02-18T00:39:50.635005"
     },
     "docs__en__resources__prompt-library__portmanteau-poet.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/portmanteau-poet",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/portmanteau-poet.md",
-      "hash": "919f1c5587dc2b6085efc611b6733109a46885ebeb5b6439cc5c479de57aaf8b",
-      "last_updated": "2026-02-13T03:59:21.808633"
+      "hash": "ff72c1015abf7d66a4073c48c366031f4c82bf9a7cf2b3c10d9c9d1b838ef35c",
+      "last_updated": "2026-02-18T00:39:51.260247"
     },
     "docs__en__resources__prompt-library__product-naming-pro.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/product-naming-pro",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/product-naming-pro.md",
-      "hash": "70455380a4ce0957492380ccdbaeabda5e7e93943b3ef674059f3906c0155a1e",
-      "last_updated": "2026-02-11T18:30:44.349393"
+      "hash": "4e3db3ba9a2a71c40814f7fa0e26b0ddb3c040d9b60f233166c4372c5e81f049",
+      "last_updated": "2026-02-18T00:39:51.869267"
     },
     "docs__en__resources__prompt-library__prose-polisher.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/prose-polisher",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/prose-polisher.md",
-      "hash": "022b257dabc925b80053adce043c87f65729df6ae7234ad30d0e69239f4f1e1d",
-      "last_updated": "2026-02-11T18:30:44.978160"
+      "hash": "8c111599f40b50e29e5c8e9d1caf2ae9038b9966f1c3daa737764c2813315e89",
+      "last_updated": "2026-02-18T00:39:52.474881"
     },
     "docs__en__resources__prompt-library__pun-dit.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/pun-dit",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/pun-dit.md",
-      "hash": "419d85fda6d40ab19a2b6bd7995325cb3877ff39f00df30bec713d896a03696e",
-      "last_updated": "2026-02-11T18:30:45.616010"
+      "hash": "c0fd62d3d1575cd00233bbc7529d627b7a61174bd7e6d7852cae825176c4a69b",
+      "last_updated": "2026-02-18T00:39:53.081936"
     },
     "docs__en__resources__prompt-library__python-bug-buster.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/python-bug-buster",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/python-bug-buster.md",
-      "hash": "7d64f6c71aa425d7f3345addc2cadcbfb5f16cb965d1538f8533482f6f88729f",
-      "last_updated": "2026-02-11T18:30:46.656885"
+      "hash": "01a12ae967a049aeae936eb9ae4b00b354fb257c12183ac58e97e9eecc00a8f8",
+      "last_updated": "2026-02-18T00:39:53.695297"
     },
     "docs__en__resources__prompt-library__review-classifier.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/review-classifier",
@@ -3303,86 +3303,86 @@
     "docs__en__resources__prompt-library__riddle-me-this.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/riddle-me-this",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/riddle-me-this.md",
-      "hash": "54629e7528cdee6741b552d8586b32a6fe312536c3f8593c428407da487a152d",
-      "last_updated": "2026-02-11T18:30:47.906692"
+      "hash": "78b07fd58b836d8e17c7551eb97111db0bb4a06271e1afd3a38b95313ebb47b5",
+      "last_updated": "2026-02-18T00:39:54.938315"
     },
     "docs__en__resources__prompt-library__sci-fi-scenario-simulator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/sci-fi-scenario-simulator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/sci-fi-scenario-simulator.md",
-      "hash": "9ca9afd43f8a7de6d9b1becee4eb591c5f69228f3f2b93156f13ef459d360b99",
-      "last_updated": "2026-02-11T18:30:48.566143"
+      "hash": "7e9a1e1a367076e03beec1da46f1f2996d9aa191e99a5e4bff8e8783387cb2be",
+      "last_updated": "2026-02-18T00:39:55.538370"
     },
     "docs__en__resources__prompt-library__second-grade-simplifier.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/second-grade-simplifier",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/second-grade-simplifier.md",
-      "hash": "8995c0088dc29f7217c635bfd9fee7060472d181a2b3a34c505a4f560edf0161",
-      "last_updated": "2026-02-11T18:30:49.177268"
+      "hash": "cf6855cbefe32b484bbfa216451dbcb887d8bdeaa9d435be0672dfcacdf268f4",
+      "last_updated": "2026-02-18T00:39:56.165493"
     },
     "docs__en__resources__prompt-library__simile-savant.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/simile-savant",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/simile-savant.md",
-      "hash": "8edde654a1b5c6113708d7b6737b1b36a54b151faef8d9a01c6c01b98e3a8bf4",
-      "last_updated": "2026-02-11T18:30:49.842286"
+      "hash": "b7f4109d301355b020f04e8e9b6b861861c2f8aec756faeaa64e4bb3535bc877",
+      "last_updated": "2026-02-18T00:39:56.735046"
     },
     "docs__en__resources__prompt-library__socratic-sage.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/socratic-sage",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/socratic-sage.md",
-      "hash": "af9b73587446d7b3c44cfebdbf48dc721632652df762c478cf88ce71af48f14a",
-      "last_updated": "2026-02-11T18:30:50.503758"
+      "hash": "f8e025b677ba87c8d49582334c7e6973c7d3911a7a64447557fa9ee7f8a1e01c",
+      "last_updated": "2026-02-18T00:39:57.345653"
     },
     "docs__en__resources__prompt-library__spreadsheet-sorcerer.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/spreadsheet-sorcerer",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/spreadsheet-sorcerer.md",
-      "hash": "dc6a428bad9aa2073297e8bb65a529f0aa581a237a66a0285620699681be4420",
-      "last_updated": "2026-02-11T18:30:51.146082"
+      "hash": "0bbbddb11b593a02e2f61edfb07f84e6fee8e969286c547c3c3bf85e4a64b29e",
+      "last_updated": "2026-02-18T00:39:57.948094"
     },
     "docs__en__resources__prompt-library__sql-sorcerer.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/sql-sorcerer",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/sql-sorcerer.md",
-      "hash": "84a6c28113bf7d4284f36cfd527810d71f23e17fb846e8eef87d31d637495376",
-      "last_updated": "2026-02-13T03:59:29.033024"
+      "hash": "bb016358db131b24ae5120e69721d8659f530a9bcd17e53c52be527935a08e5d",
+      "last_updated": "2026-02-18T00:39:58.579830"
     },
     "docs__en__resources__prompt-library__storytelling-sidekick.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/storytelling-sidekick",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/storytelling-sidekick.md",
-      "hash": "d5a0dada869fa27370b162ebe40ccea6e836c6f4ca31ece9abe7ef4ec559afd7",
-      "last_updated": "2026-02-11T18:30:52.438755"
+      "hash": "b6bbe8298d167db45bb410c0b48e91c46151bb004ce29323dbde85e68f034f4d",
+      "last_updated": "2026-02-18T00:39:59.202301"
     },
     "docs__en__resources__prompt-library__time-travel-consultant.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/time-travel-consultant",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/time-travel-consultant.md",
-      "hash": "70c323a07916ef9e5181db5bbc04b9d02e7644aad58026b7ba915de75f55a144",
-      "last_updated": "2026-02-11T18:30:53.084545"
+      "hash": "cab383a8bb3c5c7b84d840d4129c7701368b33d41464d3888d1a67ad22107215",
+      "last_updated": "2026-02-18T00:39:59.815410"
     },
     "docs__en__resources__prompt-library__tongue-twister.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/tongue-twister",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/tongue-twister.md",
-      "hash": "000fc85f8dbb6d90837ff85f09f31f58c1e596e021565a2eadda3a7d258a653d",
-      "last_updated": "2026-02-11T18:30:53.768311"
+      "hash": "3c0831c2a31c0806abb7a193954c1ba16b8c33756b2e8651cf23abaf0de5dd7c",
+      "last_updated": "2026-02-18T00:40:00.999421"
     },
     "docs__en__resources__prompt-library__trivia-generator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/trivia-generator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/trivia-generator.md",
-      "hash": "3f8822b44c0d8ac3f96712314ef041873579d4969b670c2f2202ab4d8f94f7a1",
-      "last_updated": "2026-02-11T18:30:54.477090"
+      "hash": "ced1233c72d897a010cb11ba8da9c4fb816cdb7d58db47be78c1186f861f2e0b",
+      "last_updated": "2026-02-18T00:40:01.659428"
     },
     "docs__en__resources__prompt-library__tweet-tone-detector.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/tweet-tone-detector",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/tweet-tone-detector.md",
-      "hash": "adeffd5feef218cc57d7908fb53e0b2fe5d8f3fb0713bce5f3d242535d74b938",
-      "last_updated": "2026-02-11T18:30:55.149587"
+      "hash": "f2d3792631f0dad27f316a8a679b66b13f2ba6fcbad83f4b1039e8dd5320a560",
+      "last_updated": "2026-02-18T00:40:02.303541"
     },
     "docs__en__resources__prompt-library__vr-fitness-innovator.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/vr-fitness-innovator",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/vr-fitness-innovator.md",
-      "hash": "374c3072ca4f8d504eb04fba5ed95872b9dbdf915b0c4df3069c38eaae0b4608",
-      "last_updated": "2026-02-11T18:30:55.794718"
+      "hash": "4c61292cff65ba5eb81ba5da47b4513a1b1136e91c8027431c5ce4c7af2b0749",
+      "last_updated": "2026-02-18T00:40:02.946267"
     },
     "docs__en__resources__prompt-library__website-wizard.md": {
       "original_url": "https://platform.claude.com/docs/en/resources/prompt-library/website-wizard",
       "original_md_url": "https://platform.claude.com/docs/en/resources/prompt-library/website-wizard.md",
-      "hash": "cd457e588066e3c0a544ac579a2c6dacac9333a3a3403861fa1a1f203249e2cf",
-      "last_updated": "2026-02-11T18:30:56.410172"
+      "hash": "e1a9e7431555ce6fe1bcb6c7545d4c46c01e47cd507fc9b3d3688a5b72ca8ab0",
+      "last_updated": "2026-02-18T00:40:03.876900"
     },
     "claude-code__sandboxing.md": {
       "original_url": "https://platform.claude.com/docs/en/sandboxing",
@@ -3519,8 +3519,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-02-17T21:20:54.320903",
-    "fetch_duration_seconds": 431.051663,
+    "last_fetch_completed": "2026-02-18T00:40:17.364002",
+    "fetch_duration_seconds": 437.932196,
     "total_pages_discovered": 783,
     "pages_fetched_successfully": 586,
     "pages_failed": 198,
@@ -3729,7 +3729,7 @@
     "total_files": 586,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-02-17T21:20:54.320925",
+  "last_updated": "2026-02-18T00:40:17.364029",
   "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
   "github_repository": "costiash/claude-code-docs",
   "github_ref": "main",
