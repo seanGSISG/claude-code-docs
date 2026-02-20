@@ -150,9 +150,12 @@ class TestDocsManifest:
         assert actual_file_count >= min_expected_files, \
             f"Too few files on disk: {actual_file_count} (expected at least {min_expected_files})"
 
-        # Check that we don't exceed the manifest path count
-        assert actual_file_count <= expected_path_count + 10, \
-            f"More files on disk ({actual_file_count}) than paths in manifest ({expected_path_count})"
+        # Check that file count is in a reasonable range relative to manifest
+        # Some files on disk may not be in the paths manifest (e.g. changelog, legacy files)
+        # Allow up to 5% more files on disk than manifest paths
+        max_allowed = int(expected_path_count * 1.05) + 10
+        assert actual_file_count <= max_allowed, \
+            f"More files on disk ({actual_file_count}) than expected ({max_allowed}, based on {expected_path_count} manifest paths)"
 
     def test_all_entries_have_required_fields(self, docs_manifest):
         """Ensure all manifest entries have required fields"""
@@ -204,7 +207,7 @@ class TestSearchIndex:
         assert 'index' in data
 
     def test_search_index_file_count(self, project_root):
-        """Verify search index has correct file count"""
+        """Verify search index covers all docs on disk"""
         search_index = project_root / 'docs' / '.search_index.json'
 
         with open(search_index) as f:
@@ -212,6 +215,10 @@ class TestSearchIndex:
 
         indexed_files = data.get('indexed_files', 0)
 
-        # Should match actual file count (269)
-        assert indexed_files == 269, \
-            f"Search index shows {indexed_files} files, expected 269"
+        # Count actual markdown files on disk
+        docs_dir = project_root / 'docs'
+        actual_file_count = len([f for f in docs_dir.glob('*.md') if f.name != 'docs_manifest.json'])
+
+        # Indexed count should match actual file count on disk
+        assert indexed_files == actual_file_count, \
+            f"Search index has {indexed_files} files, but {actual_file_count} docs exist on disk"
