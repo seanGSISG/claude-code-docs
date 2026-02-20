@@ -384,7 +384,7 @@ trap 'rm -rf "$TEMP_INSTALL_DIR"' EXIT
 
 # Clone to temporary directory
 echo "  Downloading from GitHub..."
-if ! git clone -b "$INSTALL_BRANCH" https://github.com/costiash/claude-code-docs.git "$TEMP_INSTALL_DIR" 2>&1; then
+if ! git clone -b "$INSTALL_BRANCH" https://github.com/seanGSISG/claude-code-docs.git "$TEMP_INSTALL_DIR" 2>&1; then
     echo ""
     echo "❌ Error: Failed to clone repository from GitHub"
     echo "   Possible causes:"
@@ -428,7 +428,7 @@ if [[ -f "$INSTALL_DIR/scripts/claude-docs-helper.sh" ]]; then
 else
     echo "  ⚠️  Enhanced script missing, attempting recovery..."
     # Try to fetch just the enhanced script
-    if curl -fsSL "https://raw.githubusercontent.com/costiash/claude-code-docs/$INSTALL_BRANCH/scripts/claude-docs-helper.sh" -o "$INSTALL_DIR/claude-docs-helper.sh" 2>/dev/null; then
+    if curl -fsSL "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/$INSTALL_BRANCH/scripts/claude-docs-helper.sh" -o "$INSTALL_DIR/claude-docs-helper.sh" 2>/dev/null; then
         chmod +x "$INSTALL_DIR/claude-docs-helper.sh"
         echo "  ✓ Enhanced helper script downloaded directly"
     else
@@ -683,6 +683,18 @@ if [[ "$VERIFY_FAILED" == "true" ]]; then
     echo "    Try reinstalling or check the issues above."
 else
     echo "  ✓ All verification checks passed"
+fi
+
+# Rebuild search index if Python 3.9+ is available
+if check_python_features; then
+    echo ""
+    echo "Building search index..."
+    if (cd "$INSTALL_DIR" && python3 scripts/build_search_index.py) >/dev/null 2>&1; then
+        INDEX_COUNT=$(python3 -c "import json; d=json.load(open('$INSTALL_DIR/docs/.search_index.json')); print(d['indexed_files'])" 2>/dev/null || echo "unknown")
+        echo "  ✓ Search index built ($INDEX_COUNT files indexed)"
+    else
+        echo "  ⚠️  Search index build failed (content search may be limited)"
+    fi
 fi
 
 # Success message

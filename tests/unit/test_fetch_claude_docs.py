@@ -136,7 +136,7 @@ class TestSaveManifest:
         manifest_file = docs_dir / MANIFEST_FILE
         saved = json.loads(manifest_file.read_text())
 
-        assert "costiash/claude-code-docs" in saved["base_url"]
+        assert "seanGSISG/claude-code-docs" in saved["base_url"]
 
     @patch.dict('os.environ', {'GITHUB_REPOSITORY': 'invalid repo name'}, clear=True)
     def test_save_manifest_validates_repo_format(self, tmp_path):
@@ -152,7 +152,7 @@ class TestSaveManifest:
         saved = json.loads(manifest_file.read_text())
 
         # Should fallback to default
-        assert "costiash/claude-code-docs" in saved["base_url"]
+        assert "seanGSISG/claude-code-docs" in saved["base_url"]
 
     def test_save_manifest_includes_timestamp(self, tmp_path):
         """Test manifest includes timestamp."""

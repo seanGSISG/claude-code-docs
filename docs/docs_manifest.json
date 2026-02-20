@@ -3730,8 +3730,8 @@
     "fetch_tool_version": "3.0"
   },
   "last_updated": "2026-02-20T21:14:52.778557",
-  "base_url": "https://raw.githubusercontent.com/costiash/claude-code-docs/main/docs/",
-  "github_repository": "costiash/claude-code-docs",
+  "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
+  "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
   "description": "Claude Code documentation manifest. Keys are filenames, append to base_url for full URL."
 }

@@ -1,10 +1,10 @@
 # Claude Code Documentation Tool
 
-[![Last Update](https://img.shields.io/github/last-commit/costiash/claude-code-docs/main.svg?label=docs%20updated)](https://github.com/costiash/claude-code-docs/commits/main)
-[![Tests](https://img.shields.io/badge/tests-294%20passing-success)](https://github.com/costiash/claude-code-docs/actions)
-[![Coverage](https://img.shields.io/badge/coverage-17.6%25-yellow)](https://github.com/costiash/claude-code-docs)
+[![Last Update](https://img.shields.io/github/last-commit/seanGSISG/claude-code-docs/main.svg?label=docs%20updated)](https://github.com/seanGSISG/claude-code-docs/commits/main)
+[![Tests](https://img.shields.io/badge/tests-294%20passing-success)](https://github.com/seanGSISG/claude-code-docs/actions)
+[![Coverage](https://img.shields.io/badge/coverage-17.6%25-yellow)](https://github.com/seanGSISG/claude-code-docs)
 [![Python](https://img.shields.io/badge/python-3.9+-blue)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey)](https://github.com/costiash/claude-code-docs)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey)](https://github.com/seanGSISG/claude-code-docs)
 [![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge.svg)](https://github.com/hesreallyhim/awesome-claude-code)
 
 > **⭐ This is an enhanced fork of [ericbuess/claude-code-docs](https://github.com/ericbuess/claude-code-docs)**
@@ -70,7 +70,7 @@ The magic is in combining a simple local file system with Claude's language unde
 
 **One command:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
 **What it does:**
@@ -85,19 +85,19 @@ curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/inst
 
 **Method 1: Direct Install (interactive)**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 Works on: Local terminals, iTerm2, Terminal.app, SSH with `-t` flag
 
 **Method 2: Auto-Install (CI/CD-friendly)**
 ```bash
-CLAUDE_DOCS_AUTO_INSTALL=yes curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+CLAUDE_DOCS_AUTO_INSTALL=yes curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 Works on: **All environments** including GitHub Actions, Docker, cron jobs, SSH without `-t`
 
 **Method 3: Download First (most reliable)**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh -o install.sh
 bash install.sh
 ```
 Works on: All interactive shells
@@ -116,7 +116,7 @@ Version 0.5.0 includes significant improvements requiring a fresh installation:
 
 ```bash
 # Re-run the installer - it handles everything automatically
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
 The installer will:
@@ -303,7 +303,7 @@ cd ~/.claude-code-docs && git pull
 
 **Force reinstall:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
 ## Troubleshooting
@@ -344,7 +344,7 @@ This appears in CI/CD, Docker, cron, or SSH without `-t`. Use `CLAUDE_DOCS_AUTO_
 **Solution:**
 1. `/docs -t` to force check and update
 2. Manual: `cd ~/.claude-code-docs && git pull`
-3. Check [GitHub Actions](https://github.com/costiash/claude-code-docs/actions)
+3. Check [GitHub Actions](https://github.com/seanGSISG/claude-code-docs/actions)
 4. Reinstall as last resort
 
 ### Which Version?

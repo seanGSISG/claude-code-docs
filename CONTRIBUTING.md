@@ -23,7 +23,7 @@ This project extends [ericbuess/claude-code-docs](https://github.com/ericbuess/c
 This project uses clear URL conventions:
 
 ### Functional URLs (This Fork)
-For **functional purposes**, use `costiash/claude-code-docs`:
+For **functional purposes**, use `seanGSISG/claude-code-docs`:
 - Installation scripts
 - Issue tracking and bug reports
 - GitHub Actions / CI/CD
@@ -33,13 +33,13 @@ For **functional purposes**, use `costiash/claude-code-docs`:
 **Examples:**
 ```bash
 # Installation
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 
 # Issues
-https://github.com/costiash/claude-code-docs/issues
+https://github.com/seanGSISG/claude-code-docs/issues
 
 # Actions
-https://github.com/costiash/claude-code-docs/actions
+https://github.com/seanGSISG/claude-code-docs/actions
 ```
 
 ### Attribution URLs (Upstream)
@@ -76,7 +76,7 @@ git clone https://github.com/YOUR_USERNAME/claude-code-docs.git
 cd claude-code-docs
 
 # Add upstream remote
-git remote add upstream https://github.com/costiash/claude-code-docs.git
+git remote add upstream https://github.com/seanGSISG/claude-code-docs.git
 ```
 
 ## Development Workflows
@@ -438,15 +438,15 @@ git push origin v0.x.x-feature
 ## Getting Help
 
 **Questions:**
-- [GitHub Discussions](https://github.com/costiash/claude-code-docs/discussions)
+- [GitHub Discussions](https://github.com/seanGSISG/claude-code-docs/discussions)
 
 **Bug Reports:**
-- [GitHub Issues](https://github.com/costiash/claude-code-docs/issues)
+- [GitHub Issues](https://github.com/seanGSISG/claude-code-docs/issues)
 - Use bug report template
 - Include: OS, Python version, reproduction steps
 
 **Feature Requests:**
-- [GitHub Issues](https://github.com/costiash/claude-code-docs/issues)
+- [GitHub Issues](https://github.com/seanGSISG/claude-code-docs/issues)
 - Label: `[Feature Request]`
 - Explain: what, why, and which features (shell or Python)
 

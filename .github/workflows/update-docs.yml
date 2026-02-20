@@ -93,6 +93,13 @@ jobs:
 
         echo "✅ Safeguard validation passed: $AFTER files present"
 
+    - name: Rebuild search index
+      run: |
+        echo "Rebuilding full-text search index..."
+        python scripts/build_search_index.py
+        echo "Search index rebuilt"
+      continue-on-error: true
+
     - name: Check for changes
       id: verify-changed-files
       run: |

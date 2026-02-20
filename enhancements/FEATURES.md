@@ -131,7 +131,7 @@ python scripts/main.py --verify              # Check what needs updating
 ### Single Installation with Graceful Degradation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/costiash/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
 **Always Installed**:

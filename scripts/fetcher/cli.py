@@ -32,7 +32,7 @@ def main():
     logger.info("Starting documentation update (updating existing local files only)")
 
     # Log configuration
-    github_repo = os.environ.get('GITHUB_REPOSITORY', 'costiash/claude-code-docs')
+    github_repo = os.environ.get('GITHUB_REPOSITORY', 'seanGSISG/claude-code-docs')
     logger.info(f"GitHub repository: {github_repo}")
 
     # Create docs directory at repository root

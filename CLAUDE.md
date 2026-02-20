@@ -8,7 +8,7 @@
 > - Add upstream as a remote
 > - Reference upstream in any git operations
 >
-> **All git operations must target `origin` (costiash/claude-code-docs) ONLY.**
+> **All git operations must target `origin` (seanGSISG/claude-code-docs) ONLY.**
 
 This repository contains local copies of Claude documentation from multiple Anthropic sources:
 - **Platform docs**: https://platform.claude.com (API, guides, Agent SDK, etc.)

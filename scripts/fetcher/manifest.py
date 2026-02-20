@@ -51,13 +51,13 @@ def save_manifest(docs_dir: Path, manifest: Dict) -> None:
     manifest["last_updated"] = datetime.now().isoformat()
 
     # Get GitHub repository from environment or use default
-    github_repo = os.environ.get('GITHUB_REPOSITORY', 'costiash/claude-code-docs')
+    github_repo = os.environ.get('GITHUB_REPOSITORY', 'seanGSISG/claude-code-docs')
     github_ref = os.environ.get('GITHUB_REF_NAME', 'main')
 
     # Validate repository name format (owner/repo)
     if not re.match(r'^[\w.-]+/[\w.-]+$', github_repo):
         logger.warning(f"Invalid repository format: {github_repo}, using default")
-        github_repo = 'costiash/claude-code-docs'
+        github_repo = 'seanGSISG/claude-code-docs'
 
     # Validate branch/ref name
     if not re.match(r'^[\w.-]+$', github_ref):
@@ -94,8 +94,8 @@ def validate_repository_config(manifest: Dict) -> None:
 
             # Extract owner/repo from git URL
             # Handles both HTTPS and SSH formats:
-            # - https://github.com/costiash/claude-code-docs.git
-            # - git@github.com:costiash/claude-code-docs.git
+            # - https://github.com/seanGSISG/claude-code-docs.git
+            # - git@github.com:seanGSISG/claude-code-docs.git
             if 'github.com' in git_url:
                 # Extract the owner/repo part
                 if git_url.startswith('git@github.com:'):
