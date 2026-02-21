@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-21T06:14:31.670972Z",
-    "total_paths": 783,
+    "generated_at": "2026-02-21T12:09:20.214461Z",
+    "total_paths": 781,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-02-21T06:14:31.670979Z"
+    "last_regenerated": "2026-02-21T12:09:20.214467Z"
   },
   "categories": {
     "core_documentation": [
@@ -97,12 +97,10 @@
       "/docs/en/permissions",
       "/docs/en/server-managed-settings",
       "/docs/en/slack",
-      "/docs/en/test-and-evaluate/define-success",
       "/docs/en/test-and-evaluate/develop-tests",
       "/docs/en/test-and-evaluate/eval-tool",
       "/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals",
       "/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency",
-      "/docs/en/test-and-evaluate/strengthen-guardrails/keep-claude-in-character",
       "/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
       "/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency",

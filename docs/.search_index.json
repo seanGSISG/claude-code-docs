@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-21T06:22:23Z",
-  "indexed_files": 586,
+  "generated_at": "2026-02-21T12:16:34Z",
+  "indexed_files": 584,
   "index": {
     "/changelog": {
       "title": "Claude Code Changelog",
@@ -1476,9 +1476,9 @@
         "interaction",
         "tool",
         "time",
-        "context",
         "user",
         "quote",
+        "context",
         "when",
         "chatbot",
         "questions",
@@ -15996,34 +15996,6 @@
       "word_count": 3084,
       "file_path": "docs/docs__en__resources__prompt-library__website-wizard.md"
     },
-    "/docs/en/test-and-evaluate/define-success": {
-      "title": "Define success criteria and build evaluations",
-      "content_preview": "# Define success criteria and build evaluations  ---  Building a successful LLM-based application starts with clearly defining your success criteria and then designing evaluations to measure performan...",
-      "keywords": [
-        "section",
-        "title",
-        "model",
-        "criteria",
-        "cases",
-        "test",
-        "example",
-        "llm",
-        "what",
-        "measures",
-        "based",
-        "scale",
-        "success",
-        "well",
-        "task",
-        "evaluation",
-        "eval",
-        "evals",
-        "sentiment",
-        "user"
-      ],
-      "word_count": 3196,
-      "file_path": "docs/docs__en__test-and-evaluate__define-success.md"
-    },
     "/docs/en/test-and-evaluate/develop-tests": {
       "title": "Define success criteria and build evaluations",
       "content_preview": "# Define success criteria and build evaluations  ---  Building a successful LLM-based application starts with clearly defining your success criteria and then designing evaluations to measure performan...",
@@ -16135,34 +16107,6 @@
       ],
       "word_count": 1507,
       "file_path": "docs/docs__en__test-and-evaluate__strengthen-guardrails__increase-consistency.md"
-    },
-    "/docs/en/test-and-evaluate/strengthen-guardrails/keep-claude-in-character": {
-      "title": "Increase output consistency",
-      "content_preview": "# Increase output consistency  ---  <Tip> **For guaranteed JSON schema conformance**  If you need Claude to always output valid JSON that conforms to a specific schema, use [Structured Outputs](/docs/...",
-      "keywords": [
-        "name",
-        "revenue",
-        "claude",
-        "user",
-        "metric",
-        "entry",
-        "section",
-        "password",
-        "role",
-        "product",
-        "response",
-        "units",
-        "growth",
-        "data",
-        "output",
-        "title",
-        "content",
-        "region",
-        "item",
-        "enterprise"
-      ],
-      "word_count": 1507,
-      "file_path": "docs/docs__en__test-and-evaluate__strengthen-guardrails__keep-claude-in-character.md"
     },
     "/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks": {
       "title": "Mitigate jailbreaks and prompt injections",
