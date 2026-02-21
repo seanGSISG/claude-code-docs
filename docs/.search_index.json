@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-21T12:16:34Z",
+  "generated_at": "2026-02-21T18:15:21Z",
   "indexed_files": 584,
   "index": {
     "/changelog": {
@@ -168,7 +168,7 @@
         "documentation",
         "flags"
       ],
-      "word_count": 1966,
+      "word_count": 1981,
       "file_path": "docs/claude-code__cli-reference.md"
     },
     "/claude-code/common-workflows": {
@@ -180,23 +180,23 @@
         "title",
         "code",
         "tip",
+        "when",
         "steps",
         "session",
-        "when",
         "thinking",
         "mode",
+        "worktree",
         "specific",
         "plan",
-        "worktree",
         "documentation",
         "sessions",
         "tips",
         "need",
         "create",
-        "conversation",
-        "directory"
+        "ask",
+        "default"
       ],
-      "word_count": 4246,
+      "word_count": 4348,
       "file_path": "docs/claude-code__common-workflows.md"
     },
     "/claude-code/costs": {
@@ -430,8 +430,8 @@
         "hooks",
         "claude",
         "hook",
-        "code",
         "when",
+        "code",
         "event",
         "tool",
         "see",
@@ -442,13 +442,13 @@
         "title",
         "input",
         "step",
+        "exit",
         "run",
         "fires",
         "matcher",
-        "exit",
         "example"
       ],
-      "word_count": 3910,
+      "word_count": 3963,
       "file_path": "docs/claude-code__hooks-guide.md"
     },
     "/claude-code/hooks": {
@@ -456,8 +456,8 @@
       "content_preview": "> ## Documentation Index > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt > Use this file to discover all available pages before exploring further.  # Hooks reference...",
       "keywords": [
         "hooks",
-        "claude",
         "hook",
+        "claude",
         "code",
         "when",
         "input",
@@ -468,15 +468,15 @@
         "prompt",
         "event",
         "decision",
-        "user",
         "control",
+        "user",
         "runs",
-        "description",
-        "agent",
+        "exit",
         "session",
-        "string"
+        "only",
+        "description"
       ],
-      "word_count": 9371,
+      "word_count": 10044,
       "file_path": "docs/claude-code__hooks.md"
     },
     "/claude-code/interactive-mode": {
@@ -683,24 +683,24 @@
         "settings",
         "set",
         "environment",
-        "users",
         "code",
         "models",
-        "sonnet",
-        "opus",
+        "users",
         "when",
         "claude",
+        "sonnet",
+        "opus",
+        "context",
         "caching",
         "version",
         "uses",
-        "context",
         "setting",
-        "default",
         "effort",
         "prompt",
-        "available"
+        "available",
+        "aliases"
       ],
-      "word_count": 1445,
+      "word_count": 1434,
       "file_path": "docs/claude-code__model-config.md"
     },
     "/claude-code/monitoring-usage": {
@@ -812,7 +812,7 @@
         "coding",
         "files"
       ],
-      "word_count": 1322,
+      "word_count": 1317,
       "file_path": "docs/claude-code__overview.md"
     },
     "/claude-code/plugin-marketplaces": {
@@ -1005,10 +1005,10 @@
         "only",
         "mcp",
         "commands",
-        "specific",
-        "permission"
+        "disable",
+        "specific"
       ],
-      "word_count": 6935,
+      "word_count": 6967,
       "file_path": "docs/claude-code__settings.md"
     },
     "/claude-code/setup": {
@@ -1112,15 +1112,15 @@
         "agent",
         "specific",
         "tool",
+        "run",
         "hooks",
         "create",
         "step",
-        "run",
         "each",
         "task",
         "available"
       ],
-      "word_count": 5110,
+      "word_count": 5141,
       "file_path": "docs/claude-code__sub-agents.md"
     },
     "/claude-code/terminal-config": {
