@@ -121,6 +121,10 @@ auto_update() {
         echo "🔄 Updating documentation..." >&2
         if git pull --quiet origin "$BRANCH" 2>&1 | grep -v "Merge made by"; then
             sync_helper_script
+            # Rebuild search index if Python 3.9+ is available
+            if command -v python3 &> /dev/null && [[ -f "$DOCS_PATH/scripts/build_search_index.py" ]]; then
+                (cd "$DOCS_PATH" && python3 scripts/build_search_index.py) >/dev/null 2>&1 || true
+            fi
             echo "✅ Documentation updated" >&2
         else
             echo "⚠️  Update failed - using cached docs" >&2
