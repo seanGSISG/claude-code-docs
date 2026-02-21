@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-20T22:43:47Z",
+  "generated_at": "2026-02-21T01:51:58Z",
   "indexed_files": 586,
   "index": {
     "/changelog": {
@@ -16,19 +16,19 @@
         "being",
         "commands",
         "anthropics",
+        "sessions",
         "tool",
         "command",
+        "support",
+        "session",
         "file",
         "instead",
-        "support",
-        "sessions",
-        "session",
-        "mcp",
         "mode",
-        "now",
-        "bash"
+        "mcp",
+        "where",
+        "now"
       ],
-      "word_count": 15901,
+      "word_count": 16326,
       "file_path": "docs/changelog.md"
     },
     "/claude-code/amazon-bedrock": {
@@ -2448,23 +2448,23 @@
         "section",
         "command",
         "title",
-        "commands",
         "claude",
-        "step",
+        "commands",
         "session",
+        "step",
+        "execution",
+        "tools",
         "execute",
         "run",
         "environment",
-        "tools",
         "outputs",
         "persistent",
+        "state",
         "files",
-        "handle",
-        "system",
-        "execution",
-        "state"
+        "between",
+        "handle"
       ],
-      "word_count": 1285,
+      "word_count": 1334,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__bash-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/code-execution-tool": {
@@ -2479,20 +2479,20 @@
         "api",
         "file",
         "codegroup",
-        "python",
         "tools",
-        "response",
+        "python",
         "when",
+        "response",
+        "bash",
+        "environment",
         "operations",
+        "container",
         "create",
         "commands",
         "edit",
-        "bash",
-        "request",
-        "note",
-        "version"
+        "web"
       ],
-      "word_count": 3614,
+      "word_count": 3821,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__code-execution-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/computer-use-tool": {
@@ -2660,7 +2660,7 @@
         "processing",
         "call"
       ],
-      "word_count": 3399,
+      "word_count": 3393,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__programmatic-tool-calling.md"
     },
     "/docs/en/agents-and-tools/tool-use/text-editor-tool": {
@@ -13366,30 +13366,30 @@
     },
     "/docs/en/build-with-claude/overview": {
       "title": "Features overview",
-      "content_preview": "# Features overview  Explore Claude's advanced features and capabilities.  ---  ## Model capabilities  Ways to steer Claude and Claude's direct outputs, including response format, reasoning depth, and...",
+      "content_preview": "# Features overview  Explore Claude's advanced features and capabilities.  ---  Claude's API surface is organized into five areas:  - **Model capabilities:** Control how Claude reasons and formats res...",
       "keywords": [
         "platformavailability",
         "azureaibeta",
-        "claudeapi",
         "claude",
+        "claudeapi",
         "bedrock",
         "vertexai",
         "context",
-        "tool",
         "tools",
+        "tool",
+        "web",
+        "api",
+        "files",
         "claudeapibeta",
         "search",
-        "web",
+        "capabilities",
+        "when",
         "feature",
         "description",
         "availability",
-        "token",
-        "thinking",
-        "api",
-        "files",
-        "outputs"
+        "token"
       ],
-      "word_count": 1057,
+      "word_count": 1140,
       "file_path": "docs/docs__en__build-with-claude__overview.md"
     },
     "/docs/en/build-with-claude/pdf-support": {
@@ -14094,7 +14094,7 @@
     },
     "/docs/en/get-started": {
       "title": "Get started with Claude",
-      "content_preview": "# Get started with Claude  Make your first API call to Claude and build a simple web search assistant  ---  ## Prerequisites  - An Anthropic [Console account](/) - An [API key](/settings/keys)  ## Cal...",
+      "content_preview": "# Get started with Claude  Make your first API call to Claude and build a simple web search assistant.  ---  ## Prerequisites  - An Anthropic [Console account](/) - An [API key](/settings/keys)  ## Ca...",
       "keywords": [
         "step",
         "title",
@@ -14108,16 +14108,16 @@
         "code",
         "sdk",
         "get",
-        "anthropic",
         "console",
         "install",
         "first",
+        "call",
+        "anthropic",
         "environment",
         "variable",
-        "run",
-        "create"
+        "run"
       ],
-      "word_count": 1008,
+      "word_count": 1035,
       "file_path": "docs/docs__en__get-started.md"
     },
     "/docs/en/intro": {
@@ -14127,25 +14127,25 @@
         "claude",
         "card",
         "title",
+        "step",
         "icon",
         "href",
-        "cardgroup",
-        "learn",
         "text",
         "more",
-        "docs",
-        "code",
         "api",
-        "cols",
+        "cardgroup",
+        "learn",
+        "code",
+        "model",
         "anthropic",
         "coding",
         "generation",
         "models",
-        "model",
-        "get",
-        "started"
+        "steps",
+        "overview",
+        "help"
       ],
-      "word_count": 323,
+      "word_count": 378,
       "file_path": "docs/docs__en__intro.md"
     },
     "/docs/en/release-notes/overview": {
