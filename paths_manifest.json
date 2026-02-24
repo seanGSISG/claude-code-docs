@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-24T12:16:28.155916Z",
-    "total_paths": 771,
+    "generated_at": "2026-02-24T18:22:22.756814Z",
+    "total_paths": 772,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-02-24T12:16:28.155921Z"
+    "last_regenerated": "2026-02-24T18:22:22.756820Z"
   },
   "categories": {
     "core_documentation": [
@@ -85,6 +85,7 @@
       "/docs/en/intro",
       "/docs/en/keybindings",
       "/docs/en/permissions",
+      "/docs/en/remote-control",
       "/docs/en/server-managed-settings",
       "/docs/en/slack",
       "/docs/en/test-and-evaluate/develop-tests",

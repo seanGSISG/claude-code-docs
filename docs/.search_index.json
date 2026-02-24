@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-24T12:23:26Z",
+  "generated_at": "2026-02-24T18:29:46Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -122,8 +122,8 @@
         "org",
         "com",
         "claude",
-        "www",
         "code",
+        "www",
         "web",
         "environment",
         "session",
@@ -140,7 +140,7 @@
         "note",
         "when"
       ],
-      "word_count": 3124,
+      "word_count": 3147,
       "file_path": "docs/claude-code__claude-code-on-the-web.md"
     },
     "/claude-code/cli-reference": {
@@ -150,25 +150,25 @@
         "claude",
         "print",
         "prompt",
+        "session",
         "mode",
         "interactive",
-        "session",
         "only",
-        "default",
         "code",
+        "default",
         "when",
         "load",
+        "see",
         "system",
         "file",
         "model",
-        "see",
         "subagent",
+        "flags",
         "mcp",
-        "json",
-        "documentation",
-        "flags"
+        "control",
+        "json"
       ],
-      "word_count": 1981,
+      "word_count": 2012,
       "file_path": "docs/claude-code__cli-reference.md"
     },
     "/claude-code/common-workflows": {
@@ -232,8 +232,8 @@
       "content_preview": "> ## Documentation Index > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt > Use this file to discover all available pages before exploring further.  # Data usage  > L...",
       "keywords": [
         "claude",
-        "code",
         "data",
+        "code",
         "default",
         "api",
         "tbpmhzr",
@@ -252,7 +252,7 @@
         "our",
         "retention"
       ],
-      "word_count": 1255,
+      "word_count": 1270,
       "file_path": "docs/claude-code__data-usage.md"
     },
     "/claude-code/desktop": {
@@ -812,7 +812,7 @@
         "coding",
         "files"
       ],
-      "word_count": 1317,
+      "word_count": 1350,
       "file_path": "docs/claude-code__overview.md"
     },
     "/claude-code/plugin-marketplaces": {
@@ -965,22 +965,22 @@
         "permission",
         "commands",
         "approval",
-        "mcp",
         "access",
+        "mcp",
         "permissions",
         "when",
         "network",
         "user",
         "servers",
         "before",
+        "anthropic",
         "trust",
         "users",
+        "control",
         "bash",
-        "settings",
-        "audit",
-        "safeguards"
+        "web"
       ],
-      "word_count": 1139,
+      "word_count": 1219,
       "file_path": "docs/claude-code__security.md"
     },
     "/claude-code/settings": {
@@ -993,22 +993,22 @@
         "see",
         "when",
         "code",
-        "project",
         "managed",
+        "project",
         "default",
         "files",
         "file",
         "user",
-        "bash",
         "configuration",
-        "example",
         "only",
+        "bash",
+        "example",
         "mcp",
         "commands",
         "disable",
         "specific"
       ],
-      "word_count": 6967,
+      "word_count": 7141,
       "file_path": "docs/claude-code__settings.md"
     },
     "/claude-code/setup": {
