@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-23T18:23:08.764857Z",
-    "total_paths": 781,
+    "generated_at": "2026-02-24T00:26:05.611863Z",
+    "total_paths": 771,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-02-23T18:23:08.764863Z"
+    "last_regenerated": "2026-02-24T00:26:05.611872Z"
   },
   "categories": {
     "core_documentation": [
@@ -62,19 +62,9 @@
       "/docs/en/build-with-claude/overview",
       "/docs/en/build-with-claude/pdf-support",
       "/docs/en/build-with-claude/prompt-caching",
-      "/docs/en/build-with-claude/prompt-engineering/be-clear-and-direct",
-      "/docs/en/build-with-claude/prompt-engineering/chain-of-thought",
-      "/docs/en/build-with-claude/prompt-engineering/chain-prompts",
       "/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
-      "/docs/en/build-with-claude/prompt-engineering/extended-thinking-tips",
-      "/docs/en/build-with-claude/prompt-engineering/long-context-tips",
-      "/docs/en/build-with-claude/prompt-engineering/multishot-prompting",
       "/docs/en/build-with-claude/prompt-engineering/overview",
-      "/docs/en/build-with-claude/prompt-engineering/prompt-generator",
-      "/docs/en/build-with-claude/prompt-engineering/prompt-improver",
-      "/docs/en/build-with-claude/prompt-engineering/prompt-templates-and-variables",
-      "/docs/en/build-with-claude/prompt-engineering/system-prompts",
-      "/docs/en/build-with-claude/prompt-engineering/use-xml-tags",
+      "/docs/en/build-with-claude/prompt-engineering/prompting-tools",
       "/docs/en/build-with-claude/search-results",
       "/docs/en/build-with-claude/skills-guide",
       "/docs/en/build-with-claude/streaming",
