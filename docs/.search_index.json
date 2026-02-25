@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-25T00:35:55Z",
+  "generated_at": "2026-02-25T06:33:35Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -28,7 +28,7 @@
         "mode",
         "mcp"
       ],
-      "word_count": 16695,
+      "word_count": 16720,
       "file_path": "docs/changelog.md"
     },
     "/claude-code/amazon-bedrock": {
@@ -822,25 +822,25 @@
         "plugin",
         "marketplace",
         "plugins",
-        "see",
-        "string",
         "git",
+        "string",
+        "see",
         "add",
         "create",
         "marketplaces",
-        "sources",
         "repository",
+        "sources",
         "paths",
+        "url",
         "github",
         "users",
         "files",
-        "url",
-        "source",
         "code",
-        "file",
-        "directory"
+        "version",
+        "source",
+        "field"
       ],
-      "word_count": 3788,
+      "word_count": 4014,
       "file_path": "docs/claude-code__plugin-marketplaces.md"
     },
     "/claude-code/plugins-reference": {
@@ -990,16 +990,16 @@
         "settings",
         "claude",
         "set",
-        "managed",
         "see",
+        "managed",
         "when",
         "code",
         "project",
         "default",
+        "user",
         "files",
         "only",
         "file",
-        "user",
         "configuration",
         "bash",
         "example",
@@ -1008,7 +1008,7 @@
         "disable",
         "specific"
       ],
-      "word_count": 7245,
+      "word_count": 7373,
       "file_path": "docs/claude-code__settings.md"
     },
     "/claude-code/setup": {
