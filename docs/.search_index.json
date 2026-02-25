@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-24T18:29:46Z",
+  "generated_at": "2026-02-25T00:35:55Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -13,22 +13,22 @@
         "claude",
         "code",
         "improved",
-        "commands",
         "being",
+        "commands",
         "command",
+        "sessions",
         "tool",
         "anthropics",
         "support",
-        "sessions",
+        "instead",
         "session",
         "file",
-        "instead",
         "where",
         "now",
         "mode",
         "mcp"
       ],
-      "word_count": 16559,
+      "word_count": 16695,
       "file_path": "docs/changelog.md"
     },
     "/claude-code/amazon-bedrock": {
@@ -153,22 +153,22 @@
         "session",
         "mode",
         "interactive",
-        "only",
         "code",
+        "only",
         "default",
         "when",
         "load",
         "see",
         "system",
         "file",
+        "json",
         "model",
         "subagent",
         "flags",
         "mcp",
-        "control",
-        "json"
+        "control"
       ],
-      "word_count": 2012,
+      "word_count": 2090,
       "file_path": "docs/claude-code__cli-reference.md"
     },
     "/claude-code/common-workflows": {
@@ -266,8 +266,8 @@
         "sessions",
         "app",
         "see",
-        "cli",
         "settings",
+        "cli",
         "when",
         "remote",
         "available",
@@ -280,7 +280,7 @@
         "server",
         "auto"
       ],
-      "word_count": 5125,
+      "word_count": 5126,
       "file_path": "docs/claude-code__desktop.md"
     },
     "/claude-code/devcontainer": {
@@ -802,17 +802,17 @@
         "app",
         "work",
         "icon",
+        "install",
+        "windows",
         "tools",
         "desktop",
-        "install",
         "info",
         "web",
         "workflows",
         "pull",
-        "coding",
-        "files"
+        "coding"
       ],
-      "word_count": 1350,
+      "word_count": 1363,
       "file_path": "docs/claude-code__overview.md"
     },
     "/claude-code/plugin-marketplaces": {
@@ -868,7 +868,7 @@
         "see",
         "skills"
       ],
-      "word_count": 3356,
+      "word_count": 3357,
       "file_path": "docs/claude-code__plugins-reference.md"
     },
     "/claude-code/plugins": {
@@ -916,15 +916,15 @@
         "common",
         "command",
         "note",
+        "first",
         "info",
         "more",
         "documentation",
-        "also",
-        "run",
-        "features",
-        "start"
+        "before",
+        "terminal",
+        "also"
       ],
-      "word_count": 1338,
+      "word_count": 1364,
       "file_path": "docs/claude-code__quickstart.md"
     },
     "/claude-code/sandboxing": {
@@ -990,17 +990,17 @@
         "settings",
         "claude",
         "set",
+        "managed",
         "see",
         "when",
         "code",
-        "managed",
         "project",
         "default",
         "files",
+        "only",
         "file",
         "user",
         "configuration",
-        "only",
         "bash",
         "example",
         "mcp",
@@ -1008,35 +1008,35 @@
         "disable",
         "specific"
       ],
-      "word_count": 7141,
+      "word_count": 7245,
       "file_path": "docs/claude-code__settings.md"
     },
     "/claude-code/setup": {
-      "title": "Set up Claude Code",
-      "content_preview": "> ## Documentation Index > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt > Use this file to discover all available pages before exploring further.  # Set up Claude C...",
+      "title": "Advanced setup",
+      "content_preview": "> ## Documentation Index > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt > Use this file to discover all available pages before exploring further.  # Advanced setup ...",
       "keywords": [
-        "claude",
-        "code",
         "tab",
+        "code",
+        "claude",
         "windows",
         "installation",
-        "wsl",
-        "title",
-        "update",
-        "version",
         "install",
-        "macos",
-        "linux",
+        "title",
+        "version",
+        "updates",
         "tabs",
         "native",
-        "auto",
-        "updates",
-        "channel",
-        "see",
+        "wsl",
         "npm",
-        "powershell"
+        "powershell",
+        "update",
+        "auto",
+        "see",
+        "macos",
+        "run",
+        "linux"
       ],
-      "word_count": 1396,
+      "word_count": 1546,
       "file_path": "docs/claude-code__setup.md"
     },
     "/claude-code/skills": {
@@ -1104,9 +1104,9 @@
         "claude",
         "when",
         "code",
-        "tools",
         "context",
         "main",
+        "tools",
         "conversation",
         "only",
         "agent",
@@ -1118,9 +1118,9 @@
         "step",
         "each",
         "task",
-        "available"
+        "prompt"
       ],
-      "word_count": 5141,
+      "word_count": 5133,
       "file_path": "docs/claude-code__sub-agents.md"
     },
     "/claude-code/terminal-config": {
@@ -1183,28 +1183,28 @@
       "title": "Troubleshooting",
       "content_preview": "> ## Documentation Index > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt > Use this file to discover all available pages before exploring further.  # Troubleshooting...",
       "keywords": [
-        "wsl",
-        "code",
         "claude",
+        "code",
         "windows",
+        "install",
+        "wsl",
         "issues",
-        "installation",
-        "formatting",
-        "markdown",
-        "file",
-        "path",
         "linux",
-        "configuration",
-        "files",
-        "nvm",
-        "settings",
-        "may",
-        "run",
-        "node",
         "see",
-        "add"
+        "path",
+        "installation",
+        "check",
+        "installer",
+        "macos",
+        "file",
+        "solutions",
+        "may",
+        "directory",
+        "settings",
+        "powershell",
+        "command"
       ],
-      "word_count": 2102,
+      "word_count": 4525,
       "file_path": "docs/claude-code__troubleshooting.md"
     },
     "/claude-code/vs-code": {
