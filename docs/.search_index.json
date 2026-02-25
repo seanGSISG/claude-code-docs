@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-25T12:23:20Z",
+  "generated_at": "2026-02-25T18:32:59Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -1568,7 +1568,7 @@
         "complete",
         "reference"
       ],
-      "word_count": 1430,
+      "word_count": 1434,
       "file_path": "docs/docs__en__agent-sdk__cost-tracking.md"
     },
     "/docs/en/agent-sdk/custom-tools": {
@@ -1596,7 +1596,7 @@
         "when",
         "multiple"
       ],
-      "word_count": 2214,
+      "word_count": 2239,
       "file_path": "docs/docs__en__agent-sdk__custom-tools.md"
     },
     "/docs/en/agent-sdk/file-checkpointing": {
@@ -1652,7 +1652,7 @@
         "event",
         "typescript"
       ],
-      "word_count": 3788,
+      "word_count": 3786,
       "file_path": "docs/docs__en__agent-sdk__hooks.md"
     },
     "/docs/en/agent-sdk/hosting": {
@@ -1708,7 +1708,7 @@
         "check",
         "environment"
       ],
-      "word_count": 2600,
+      "word_count": 2636,
       "file_path": "docs/docs__en__agent-sdk__mcp.md"
     },
     "/docs/en/agent-sdk/migration-guide": {
@@ -1764,7 +1764,7 @@
         "default",
         "only"
       ],
-      "word_count": 1883,
+      "word_count": 1879,
       "file_path": "docs/docs__en__agent-sdk__modifying-system-prompts.md"
     },
     "/docs/en/agent-sdk/overview": {
@@ -1848,7 +1848,7 @@
         "complete",
         "loading"
       ],
-      "word_count": 1181,
+      "word_count": 1175,
       "file_path": "docs/docs__en__agent-sdk__plugins.md"
     },
     "/docs/en/agent-sdk/python": {
@@ -1904,7 +1904,7 @@
         "api",
         "note"
       ],
-      "word_count": 1442,
+      "word_count": 1460,
       "file_path": "docs/docs__en__agent-sdk__quickstart.md"
     },
     "/docs/en/agent-sdk/secure-deployment": {
@@ -2128,7 +2128,7 @@
         "when",
         "example"
       ],
-      "word_count": 1764,
+      "word_count": 1773,
       "file_path": "docs/docs__en__agent-sdk__structured-outputs.md"
     },
     "/docs/en/agent-sdk/subagents": {
@@ -2240,7 +2240,7 @@
         "commands",
         "see"
       ],
-      "word_count": 6205,
+      "word_count": 6201,
       "file_path": "docs/docs__en__agent-sdk__typescript.md"
     },
     "/docs/en/agent-sdk/user-input": {
@@ -2268,7 +2268,7 @@
         "clarifying",
         "array"
       ],
-      "word_count": 3506,
+      "word_count": 3509,
       "file_path": "docs/docs__en__agent-sdk__user-input.md"
     },
     "/docs/en/agents-and-tools/agent-skills/best-practices": {
@@ -2380,7 +2380,7 @@
         "what",
         "pdf"
       ],
-      "word_count": 1499,
+      "word_count": 1515,
       "file_path": "docs/docs__en__agents-and-tools__agent-skills__quickstart.md"
     },
     "/docs/en/agents-and-tools/mcp-connector": {
@@ -2408,7 +2408,7 @@
         "version",
         "beta"
       ],
-      "word_count": 2332,
+      "word_count": 2338,
       "file_path": "docs/docs__en__agents-and-tools__mcp-connector.md"
     },
     "/docs/en/agents-and-tools/remote-mcp-servers": {
@@ -2445,19 +2445,19 @@
       "keywords": [
         "tool",
         "bash",
-        "section",
         "command",
+        "section",
         "claude",
         "title",
-        "commands",
         "session",
+        "commands",
         "step",
         "execution",
         "state",
+        "run",
         "tools",
         "execute",
         "persistent",
-        "run",
         "environment",
         "outputs",
         "shell",
@@ -2492,7 +2492,7 @@
         "edit",
         "web"
       ],
-      "word_count": 3821,
+      "word_count": 3863,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__code-execution-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/computer-use-tool": {
@@ -2508,19 +2508,19 @@
         "step",
         "section",
         "prompt",
+        "click",
         "model",
         "sonnet",
         "environment",
-        "click",
         "when",
         "note",
+        "opus",
         "example",
         "loop",
         "implementation",
-        "mouse",
-        "beta"
+        "mouse"
       ],
-      "word_count": 5128,
+      "word_count": 5138,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__computer-use-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming": {
@@ -2548,7 +2548,7 @@
         "available",
         "models"
       ],
-      "word_count": 745,
+      "word_count": 749,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__fine-grained-tool-streaming.md"
     },
     "/docs/en/agents-and-tools/tool-use/implement-tool-use": {
@@ -2576,7 +2576,7 @@
         "user",
         "tip"
       ],
-      "word_count": 8286,
+      "word_count": 8323,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__implement-tool-use.md"
     },
     "/docs/en/agents-and-tools/tool-use/memory-tool": {
@@ -2604,7 +2604,7 @@
         "client",
         "note"
       ],
-      "word_count": 2656,
+      "word_count": 2659,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__memory-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/overview": {
@@ -2632,7 +2632,7 @@
         "result",
         "call"
       ],
-      "word_count": 4724,
+      "word_count": 4732,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__overview.md"
     },
     "/docs/en/agents-and-tools/tool-use/programmatic-tool-calling": {
@@ -2648,11 +2648,11 @@
         "calls",
         "results",
         "tools",
-        "container",
         "when",
+        "container",
         "data",
-        "step",
         "only",
+        "step",
         "result",
         "field",
         "note",
@@ -2660,7 +2660,7 @@
         "processing",
         "call"
       ],
-      "word_count": 3524,
+      "word_count": 3540,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__programmatic-tool-calling.md"
     },
     "/docs/en/agents-and-tools/tool-use/text-editor-tool": {
@@ -2682,11 +2682,11 @@
         "error",
         "create",
         "sonnet",
+        "example",
         "changes",
         "when",
         "codegroup",
-        "return",
-        "view"
+        "return"
       ],
       "word_count": 4877,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__text-editor-tool.md"
@@ -2716,7 +2716,7 @@
         "context",
         "only"
       ],
-      "word_count": 2509,
+      "word_count": 2506,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__tool-search-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/web-fetch-tool": {
@@ -2744,7 +2744,7 @@
         "response",
         "citations"
       ],
-      "word_count": 2170,
+      "word_count": 2176,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__web-fetch-tool.md"
     },
     "/docs/en/agents-and-tools/tool-use/web-search-tool": {
@@ -2772,7 +2772,7 @@
         "sonnet",
         "only"
       ],
-      "word_count": 2035,
+      "word_count": 2037,
       "file_path": "docs/docs__en__agents-and-tools__tool-use__web-search-tool.md"
     },
     "/docs/en/api/admin": {
@@ -3702,7 +3702,7 @@
         "multiple",
         "names"
       ],
-      "word_count": 375,
+      "word_count": 373,
       "file_path": "docs/docs__en__api__beta-headers.md"
     },
     "/docs/en/api/beta": {
@@ -4559,7 +4559,7 @@
         "beta",
         "platform"
       ],
-      "word_count": 680,
+      "word_count": 678,
       "file_path": "docs/docs__en__api__client-sdks.md"
     },
     "/docs/en/api/completions": {
@@ -5834,7 +5834,7 @@
         "these",
         "includes"
       ],
-      "word_count": 796,
+      "word_count": 794,
       "file_path": "docs/docs__en__api__errors.md"
     },
     "/docs/en/api/go/beta": {
@@ -8749,7 +8749,7 @@
         "messages",
         "message"
       ],
-      "word_count": 1614,
+      "word_count": 1610,
       "file_path": "docs/docs__en__api__openai-sdk.md"
     },
     "/docs/en/api/overview": {
@@ -11497,7 +11497,7 @@
         "undocumented",
         "see"
       ],
-      "word_count": 3636,
+      "word_count": 3642,
       "file_path": "docs/docs__en__api__sdks__typescript.md"
     },
     "/docs/en/api/service-tiers": {
@@ -12857,7 +12857,7 @@
         "using",
         "reasoning"
       ],
-      "word_count": 2337,
+      "word_count": 2341,
       "file_path": "docs/docs__en__build-with-claude__adaptive-thinking.md"
     },
     "/docs/en/build-with-claude/administration-api": {
@@ -12913,7 +12913,7 @@
         "within",
         "result"
       ],
-      "word_count": 4489,
+      "word_count": 4483,
       "file_path": "docs/docs__en__build-with-claude__batch-processing.md"
     },
     "/docs/en/build-with-claude/citations": {
@@ -13093,8 +13093,8 @@
         "claude",
         "compaction",
         "when",
-        "clearing",
         "thinking",
+        "clearing",
         "codegroup",
         "side",
         "summary",
@@ -13107,9 +13107,9 @@
         "results",
         "strategy",
         "history",
-        "using"
+        "blocks"
       ],
-      "word_count": 4034,
+      "word_count": 4072,
       "file_path": "docs/docs__en__build-with-claude__context-editing.md"
     },
     "/docs/en/build-with-claude/context-windows": {
@@ -13137,7 +13137,7 @@
         "components",
         "long"
       ],
-      "word_count": 2010,
+      "word_count": 2008,
       "file_path": "docs/docs__en__build-with-claude__context-windows.md"
     },
     "/docs/en/build-with-claude/data-residency": {
@@ -13165,7 +13165,7 @@
         "level",
         "legacy"
       ],
-      "word_count": 1009,
+      "word_count": 1011,
       "file_path": "docs/docs__en__build-with-claude__data-residency.md"
     },
     "/docs/en/build-with-claude/effort": {
@@ -13193,7 +13193,7 @@
         "tokens",
         "best"
       ],
-      "word_count": 1158,
+      "word_count": 1160,
       "file_path": "docs/docs__en__build-with-claude__effort.md"
     },
     "/docs/en/build-with-claude/embeddings": {
@@ -13221,7 +13221,7 @@
         "model",
         "following"
       ],
-      "word_count": 2107,
+      "word_count": 2111,
       "file_path": "docs/docs__en__build-with-claude__embeddings.md"
     },
     "/docs/en/build-with-claude/extended-thinking": {
@@ -13249,7 +13249,7 @@
         "output",
         "request"
       ],
-      "word_count": 7504,
+      "word_count": 7510,
       "file_path": "docs/docs__en__build-with-claude__extended-thinking.md"
     },
     "/docs/en/build-with-claude/fast-mode": {
@@ -13277,7 +13277,7 @@
         "card",
         "model"
       ],
-      "word_count": 1364,
+      "word_count": 1366,
       "file_path": "docs/docs__en__build-with-claude__fast-mode.md"
     },
     "/docs/en/build-with-claude/files": {
@@ -13305,7 +13305,7 @@
         "supported",
         "models"
       ],
-      "word_count": 2100,
+      "word_count": 2098,
       "file_path": "docs/docs__en__build-with-claude__files.md"
     },
     "/docs/en/build-with-claude/handling-stop-reasons": {
@@ -13417,7 +13417,7 @@
         "each",
         "image"
       ],
-      "word_count": 2848,
+      "word_count": 2850,
       "file_path": "docs/docs__en__build-with-claude__pdf-support.md"
     },
     "/docs/en/build-with-claude/prompt-caching": {
@@ -13445,7 +13445,7 @@
         "request",
         "more"
       ],
-      "word_count": 9900,
+      "word_count": 9912,
       "file_path": "docs/docs__en__build-with-claude__prompt-caching.md"
     },
     "/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices": {
@@ -13473,7 +13473,7 @@
         "instructions",
         "may"
       ],
-      "word_count": 6479,
+      "word_count": 6485,
       "file_path": "docs/docs__en__build-with-claude__prompt-engineering__claude-prompting-best-practices.md"
     },
     "/docs/en/build-with-claude/prompt-engineering/overview": {
@@ -13557,7 +13557,7 @@
         "level",
         "when"
       ],
-      "word_count": 2568,
+      "word_count": 2572,
       "file_path": "docs/docs__en__build-with-claude__search-results.md"
     },
     "/docs/en/build-with-claude/skills-guide": {
@@ -13585,7 +13585,7 @@
         "versions",
         "anthropic"
       ],
-      "word_count": 4568,
+      "word_count": 4554,
       "file_path": "docs/docs__en__build-with-claude__skills-guide.md"
     },
     "/docs/en/build-with-claude/streaming": {
@@ -13613,7 +13613,7 @@
         "blocks",
         "may"
       ],
-      "word_count": 2207,
+      "word_count": 2412,
       "file_path": "docs/docs__en__build-with-claude__streaming.md"
     },
     "/docs/en/build-with-claude/structured-outputs": {
@@ -13641,7 +13641,7 @@
         "validation",
         "fields"
       ],
-      "word_count": 6535,
+      "word_count": 6541,
       "file_path": "docs/docs__en__build-with-claude__structured-outputs.md"
     },
     "/docs/en/build-with-claude/token-counting": {
@@ -13669,7 +13669,7 @@
         "only",
         "does"
       ],
-      "word_count": 1920,
+      "word_count": 1924,
       "file_path": "docs/docs__en__build-with-claude__token-counting.md"
     },
     "/docs/en/build-with-claude/usage-cost-api": {
@@ -13725,7 +13725,7 @@
         "vision",
         "multiple"
       ],
-      "word_count": 3455,
+      "word_count": 3459,
       "file_path": "docs/docs__en__build-with-claude__vision.md"
     },
     "/docs/en/build-with-claude/working-with-messages": {
@@ -13753,7 +13753,7 @@
         "zdr",
         "multiple"
       ],
-      "word_count": 1185,
+      "word_count": 1183,
       "file_path": "docs/docs__en__build-with-claude__working-with-messages.md"
     },
     "/docs/en/build-with-claude/workspaces": {
@@ -13837,7 +13837,7 @@
         "variable",
         "run"
       ],
-      "word_count": 1035,
+      "word_count": 1041,
       "file_path": "docs/docs__en__get-started.md"
     },
     "/docs/en/intro": {
