@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-25T18:32:59Z",
+  "generated_at": "2026-02-26T00:32:28Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -28,7 +28,7 @@
         "mode",
         "mcp"
       ],
-      "word_count": 16720,
+      "word_count": 16729,
       "file_path": "docs/changelog.md"
     },
     "/claude-code/amazon-bedrock": {
@@ -1859,24 +1859,24 @@
         "input",
         "type",
         "description",
+        "hook",
         "output",
         "when",
-        "hook",
+        "field",
         "claude",
         "name",
-        "sdk",
-        "sandbox",
-        "settings",
         "session",
-        "configuration",
-        "field",
         "permission",
+        "sandbox",
+        "configuration",
+        "settings",
+        "sdk",
         "model",
-        "code",
-        "system",
-        "conversation"
+        "message",
+        "types",
+        "code"
       ],
-      "word_count": 8366,
+      "word_count": 9790,
       "file_path": "docs/docs__en__agent-sdk__python.md"
     },
     "/docs/en/agent-sdk/quickstart": {
@@ -2212,7 +2212,7 @@
         "feedback",
         "before"
       ],
-      "word_count": 1307,
+      "word_count": 1319,
       "file_path": "docs/docs__en__agent-sdk__typescript-v2-preview.md"
     },
     "/docs/en/agent-sdk/typescript": {
@@ -2223,24 +2223,24 @@
         "name",
         "returns",
         "type",
+        "mcp",
+        "configuration",
+        "when",
+        "claude",
         "sandbox",
         "model",
+        "description",
+        "session",
+        "file",
         "settings",
         "input",
-        "mcp",
+        "agent",
         "types",
-        "description",
-        "configuration",
+        "user",
         "sdk",
-        "available",
-        "claude",
-        "mode",
-        "when",
-        "only",
-        "commands",
-        "see"
+        "prompt"
       ],
-      "word_count": 6201,
+      "word_count": 7737,
       "file_path": "docs/docs__en__agent-sdk__typescript.md"
     },
     "/docs/en/agent-sdk/user-input": {
@@ -13623,8 +13623,8 @@
         "schema",
         "json",
         "section",
-        "title",
         "outputs",
+        "title",
         "tool",
         "claude",
         "structured",
@@ -13633,15 +13633,15 @@
         "strict",
         "codegroup",
         "tools",
+        "output",
+        "when",
         "sdk",
         "parameters",
         "field",
-        "when",
         "tab",
-        "validation",
-        "fields"
+        "example"
       ],
-      "word_count": 6541,
+      "word_count": 6681,
       "file_path": "docs/docs__en__build-with-claude__structured-outputs.md"
     },
     "/docs/en/build-with-claude/token-counting": {
