@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-26T06:31:37Z",
+  "generated_at": "2026-02-26T12:23:37Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -122,25 +122,25 @@
         "org",
         "com",
         "claude",
-        "code",
         "www",
+        "code",
         "web",
-        "environment",
         "session",
+        "environment",
         "access",
         "github",
         "network",
-        "run",
+        "sessions",
         "changes",
         "terminal",
-        "sessions",
         "default",
-        "tasks",
+        "run",
         "hooks",
+        "tasks",
         "note",
         "when"
       ],
-      "word_count": 3147,
+      "word_count": 3107,
       "file_path": "docs/claude-code__claude-code-on-the-web.md"
     },
     "/claude-code/cli-reference": {
