@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-26T12:23:37Z",
+  "generated_at": "2026-02-26T18:25:16Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -1544,31 +1544,31 @@
       "file_path": "docs/docs__en__about-claude__use-case-guides__ticket-routing.md"
     },
     "/docs/en/agent-sdk/cost-tracking": {
-      "title": "Tracking Costs and Usage",
-      "content_preview": "# Tracking Costs and Usage  Understand and track token usage for billing in the Claude Agent SDK  ---  # SDK Cost Tracking  The Claude Agent SDK provides detailed token usage information for each inte...",
+      "title": "Track cost and usage",
+      "content_preview": "# Track cost and usage  Learn how to track token usage, deduplicate parallel tool calls, and calculate costs with the Claude Agent SDK.  ---  The Claude Agent SDK provides detailed token usage informa...",
       "keywords": [
-        "usage",
-        "message",
         "sdk",
-        "messages",
-        "token",
-        "claude",
-        "when",
-        "same",
-        "tracking",
-        "tool",
-        "step",
-        "data",
-        "example",
-        "result",
-        "track",
-        "billing",
+        "message",
+        "usage",
         "cost",
-        "contains",
-        "complete",
-        "reference"
+        "step",
+        "result",
+        "each",
+        "token",
+        "typescript",
+        "call",
+        "messages",
+        "python",
+        "per",
+        "total",
+        "agent",
+        "assistant",
+        "track",
+        "multiple",
+        "calls",
+        "claude"
       ],
-      "word_count": 1434,
+      "word_count": 1407,
       "file_path": "docs/docs__en__agent-sdk__cost-tracking.md"
     },
     "/docs/en/agent-sdk/custom-tools": {
@@ -2240,7 +2240,7 @@
         "sdk",
         "prompt"
       ],
-      "word_count": 7737,
+      "word_count": 7736,
       "file_path": "docs/docs__en__agent-sdk__typescript.md"
     },
     "/docs/en/agent-sdk/user-input": {
