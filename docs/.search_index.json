@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-02-26T00:32:28Z",
+  "generated_at": "2026-02-26T06:31:37Z",
   "indexed_files": 574,
   "index": {
     "/changelog": {
@@ -13,22 +13,22 @@
         "claude",
         "code",
         "improved",
-        "being",
         "commands",
+        "being",
         "command",
         "sessions",
         "tool",
         "anthropics",
         "support",
         "instead",
-        "session",
         "file",
+        "session",
         "where",
         "now",
-        "mode",
-        "mcp"
+        "mcp",
+        "mode"
       ],
-      "word_count": 16729,
+      "word_count": 16866,
       "file_path": "docs/changelog.md"
     },
     "/claude-code/amazon-bedrock": {
@@ -504,7 +504,7 @@
         "end",
         "tasks"
       ],
-      "word_count": 2544,
+      "word_count": 2561,
       "file_path": "docs/claude-code__interactive-mode.md"
     },
     "/claude-code/jetbrains": {
@@ -640,11 +640,11 @@
         "directories",
         "into",
         "working",
-        "when",
         "reads",
-        "memories"
+        "memories",
+        "across"
       ],
-      "word_count": 1917,
+      "word_count": 1985,
       "file_path": "docs/claude-code__memory.md"
     },
     "/claude-code/microsoft-foundry": {
