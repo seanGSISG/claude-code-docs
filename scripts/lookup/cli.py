@@ -93,11 +93,13 @@ Examples:
         help='Search documentation content (full-text search)'
     )
 
+    # Resolve manifest path relative to the installation directory, not cwd
+    _base_dir = Path(__file__).resolve().parent.parent.parent  # ~/.claude-code-docs
     parser.add_argument(
         '--manifest',
         type=Path,
-        default=Path('paths_manifest.json'),
-        help='Path to paths manifest (default: paths_manifest.json)'
+        default=_base_dir / 'paths_manifest.json',
+        help='Path to paths manifest (default: <install-dir>/paths_manifest.json)'
     )
 
     parser.add_argument(

@@ -130,7 +130,9 @@ def create_enriched_search_results(
 @lru_cache(maxsize=1)
 def load_search_index() -> Optional[Dict]:
     """Load full-text search index (cached)."""
-    index_file = Path("docs/.search_index.json")
+    # Use absolute path relative to this package's location to avoid cwd dependency
+    _base_dir = Path(__file__).resolve().parent.parent.parent  # ~/.claude-code-docs
+    index_file = _base_dir / "docs" / ".search_index.json"
     if not index_file.exists():
         return None
 
