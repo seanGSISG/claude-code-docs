@@ -372,6 +372,10 @@ fi
 echo ""
 echo "Installing to ~/.claude-code-docs..."
 
+# Ensure we're in a safe working directory before cloning
+# (the previous step may have deleted $PWD if it was inside INSTALL_DIR)
+cd "$HOME" || cd /tmp
+
 # Create a temporary directory for atomic installation
 TEMP_INSTALL_DIR=$(mktemp -d "${TMPDIR:-/tmp}/claude-code-docs.XXXXXXXXXX") || {
     echo "❌ Error: Failed to create temporary directory"
