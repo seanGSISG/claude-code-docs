@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-03-30T12:21:59.312455Z",
-    "total_paths": 692,
+    "generated_at": "2026-03-30T18:22:04.288908Z",
+    "total_paths": 693,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-03-30T12:21:59.312462Z"
+    "last_regenerated": "2026-03-30T18:22:04.288914Z"
   },
   "categories": {
     "core_documentation": [
@@ -95,6 +95,7 @@
       "/docs/en/claude-directory",
       "/docs/en/code-review",
       "/docs/en/commands",
+      "/docs/en/computer-use",
       "/docs/en/context-window",
       "/docs/en/desktop-quickstart",
       "/docs/en/discover-plugins",
