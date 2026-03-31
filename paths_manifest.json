@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-03-30T18:22:04.288908Z",
-    "total_paths": 693,
+    "generated_at": "2026-03-31T00:29:50.721376Z",
+    "total_paths": 694,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-03-30T18:22:04.288914Z"
+    "last_regenerated": "2026-03-31T00:29:50.721383Z"
   },
   "categories": {
     "core_documentation": [
@@ -103,6 +103,7 @@
       "/docs/en/fast-mode",
       "/docs/en/features-overview",
       "/docs/en/get-started",
+      "/docs/en/github-enterprise-server",
       "/docs/en/how-claude-code-works",
       "/docs/en/intro",
       "/docs/en/keybindings",
