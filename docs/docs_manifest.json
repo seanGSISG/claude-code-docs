@@ -147,8 +147,8 @@
     "docs__en__agent-sdk__python.md": {
       "original_url": "https://platform.claude.com/docs/en/agent-sdk/python",
       "original_md_url": "https://platform.claude.com/docs/en/agent-sdk/python.md",
-      "hash": "f186f267d864110f6e96618177393d4f9afe1f461bb774e5b4b30beba188ae36",
-      "last_updated": "2026-03-31T00:30:06.552689"
+      "hash": "622afad2d8b8833e5928c6f97391030b28bb6bbff632228ad2fc7842f9f47008",
+      "last_updated": "2026-03-31T18:22:11.583554"
     },
     "docs__en__agent-sdk__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/agent-sdk/quickstart",
@@ -219,8 +219,8 @@
     "docs__en__agent-sdk__typescript.md": {
       "original_url": "https://platform.claude.com/docs/en/agent-sdk/typescript",
       "original_md_url": "https://platform.claude.com/docs/en/agent-sdk/typescript.md",
-      "hash": "981eff3fa0e0549966c259b4154d436d1223de20800866bf039290c1b1c97463",
-      "last_updated": "2026-03-31T00:30:15.037477"
+      "hash": "0bba33891bcc6fadd2dc1eb59282377641c343835a6fea53f7aa865f7b90d381",
+      "last_updated": "2026-03-31T18:22:20.103554"
     },
     "docs__en__agent-sdk__typescript-v2-preview.md": {
       "original_url": "https://platform.claude.com/docs/en/agent-sdk/typescript-v2-preview",
@@ -3021,8 +3021,8 @@
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
       "original_md_url": "https://platform.claude.com/docs/en/release-notes/overview.md",
-      "hash": "84a8e2dcdf8498583a78b8ed57b382051a1198cfb2f204e3749fcc83602fa77c",
-      "last_updated": "2026-03-31T06:38:15.528857"
+      "hash": "15c3d439915aee763a5478fc92411803adeb5cb42f7e80469f32af1476706d39",
+      "last_updated": "2026-03-31T18:28:43.493289"
     },
     "docs__en__release-notes__system-prompts.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
@@ -3147,14 +3147,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "4fbfffa1ee0cadb5af82367e91a8b24ed0af74bfe6d5ec7f946cac8079d6629d",
-      "last_updated": "2026-03-31T00:36:05.212046",
+      "hash": "5e4309f876c77fd5ecf65aee30b6e9166dbfbc3750c080b3730acad744e54997",
+      "last_updated": "2026-03-31T18:28:59.376287",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-03-31T12:28:28.973746",
-    "fetch_duration_seconds": 383.151631,
+    "last_fetch_completed": "2026-03-31T18:28:59.376407",
+    "fetch_duration_seconds": 425.203598,
     "total_pages_discovered": 695,
     "pages_fetched_successfully": 525,
     "pages_failed": 171,
@@ -3336,7 +3336,7 @@
     "total_files": 525,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-03-31T12:28:28.973775",
+  "last_updated": "2026-03-31T18:28:59.376430",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
