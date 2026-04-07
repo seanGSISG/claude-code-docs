@@ -2619,8 +2619,8 @@
     "docs__en__build-with-claude__adaptive-thinking.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking.md",
-      "hash": "04ae7a0536984c4a129c8702ca6d2c3f8ef7ea8e36f5e038a1e5b8f79a63eea9",
-      "last_updated": "2026-03-27T06:34:24.689817"
+      "hash": "a2ce9c3775170f4f4c7958d09cad6a28a1a8dc3d5e088f89d0aaa720e1171586",
+      "last_updated": "2026-04-07T00:36:59.897938"
     },
     "docs__en__build-with-claude__administration-api.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/administration-api",
@@ -2697,8 +2697,8 @@
     "docs__en__build-with-claude__effort.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/effort",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/effort.md",
-      "hash": "8fd5ec7fcf35d542a772b0a7dde16e7b7e6a39d1c32f74cf4ea1b4ad026320dd",
-      "last_updated": "2026-03-27T06:34:32.651994"
+      "hash": "a8bc4b56dbb971f2294cf4b2eba00f05419201953e1fe32d44464cff8bded206",
+      "last_updated": "2026-04-07T00:37:08.194639"
     },
     "docs__en__build-with-claude__embeddings.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/embeddings",
@@ -2817,8 +2817,8 @@
     "docs__en__build-with-claude__working-with-messages.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages.md",
-      "hash": "c9a9490dfbdfc72c7ec03400971890a70f9be469920fba8433d516101a3b43bd",
-      "last_updated": "2026-03-27T00:35:52.530801"
+      "hash": "3c7652292608f6acbe31600027a77e4e3705c09e85745f2ebe0f698911c6a7f1",
+      "last_updated": "2026-04-07T00:37:20.619731"
     },
     "docs__en__build-with-claude__workspaces.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/workspaces",
@@ -3099,8 +3099,8 @@
     "docs__en__test-and-evaluate__strengthen-guardrails__increase-consistency.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency",
       "original_md_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency.md",
-      "hash": "e26fa9f1c3e9324e37d53e78325e930d6a74f304c683a5bc3cecd31b5f55ab78",
-      "last_updated": "2026-02-24T00:33:44.520652"
+      "hash": "d47b5652ef2c3e362d5735abdbb3a6882e0b2aa598d4415bc47429e6f7364888",
+      "last_updated": "2026-04-07T00:37:58.870186"
     },
     "docs__en__test-and-evaluate__strengthen-guardrails__mitigate-jailbreaks.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
@@ -3123,8 +3123,8 @@
     "docs__en__test-and-evaluate__strengthen-guardrails__reduce-prompt-leak.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak",
       "original_md_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak.md",
-      "hash": "8d518ed7799004d6ba5f115d691441935ad98be5fd7650eba4475e90a310f32d",
-      "last_updated": "2026-02-24T00:33:46.932327"
+      "hash": "5c47eaaeea354aa7d36abd4b7e36dd6afc2ca7f3b44b97e44a099ba1bc571dc5",
+      "last_updated": "2026-04-07T00:38:01.328527"
     },
     "claude-code__third-party-integrations.md": {
       "original_url": "https://platform.claude.com/docs/en/third-party-integrations",
@@ -3153,8 +3153,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-04-06T18:27:51.006753",
-    "fetch_duration_seconds": 390.082799,
+    "last_fetch_completed": "2026-04-07T00:38:06.223529",
+    "fetch_duration_seconds": 393.378522,
     "total_pages_discovered": 700,
     "pages_fetched_successfully": 525,
     "pages_failed": 176,
@@ -3341,7 +3341,7 @@
     "total_files": 525,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-04-06T18:27:51.006776",
+  "last_updated": "2026-04-07T00:38:06.223553",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
