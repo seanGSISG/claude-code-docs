@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-04-09T18:23:15.696509Z",
-    "total_paths": 1171,
+    "generated_at": "2026-04-10T00:30:39.889959Z",
+    "total_paths": 1172,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-04-09T18:23:15.696515Z"
+    "last_regenerated": "2026-04-10T00:30:39.889966Z"
   },
   "categories": {
     "core_documentation": [
@@ -36,6 +36,7 @@
       "/docs/en/agents-and-tools/tool-use/overview",
       "/docs/en/agents-and-tools/tool-use/programmatic-tool-calling",
       "/docs/en/agents-and-tools/tool-use/text-editor-tool",
+      "/docs/en/agents-and-tools/tool-use/tool-reference",
       "/docs/en/agents-and-tools/tool-use/tool-search-tool",
       "/docs/en/agents-and-tools/tool-use/web-fetch-tool",
       "/docs/en/agents-and-tools/tool-use/web-search-tool",
