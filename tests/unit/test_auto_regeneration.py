@@ -273,7 +273,7 @@ class TestEdgeCases:
             assert result == expected_category, f"Path {path} should be {expected_category}, got {result}"
 
     def test_update_paths_manifest_empty_paths(self, tmp_path):
-        """Test with empty paths list."""
+        """Test with empty paths list - required categories are always present."""
         from fetch_claude_docs import update_paths_manifest
 
         manifest_file = tmp_path / "paths_manifest.json"
@@ -284,7 +284,10 @@ class TestEdgeCases:
             manifest = json.load(f)
 
         assert manifest["metadata"]["total_paths"] == 0
-        assert manifest["categories"] == {}
+        # Required categories should always be present (even if empty)
+        for cat in ['core_documentation', 'api_reference', 'claude_code', 'prompt_library']:
+            assert cat in manifest["categories"]
+            assert manifest["categories"][cat] == []
 
     def test_update_paths_manifest_many_paths(self, tmp_path):
         """Test with realistic number of paths (~502)."""
