@@ -189,8 +189,8 @@
     "claude-code__amazon-bedrock.md": {
       "original_url": "https://platform.claude.com/docs/en/amazon-bedrock",
       "original_md_url": "https://platform.claude.com/docs/en/amazon-bedrock.md",
-      "hash": "c40c85ec6f69d22fbaf94af6b0fb0ae0f6a6cf0b310dc96425327f18650148ee",
-      "last_updated": "2026-04-15T00:36:59.065780"
+      "hash": "713ede597b31b8964b547019c6d3d81748daf1180a0b7aca18b4da7ba32bdf44",
+      "last_updated": "2026-04-16T00:37:10.596956"
     },
     "claude-code__analytics.md": {
       "original_url": "https://platform.claude.com/docs/en/analytics",
@@ -5115,8 +5115,8 @@
     "claude-code__costs.md": {
       "original_url": "https://platform.claude.com/docs/en/costs",
       "original_md_url": "https://platform.claude.com/docs/en/costs.md",
-      "hash": "40c1221d7d6a6979c952a18c917498e5b141bb7c13a167a1ddfcd10aeef4f713",
-      "last_updated": "2026-04-15T00:46:24.260448"
+      "hash": "99f9561d8614d2f145d087a6abb53b371fc654ae51bc3645b7e8ffd6a364fe76",
+      "last_updated": "2026-04-16T00:47:17.974594"
     },
     "claude-code__data-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/data-usage",
@@ -5157,8 +5157,8 @@
     "claude-code__google-vertex-ai.md": {
       "original_url": "https://platform.claude.com/docs/en/google-vertex-ai",
       "original_md_url": "https://platform.claude.com/docs/en/google-vertex-ai.md",
-      "hash": "873f02cbedc85dfc7488fac497f80e664127d6aed11793adc033704a965f8fa3",
-      "last_updated": "2026-04-15T00:46:30.959985"
+      "hash": "ba55d654bd4386b7490a6665e244c16e9ce24683e7170c8ff5dd7c19ac1ab8a1",
+      "last_updated": "2026-04-16T00:47:24.175876"
     },
     "claude-code__headless.md": {
       "original_url": "https://platform.claude.com/docs/en/headless",
@@ -5343,8 +5343,8 @@
     "claude-code__microsoft-foundry.md": {
       "original_url": "https://platform.claude.com/docs/en/microsoft-foundry",
       "original_md_url": "https://platform.claude.com/docs/en/microsoft-foundry.md",
-      "hash": "ba9e5c892453c08746dfeb889e3a674be08044c20fa9f6773265f0fd338977d0",
-      "last_updated": "2026-04-15T00:46:51.527549"
+      "hash": "5578e5c61533a2c1c9d22bff2a48bca0617000ac75d755ce1b473694692dd8ef",
+      "last_updated": "2026-04-16T00:47:45.594551"
     },
     "claude-code__model-config.md": {
       "original_url": "https://platform.claude.com/docs/en/model-config",
@@ -5373,8 +5373,8 @@
     "claude-code__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/overview",
       "original_md_url": "https://platform.claude.com/docs/en/overview.md",
-      "hash": "d91af90657a74a12ce69705a658d7d160752b02f94b55bf5e9a09903ad2e7c0f",
-      "last_updated": "2026-04-15T00:46:56.406182"
+      "hash": "19588070589e8aebab240f5e713e4bc3a75de39166d33be9cd0cf1d95828f8f9",
+      "last_updated": "2026-04-16T00:47:48.476981"
     },
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
@@ -5397,8 +5397,8 @@
     "claude-code__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/quickstart",
       "original_md_url": "https://platform.claude.com/docs/en/quickstart.md",
-      "hash": "44d875f3e3cb5f05592cc64830b8686a71faa121867d1f0e987177a74d9c407b",
-      "last_updated": "2026-04-15T00:47:00.578076"
+      "hash": "fcc5850365187f549ea7ebb269026726b804e73d7e9451f3b817cd08dc0b7971",
+      "last_updated": "2026-04-16T00:47:51.562721"
     },
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
@@ -5445,8 +5445,8 @@
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
       "original_md_url": "https://platform.claude.com/docs/en/statusline.md",
-      "hash": "e272604e92df9696d3d08bd79db14bff006035b88f14aabf42d5ddecbcb424a0",
-      "last_updated": "2026-04-15T00:47:07.428041"
+      "hash": "93a49a8f14c1afa1a20c2728016425364a50764b1184757ea0d5ae84780ddc9f",
+      "last_updated": "2026-04-16T00:47:57.661074"
     },
     "claude-code__sub-agents.md": {
       "original_url": "https://platform.claude.com/docs/en/sub-agents",
@@ -5511,8 +5511,8 @@
     "claude-code__third-party-integrations.md": {
       "original_url": "https://platform.claude.com/docs/en/third-party-integrations",
       "original_md_url": "https://platform.claude.com/docs/en/third-party-integrations.md",
-      "hash": "e3cfa35c262458c97d03614185cf6da235fee7f58da6c42c5a73641fdd37b944",
-      "last_updated": "2026-04-15T00:47:15.082213"
+      "hash": "3f7b05c3e48cf042c409896b6fc62bfb0626c9c0f85aee085520991eecbf8615",
+      "last_updated": "2026-04-16T00:48:05.490142"
     },
     "claude-code__troubleshooting.md": {
       "original_url": "https://platform.claude.com/docs/en/troubleshooting",
@@ -5529,14 +5529,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "c12539d57b4c5013c927136f1193218c6e91c4769c76ca3ae6136712b9de1fd3",
-      "last_updated": "2026-04-15T06:51:12.019402",
+      "hash": "39be3234561e1a89e6a43f02e4db7e9f318ffaa04e809ac432c0390271a4ef20",
+      "last_updated": "2026-04-16T00:48:10.117816",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-04-15T18:39:37.899851",
-    "fetch_duration_seconds": 700.824224,
+    "last_fetch_completed": "2026-04-16T00:48:10.117939",
+    "fetch_duration_seconds": 687.702896,
     "total_pages_discovered": 1175,
     "pages_fetched_successfully": 922,
     "pages_failed": 254,
@@ -5801,7 +5801,7 @@
     "total_files": 922,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-04-15T18:39:37.899875",
+  "last_updated": "2026-04-16T00:48:10.117957",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
