@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-04-16T18:27:54.935004Z",
-    "total_paths": 1249,
+    "generated_at": "2026-04-17T00:34:51.174231Z",
+    "total_paths": 1250,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-04-16T18:27:54.935011Z"
+    "last_regenerated": "2026-04-17T00:34:51.174238Z"
   },
   "categories": {
     "core_documentation": [
@@ -93,6 +93,7 @@
       "/docs/en/desktop-scheduled-tasks",
       "/docs/en/discover-plugins",
       "/docs/en/env-vars",
+      "/docs/en/errors",
       "/docs/en/fast-mode",
       "/docs/en/features-overview",
       "/docs/en/fullscreen",
