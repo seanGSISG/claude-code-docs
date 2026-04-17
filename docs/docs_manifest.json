@@ -5601,8 +5601,8 @@
     "docs__en__managed-agents__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/quickstart",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/quickstart.md",
-      "hash": "e8efc745c93012a3ddb99b8610d35a0ca67901bd702e14eacc3284eaa198a862",
-      "last_updated": "2026-04-16T18:40:38.843233"
+      "hash": "6492826dd9d57d2a165fc763a22d52cbd8651edc931860e7147aa26ce3ccf192",
+      "last_updated": "2026-04-17T06:51:43.151228"
     },
     "docs__en__managed-agents__sessions.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/sessions",
@@ -5835,8 +5835,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-04-17T00:46:25.647085",
-    "fetch_duration_seconds": 694.990513,
+    "last_fetch_completed": "2026-04-17T06:52:13.155723",
+    "fetch_duration_seconds": 687.108608,
     "total_pages_discovered": 1250,
     "pages_fetched_successfully": 972,
     "pages_failed": 279,
@@ -6126,7 +6126,7 @@
     "total_files": 972,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-04-17T00:46:25.647103",
+  "last_updated": "2026-04-17T06:52:13.155742",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
