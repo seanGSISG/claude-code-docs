@@ -5535,8 +5535,8 @@
     "docs__en__managed-agents__events-and-streaming.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/events-and-streaming",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/events-and-streaming.md",
-      "hash": "1f257c33246dd8f0267d322b3b365eca50ffc33ea3dbca88b33df0a4b05764de",
-      "last_updated": "2026-04-22T00:44:23.927684"
+      "hash": "8c00282409acbb5b96f39091f6f3e7a9b963fe0bb10d97c7866ebeedc5804792",
+      "last_updated": "2026-04-22T06:52:34.435165"
     },
     "docs__en__managed-agents__files.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/files",
@@ -5835,8 +5835,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-04-22T00:45:00.550074",
-    "fetch_duration_seconds": 761.891171,
+    "last_fetch_completed": "2026-04-22T06:53:09.075858",
+    "fetch_duration_seconds": 723.852862,
     "total_pages_discovered": 1251,
     "pages_fetched_successfully": 972,
     "pages_failed": 280,
@@ -6127,7 +6127,7 @@
     "total_files": 972,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-04-22T00:45:00.550089",
+  "last_updated": "2026-04-22T06:53:09.075881",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
