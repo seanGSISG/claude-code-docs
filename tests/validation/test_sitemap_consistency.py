@@ -19,7 +19,6 @@ class TestManifestCompleteness:
             'core_documentation',
             'api_reference',
             'claude_code',
-            'prompt_library'
         ]
 
         for category in expected_categories:
@@ -163,7 +162,6 @@ class TestCategoryCounts:
             'core_documentation',
             'api_reference',
             'claude_code',
-            'prompt_library'
         ]
 
         for category in main_categories:
@@ -176,20 +174,19 @@ class TestCategoryCounts:
         """Test category counts are within reasonable ranges."""
         categories = paths_manifest['categories']
 
-        # Based on current active documentation (~1237 total paths):
-        # api_reference: ~991 (80.1%) - includes multi-language SDK docs
-        # core_documentation: ~136 (11.0%)
-        # prompt_library: ~64 (5.2%)
-        # claude_code: ~43 (3.5%)
+        # Based on current active documentation (~1251 total paths):
+        # api_reference: ~1062 (84.9%) - includes multi-language SDK docs
+        # core_documentation: ~143 (11.4%)
+        # claude_code: ~43 (3.4%)
         # release_notes: ~2
         # resources: ~1
+        # (prompt_library was retired upstream — redirects into prompt-engineering)
 
         # Allow reasonable variance for future updates
         expected_ranges = {
             'core_documentation': (60, 300),
             'api_reference': (200, 1500),  # Large due to multi-language SDK docs
             'claude_code': (30, 100),
-            'prompt_library': (40, 150)
         }
 
         for category, (min_count, max_count) in expected_ranges.items():

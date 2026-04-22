@@ -17,7 +17,7 @@ from .config import logger
 
 
 # Categories that must always be present in the manifest, even if temporarily empty
-REQUIRED_CATEGORIES = ['core_documentation', 'api_reference', 'claude_code', 'prompt_library']
+REQUIRED_CATEGORIES = ['core_documentation', 'api_reference', 'claude_code']
 
 
 def url_to_safe_filename(url_path: str, source_domain: str = None) -> str:

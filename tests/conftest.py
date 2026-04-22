@@ -177,7 +177,6 @@ def paths_manifest():
             'core_documentation': [],
             'api_reference': [],
             'claude_code': [],
-            'prompt_library': []
         }
     }
 
@@ -215,7 +214,6 @@ def temp_manifest(tmp_path):
                 '/en/api/streaming'
             ],
             'claude_code': [],
-            'prompt_library': []
         }
     }
     manifest_path.write_text(json.dumps(manifest_data, indent=2))
