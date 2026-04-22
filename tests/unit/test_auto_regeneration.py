@@ -285,7 +285,7 @@ class TestEdgeCases:
 
         assert manifest["metadata"]["total_paths"] == 0
         # Required categories should always be present (even if empty)
-        for cat in ['core_documentation', 'api_reference', 'claude_code', 'prompt_library']:
+        for cat in ['core_documentation', 'api_reference', 'claude_code']:
             assert cat in manifest["categories"]
             assert manifest["categories"][cat] == []
 

@@ -1,8 +1,6 @@
 # Claude Code Documentation Tool
 
 [![Last Update](https://img.shields.io/github/last-commit/seanGSISG/claude-code-docs/main.svg?label=docs%20updated)](https://github.com/seanGSISG/claude-code-docs/commits/main)
-[![Tests](https://img.shields.io/badge/tests-294%20passing-success)](https://github.com/seanGSISG/claude-code-docs/actions)
-[![Coverage](https://img.shields.io/badge/coverage-17.6%25-yellow)](https://github.com/seanGSISG/claude-code-docs)
 [![Python](https://img.shields.io/badge/python-3.9+-blue)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey)](https://github.com/seanGSISG/claude-code-docs)
 [![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge.svg)](https://github.com/hesreallyhim/awesome-claude-code)
@@ -17,17 +15,16 @@
 
 **Fast, searchable access to Claude Code documentation - locally, always up-to-date.**
 
-Stop hunting through scattered docs. This tool provides instant access to **573 actively maintained** Claude documentation paths covering API references, guides, examples, and changelogs.
+Stop hunting through scattered docs. This tool provides instant access to the full Claude documentation catalog covering API references, guides, examples, and changelogs.
 
 ## Key Features
 
 - 🤖 **AI-Powered Search** - Ask questions naturally, Claude understands intent and routes intelligently
-- 📚 **Complete Coverage** - 573 documentation paths tracked, 571 files downloaded
+- 📚 **Complete Coverage** - Full mirror of the Anthropic docs sitemap, refreshed every 3 hours
 - 🔍 **Semantic Understanding** - No primitive keyword matching, leverages Claude's language understanding
-- ✅ **Auto-Validated** - Continuous validation detects broken links automatically
+- ✅ **Auto-Validated** - Scheduled validation catches broken links and upstream URL churn
 - 🔄 **Always Fresh** - Repository updated every 3 hours; run `/docs -t` to pull latest
 - 🎯 **Graceful Degradation** - Works with or without Python
-- 🧪 **Well-Tested** - 296 tests (294 passing, 2 skipped)
 
 ## How It Works
 
@@ -42,21 +39,19 @@ The magic is in combining a simple local file system with Claude's language unde
 
 ## What's Included
 
-**Documentation Paths** (573 tracked in manifest across 6 categories):
-- API Reference (377 paths, 65.8%) - Complete API docs, Admin API, Agent SDK
-  - 🐍 **Python** (45 docs) | 📘 **TypeScript** (45 docs) | 🔷 **Go** (45 docs)
-  - ☕ **Java** (45 docs) | 🟣 **Kotlin** (45 docs) | 💎 **Ruby** (45 docs)
-- Core Documentation (82 paths, 14.3%) - Guides, tutorials, best practices
-- Prompt Library (65 paths, 11.3%) - Ready-to-use prompt templates
-- Claude Code (46 paths, 8.0%) - CLI-specific docs, hooks, skills, MCP
+**Documentation Paths** (~1,250 tracked in manifest across five active categories; counts as of 2026-04):
+- API Reference (~1,060 paths, ~85%) - Complete API docs, Admin API, Agent SDK
+  - 🐍 **Python** | 📘 **TypeScript** | 🔷 **Go** | ☕ **Java** | 💎 **Ruby** | 🖥️ **CLI** (~98 docs each)
+- Core Documentation (~143 paths, ~11%) - Guides, tutorials, best practices, prompt engineering
+- Claude Code (~43 paths, ~3%) - CLI-specific docs: hooks, skills, MCP, sub-agents, plugins
 - Release Notes (2 paths) - Version history
 - Resources (1 path) - Additional resources
 
-> 💡 **Multi-language support**: Whether you're building with Python, TypeScript, Go, Java, Kotlin, or Ruby - the API documentation for your language is included and searchable!
+> 💡 **Multi-language support**: API documentation for Python, TypeScript, Go, Java, Ruby, and curl is mirrored and searchable.
 
 > 🚀 **No Python required!** Core features including AI-powered semantic search work with just bash. Python 3.9+ enables advanced full-text search and path validation.
 
-**Files Downloaded** (571 actual .md files)
+> ℹ️ **Note on Prompt Library**: Anthropic retired the standalone Prompt Library in April 2026; the prompt-engineering content was consolidated into `/docs/en/build-with-claude/prompt-engineering/*` and is now part of Core Documentation.
 
 **Optional Python Features** (requires Python 3.9+):
 - Full-text content search (`--search-content`)
@@ -75,7 +70,7 @@ curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/ins
 
 **What it does:**
 1. Clones repository to `~/.claude-code-docs`
-2. Installs 571 documentation files
+2. Installs the full documentation mirror (~1,000+ markdown files)
 3. Sets up `/docs` command in Claude Code
 4. Verifies installation integrity
 
@@ -110,38 +105,17 @@ Works on: All interactive shells
 
 ## Upgrading
 
-### From v0.4.x to v0.5.0
-
-Version 0.5.0 includes significant improvements requiring a fresh installation:
+Re-run the installer — it detects the existing install and upgrades atomically:
 
 ```bash
-# Re-run the installer - it handles everything automatically
 curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
-The installer will:
-1. Detect your existing v0.4.x installation
-2. Show you what's changing (version, doc count, new features)
-3. Perform an atomic upgrade
-4. Verify the new installation
+Or pull the latest docs in place:
 
-**What You Get:**
-
-| Metric | v0.4.x | v0.5.0 |
-|--------|--------|--------|
-| Documentation Files | ~270 | 571 |
-| Tracked Paths | 273 | 573 |
-| Python Modules | Monolithic | Modular (15 modules) |
-| Safety Thresholds | None | 3 safeguards |
-
-**What Changes:**
-- Filename convention: `docs__en__hooks.md` → `claude-code__hooks.md`
-- Script structure: Flat files → Organized packages (`fetcher/`, `lookup/`)
-
-**What Stays the Same:**
-- `/docs` command interface
-- All user configs in `~/.claude/`
-- Python feature detection (3.9+ optional)
+```bash
+cd ~/.claude-code-docs && git pull
+```
 
 ## Usage
 
@@ -228,7 +202,7 @@ The installer will:
 For power users who want direct access to helper functions:
 
 ```bash
-# Fuzzy search across 573 paths (requires Python 3.9+)
+# Fuzzy search across all tracked paths (requires Python 3.9+)
 ~/.claude-code-docs/claude-docs-helper.sh --search "keyword"
 
 # Full-text content search (requires Python 3.9+)
@@ -249,10 +223,9 @@ For power users who want direct access to helper functions:
 ## Architecture
 
 **Single Installation** - Always installs complete repository:
-- 573 documentation paths tracked in manifest (6 categories)
-- 571 files downloaded
+- Full documentation mirror (~1,250 paths across five active categories)
 - Modular Python packages for enhanced features
-- Full test suite (294 tests)
+- Validation and unit test suites
 
 **Modular Code Structure** - Python code organized into focused packages:
 ```
@@ -411,8 +384,8 @@ These safeguards protect against:
 - You can fork and install from your own repository
 
 **Validation:**
-- 294/296 tests passing (99.3% pass rate, 2 skipped)
-- Automated security testing in CI/CD
+- Unit + validation test suites run in CI on Python 3.9–3.12
+- Daily scheduled workflow validates every mirrored path is reachable
 
 ## Contributing
 
@@ -435,7 +408,7 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 
 # Run tests
-pytest tests/ -v  # Should see: 294 passed, 2 skipped
+pytest tests/ -v
 ```
 
 ## Acknowledgments
