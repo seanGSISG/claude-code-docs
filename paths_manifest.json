@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-04-22T12:24:39.511349Z",
+    "generated_at": "2026-04-22T18:25:41.738888Z",
     "total_paths": 1251,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-04-22T12:24:39.511356Z"
+    "last_regenerated": "2026-04-22T18:25:41.738896Z"
   },
   "categories": {
     "core_documentation": [
@@ -1260,7 +1260,6 @@
       "/docs/en/troubleshooting",
       "/docs/en/vs-code"
     ],
-    "prompt_library": [],
     "release_notes": [
       "/docs/en/release-notes/overview",
       "/docs/en/release-notes/system-prompts"
