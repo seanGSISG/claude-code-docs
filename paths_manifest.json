@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-04-22T18:25:41.738888Z",
-    "total_paths": 1251,
+    "generated_at": "2026-04-23T00:37:35.200943Z",
+    "total_paths": 1252,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-04-22T18:25:41.738896Z"
+    "last_regenerated": "2026-04-23T00:37:35.200949Z"
   },
   "categories": {
     "core_documentation": [
@@ -42,6 +42,7 @@
       "/docs/en/agents-and-tools/tool-use/web-fetch-tool",
       "/docs/en/agents-and-tools/tool-use/web-search-tool",
       "/docs/en/authentication",
+      "/docs/en/auto-mode-config",
       "/docs/en/best-practices",
       "/docs/en/build-with-claude/adaptive-thinking",
       "/docs/en/build-with-claude/administration-api",
