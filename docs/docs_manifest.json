@@ -6363,8 +6363,8 @@
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
       "original_md_url": "https://platform.claude.com/docs/en/skills.md",
-      "hash": "8904aefafb695007cc2c73809750508675cc6be4655992ee8f8b726370176795",
-      "last_updated": "2026-04-22T00:44:47.262987"
+      "hash": "382b48aed37e52e7ff8a58cb22a3c877833709c8011666715ac735c051fa8a90",
+      "last_updated": "2026-04-26T06:53:31.933812"
     },
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
@@ -6459,8 +6459,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-04-26T00:49:51.007454",
-    "fetch_duration_seconds": 778.291473,
+    "last_fetch_completed": "2026-04-26T06:53:44.398561",
+    "fetch_duration_seconds": 777.496864,
     "total_pages_discovered": 1379,
     "pages_fetched_successfully": 1076,
     "pages_failed": 304,
@@ -6775,7 +6775,7 @@
     "total_files": 1076,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-04-26T00:49:51.007480",
+  "last_updated": "2026-04-26T06:53:44.398582",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
