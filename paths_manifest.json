@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-04-28T12:38:51.263363Z",
-    "total_paths": 1381,
+    "generated_at": "2026-04-28T18:34:57.823952Z",
+    "total_paths": 1384,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-04-28T12:38:51.263371Z"
+    "last_regenerated": "2026-04-28T18:34:57.823958Z"
   },
   "categories": {
     "core_documentation": [
@@ -94,6 +94,7 @@
       "/docs/en/build-with-claude/vision",
       "/docs/en/build-with-claude/working-with-messages",
       "/docs/en/build-with-claude/workspaces",
+      "/docs/en/champion-kit",
       "/docs/en/changelog",
       "/docs/en/channels",
       "/docs/en/channels-reference",
@@ -101,6 +102,7 @@
       "/docs/en/claude-directory",
       "/docs/en/code-review",
       "/docs/en/commands",
+      "/docs/en/communications-kit",
       "/docs/en/computer-use",
       "/docs/en/context-window",
       "/docs/en/debug-your-config",
@@ -114,6 +116,7 @@
       "/docs/en/fullscreen",
       "/docs/en/get-started",
       "/docs/en/github-enterprise-server",
+      "/docs/en/glossary",
       "/docs/en/how-claude-code-works",
       "/docs/en/intro",
       "/docs/en/keybindings",
