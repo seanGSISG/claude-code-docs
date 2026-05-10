@@ -6807,8 +6807,8 @@
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
       "original_md_url": "https://platform.claude.com/docs/en/hooks-guide.md",
-      "hash": "ccd1639a9d75881ff461746c92514826d6dc1e2ba49b5c6e167c1de3acc172df",
-      "last_updated": "2026-05-05T00:51:04.669774"
+      "hash": "6507f3a52100ae36531053973b22f7de7ce367c729cef77e5cad89bda5209876",
+      "last_updated": "2026-05-10T18:35:19.100815"
     },
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
@@ -7263,8 +7263,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-05-10T12:35:14.377257",
-    "fetch_duration_seconds": 812.716412,
+    "last_fetch_completed": "2026-05-10T18:36:11.400743",
+    "fetch_duration_seconds": 875.550966,
     "total_pages_discovered": 1539,
     "pages_fetched_successfully": 1210,
     "pages_failed": 330,
@@ -7605,7 +7605,7 @@
     "total_files": 1210,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-05-10T12:35:14.377282",
+  "last_updated": "2026-05-10T18:36:11.400767",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
