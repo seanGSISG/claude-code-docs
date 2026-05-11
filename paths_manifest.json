@@ -1,14 +1,15 @@
 {
   "metadata": {
-    "generated_at": "2026-05-11T13:02:33.413047Z",
-    "total_paths": 1539,
+    "generated_at": "2026-05-11T18:40:18.017364Z",
+    "total_paths": 1541,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-05-11T13:02:33.413056Z"
+    "last_regenerated": "2026-05-11T18:40:18.017374Z"
   },
   "categories": {
     "core_documentation": [
       "/docs/en/admin-setup",
       "/docs/en/agent-teams",
+      "/docs/en/agent-view",
       "/docs/en/agents-and-tools/agent-skills/best-practices",
       "/docs/en/agents-and-tools/agent-skills/enterprise",
       "/docs/en/agents-and-tools/agent-skills/overview",
@@ -50,6 +51,7 @@
       "/docs/en/build-with-claude/claude-in-microsoft-foundry",
       "/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy",
       "/docs/en/build-with-claude/claude-on-vertex-ai",
+      "/docs/en/build-with-claude/claude-platform-on-aws",
       "/docs/en/build-with-claude/compaction",
       "/docs/en/build-with-claude/context-editing",
       "/docs/en/build-with-claude/context-windows",
