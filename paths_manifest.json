@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-05-26T18:50:30.604398Z",
-    "total_paths": 1681,
+    "generated_at": "2026-05-27T00:47:23.908329Z",
+    "total_paths": 1682,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-05-26T18:50:30.604405Z"
+    "last_regenerated": "2026-05-27T00:47:23.908339Z"
   },
   "categories": {
     "core_documentation": [
@@ -97,7 +97,6 @@
       "/docs/en/context-window",
       "/docs/en/debug-your-config",
       "/docs/en/deep-links",
-      "/docs/en/desktop-changelog",
       "/docs/en/desktop-quickstart",
       "/docs/en/desktop-scheduled-tasks",
       "/docs/en/discover-plugins",
@@ -113,6 +112,7 @@
       "/docs/en/how-claude-code-works",
       "/docs/en/intro",
       "/docs/en/keybindings",
+      "/docs/en/large-codebases",
       "/docs/en/manage-claude/admin-api",
       "/docs/en/manage-claude/api-and-data-retention",
       "/docs/en/manage-claude/authentication",
@@ -171,6 +171,7 @@
       "/docs/en/routines",
       "/docs/en/sandbox-environments",
       "/docs/en/scheduled-tasks",
+      "/docs/en/security-guidance",
       "/docs/en/server-managed-settings",
       "/docs/en/sessions",
       "/docs/en/slack",
