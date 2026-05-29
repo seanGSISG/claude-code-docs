@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-05-29T07:23:39.330590Z",
+    "generated_at": "2026-05-29T13:08:55.913274Z",
     "total_paths": 1685,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-05-29T07:23:39.330599Z"
+    "last_regenerated": "2026-05-29T13:08:55.913283Z"
   },
   "categories": {
     "core_documentation": [
@@ -141,7 +141,7 @@
       "/docs/en/manage-claude/workload-identity-federation",
       "/docs/en/manage-claude/workspaces",
       "/docs/en/managed-agents/agent-setup",
-      "/docs/en/managed-agents/cloud-containers",
+      "/docs/en/managed-agents/cloud-sandboxes-reference",
       "/docs/en/managed-agents/define-outcomes",
       "/docs/en/managed-agents/dreams",
       "/docs/en/managed-agents/environments",
