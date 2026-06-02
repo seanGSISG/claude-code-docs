@@ -140,7 +140,7 @@ jobs:
           pip install requests>=2.32.0
 
           # Verify Python scripts exist
-          if [ -f "scripts/main.py" ] && [ -f "scripts/lookup_paths.py" ]; then
+          if [ -f "scripts/fetch_claude_docs.py" ] && [ -f "scripts/lookup_paths.py" ]; then
             echo "✓ Enhanced mode Python scripts found"
             python3 -c "import sys; print(f\"Python {sys.version} available\")"
           else

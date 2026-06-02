@@ -140,8 +140,11 @@ Examples:
         if args.search_content:
             index = load_search_index()
             if not index:
-                print("❌ Search index not found.")
-                print("Run: python scripts/build_search_index.py")
+                # The pre-built index was removed; content search now runs over
+                # the live files via ripgrep. Redirect callers accordingly.
+                print("Content search no longer uses a pre-built index.")
+                print("Use the helper (ripgrep, grep fallback):")
+                print('  ~/.claude-code-docs/claude-docs-helper.sh --search-content "<query>"')
                 return 1
 
             results = search_content(args.search_content, index, args.max_results)

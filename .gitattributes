@@ -6,4 +6,3 @@ docs/*.md linguist-generated=true
 docs/**/*.md linguist-generated=true
 
 # Also mark search index as generated
-docs/.search_index.json linguist-generated=true

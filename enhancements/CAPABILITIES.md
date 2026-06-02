@@ -1,325 +1,75 @@
 # Enhanced Documentation Capabilities
 
-This document describes the actual capabilities of the enhanced edition of claude-code-docs, based on the fetched documentation from docs.anthropic.com.
+This document describes the actual capabilities of the enhanced edition of
+claude-code-docs, based on the mirrored documentation from the Anthropic sitemaps.
 
 ## Documentation Coverage
 
 ### Path Statistics
 
-The enhanced edition provides comprehensive coverage of Anthropic's documentation:
-
-- **Total Paths Tracked**: 573 documentation paths (in `paths_manifest.json`)
-- **Files Downloaded**: 571 actual .md files
-- **Auto-Discovery**: Paths discovered from official sitemaps, regenerated automatically
+- **Total paths tracked**: ~1,702 documentation paths (in `paths_manifest.json`)
+- **Files downloaded**: ~1,530 `.md` files
+- **Auto-discovery**: paths discovered from the official sitemaps, manifest regenerated automatically
 
 ### Category Breakdown
 
-Documentation is organized into 6 primary categories:
+Documentation is organized into four categories (approximate, as of 2026-06):
 
-1. **API Reference** (377 paths - 65.8%)
-   - Complete API documentation
-   - Administration API (users, workspaces, API keys, invites)
-   - Agent SDK documentation
-   - Multi-language SDK docs (Python, TypeScript, Go, Java, Kotlin, Ruby)
-   - Messages API, Files API, Batch processing APIs, Skills API
+1. **API Reference** (~1,459 paths, ~86%) - Messages/Files/Batch APIs, Admin API,
+   Agent SDK, and multi-language SDK docs (Python, TypeScript, Go, Java, Kotlin, Ruby)
+2. **Core Documentation** (~199 paths, ~12%) - About Claude, build-with-Claude
+   (prompt engineering, streaming, extended thinking), evaluation, release notes
+3. **Claude Code** (~43 paths, ~3%) - CLI setup, hooks, skills, MCP, memory, sub-agents, plugins
+4. **Uncategorized** (~1 path)
 
-2. **Core Documentation** (82 paths - 14.3%)
-   - About Claude (models, pricing, security, compliance)
-   - Build with Claude (prompt engineering, text generation, streaming)
-   - Test and Evaluate (guardrails, success metrics, testing)
-   - Use case guides and examples
-   - Getting started and quickstart guides
+## Search
 
-3. **Prompt Library** (65 paths - 11.3%)
-   - Coding assistants (code consultant, bug buster, function fabricator)
-   - Data processing (CSV converter, data organizer, spreadsheet sorcerer)
-   - Writing tools (grammar genie, prose polisher, memo maestro)
-   - Creative prompts (storytelling sidekick, pun-dit, cosmic keystrokes)
-   - Professional tools (meeting scribe, career coach, interview crafter)
+### Content Search (ripgrep)
 
-4. **Claude Code** (46 paths - 8.0%)
-   - CLI-specific documentation
-   - IDE integrations (VS Code, JetBrains)
-   - CI/CD integrations (GitHub Actions, GitLab CI/CD)
-   - Cloud platforms (Amazon Bedrock, Google Vertex AI)
-   - Advanced features (MCP, hooks, plugins, skills)
-   - Configuration and troubleshooting
+**Command**: `--search-content <query>` (or the built-in **Grep** tool)
 
-5. **Release Notes** (2 paths - 0.3%)
-   - API release notes
-   - System prompts updates
+- **Live search**: runs over the actual `.md` files — no pre-built index, always current
+- **Engine**: ripgrep when available, with `grep` as the universal fallback
+- **No Python required**: works on any platform out of the box
+- **Output**: matching doc filenames (which encode the path) for the agent to read
 
-6. **Resources** (1 path - 0.2%)
-   - Resources overview
+### Fuzzy Path Search
 
-## Search Capabilities
+**Command**: `--search <query>` (requires Python 3.9+), or the built-in **Glob** tool
 
-### Path Search
+Fuzzy matching across all tracked paths with relevance ranking, category filtering, and
+suggestions. Since filenames encode the path, `Glob("**/*<topic>*.md")` over the docs
+directory is the fastest path lookup and needs no Python.
 
-**Command**: `--search <query>`
+### Direct Topic Read
 
-Fuzzy search across all 573 documentation paths with intelligent matching:
+`claude-docs-helper.sh <topic>` reads a specific doc by name (path-traversal protected).
 
-- **Pattern matching**: Finds paths containing search terms
-- **Fuzzy matching**: Suggests similar paths when exact match not found
-- **Relevance ranking**: Orders results by relevance
-- **Category filtering**: Can filter by documentation category
-- **Multiple matches**: Shows all relevant results
+## Validation
 
-**Example queries**:
-- `--search mcp` - Finds MCP-related documentation
-- `--search "claude code"` - Finds Claude Code specific docs
-- `--search api` - Finds API reference pages
-- `--search hooks` - Finds hook configuration and guides
+**Command**: `--validate` (requires Python 3.9+)
 
-### Full-Text Search
+HTTP reachability testing of all documentation paths (parallel via ThreadPoolExecutor),
+with broken-link detection and detailed reports. Implemented in `scripts/lookup/`.
 
-**Command**: `--search-content <query>`
+## Fetching & Updates
 
-Searches within documentation content (not just path names):
+`scripts/fetch_claude_docs.py` → `scripts/fetcher/`:
 
-- **Content indexing**: Searches actual documentation text
-- **Keyword extraction**: Finds relevant documents by content keywords
-- **Stop word filtering**: Ignores common words for better results
-- **Ranking**: Orders results by relevance to query
+- SHA256-based change detection (only fetch what changed)
+- Retry with backoff, rate limiting, progress tracking
+- Deletion safeguards that refuse catastrophic loss (see README → Security)
+- Manifest regeneration from sitemaps on each fetch
 
-**Implementation**:
-- Pre-built search index: `docs/.search_index.json`
-- Index builder: `scripts/build_search_index.py`
-- Index size: ~45KB for 571 documents
-- Search speed: <100ms per query
+Updates land via the `update-docs.yml` workflow every 3 hours; `--validate` runs daily.
 
-## Validation Features
+## Cross-Platform
 
-### Path Validation
+Works on macOS, Linux, and Windows (Git Bash). The helper resolves `python3` or
+`python`, emits UTF-8 correctly under legacy Windows code pages, and uses ripgrep/`grep`
+for content search.
 
-**Command**: `--validate`
+## Dependencies
 
-Validates HTTP reachability of all documentation paths:
-
-- **Reachability testing**: Tests each path against docs.anthropic.com
-- **Parallel validation**: Uses ThreadPoolExecutor for fast validation
-- **Progress tracking**: Shows real-time validation progress
-- **Detailed reports**: Generates comprehensive validation reports
-- **Broken link detection**: Identifies and reports unreachable paths
-
-**Validation metrics**:
-- Average validation time: ~60 seconds for 573 paths
-- Concurrent requests: Configurable (default: 10)
-- Request timeout: 10 seconds per path
-- Error handling: Retries with exponential backoff
-
-### Validation Reports
-
-Validation generates detailed reports including:
-
-- Total paths validated
-- Successful validations (HTTP 200)
-- Failed validations with error codes
-- Alternative suggestions for broken links
-- Timestamp and metadata
-
-## Advanced Features
-
-### Change Detection
-
-**Technology**: SHA256-based hashing
-
-Efficiently updates only changed documentation:
-
-- Calculates content hash for each document
-- Compares with stored hashes in manifest
-- Fetches only documents that changed
-- Maintains last_updated timestamps
-
-**Benefits**:
-- Faster updates (only fetch what changed)
-- Reduced bandwidth usage
-- Lower API load
-- Better performance
-
-### Batch Operations
-
-**Script**: `scripts/main.py`
-
-Advanced fetching with enterprise features:
-
-- **Batch fetching**: Update all 573 paths efficiently
-- **Category updates**: Update specific categories only
-- **Rate limiting**: 0.5s delay between requests
-- **Retry logic**: Exponential backoff on failures
-- **Progress tracking**: Real-time progress indicators
-- **Error recovery**: Continues on individual failures
-
-**Performance**:
-- Fetch speed: ~32 seconds per 100 paths
-- Memory usage: ~35 MB
-- Success rate: >99%
-
-### Path Management
-
-**Tools included**:
-
-1. **Extract Paths** (`scripts/extract_paths.py`)
-   - Extract paths from sitemap
-   - Clean duplicates and artifacts
-   - Categorize by documentation section
-   - Validate path format
-
-2. **Clean Manifest** (`scripts/clean_manifest.py`)
-   - Remove broken paths
-   - Update reachability status
-   - Generate validation reports
-   - Maintain manifest integrity
-
-3. **Update Sitemap** (`scripts/update_sitemap.py`)
-   - Generate hierarchical trees
-   - Update search index
-   - Maintain compatibility
-   - Export path lists
-
-## Technical Implementation
-
-### Python Architecture
-
-**Core scripts**:
-
-- `main.py` (662 lines) - Enhanced documentation fetcher
-- `lookup_paths.py` (597 lines) - Search and validation
-- `update_sitemap.py` (504 lines) - Sitemap management
-- `build_search_index.py` - Full-text search indexer
-
-**Dependencies**:
-- Python 3.9+
-- requests library
-- Standard library modules (json, pathlib, concurrent.futures)
-
-### Data Structures
-
-**paths_manifest.json**:
-```json
-{
-  "metadata": {
-    "generated_at": "timestamp",
-    "total_paths": 573,
-    "source": "sitemap_discovery",
-    "last_regenerated": "timestamp"
-  },
-  "categories": {
-    "api_reference": [...],
-    "core_documentation": [...],
-    "prompt_library": [...],
-    "claude_code": [...],
-    ...
-  }
-}
-```
-
-**docs_manifest.json**:
-```json
-{
-  "path/to/doc.md": {
-    "hash": "sha256_hash",
-    "last_updated": "timestamp",
-    "original_md_url": "https://...",
-    "original_url": "https://..."
-  }
-}
-```
-
-### Integration
-
-Enhanced features integrate seamlessly:
-
-- **Detection**: Automatic feature detection at runtime
-- **Fallback**: Graceful degradation to standard mode
-- **Compatibility**: Works with existing upstream scripts
-- **Testing**: Comprehensive test suite (577 tests)
-
-## Performance Characteristics
-
-### Search Performance
-
-- **Path search**: ~90ms average
-- **Content search**: <100ms per query
-- **Index build**: ~2 seconds for 571 documents
-- **Index size**: ~45KB (minimal disk usage)
-
-### Fetch Performance
-
-- **Speed**: ~32 seconds per 100 paths
-- **Memory**: ~35 MB typical usage
-- **Throughput**: ~3 documents per second
-- **Scalability**: Linear scaling to thousands of paths
-
-### Validation Performance
-
-- **Full validation**: ~60 seconds for 573 paths
-- **Parallel requests**: 10 concurrent by default
-- **Success rate**: >99%
-- **Resource usage**: Low CPU, minimal memory
-
-## Feature Availability
-
-| Capability | Without Python | With Python 3.9+ |
-|-----------|----------------|------------------|
-| Documentation paths tracked | 573 | 573 |
-| Files downloaded | 571 | 571 |
-| Search method | Topic name via AI | Path + content + AI |
-| Validation | None | HTTP reachability |
-| Update method | Git pull | Auto-fetch + validation |
-| Category support | Yes (6 categories) | Yes (6 categories) |
-| Testing | N/A | 294 tests |
-
-## Use Cases
-
-### For Users
-
-1. **Finding documentation**: Fast search across all Anthropic docs
-2. **Staying updated**: Automatic updates when docs change
-3. **Offline access**: Local copy of all documentation
-4. **Category browsing**: Browse by topic area
-
-### For Developers
-
-1. **Integration testing**: Validate doc paths in CI/CD
-2. **Documentation audits**: Check for broken links
-3. **Content analysis**: Search documentation programmatically
-4. **Custom tooling**: Build on top of path manifest
-
-### For Contributors
-
-1. **Path discovery**: Find new documentation to mirror
-2. **Quality assurance**: Validate all paths work
-3. **Coverage analysis**: Track documentation coverage
-4. **Update automation**: Automated fetching and validation
-
-## Future Capabilities
-
-Potential enhancements being considered:
-
-- Search ranking improvements
-- Additional documentation sources
-- Version tracking and history
-- API for programmatic access
-- Enhanced categorization
-- Related document suggestions
-
-## Limitations
-
-Current limitations to be aware of:
-
-- Requires Python 3.9+ for enhanced features
-- Requires internet connection for validation
-- Rate limiting applies to batch operations
-- Search quality depends on indexed content
-- Some dynamically generated content may not be captured
-
-## Getting Help
-
-For questions about capabilities:
-
-1. Check this document for feature details
-2. See `EXAMPLES.md` for usage examples
-3. See `README.md` for installation help
-4. Review test suite for advanced usage patterns
+- **Required**: git, jq, curl, and ripgrep (the Grep tool bundles it; `grep` is the fallback)
+- **Optional**: Python 3.9+ and `requests` (fuzzy path search, validation, fetching)

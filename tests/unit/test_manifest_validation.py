@@ -188,37 +188,5 @@ class TestDocsManifest:
                 assert len(missing_fetched) == 0, \
                     f"{filename} missing fetched fields: {missing_fetched}"
 
-class TestSearchIndex:
-    """Tests for search index consistency"""
-
-    def test_search_index_exists(self, project_root):
-        """Verify search index file exists"""
-        search_index = project_root / 'docs' / '.search_index.json'
-        assert search_index.exists(), "Search index not found"
-
-    def test_search_index_valid_json(self, project_root):
-        """Verify search index is valid JSON"""
-        search_index = project_root / 'docs' / '.search_index.json'
-
-        with open(search_index) as f:
-            data = json.load(f)
-
-        assert 'indexed_files' in data
-        assert 'index' in data
-
-    def test_search_index_file_count(self, project_root):
-        """Verify search index covers all docs on disk"""
-        search_index = project_root / 'docs' / '.search_index.json'
-
-        with open(search_index) as f:
-            data = json.load(f)
-
-        indexed_files = data.get('indexed_files', 0)
-
-        # Count actual markdown files on disk
-        docs_dir = project_root / 'docs'
-        actual_file_count = len([f for f in docs_dir.glob('*.md') if f.name != 'docs_manifest.json'])
-
-        # Indexed count should match actual file count on disk
-        assert indexed_files == actual_file_count, \
-            f"Search index has {indexed_files} files, but {actual_file_count} docs exist on disk"
+# Search-index tests removed: content search now runs over the live files via
+# ripgrep (no pre-built index). See enhancements/CAPABILITIES.md.

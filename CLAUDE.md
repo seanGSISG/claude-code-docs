@@ -21,16 +21,16 @@ The docs are periodically updated via GitHub Actions with safeguards to prevent 
 This repository uses a **graceful degradation** approach:
 
 **Installation** (always the same):
-- 573 documentation paths tracked in manifest (6 categories)
-- 571 files downloaded
+- ~1,702 documentation paths tracked in manifest (4 categories)
+- ~1,530 files downloaded
 - Python scripts for enhanced features
-- Full test suite (294 tests) and GitHub workflows
+- Full test suite and GitHub workflows
 
-**Runtime Features** (Python-dependent):
-- **Without Python 3.9+**: Basic documentation reading via shell scripts
-- **With Python 3.9+**: Full-text search, path validation, fuzzy matching, auto-regeneration
+**Runtime Features**:
+- **Always available**: documentation reading and ripgrep content search (with `grep` fallback)
+- **With Python 3.9+**: fuzzy path matching, HTTP path validation, manifest auto-regeneration
 
-There is NO separate "standard mode installation" - the full repository is always installed. Python features simply activate when Python 3.9+ is available.
+There is NO separate "standard mode installation" - the full repository is always installed. Content search works everywhere; the Python-only features activate when Python 3.9+ is available.
 
 ## For /docs Command - AI-Powered Semantic Search
 
@@ -51,15 +51,15 @@ When responding to /docs commands:
    - **What's new**: User wants recent changes (e.g., `/docs what's new`)
 
 3. **Intelligent Routing**: Based on semantic understanding, route to appropriate functions:
-   - `--search-content "<keywords>"` for semantic information searches (requires Python 3.9+)
-   - `--search "<keywords>"` for path discovery (requires Python 3.9+)
+   - Content search — prefer the **Grep** tool over `~/.claude-code-docs/docs` (bundled ripgrep); or `--search-content "<keywords>"` (ripgrep, `grep` fallback)
+   - Path discovery — the **Glob** tool over the docs dir, or `--search "<keywords>"` (requires Python 3.9+)
    - `<topic>` for direct documentation lookups
    - `-t` for freshness checks
    - `"what's new"` for recent changes
 
-4. **Graceful Degradation**: The helper script automatically detects Python availability:
-   - **With Python 3.9+**: Full AI-powered search with content search, path search, validation
-   - **Without Python**: Basic documentation reading, explain limitations gracefully
+4. **Graceful Degradation**: Content search always works (ripgrep, then `grep`). The helper detects Python availability:
+   - **With Python 3.9+**: adds fuzzy path search (`--search`) and validation
+   - **Without Python**: content search, direct reads, and freshness checks all still work
 
 5. **Natural Presentation**: Don't dump raw tool output - present information naturally:
    - Summarize search results with context
@@ -388,20 +388,22 @@ Sources: ..."
 - [ ] Cite all sources at the end
 - [ ] Graceful degradation if Python unavailable (basic path matching + suggestions)
 
-## Python-Enhanced Features
+## Search & Python-Enhanced Features
+
+**Content search** runs over the live docs via ripgrep (the Grep tool, or the helper's
+`--search-content` with a `grep` fallback) — no index, no Python.
 
 When Python 3.9+ is installed, these additional capabilities are available:
 
-- **Full-text search**: `--search "keyword"` searches across all documentation content
-- **Category filtering**: `--category api` lists paths in specific categories
+- **Fuzzy path search**: `--search "keyword"` matches against documented paths
 - **Path validation**: `--validate` checks documentation integrity
-- **Active documentation**: Access to 573 paths across 6 categories:
-  - API Reference (377 paths, 65.8%) - Includes multi-language SDK docs (Python, TypeScript, Go, Java, Kotlin, Ruby)
-  - Core Documentation (82 paths, 14.3%)
-  - Prompt Library (65 paths, 11.3%)
-  - Claude Code (46 paths, 8.0%)
-  - Release Notes (2 paths)
-  - Resources (1 path)
+- **Manifest auto-regeneration**: paths_manifest.json regenerates from sitemaps on fetch
+
+**Active documentation**: ~1,702 paths across four categories:
+- API Reference (~1,459 paths, ~86%) - Includes multi-language SDK docs (Python, TypeScript, Go, Java, Kotlin, Ruby) and the Agent SDK
+- Core Documentation (~199 paths, ~12%) - Guides, prompt engineering, release notes
+- Claude Code (~43 paths, ~3%)
+- Uncategorized (~1 path)
 
 See `enhancements/` directory for comprehensive feature documentation and examples.
 
@@ -409,14 +411,12 @@ See `enhancements/` directory for comprehensive feature documentation and exampl
 
 ```
 /
-├── docs/                   # 571 documentation files (.md format)
-│   ├── docs_manifest.json  # File tracking manifest
-│   └── .search_index.json  # Full-text search index (Python-generated)
+├── docs/                   # ~1,530 documentation files (.md format)
+│   └── docs_manifest.json  # File tracking manifest
 ├── scripts/
-│   ├── claude-docs-helper.sh       # Main helper (feature detection)
+│   ├── claude-docs-helper.sh       # Main helper (ripgrep search, feature detection)
 │   ├── fetch_claude_docs.py        # Thin wrapper for fetcher package
 │   ├── lookup_paths.py             # Thin wrapper for lookup package
-│   ├── build_search_index.py       # Index builder (Python)
 │   ├── fetcher/                    # Documentation fetching package
 │   │   ├── __init__.py             # Package exports
 │   │   ├── config.py               # Constants and safety thresholds
@@ -434,14 +434,14 @@ See `enhancements/` directory for comprehensive feature documentation and exampl
 │       ├── validation.py           # Path validation
 │       ├── formatting.py           # Output formatting
 │       └── cli.py                  # Main entry point
-├── paths_manifest.json     # Active paths manifest (573 paths, 6 categories)
+├── paths_manifest.json     # Active paths manifest (~1,702 paths, 4 categories)
 ├── archive/               # Archived/deprecated scripts (git-ignored)
 ├── enhancements/          # Feature documentation
 │   ├── README.md          # Overview
 │   ├── FEATURES.md        # Technical specs
 │   ├── CAPABILITIES.md    # Detailed capabilities
 │   └── EXAMPLES.md        # Usage examples
-├── tests/                 # Test suite (294 tests, 294 passing)
+├── tests/                 # Test suite
 ├── install.sh            # Installation script
 └── CLAUDE.md             # This file (AI context)
 
@@ -462,10 +462,9 @@ When working on this repository:
 @scripts/fetch_claude_docs.py - Thin wrapper for fetcher package (backwards compatible)
 @scripts/lookup_paths.py - Thin wrapper for lookup package (backwards compatible)
 @scripts/fetcher/ - Documentation fetching package (8 modules)
-@scripts/lookup/ - Search & validation package (7 modules)
-@scripts/build_search_index.py - Full-text search indexing
-@paths_manifest.json - Active paths manifest (573 paths, 6 categories)
-@tests/ - Test suite (294 tests)
+@scripts/lookup/ - Path search & validation package
+@paths_manifest.json - Active paths manifest (~1,702 paths, 4 categories)
+@tests/ - Test suite
 
 ### Automation
 @.github/workflows/ - Auto-update workflows (runs every 3 hours)

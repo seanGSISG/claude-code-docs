@@ -139,12 +139,10 @@ class TestEnhancedInstallation:
         scripts_dir = install_dir / "scripts"
         scripts_dir.mkdir()
 
-        # Required Python scripts for enhanced mode
+        # Required Python scripts for enhanced (path search / validation) mode
         required_scripts = [
-            "main.py",
-            "lookup_paths.py",
-            "update_sitemap.py",
-            "extract_paths.py"
+            "fetch_claude_docs.py",
+            "lookup_paths.py"
         ]
 
         for script_name in required_scripts:
@@ -186,29 +184,6 @@ print("Enhanced mode: {script_name}")
         data = json.loads(manifest.read_text())
         assert "categories" in data
         assert len(data["categories"]) >= 4
-
-    def test_enhanced_mode_search_index(self, mock_install_env):
-        """Test that search index is created in enhanced mode."""
-        install_dir = mock_install_env['install_dir']
-        install_dir.mkdir(parents=True)
-        docs_dir = install_dir / "docs"
-        docs_dir.mkdir()
-
-        # Create search index
-        search_index = docs_dir / ".search_index.json"
-        search_data = {
-            "paths": {},
-            "metadata": {
-                "total_entries": 0,
-                "generated_at": "2025-11-03T00:00:00"
-            }
-        }
-        search_index.write_text(json.dumps(search_data, indent=2))
-
-        assert search_index.exists()
-        data = json.loads(search_index.read_text())
-        assert "paths" in data
-        assert "metadata" in data
 
 
 class TestHelperScriptBehavior:

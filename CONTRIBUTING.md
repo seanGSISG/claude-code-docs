@@ -7,13 +7,13 @@ Thank you for contributing to the Enhanced Claude Code Documentation Mirror!
 This project extends [ericbuess/claude-code-docs](https://github.com/ericbuess/claude-code-docs) with optional Python features:
 
 **Core Principle: Graceful Degradation**
-- Single installation (573 paths tracked across 6 categories + Python scripts)
-- Python features activate only when Python 3.9+ is available
-- Everything works without Python (basic `/docs` command)
+- Single installation (~1,702 paths tracked across 4 categories + Python scripts)
+- Content search works everywhere via ripgrep (`grep` fallback) — no Python, no index
+- Python features (fuzzy path search, validation) activate only when Python 3.9+ is available
 - No separate "modes" - just feature detection at runtime
 
 **Design Goals:**
-1. **Honesty**: Accurate claims about what we deliver (573 paths tracked, 571 files downloaded)
+1. **Honesty**: Accurate claims about what we deliver (~1,702 paths tracked, ~1,530 files downloaded)
 2. **Simplicity**: One installation, automatic feature detection
 3. **Compatibility**: Works with upstream, same `/docs` interface
 4. **Testing**: All changes tested (294 tests)
@@ -134,9 +134,9 @@ python scripts/fetch_claude_docs.py --help
 
 **Files to work on:**
 - `scripts/fetch_claude_docs.py` - Documentation fetcher with auto-regeneration
-- `scripts/lookup_paths.py` - Search & validation
-- `scripts/build_search_index.py` - Full-text search indexing
-- `tests/` - Test suite (629 tests)
+- `scripts/lookup_paths.py` - Path search & validation
+- `scripts/claude-docs-helper.sh` - Helper (ripgrep content search, feature detection)
+- `tests/` - Test suite
 
 ## Code Standards
 

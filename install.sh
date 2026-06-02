@@ -14,7 +14,7 @@ echo "==============================="
 
 # Target version for upgrade messaging
 TARGET_VERSION="0.5.0"
-TARGET_DOCS="571"
+TARGET_DOCS="~1,530"
 
 # Fixed installation location
 INSTALL_DIR="$HOME/.claude-code-docs"
@@ -99,7 +99,7 @@ show_upgrade_info() {
     echo "  • Domain-based filename convention (claude-code__*.md)"
     echo "  • Modular Python packages (fetcher/, lookup/)"
     echo "  • Safety thresholds for sync protection"
-    echo "  • 573 paths tracked across 6 categories"
+    echo "  • ~1,702 paths tracked across 4 categories"
     echo ""
     echo "════════════════════════════════════════════════════════════════"
     echo ""
@@ -726,9 +726,9 @@ echo ""
 echo "🔄 Updates: Run '/docs -t' to check for and pull latest documentation"
 echo ""
 
-# Show what's installed (573 paths tracked in manifest across 6 categories)
+# Show what's installed (~1,702 paths tracked in manifest across 4 categories)
 echo "📦 Installed Components:"
-echo "  • 573 documentation paths tracked (6 categories)"
+echo "  • ~1,702 documentation paths tracked (4 categories)"
 echo "  • AI-powered /docs command"
 echo ""
 
@@ -773,7 +773,7 @@ else
     echo "  • Enhanced AI routing capabilities"
     echo ""
     echo "Without Python, you can:"
-    echo "  • Read all 573 documentation paths via /docs command"
+    echo "  • Read all ~1,702 documentation paths via /docs command"
     echo "  • Use AI-powered semantic queries"
     echo "  • Check documentation freshness"
     echo "  • View recent changes"

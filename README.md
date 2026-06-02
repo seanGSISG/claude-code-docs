@@ -58,43 +58,43 @@ The magic is in combining a simple local file system with Claude's language unde
 - HTTP validation (`--validate`) - requires Python 3.9+
 - Auto-regeneration of manifests - requires Python 3.9+
 
-## Installation
+## Install
 
-### Quick Install (2 minutes)
+### Claude Code (recommended)
 
-**One command:**
+```bash
+/plugin marketplace add seanGSISG/claude-depot
+/plugin install claude-docs@claude-depot
+```
+
+The `claude-docs` plugin pulls this documentation mirror into `~/.claude-code-docs` and keeps it current — it syncs on every `/docs` request, and `/docs-update` forces a sync on demand. No separate install step for the docs is needed.
+
+### Claude.ai / Claude Desktop
+
+Download the latest `docs.skill` file from the table below, then upload it via the desktop app:
+
+| Version | Download |
+|---|---|
+| Latest | [docs.skill](https://github.com/seanGSISG/claude-depot/releases/latest) |
+
+1. Click **Customize** in the left panel
+2. Select **Skills**
+3. Click the **+** button → **Create a Skill** → **Upload a skill**
+4. Drag and drop the downloaded `docs.skill` file
+
+### Standalone install (advanced)
+
+Prefer the tool without the plugin? Install the mirror directly — this clones it to `~/.claude-code-docs` and sets up the `/docs` command:
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
-**What it does:**
-1. Clones repository to `~/.claude-code-docs`
-2. Installs the full documentation mirror (~1,530 markdown files)
-3. Sets up `/docs` command in Claude Code
-4. Verifies installation integrity
+For non-interactive environments (CI/CD, Docker, cron, SSH without `-t`):
 
-**Content search works out of the box via ripgrep. Python 3.9+ (if installed) adds fuzzy path matching and validation.**
-
-### Installation Methods
-
-**Method 1: Direct Install (interactive)**
-```bash
-curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
-```
-Works on: Local terminals, iTerm2, Terminal.app, SSH with `-t` flag
-
-**Method 2: Auto-Install (CI/CD-friendly)**
 ```bash
 CLAUDE_DOCS_AUTO_INSTALL=yes curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
-Works on: **All environments** including GitHub Actions, Docker, cron jobs, SSH without `-t`
-
-**Method 3: Download First (most reliable)**
-```bash
-curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh -o install.sh
-bash install.sh
-```
-Works on: All interactive shells
 
 ### Requirements
 
@@ -105,16 +105,22 @@ Works on: All interactive shells
 
 ## Upgrading
 
-Re-run the installer — it detects the existing install and upgrades atomically:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
-```
-
-Or pull the latest docs in place:
+**Docs content** stays current automatically — the plugin syncs the mirror on every `/docs` request, and `/docs-update` forces a sync on demand. To pull manually:
 
 ```bash
 cd ~/.claude-code-docs && git pull
+```
+
+**The plugin itself** (commands, skill) updates through the marketplace:
+
+```bash
+/plugin update claude-docs@claude-depot
+```
+
+**Standalone installs** upgrade by re-running the installer (detects the existing install and upgrades atomically):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/install.sh | bash
 ```
 
 ## Usage
