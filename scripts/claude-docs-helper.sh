@@ -6,11 +6,22 @@ set -euo pipefail
 # Installation path: ~/.claude-code-docs/scripts/claude-docs-helper.sh
 
 # Script version
-ENHANCED_VERSION="0.5.1"
+ENHANCED_VERSION="0.5.2"
 
 # Fixed installation path
 DOCS_PATH="$HOME/.claude-code-docs"
 SCRIPTS_PATH="$DOCS_PATH/scripts"
+
+# Resolve a Python 3.9+ interpreter once. Prefer python3, fall back to python
+# (common on Windows where the python3 shim may be absent). Empty if none found.
+PYTHON_BIN=""
+for _py_candidate in python3 python; do
+    if command -v "$_py_candidate" >/dev/null 2>&1 && \
+       "$_py_candidate" -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 9) else 1)' >/dev/null 2>&1; then
+        PYTHON_BIN="$_py_candidate"
+        break
+    fi
+done
 
 # Source the standard template for base functionality
 TEMPLATE_PATH="$SCRIPTS_PATH/claude-docs-helper.sh.template"
@@ -94,21 +105,9 @@ else
     }
 fi
 
-# Check if Python is available and version is 3.9+
+# Check if a Python 3.9+ interpreter was resolved
 check_python() {
-    if ! command -v python3 &> /dev/null; then
-        return 1
-    fi
-
-    local python_version=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")' 2>/dev/null || echo "0.0")
-    local python_major=$(echo "$python_version" | cut -d. -f1)
-    local python_minor=$(echo "$python_version" | cut -d. -f2)
-
-    if [[ "$python_major" -ge 3 && "$python_minor" -ge 9 ]]; then
-        return 0
-    else
-        return 1
-    fi
+    [[ -n "$PYTHON_BIN" ]]
 }
 
 # Check if enhanced features are available
@@ -128,7 +127,9 @@ check_enhanced_available() {
         return 1
     fi
 
-    local path_count=$(python3 -c "import json; data=json.load(open('$DOCS_PATH/paths_manifest.json')); print(data['metadata'].get('total_paths', 0))" 2>/dev/null || echo "0")
+    # Read the file via shell redirection (the shell understands MSYS/Cygwin
+    # paths like /c/Users/...); native Windows Python cannot open those paths.
+    local path_count=$("$PYTHON_BIN" -c "import json, sys; print(json.load(sys.stdin)['metadata'].get('total_paths', 0))" < "$DOCS_PATH/paths_manifest.json" 2>/dev/null || echo "0")
 
     # Active manifest has ~270 paths (all available documentation)
     if [[ "$path_count" -ge 100 ]]; then
@@ -152,10 +153,10 @@ enhanced_search() {
     fi
 
     local query="$*"
-    echo "🔍 Searching 573 documentation paths for: $query"
+    echo "🔍 Searching documentation paths for: $query"
     echo ""
 
-    if python3 "$SCRIPTS_PATH/lookup_paths.py" "$query" 2>/dev/null; then
+    if "$PYTHON_BIN" "$SCRIPTS_PATH/lookup_paths.py" "$query" 2>/dev/null; then
         echo ""
         echo "💡 Tip: Use '/docs <topic>' to read a specific document"
     else
@@ -180,7 +181,7 @@ search_content() {
     echo "📖 Searching documentation content for: $query"
     echo ""
 
-    if python3 "$SCRIPTS_PATH/lookup_paths.py" --search-content "$query" 2>/dev/null; then
+    if "$PYTHON_BIN" "$SCRIPTS_PATH/lookup_paths.py" --search-content "$query" 2>/dev/null; then
         echo ""
         echo "💡 Tip: Use '/docs <topic>' to read the full document"
     else
@@ -202,7 +203,7 @@ validate_paths() {
     echo "This may take 30-60 seconds..."
     echo ""
 
-    if python3 "$SCRIPTS_PATH/lookup_paths.py" --validate-all 2>/dev/null; then
+    if "$PYTHON_BIN" "$SCRIPTS_PATH/lookup_paths.py" --validate-all 2>/dev/null; then
         echo ""
         echo "✅ Validation complete"
     else
@@ -211,7 +212,7 @@ validate_paths() {
     fi
 }
 
-# Update all documentation (fetch all 573 paths)
+# Update all documentation (fetch all paths)
 update_all_docs() {
     if ! check_enhanced_available; then
         echo "❌ Enhanced update not available"
@@ -222,18 +223,18 @@ update_all_docs() {
         return
     fi
 
-    echo "🔄 Updating all documentation (573 paths)..."
+    echo "🔄 Updating all documentation..."
     echo "This may take 2-3 minutes..."
     echo ""
 
-    if python3 "$SCRIPTS_PATH/main.py" --update-all 2>/dev/null; then
+    if "$PYTHON_BIN" "$SCRIPTS_PATH/main.py" --update-all 2>/dev/null; then
         echo ""
         echo "✅ Documentation updated successfully"
 
         # Rebuild search index if available
         if [[ -f "$SCRIPTS_PATH/build_search_index.py" ]]; then
             echo "Rebuilding search index..."
-            python3 "$SCRIPTS_PATH/build_search_index.py" >/dev/null 2>&1 || true
+            "$PYTHON_BIN" "$SCRIPTS_PATH/build_search_index.py" >/dev/null 2>&1 || true
         fi
     else
         echo "⚠️  Enhanced update failed"
@@ -251,12 +252,12 @@ show_enhanced_help() {
     echo "─────────────────────────────────────────────────────────────────"
     echo ""
     echo "Search & Discovery:"
-    echo "  --search <query>        Fuzzy search across 573 documentation paths"
+    echo "  --search <query>        Fuzzy search across all documentation paths"
     echo "  --search-content <term> Full-text content search across all documentation"
     echo ""
     echo "Maintenance:"
     echo "  --validate              Validate all paths (check for 404s)"
-    echo "  --update-all            Fetch all 573 documentation pages"
+    echo "  --update-all            Fetch all documentation pages"
     echo ""
     echo "Status:"
     echo "  --version               Show version information"
@@ -290,7 +291,7 @@ show_version() {
     fi
 
     if check_python; then
-        local python_version=$(python3 --version 2>&1 | cut -d' ' -f2)
+        local python_version=$("$PYTHON_BIN" --version 2>&1 | cut -d' ' -f2)
         echo "  • Python: $python_version ✓"
     else
         echo "  • Python: Not available"
@@ -299,7 +300,7 @@ show_version() {
     echo ""
     echo "Features:"
     if check_enhanced_available; then
-        local path_count=$(python3 -c "import json; data=json.load(open('$DOCS_PATH/paths_manifest.json')); print(data['metadata'].get('total_paths', 0))" 2>/dev/null || echo "unknown")
+        local path_count=$("$PYTHON_BIN" -c "import json, sys; print(json.load(sys.stdin)['metadata'].get('total_paths', 0))" < "$DOCS_PATH/paths_manifest.json" 2>/dev/null || echo "unknown")
         echo "  ✅ Enhanced features: ENABLED"
         echo "  ✅ Documentation paths: $path_count"
         echo "  ✅ Fuzzy search: Available"
@@ -307,7 +308,7 @@ show_version() {
         echo "  ✅ Path validation: Available"
     else
         echo "  ❌ Enhanced features: DISABLED"
-        echo "     (571 documentation files available, Python features require Python 3.9+)"
+        echo "     (documentation files available; Python features require Python 3.9+)"
     fi
     echo ""
 }
@@ -339,7 +340,7 @@ show_status() {
     echo "Enhanced Features:"
 
     if check_python; then
-        local python_version=$(python3 --version 2>&1 | cut -d' ' -f2)
+        local python_version=$("$PYTHON_BIN" --version 2>&1 | cut -d' ' -f2)
         echo "  ✅ Python $python_version"
     else
         echo "  ❌ Python 3.9+ (not available)"
@@ -350,7 +351,7 @@ show_status() {
     [[ -f "$DOCS_PATH/paths_manifest.json" ]] && echo "  ✅ paths_manifest.json" || echo "  ❌ paths_manifest.json"
 
     if [[ -f "$DOCS_PATH/paths_manifest.json" ]]; then
-        local path_count=$(python3 -c "import json; data=json.load(open('$DOCS_PATH/paths_manifest.json')); print(data['metadata'].get('total_paths', 0))" 2>/dev/null || echo "unknown")
+        local path_count=$("$PYTHON_BIN" -c "import json, sys; print(json.load(sys.stdin)['metadata'].get('total_paths', 0))" < "$DOCS_PATH/paths_manifest.json" 2>/dev/null || echo "unknown")
         echo "  📊 Manifest paths: $path_count"
     fi
 

@@ -15,6 +15,18 @@ The actual implementation is split across multiple modules for maintainability:
 For backwards compatibility, all public functions are re-exported here.
 """
 
+import sys
+
+# Force UTF-8 stdout/stderr so emoji/box-drawing output does not crash on
+# Windows consoles that default to a legacy code page (e.g. cp1252). Must run
+# before any import that may emit output (e.g. the lookup package logger).
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
 # Re-export everything for backwards compatibility
 from lookup import (
     # Config

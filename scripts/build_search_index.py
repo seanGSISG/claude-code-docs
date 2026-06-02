@@ -11,10 +11,20 @@ This script:
 
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 from collections import Counter
 import time
+
+# Force UTF-8 stdout/stderr so emoji/box-drawing output does not crash on
+# Windows consoles that default to a legacy code page (e.g. cp1252).
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
 
 
 DOCS_DIR = Path("docs")
