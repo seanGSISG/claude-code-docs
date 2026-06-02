@@ -1,8 +1,8 @@
 # Claude Code Documentation Tool
 
 [![Last Update](https://img.shields.io/github/last-commit/seanGSISG/claude-code-docs/main.svg?label=docs%20updated)](https://github.com/seanGSISG/claude-code-docs/commits/main)
-[![Python](https://img.shields.io/badge/python-3.9+-blue)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey)](https://github.com/seanGSISG/claude-code-docs)
+[![Python](https://img.shields.io/badge/python-3.9+%20optional-blue)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)](https://github.com/seanGSISG/claude-code-docs)
 [![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge.svg)](https://github.com/hesreallyhim/awesome-claude-code)
 
 > **⭐ This is an enhanced fork of [ericbuess/claude-code-docs](https://github.com/ericbuess/claude-code-docs)**
@@ -21,10 +21,10 @@ Stop hunting through scattered docs. This tool provides instant access to the fu
 
 - 🤖 **AI-Powered Search** - Ask questions naturally, Claude understands intent and routes intelligently
 - 📚 **Complete Coverage** - Full mirror of the Anthropic docs sitemap, refreshed every 3 hours
-- 🔍 **Semantic Understanding** - No primitive keyword matching, leverages Claude's language understanding
+- 🔍 **Live ripgrep search** - Content search runs over the live files (no pre-built index), so results are always current
 - ✅ **Auto-Validated** - Scheduled validation catches broken links and upstream URL churn
 - 🔄 **Always Fresh** - Repository updated every 3 hours; run `/docs -t` to pull latest
-- 🎯 **Graceful Degradation** - Works with or without Python
+- 🖥️ **Cross-platform** - macOS, Linux, and Windows (Git Bash)
 
 ## How It Works
 
@@ -39,25 +39,24 @@ The magic is in combining a simple local file system with Claude's language unde
 
 ## What's Included
 
-**Documentation Paths** (~1,250 tracked in manifest across five active categories; counts as of 2026-04):
-- API Reference (~1,060 paths, ~85%) - Complete API docs, Admin API, Agent SDK
-  - 🐍 **Python** | 📘 **TypeScript** | 🔷 **Go** | ☕ **Java** | 💎 **Ruby** | 🖥️ **CLI** (~98 docs each)
-- Core Documentation (~143 paths, ~11%) - Guides, tutorials, best practices, prompt engineering
+**Documentation Paths** (~1,702 tracked in manifest across four active categories; counts as of 2026-06):
+- API Reference (~1,459 paths, ~86%) - Complete API docs, Admin API, Agent SDK
+  - 🐍 **Python** | 📘 **TypeScript** | 🔷 **Go** | ☕ **Java** | 💎 **Ruby** | 🖥️ **CLI**
+- Core Documentation (~199 paths, ~12%) - Guides, tutorials, best practices, prompt engineering, release notes
 - Claude Code (~43 paths, ~3%) - CLI-specific docs: hooks, skills, MCP, sub-agents, plugins
-- Release Notes (2 paths) - Version history
-- Resources (1 path) - Additional resources
+- Uncategorized (~1 path) - Paths not yet assigned to a category
 
 > 💡 **Multi-language support**: API documentation for Python, TypeScript, Go, Java, Ruby, and curl is mirrored and searchable.
 
-> 🚀 **No Python required!** Core features including AI-powered semantic search work with just bash. Python 3.9+ enables advanced full-text search and path validation.
+> 🚀 **No Python required for search!** Content search uses ripgrep over the live files (the Grep tool bundles ripgrep; `grep` is the fallback). Python 3.9+ only adds fuzzy path matching and HTTP path validation.
 
 > ℹ️ **Note on Prompt Library**: Anthropic retired the standalone Prompt Library in April 2026; the prompt-engineering content was consolidated into `/docs/en/build-with-claude/prompt-engineering/*` and is now part of Core Documentation.
 
-**Optional Python Features** (requires Python 3.9+):
-- Full-text content search (`--search-content`)
-- Fuzzy path matching (`--search`)
-- HTTP validation (`--validate`)
-- Auto-regeneration of manifests
+**Search & maintenance commands:**
+- Full-text content search (`--search-content`) - ripgrep, `grep` fallback; no Python needed
+- Fuzzy path matching (`--search`) - requires Python 3.9+
+- HTTP validation (`--validate`) - requires Python 3.9+
+- Auto-regeneration of manifests - requires Python 3.9+
 
 ## Installation
 
@@ -70,11 +69,11 @@ curl -fsSL https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/ins
 
 **What it does:**
 1. Clones repository to `~/.claude-code-docs`
-2. Installs the full documentation mirror (~1,000+ markdown files)
+2. Installs the full documentation mirror (~1,530 markdown files)
 3. Sets up `/docs` command in Claude Code
 4. Verifies installation integrity
 
-**Python features activate automatically if Python 3.9+ is installed.**
+**Content search works out of the box via ripgrep. Python 3.9+ (if installed) adds fuzzy path matching and validation.**
 
 ### Installation Methods
 
@@ -99,9 +98,10 @@ Works on: All interactive shells
 
 ### Requirements
 
-- **Required**: macOS 12+ or Linux (Ubuntu, Debian, Fedora, etc.)
+- **Required**: macOS 12+, Linux (Ubuntu, Debian, Fedora, etc.), or Windows 10/11 with Git Bash
 - **Required**: git, jq, curl (usually pre-installed)
-- **Optional**: Python 3.9+ (enables search/validation features)
+- **Recommended**: ripgrep (`rg`) for content search — the Claude Code Grep tool bundles it; `grep` is used as a fallback
+- **Optional**: Python 3.9+ (enables fuzzy path matching and HTTP validation)
 
 ## Upgrading
 
@@ -189,24 +189,24 @@ cd ~/.claude-code-docs && git pull
 
 **Behind the scenes:** Claude itself is the search engine. It can:
 - Read documentation files directly
-- Search content using grep
-- Match filenames to topics
+- Search content with ripgrep (the built-in Grep tool)
+- Match filenames to topics (the Glob tool)
 - Synthesize answers from multiple sources
 
-**With Python 3.9+:** Optimized helper commands (`--search-content`, `--search`) provide faster, more accurate results.
+**Content search** runs over the live files via ripgrep — always current, no index, no Python required.
 
-**Without Python 3.9+:** Claude uses its native capabilities (file reading, grep, pattern matching) to find and present documentation. The AI-powered experience works either way - Python just makes it faster.
+**With Python 3.9+:** the helper's fuzzy path matching (`--search`) and HTTP validation (`--validate`) become available.
 
 ### Advanced Commands (Direct Access)
 
 For power users who want direct access to helper functions:
 
 ```bash
+# Full-text content search (ripgrep, grep fallback — no Python needed)
+~/.claude-code-docs/claude-docs-helper.sh --search-content "term"
+
 # Fuzzy search across all tracked paths (requires Python 3.9+)
 ~/.claude-code-docs/claude-docs-helper.sh --search "keyword"
-
-# Full-text content search (requires Python 3.9+)
-~/.claude-code-docs/claude-docs-helper.sh --search-content "term"
 
 # Validate all paths - check for 404s (requires Python 3.9+)
 ~/.claude-code-docs/claude-docs-helper.sh --validate
@@ -223,8 +223,8 @@ For power users who want direct access to helper functions:
 ## Architecture
 
 **Single Installation** - Always installs complete repository:
-- Full documentation mirror (~1,250 paths across five active categories)
-- Modular Python packages for enhanced features
+- Full documentation mirror (~1,702 paths across four active categories)
+- Modular Python packages for enhanced features (fuzzy path search, validation)
 - Validation and unit test suites
 
 **Modular Code Structure** - Python code organized into focused packages:
@@ -250,10 +250,10 @@ scripts/
 ```
 
 **Graceful Degradation** - Features adapt to environment:
-- **Without Python**: Basic documentation reading via `/docs` command
-- **With Python 3.9+**: Full-text search, fuzzy matching, validation, auto-regeneration
+- **Always available**: documentation reading and ripgrep content search (with `grep` fallback) via `/docs`
+- **With Python 3.9+**: fuzzy path matching, HTTP validation, manifest auto-regeneration
 
-**No separate "modes"** - Everything is installed once, features activate when Python is available.
+**No separate "modes"** - Everything is installed once; Python-only features activate when Python is available.
 
 ## How Updates Work
 
@@ -336,7 +336,7 @@ cat ~/.claude-code-docs/README.md | head -1
 
 - ✅ **macOS**: Fully supported (tested on macOS 12+)
 - ✅ **Linux**: Fully supported (Ubuntu, Debian, Fedora, etc.)
-- ⏳ **Windows**: Not yet supported - [contributions welcome](#contributing)!
+- ✅ **Windows**: Supported via Git Bash (10/11). Content search uses ripgrep/`grep`; the helper resolves `python3` or `python` and reads UTF-8 output correctly under cp1252 consoles.
 
 ## Uninstalling
 
