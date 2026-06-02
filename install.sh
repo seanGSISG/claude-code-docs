@@ -689,17 +689,8 @@ else
     echo "  ✓ All verification checks passed"
 fi
 
-# Rebuild search index if Python 3.9+ is available
-if check_python_features; then
-    echo ""
-    echo "Building search index..."
-    if (cd "$INSTALL_DIR" && python3 scripts/build_search_index.py) >/dev/null 2>&1; then
-        INDEX_COUNT=$(python3 -c "import json; d=json.load(open('$INSTALL_DIR/docs/.search_index.json')); print(d['indexed_files'])" 2>/dev/null || echo "unknown")
-        echo "  ✓ Search index built ($INDEX_COUNT files indexed)"
-    else
-        echo "  ⚠️  Search index build failed (content search may be limited)"
-    fi
-fi
+# Content search runs over the live docs via ripgrep (Grep tool / helper), so
+# there is no search index to build at install time.
 
 # Success message
 echo ""

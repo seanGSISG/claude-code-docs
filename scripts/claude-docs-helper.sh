@@ -6,7 +6,7 @@ set -euo pipefail
 # Installation path: ~/.claude-code-docs/scripts/claude-docs-helper.sh
 
 # Script version
-ENHANCED_VERSION="0.5.2"
+ENHANCED_VERSION="0.6.0"
 
 # Fixed installation path
 DOCS_PATH="$HOME/.claude-code-docs"
@@ -167,27 +167,45 @@ enhanced_search() {
     fi
 }
 
-# Full-text content search
+# Full-text content search over the live docs (ripgrep, grep fallback).
+# No pre-built index — always current, no Python/index dependency.
 search_content() {
-    if ! check_enhanced_available; then
-        echo "❌ Content search not available"
-        echo "   Requires: Python 3.9+, search index, enhanced features"
-        echo "   Install with: curl -fsSL .../install.sh | bash"
-        echo ""
-        return 1
-    fi
-
     local query="$*"
+    local docs_dir="$DOCS_PATH/docs"
     echo "📖 Searching documentation content for: $query"
     echo ""
 
-    if "$PYTHON_BIN" "$SCRIPTS_PATH/lookup_paths.py" --search-content "$query" 2>/dev/null; then
-        echo ""
-        echo "💡 Tip: Use '/docs <topic>' to read the full document"
-    else
-        echo "⚠️  Content search failed"
-        echo "   Try: cd $DOCS_PATH && grep -ri '$query' docs/"
+    if [[ ! -d "$docs_dir" ]]; then
+        echo "⚠️  Docs directory not found: $docs_dir"
+        return 1
     fi
+
+    # Use -l (files-with-matches) only: avoids parsing "FILE:COUNT" output,
+    # which breaks on Windows drive-letter colons (C:/...). Filenames encode
+    # the doc path, so the file list is enough for the agent to pick from.
+    local matches=""
+    if command -v rg >/dev/null 2>&1; then
+        matches=$(rg --no-messages -l -i -- "$query" "$docs_dir" 2>/dev/null | head -20)
+    elif command -v grep >/dev/null 2>&1; then
+        matches=$(grep -rli --include='*.md' -- "$query" "$docs_dir" 2>/dev/null | head -20)
+    else
+        echo "⚠️  Neither rg nor grep is available for content search"
+        return 1
+    fi
+
+    if [[ -z "$matches" ]]; then
+        echo "No matches for: $query"
+        return 0
+    fi
+
+    # Show the basename (filenames encode the doc path). Strip to the last
+    # slash OR backslash so it works for /c/... , C:/... and Windows rg output
+    # that joins the final segment with a backslash (docs\file.md).
+    while IFS= read -r f; do
+        [[ -n "$f" ]] && echo "• ${f##*[\\/]}"
+    done <<< "$matches"
+    echo ""
+    echo "💡 Tip: Use '/docs <topic>' to read the full document"
 }
 
 # Validate all paths
@@ -230,12 +248,6 @@ update_all_docs() {
     if "$PYTHON_BIN" "$SCRIPTS_PATH/main.py" --update-all 2>/dev/null; then
         echo ""
         echo "✅ Documentation updated successfully"
-
-        # Rebuild search index if available
-        if [[ -f "$SCRIPTS_PATH/build_search_index.py" ]]; then
-            echo "Rebuilding search index..."
-            "$PYTHON_BIN" "$SCRIPTS_PATH/build_search_index.py" >/dev/null 2>&1 || true
-        fi
     else
         echo "⚠️  Enhanced update failed"
         echo "Falling back to git pull..."
