@@ -8793,14 +8793,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "991e809146c982adc1327e4f1c0d8751aa3b1400bcd28d65dc79961b609800d5",
-      "last_updated": "2026-06-06T01:04:47.355106",
+      "hash": "b5f133b2f21b5976d97f5fbc1878a7a88b9e73234ae1e977bdced793ed21c1d0",
+      "last_updated": "2026-06-06T07:23:32.312732",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-06T01:04:47.355347",
-    "fetch_duration_seconds": 1022.529984,
+    "last_fetch_completed": "2026-06-06T07:23:32.312994",
+    "fetch_duration_seconds": 984.028052,
     "total_pages_discovered": 1702,
     "pages_fetched_successfully": 1466,
     "pages_failed": 237,
@@ -9048,7 +9048,7 @@
     "total_files": 1466,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-06-06T01:04:47.355365",
+  "last_updated": "2026-06-06T07:23:32.313011",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
