@@ -8997,8 +8997,8 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "0b644e2208f80b860530d578d85872d405d9c529c500b34fd24ed7c223a22ab7",
-      "last_updated": "2026-06-10T01:23:31.803690"
+      "hash": "feee00c05e7d816e1e07d4b0a5bebf73b3297423a9c21d30cce7433eaccb16f0",
+      "last_updated": "2026-06-12T19:13:35.433175"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
@@ -9171,8 +9171,8 @@
     "docs__en__manage-claude__wif-providers__azure.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/azure",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/azure.md",
-      "hash": "f53ef2491bab07ae771aa4a88a187d8c4304b62dfeaf441dec657308166243d6",
-      "last_updated": "2026-06-12T08:12:51.629332"
+      "hash": "4d2e186212c24f1065aefd75a85c456400d0e56e0981a2b1f88013dd697b8f8b",
+      "last_updated": "2026-06-12T19:14:10.758343"
     },
     "docs__en__manage-claude__wif-providers__gcp.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/gcp",
@@ -9183,8 +9183,8 @@
     "docs__en__manage-claude__wif-providers__github-actions.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/github-actions",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/github-actions.md",
-      "hash": "4e6b8a4f507ae0077c7f80003e8def0b15a6dbd3feb3b88315f0f21a838657ed",
-      "last_updated": "2026-06-11T19:33:34.457854"
+      "hash": "d1a330f3b14ea602c7e13b11cfa6ce6d3203edd6cfab36af8f1450829f155024",
+      "last_updated": "2026-06-12T19:14:11.976579"
     },
     "docs__en__manage-claude__wif-providers__kubernetes.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/kubernetes",
@@ -9327,8 +9327,8 @@
     "docs__en__managed-agents__self-hosted-sandboxes.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes.md",
-      "hash": "885639ff1b596cc6f7ee32a477dcec3b27396e6123512215be65344be2d2a598",
-      "last_updated": "2026-06-12T01:26:38.714109"
+      "hash": "5ca9710cc77a227a56bc432fc210e7f9c7c5e84f02d68e910c4f3ea80779ec24",
+      "last_updated": "2026-06-12T19:14:27.939589"
     },
     "docs__en__managed-agents__self-hosted-sandboxes-security.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-security",
@@ -9531,8 +9531,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-12T13:48:24.818927",
-    "fetch_duration_seconds": 2168.955974,
+    "last_fetch_completed": "2026-06-12T19:17:52.155661",
+    "fetch_duration_seconds": 2127.196466,
     "total_pages_discovered": 1843,
     "pages_fetched_successfully": 1588,
     "pages_failed": 256,
@@ -9799,7 +9799,7 @@
     "total_files": 1588,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-06-12T13:48:24.818949",
+  "last_updated": "2026-06-12T19:17:52.155685",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
