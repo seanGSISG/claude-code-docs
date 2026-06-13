@@ -9471,8 +9471,8 @@
     "claude-code__settings.md": {
       "original_url": "https://platform.claude.com/docs/en/settings",
       "original_md_url": "https://platform.claude.com/docs/en/settings.md",
-      "hash": "dfd389be54d2ed1afc7f477e0a978b9ba508b2110fa957c8a9511c80cbbe6f8b",
-      "last_updated": "2026-06-13T01:26:56.601755"
+      "hash": "cfed2043167ef3006b896a19b2c0ed184652ff0abfe656bd1ada8296fbfc2c2a",
+      "last_updated": "2026-06-13T19:04:57.476301"
     },
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
@@ -9537,8 +9537,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-13T13:15:14.249026",
-    "fetch_duration_seconds": 2153.45902,
+    "last_fetch_completed": "2026-06-13T19:06:43.928609",
+    "fetch_duration_seconds": 2113.238383,
     "total_pages_discovered": 1844,
     "pages_fetched_successfully": 1589,
     "pages_failed": 256,
@@ -9805,7 +9805,7 @@
     "total_files": 1589,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-06-13T13:15:14.249054",
+  "last_updated": "2026-06-13T19:06:43.928629",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
