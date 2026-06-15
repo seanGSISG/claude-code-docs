@@ -8817,8 +8817,8 @@
     "docs__en__build-with-claude__handling-stop-reasons.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons.md",
-      "hash": "b432dc513ec347411b71e2e0bad85c2d154edb444b046da2250b84982d3ac900",
-      "last_updated": "2026-06-09T19:12:58.973054"
+      "hash": "82c520771142e64856cd067d69a36a5eca6cf764af795d5a5c793d099e41cfad",
+      "last_updated": "2026-06-15T14:39:26.244145"
     },
     "docs__en__build-with-claude__mid-conversation-effort-example.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/mid-conversation-effort-example",
@@ -9537,8 +9537,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-15T08:39:41.392805",
-    "fetch_duration_seconds": 2181.856469,
+    "last_fetch_completed": "2026-06-15T14:46:06.921436",
+    "fetch_duration_seconds": 2187.791493,
     "total_pages_discovered": 1844,
     "pages_fetched_successfully": 1589,
     "pages_failed": 256,
@@ -9805,7 +9805,7 @@
     "total_files": 1589,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-06-15T08:39:41.392826",
+  "last_updated": "2026-06-15T14:46:06.921458",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
