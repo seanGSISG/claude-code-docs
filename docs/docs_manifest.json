@@ -9897,8 +9897,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-22T01:31:27.815564",
-    "fetch_duration_seconds": 2212.694828,
+    "last_fetch_completed": "2026-06-22T08:43:31.876014",
+    "fetch_duration_seconds": 2290.225662,
     "total_pages_discovered": 1901,
     "pages_fetched_successfully": 1649,
     "pages_failed": 253,
@@ -10162,7 +10162,7 @@
     "total_files": 1649,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-06-22T01:31:27.815586",
+  "last_updated": "2026-06-22T08:43:31.876044",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
