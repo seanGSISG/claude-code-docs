@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-06-22T19:08:18.118236Z",
-    "total_paths": 1901,
+    "generated_at": "2026-06-23T00:47:55.872642Z",
+    "total_paths": 1902,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-06-22T19:08:18.118242Z"
+    "last_regenerated": "2026-06-23T00:47:55.872650Z"
   },
   "categories": {
     "core_documentation": [
@@ -186,6 +186,7 @@
       "/docs/en/platforms",
       "/docs/en/plugin-dependencies",
       "/docs/en/plugin-hints",
+      "/docs/en/plugin-relevance",
       "/docs/en/prompt-caching",
       "/docs/en/remote-control",
       "/docs/en/routines",
