@@ -9267,8 +9267,8 @@
     "claude-code__claude-code-on-the-web.md": {
       "original_url": "https://platform.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://platform.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "d3d900b05403ed47232574b8e2f345751c7d25f451b4ed1b3aa571098727cb06",
-      "last_updated": "2026-06-20T01:18:52.456644"
+      "hash": "57c47f63d8fda40f2536e69ba40556e33e76a483f67da103eb91fcd84470b60a",
+      "last_updated": "2026-06-24T01:13:16.192313"
     },
     "claude-code__cli-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-reference",
@@ -9843,8 +9843,8 @@
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
       "original_md_url": "https://platform.claude.com/docs/en/skills.md",
-      "hash": "35a6695864964f09fdf227dcdab50f087b2f7f8d38f502e80a95bd8358470607",
-      "last_updated": "2026-06-23T01:23:05.529254"
+      "hash": "97b64b3308d23fd7c5b59f546bfb1d802f4e403ee15929d6b7ca7b5e7c3524b7",
+      "last_updated": "2026-06-24T01:17:28.332353"
     },
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
@@ -9891,14 +9891,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "abd166b7154ceb20bc38c1e97fe58a466cb659b81061352cedf269679848afe7",
-      "last_updated": "2026-06-23T01:25:18.466082",
+      "hash": "dca287b17f52a3a32b774959f5dc21b09bea412ca60c3baba05282c0df3fc936",
+      "last_updated": "2026-06-24T01:19:22.971346",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-23T19:20:35.943279",
-    "fetch_duration_seconds": 2153.157233,
+    "last_fetch_completed": "2026-06-24T01:19:22.971595",
+    "fetch_duration_seconds": 2130.520735,
     "total_pages_discovered": 1902,
     "pages_fetched_successfully": 1649,
     "pages_failed": 254,
@@ -10163,7 +10163,7 @@
     "total_files": 1649,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-06-23T19:20:35.943311",
+  "last_updated": "2026-06-24T01:19:22.971612",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
