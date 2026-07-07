@@ -270,6 +270,8 @@ To match every tool from a server, append `.*` to the server prefix. The `.*` is
 
 Hyphens in the exact-match set require Claude Code v2.1.195 or later. On earlier versions a bare hyphenated prefix like `mcp__brave-search` is evaluated as an unanchored regular expression and matches every tool from that server. The `mcp__brave-search__.*` form works on every version.
 
+Tools from a [plugin-bundled MCP server](/en/mcp#plugin-provided-mcp-servers) use a scoped server segment that includes the plugin name: `mcp__plugin_<plugin-name>_<server-name>__<tool>`. A matcher written against the bare server key never fires for these tools. For a plugin named `my-plugin` that bundles a server under the key `db`, a `query` tool appears as `mcp__plugin_my-plugin_db__query`, so the matcher for every tool from that server is `mcp__plugin_my-plugin_db__.*`. Use the same scoped tool name in a handler's [`if` field](#common-fields). See [Plugin-provided MCP servers](/en/mcp#plugin-provided-mcp-servers) for how the scoped name is built.
+
 This example logs all memory server operations and validates write operations from any MCP server:
 
 ```json theme={null}
@@ -433,11 +435,11 @@ This example sends `PreToolUse` events to a local validation service, authentica
 
 In addition to the [common fields](#common-fields), MCP tool hooks accept these fields:
 
-| Field    | Required | Description                                                                                                                                                          |
-| :------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `server` | yes      | Name of a configured MCP server. The server must already be connected; the hook never triggers an OAuth or connection flow                                           |
-| `tool`   | yes      | Name of the tool to call on that server                                                                                                                              |
-| `input`  | no       | Arguments passed to the tool. String values support `${path}` substitution from the hook's [JSON input](#hook-input-and-output), such as `"${tool_input.file_path}"` |
+| Field    | Required | Description                                                                                                                                                                                                                                                                                                          |
+| :------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `server` | yes      | Name of a configured MCP server. For a [plugin-bundled server](/en/mcp#plugin-provided-mcp-servers), this is the scoped name `plugin:<plugin-name>:<server-name>`, such as `plugin:my-plugin:db`, not the bare server key. The server must already be connected; the hook never triggers an OAuth or connection flow |
+| `tool`   | yes      | Name of the tool to call on that server                                                                                                                                                                                                                                                                              |
+| `input`  | no       | Arguments passed to the tool. String values support `${path}` substitution from the hook's [JSON input](#hook-input-and-output), such as `"${tool_input.file_path}"`                                                                                                                                                 |
 
 The tool's text content is treated like command-hook stdout: if it parses as valid [JSON output](#json-output) it is processed as a decision, otherwise it is shown as plain text. If the named server is not connected, or the tool returns `isError: true`, the hook produces a non-blocking error and execution continues.
 
