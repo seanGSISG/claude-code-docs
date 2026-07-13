@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-07-13T09:21:06.170839Z",
-    "total_paths": 2042,
+    "generated_at": "2026-07-13T14:29:21.617215Z",
+    "total_paths": 2043,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-07-13T09:21:06.170847Z"
+    "last_regenerated": "2026-07-13T14:29:21.617229Z"
   },
   "categories": {
     "core_documentation": [
@@ -113,6 +113,7 @@
       "/docs/en/desktop-linux",
       "/docs/en/desktop-quickstart",
       "/docs/en/desktop-scheduled-tasks",
+      "/docs/en/desktop-wsl",
       "/docs/en/discover-plugins",
       "/docs/en/env-vars",
       "/docs/en/errors",
