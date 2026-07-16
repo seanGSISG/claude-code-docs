@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-07-16T13:45:00.739390Z",
-    "total_paths": 2060,
+    "generated_at": "2026-07-16T19:05:33.236874Z",
+    "total_paths": 2062,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-07-16T13:45:00.739398Z"
+    "last_regenerated": "2026-07-16T19:05:33.236883Z"
   },
   "categories": {
     "core_documentation": [
@@ -109,6 +109,7 @@
       "/docs/en/communications-kit",
       "/docs/en/computer-use",
       "/docs/en/context-window",
+      "/docs/en/corporate-launcher",
       "/docs/en/debug-your-config",
       "/docs/en/deep-links",
       "/docs/en/desktop-linux",
@@ -179,6 +180,7 @@
       "/docs/en/managed-agents/github",
       "/docs/en/managed-agents/mcp-connector",
       "/docs/en/managed-agents/memory",
+      "/docs/en/managed-agents/migration",
       "/docs/en/managed-agents/multiagent-orchestration",
       "/docs/en/managed-agents/onboarding",
       "/docs/en/managed-agents/overview",
