@@ -10053,8 +10053,8 @@
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
       "original_md_url": "https://platform.claude.com/docs/en/statusline.md",
-      "hash": "1ef0d42252c5224a8eae06213b281f9aa0de0aa55ba3cf9f809c57200f654e31",
-      "last_updated": "2026-07-18T02:51:03.993467"
+      "hash": "a986e67cd5e92c6ae5fc8a5a607e55a96ffbf99f058d64a4c8eac2f65b9e295e",
+      "last_updated": "2026-07-18T08:23:51.732841"
     },
     "claude-code__sub-agents.md": {
       "original_url": "https://platform.claude.com/docs/en/sub-agents",
@@ -10101,8 +10101,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-07-18T02:53:16.111626",
-    "fetch_duration_seconds": 2453.090265,
+    "last_fetch_completed": "2026-07-18T08:26:08.473079",
+    "fetch_duration_seconds": 2465.071379,
     "total_pages_discovered": 2064,
     "pages_fetched_successfully": 1683,
     "pages_failed": 382,
@@ -10495,7 +10495,7 @@
     "total_files": 1683,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-07-18T02:53:16.111645",
+  "last_updated": "2026-07-18T08:26:08.473103",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
