@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-07-21T19:17:31.209537Z",
-    "total_paths": 711,
+    "generated_at": "2026-07-22T02:26:23.326599Z",
+    "total_paths": 712,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-07-21T19:17:31.209548Z"
+    "last_regenerated": "2026-07-22T02:26:23.326606Z"
   },
   "categories": {
     "core_documentation": [
@@ -151,6 +151,7 @@
       "/docs/en/corporate-launcher",
       "/docs/en/debug-your-config",
       "/docs/en/deep-links",
+      "/docs/en/desktop-ios-simulator",
       "/docs/en/desktop-linux",
       "/docs/en/desktop-quickstart",
       "/docs/en/desktop-scheduled-tasks",
