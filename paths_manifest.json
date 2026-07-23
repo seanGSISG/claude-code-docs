@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-07-23T02:31:16.079724Z",
-    "total_paths": 717,
+    "generated_at": "2026-07-23T08:25:09.822397Z",
+    "total_paths": 720,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-07-23T02:31:16.079731Z"
+    "last_regenerated": "2026-07-23T08:25:09.822410Z"
   },
   "categories": {
     "core_documentation": [
@@ -74,7 +74,6 @@
       "/docs/en/authentication",
       "/docs/en/auto-mode-config",
       "/docs/en/best-practices",
-      "/docs/en/build-with-claude/adaptive-thinking",
       "/docs/en/build-with-claude/batch-processing",
       "/docs/en/build-with-claude/cache-diagnostics",
       "/docs/en/build-with-claude/citations",
@@ -110,6 +109,10 @@
       "/docs/en/build-with-claude/streaming",
       "/docs/en/build-with-claude/structured-outputs",
       "/docs/en/build-with-claude/task-budgets",
+      "/docs/en/build-with-claude/thinking",
+      "/docs/en/build-with-claude/thinking-steering-and-cost",
+      "/docs/en/build-with-claude/thinking-tool-workflows",
+      "/docs/en/build-with-claude/thinking-troubleshooting",
       "/docs/en/build-with-claude/token-counting",
       "/docs/en/build-with-claude/vision",
       "/docs/en/build-with-claude/vision-coordinates",
