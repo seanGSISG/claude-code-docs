@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-07-29T02:25:46.093717Z",
-    "total_paths": 722,
+    "generated_at": "2026-07-29T08:35:59.024142Z",
+    "total_paths": 723,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-07-29T02:25:46.093723Z"
+    "last_regenerated": "2026-07-29T08:35:59.024148Z"
   },
   "categories": {
     "core_documentation": [
@@ -126,6 +126,7 @@
       "/docs/en/claude-apps-gateway",
       "/docs/en/claude-apps-gateway-config",
       "/docs/en/claude-apps-gateway-deploy",
+      "/docs/en/claude-apps-gateway-on-aws",
       "/docs/en/claude-apps-gateway-on-gcp",
       "/docs/en/claude-apps-gateway-spend-limits",
       "/docs/en/claude-directory",
