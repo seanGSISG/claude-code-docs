@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-04T19:27:43.546430Z",
+    "generated_at": "2026-08-05T02:13:38.322006Z",
     "total_paths": 723,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-04T19:27:43.546436Z"
+    "last_regenerated": "2026-08-05T02:13:38.322014Z"
   },
   "categories": {
     "core_documentation": [
@@ -270,7 +270,6 @@
       "/docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak",
       "/docs/en/tools-reference",
       "/docs/en/troubleshoot-install",
-      "/docs/en/ultraplan",
       "/docs/en/ultrareview",
       "/docs/en/voice-dictation",
       "/docs/en/web-quickstart",
@@ -324,6 +323,7 @@
       "/docs/en/agent-sdk/subagents",
       "/docs/en/agent-sdk/todo-tracking",
       "/docs/en/agent-sdk/tool-search",
+      "/docs/en/agent-sdk/troubleshooting",
       "/docs/en/agent-sdk/typescript",
       "/docs/en/agent-sdk/typescript-v2-preview",
       "/docs/en/agent-sdk/user-input",
