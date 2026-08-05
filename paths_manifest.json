@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-05T14:02:37.019966Z",
-    "total_paths": 723,
+    "generated_at": "2026-08-05T19:25:26.827774Z",
+    "total_paths": 727,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-05T14:02:37.019974Z"
+    "last_regenerated": "2026-08-05T19:25:26.827783Z"
   },
   "categories": {
     "core_documentation": [
@@ -132,6 +132,7 @@
       "/docs/en/claude-directory",
       "/docs/en/claude-platform-on-aws",
       "/docs/en/claude-security",
+      "/docs/en/claude-tag",
       "/docs/en/claude_api_primer",
       "/docs/en/cli-sdks-libraries/cli/authentication",
       "/docs/en/cli-sdks-libraries/cli/quickstart",
@@ -202,6 +203,9 @@
       "/docs/en/manage-claude/compliance-integration-patterns",
       "/docs/en/manage-claude/compliance-org-data",
       "/docs/en/manage-claude/data-residency",
+      "/docs/en/manage-claude/inference-hooks",
+      "/docs/en/manage-claude/inference-hooks-configuration",
+      "/docs/en/manage-claude/inference-hooks-endpoint",
       "/docs/en/manage-claude/rate-limits-api",
       "/docs/en/manage-claude/spend-limits-api",
       "/docs/en/manage-claude/usage-cost-api",
