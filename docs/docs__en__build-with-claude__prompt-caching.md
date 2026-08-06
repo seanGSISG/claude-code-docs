@@ -211,6 +211,8 @@ This is especially useful for:
 
 By default, the cache has a 5-minute lifetime. The cache is refreshed for no additional cost each time the cached content is used.
 
+The lifetime is measured from the start of the request that writes or reads the cache entry, not from the end of its response. Time spent generating a response counts against the lifetime: if a response takes 4 minutes to stream, a follow-up request that reuses the same cached prefix must start within about 1 minute of that response completing.
+
 <Note>
   If you find that 5 minutes is too short, Anthropic also offers a 1-hour cache duration [at additional cost](#pricing).
 
@@ -3226,6 +3228,12 @@ For ZDR eligibility across all features, see [API and data retention](/docs/en/m
     The cache's default minimum lifetime (TTL) is 5 minutes. This lifetime is refreshed each time the cached content is used.
 
     If you find that 5 minutes is too short, Anthropic also offers a [1-hour cache TTL](#1-hour-cache-duration).
+  </Accordion>
+
+  <Accordion title="When does the cache lifetime start?">
+    The lifetime is measured from the start of the request that writes or reads the cache entry, not from the end of its response. Time spent generating a response counts against the lifetime, so the window for a follow-up request to reuse the cache is the lifetime minus the generation time.
+
+    If your requests produce long responses and the next request might not start until after the lifetime elapses, use the [1-hour cache TTL](#1-hour-cache-duration).
   </Accordion>
 
   <Accordion title="How many cache breakpoints can I use?">

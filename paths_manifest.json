@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-05T19:25:26.827774Z",
-    "total_paths": 727,
+    "generated_at": "2026-08-06T02:22:10.739263Z",
+    "total_paths": 729,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-05T19:25:26.827783Z"
+    "last_regenerated": "2026-08-06T02:22:10.739273Z"
   },
   "categories": {
     "core_documentation": [
@@ -173,6 +173,7 @@
       "/docs/en/gateways",
       "/docs/en/get-api-key",
       "/docs/en/get-started",
+      "/docs/en/github-actions-cloud-providers",
       "/docs/en/github-enterprise-server",
       "/docs/en/glossary",
       "/docs/en/goal",
@@ -188,6 +189,7 @@
       "/docs/en/manage-claude/admin-api-keys",
       "/docs/en/manage-claude/analytics-api",
       "/docs/en/manage-claude/api-and-data-retention",
+      "/docs/en/manage-claude/app-attest",
       "/docs/en/manage-claude/authentication",
       "/docs/en/manage-claude/claude-code-analytics-api",
       "/docs/en/manage-claude/cmek",
