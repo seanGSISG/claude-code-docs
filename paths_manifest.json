@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-07T02:33:28.804255Z",
-    "total_paths": 729,
+    "generated_at": "2026-08-07T07:11:00.616137Z",
+    "total_paths": 736,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-07T02:33:28.804267Z"
+    "last_regenerated": "2026-08-07T07:11:00.616143Z"
   },
   "categories": {
     "core_documentation": [
@@ -264,6 +264,13 @@
       "/docs/en/sandbox-environments",
       "/docs/en/scheduled-tasks",
       "/docs/en/security-guidance",
+      "/docs/en/self-hosted-environments",
+      "/docs/en/self-hosted-environments-configuration",
+      "/docs/en/self-hosted-environments-deploy",
+      "/docs/en/self-hosted-environments-identity",
+      "/docs/en/self-hosted-environments-quickstart",
+      "/docs/en/self-hosted-environments-reference",
+      "/docs/en/self-hosted-environments-testing",
       "/docs/en/server-managed-settings",
       "/docs/en/sessions",
       "/docs/en/slack",
