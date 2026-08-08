@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-07T18:52:01.195015Z",
-    "total_paths": 736,
+    "generated_at": "2026-08-08T01:21:33.292522Z",
+    "total_paths": 738,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-07T18:52:01.195024Z"
+    "last_regenerated": "2026-08-08T01:21:33.292530Z"
   },
   "categories": {
     "core_documentation": [
@@ -156,6 +156,7 @@
       "/docs/en/computer-use",
       "/docs/en/context-window",
       "/docs/en/corporate-launcher",
+      "/docs/en/cross-session-messaging",
       "/docs/en/debug-your-config",
       "/docs/en/deep-links",
       "/docs/en/desktop-ios-simulator",
@@ -313,6 +314,7 @@
       "/docs/en/agent-sdk/claude-code-features",
       "/docs/en/agent-sdk/cost-tracking",
       "/docs/en/agent-sdk/custom-tools",
+      "/docs/en/agent-sdk/examples",
       "/docs/en/agent-sdk/file-checkpointing",
       "/docs/en/agent-sdk/hooks",
       "/docs/en/agent-sdk/hosting",
