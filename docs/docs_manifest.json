@@ -3585,11 +3585,11 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-10T13:16:40.735706",
-    "fetch_duration_seconds": 926.586234,
-    "total_pages_discovered": 738,
+    "last_fetch_completed": "2026-08-10T19:09:55.625282",
+    "fetch_duration_seconds": 1004.379713,
+    "total_pages_discovered": 740,
     "pages_fetched_successfully": 597,
-    "pages_failed": 142,
+    "pages_failed": 144,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/accessibility",
@@ -3730,6 +3730,8 @@
       "/docs/en/whats-new/2026-w27",
       "/docs/en/whats-new/2026-w28",
       "/docs/en/whats-new/2026-w29",
+      "/docs/en/whats-new/2026-w30",
+      "/docs/en/whats-new/2026-w32",
       "/docs/en/workflows",
       "/docs/en/worktrees",
       "/docs/en/zero-data-retention"
@@ -3739,7 +3741,7 @@
     "total_files": 597,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-10T13:16:40.735727",
+  "last_updated": "2026-08-10T19:09:55.625305",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
