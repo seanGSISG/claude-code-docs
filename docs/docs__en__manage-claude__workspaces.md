@@ -1,7 +1,7 @@
-# Workspaces
-
-Organize API keys, manage team access, and control costs with workspaces.
-
+---
+title: Workspaces
+url: https://platform.claude.com/docs/en/manage-claude/workspaces
+description: Organize API keys, manage team access, and control costs with workspaces.
 ---
 
 Workspaces provide a way to organize your API usage within an organization. Use workspaces to separate different projects, environments, or teams while maintaining centralized billing and administration.
@@ -25,7 +25,7 @@ The Claude Code workspace keeps Claude Code traffic separate from your other API
 
 * Claude Code mints a per-user API key in this workspace at sign-in. You cannot create keys in it manually from the Console.
 * A Claude Code key stops working if its owner is removed from the workspace or organization, unlike standard workspace keys.
-* Claude Code usage is rate-limited separately, and admins can cap its share of the organization's limits under [Settings > Workspaces](/settings/workspaces).
+* Claude Code usage is rate-limited separately, and admins can cap its share of the organization's limits under [Settings > Workspaces](https://platform.claude.com/settings/workspaces).
 * It is the only workspace that supports per-user monthly spend limits.
 
 <Warning>
@@ -62,7 +62,7 @@ Members can have different roles in each workspace, allowing fine-grained access
 
 ### Using the Console
 
-Create and manage workspaces in the [Claude Console](/settings/workspaces).
+Create and manage workspaces in the [Claude Console](https://platform.claude.com/settings/workspaces).
 
 #### Create a workspace
 
@@ -104,7 +104,7 @@ To modify a workspace's name or color:
 
 1. Navigate to the workspace's **Members** tab.
 2. Click **Add to Workspace**.
-3. Select an organization member and assign them a [workspace role](#workspace-roles-and-permissions).
+3. Select an organization member and assign them a [workspace role](https://platform.claude.com/docs/en/manage-claude/workspaces#workspace-roles-and-permissions).
 4. Confirm the addition.
 
 To remove a member, click the trash icon next to their name.
@@ -129,15 +129,15 @@ To archive a workspace, click the ellipsis menu (**...**) and select **Archive**
 * Cannot be undone
 
 <Warning>
-  Archiving a workspace immediately revokes all API keys in that workspace. This action cannot be undone. If you archive the [Claude Code workspace](#claude-code-workspace), members of your organization can no longer sign in to Claude Code through Console billing.
+  Archiving a workspace immediately revokes all API keys in that workspace. This action cannot be undone. If you archive the [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace), members of your organization can no longer sign in to Claude Code through Console billing.
 </Warning>
 
 ### Using the Admin API
 
-Programmatically manage workspaces using the [Admin API](/docs/en/manage-claude/admin-api).
+Programmatically manage workspaces using the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api).
 
 <Note>
-  Admin API endpoints require an Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. See [Create an Admin API key](/docs/en/manage-claude/admin-api-keys) for how to provision one.
+  Admin API endpoints require an Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. See [Create an Admin API key](https://platform.claude.com/docs/en/manage-claude/admin-api-keys) for how to provision one.
 </Note>
 
 ```bash cURL
@@ -158,7 +158,7 @@ curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/{workspace_i
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
-For complete parameter details and response schemas, see the [Workspaces API reference](/docs/en/api/admin-api/workspaces/get-workspace).
+For complete parameter details and response schemas, see the [Workspaces API reference](https://platform.claude.com/docs/en/api/admin-api/workspaces/get-workspace).
 
 ### Managing workspace members
 
@@ -186,7 +186,7 @@ curl -X DELETE "https://api.anthropic.com/v1/organizations/workspaces/{workspace
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
-For complete parameter details, see the [Workspace Members API reference](/docs/en/api/admin-api/workspace_members/get-workspace-member).
+For complete parameter details, see the [Workspace Members API reference](https://platform.claude.com/docs/en/api/admin-api/workspace_members/get-workspace-member).
 
 ## API keys and resource scoping
 
@@ -194,21 +194,21 @@ API keys are scoped to a specific workspace. When you create an API key in a wor
 
 Resources scoped to workspaces include:
 
-* **Files** created through the [Files API](/docs/en/build-with-claude/files)
-* **Message Batches** created through the [Batch API](/docs/en/build-with-claude/batch-processing)
-* **Skills** created through the [Skills API](/docs/en/build-with-claude/skills-guide)
+* **Files** created through the [Files API](https://platform.claude.com/docs/en/build-with-claude/files)
+* **Message Batches** created through the [Batch API](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+* **Skills** created through the [Skills API](https://platform.claude.com/docs/en/build-with-claude/skills-guide)
 
 Some resources cannot be managed with a workspace API key:
 
-* **[MCP tunnels](/docs/en/agents-and-tools/mcp-tunnels/overview)** are managed with a `workspace:manage_tunnels` OAuth token obtained through [Workload Identity Federation](/docs/en/manage-claude/workload-identity-federation), not a workspace API key. Tunnels are created in a workspace, and the Console **MCP tunnels** list and the Managed Agent server picker show tunnels in the current workspace only; the cap of 10 active tunnels applies organization-wide. Tunnel management requires a role with tunnel management permissions; organization developers can view but not change them.
-* **Workspaces** themselves and **organization members** are managed at the organization level through the [Admin API](/docs/en/manage-claude/admin-api), which requires an Admin API key.
+* **[MCP tunnels](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview)** are managed with a `workspace:manage_tunnels` OAuth token obtained through [Workload Identity Federation](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation), not a workspace API key. Tunnels are created in a workspace, and the Console **MCP tunnels** list and the Managed Agent server picker show tunnels in the current workspace only; the cap of 10 active tunnels applies organization-wide. Tunnel management requires a role with tunnel management permissions; organization developers can view but not change them.
+* **Workspaces** themselves and **organization members** are managed at the organization level through the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api), which requires an Admin API key.
 
 <Note>
-  [Prompt caches](/docs/en/build-with-claude/prompt-caching) are also isolated per workspace on the Claude API, [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry). On Amazon Bedrock and Google Cloud, prompt caches are isolated per organization.
+  [Prompt caches](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) are also isolated per workspace on the Claude API, [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry). On Amazon Bedrock and Google Cloud, prompt caches are isolated per organization.
 </Note>
 
 <Tip>
-  To retrieve your organization's workspace IDs, use the [List Workspaces](/docs/en/api/admin-api/workspaces/list-workspaces) endpoint, or find them in the [Claude Console](/settings/workspaces).
+  To retrieve your organization's workspace IDs, use the [List Workspaces](https://platform.claude.com/docs/en/api/admin-api/workspaces/list-workspaces) endpoint, or find them in the [Claude Console](https://platform.claude.com/settings/workspaces).
 </Tip>
 
 ## Workspace limits
@@ -219,8 +219,8 @@ You can set custom spend and rate limits for each workspace to protect against o
 
 You can set workspace limits lower than (but not higher than) your organization's limits:
 
-* **Spend limits:** Cap monthly spending for a workspace. Set these on the workspace's **Spend limits** settings tab in the [Claude Console](/settings/workspaces).
-* **Rate limits:** Limit requests per minute, input tokens per minute, or output tokens per minute. Set these on the workspace's **Rate limits** settings tab in the [Claude Console](/settings/workspaces).
+* **Spend limits:** Cap monthly spending for a workspace. Set these on the workspace's **Spend limits** settings tab in the [Claude Console](https://platform.claude.com/settings/workspaces).
+* **Rate limits:** Limit requests per minute, input tokens per minute, or output tokens per minute. Set these on the workspace's **Rate limits** settings tab in the [Claude Console](https://platform.claude.com/settings/workspaces).
 
 <Note>
   - You cannot set limits on the Default Workspace
@@ -228,11 +228,11 @@ You can set workspace limits lower than (but not higher than) your organization'
   - Organization-wide limits always apply, even if workspace limits add up to more
 </Note>
 
-For detailed information on rate limits and how they work, see [Rate limits](/docs/en/api/rate-limits). You can also read your current organization and workspace rate limits programmatically with the [Rate Limits API](/docs/en/manage-claude/rate-limits-api).
+For detailed information on rate limits and how they work, see [Rate limits](https://platform.claude.com/docs/en/api/rate-limits). You can also read your current organization and workspace rate limits programmatically with the [Rate Limits API](https://platform.claude.com/docs/en/manage-claude/rate-limits-api).
 
 ## Usage and cost tracking
 
-Track usage and costs by workspace using the [Usage and Cost API](/docs/en/manage-claude/usage-cost-api):
+Track usage and costs by workspace using the [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api):
 
 ```bash cURL
 curl "https://api.anthropic.com/v1/organizations/usage_report/messages?\
@@ -291,7 +291,7 @@ Create workspaces for specific projects or products to track usage and costs sep
   </Step>
 
   <Step title="Monitor usage">
-    Use the [Usage and Cost API](/docs/en/manage-claude/usage-cost-api) to track workspace-level consumption.
+    Use the [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api) to track workspace-level consumption.
   </Step>
 </Steps>
 
@@ -303,7 +303,7 @@ Create workspaces for specific projects or products to track usage and costs sep
   </Accordion>
 
   <Accordion title="What's the Claude Code workspace?">
-    Anthropic creates the Claude Code workspace automatically the first time a member of your organization signs in to Claude Code with their Console account. It isolates Claude Code's API keys, usage, and rate limits from your other workloads. See [Claude Code workspace](#claude-code-workspace) for details.
+    Anthropic creates the Claude Code workspace automatically the first time a member of your organization signs in to Claude Code with their Console account. It isolates Claude Code's API keys, usage, and rate limits from your other workloads. See [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace) for details.
   </Accordion>
 
   <Accordion title="Are there limits on workspaces?">
@@ -327,13 +327,13 @@ Create workspaces for specific projects or products to track usage and costs sep
   </Accordion>
 
   <Accordion title="What happens to API keys when a user is removed from a workspace?">
-    API keys persist in their current state as they are scoped to the organization and workspace, not to individual users. The exception is the [Claude Code workspace](#claude-code-workspace), where each key is bound to the member who created it and stops working when that member is removed.
+    API keys persist in their current state as they are scoped to the organization and workspace, not to individual users. The exception is the [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace), where each key is bound to the member who created it and stops working when that member is removed.
   </Accordion>
 </AccordionGroup>
 
 ## See also
 
-* [Admin API](/docs/en/manage-claude/admin-api)
-* [Admin API reference](/docs/en/api/admin)
-* [Rate limits](/docs/en/api/rate-limits)
-* [Usage and Cost API](/docs/en/manage-claude/usage-cost-api)
+* [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api)
+* [Admin API reference](https://platform.claude.com/docs/en/api/admin)
+* [Rate limits](https://platform.claude.com/docs/en/api/rate-limits)
+* [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api)

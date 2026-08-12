@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-12T13:02:43.121502Z",
-    "total_paths": 740,
+    "generated_at": "2026-08-12T18:58:11.286451Z",
+    "total_paths": 741,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-12T13:02:43.121511Z"
+    "last_regenerated": "2026-08-12T18:58:11.286459Z"
   },
   "categories": {
     "core_documentation": [
@@ -17,7 +17,6 @@
       "/docs/en/about-claude/models/whats-new-opus-5",
       "/docs/en/about-claude/models/whats-new-sonnet-5",
       "/docs/en/about-claude/pricing",
-      "/docs/en/about-claude/use-case-guides/classification",
       "/docs/en/about-claude/use-case-guides/content-moderation",
       "/docs/en/about-claude/use-case-guides/customer-support-chat",
       "/docs/en/about-claude/use-case-guides/legal-summarization",
@@ -225,6 +224,7 @@
       "/docs/en/manage-claude/workload-identity-federation",
       "/docs/en/manage-claude/workspaces",
       "/docs/en/managed-agents/agent-setup",
+      "/docs/en/managed-agents/budgets",
       "/docs/en/managed-agents/cloud-sandboxes-reference",
       "/docs/en/managed-agents/define-outcomes",
       "/docs/en/managed-agents/dreams",
@@ -749,6 +749,7 @@
       "/docs/en/vs-code"
     ],
     "uncategorized": [
+      "/docs/en/home",
       "/docs/en/prompt-library"
     ],
     "release_notes": [
