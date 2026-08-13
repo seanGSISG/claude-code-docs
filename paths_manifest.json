@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-13T13:03:25.735738Z",
-    "total_paths": 741,
+    "generated_at": "2026-08-13T18:59:33.531306Z",
+    "total_paths": 752,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-13T13:03:25.735746Z"
+    "last_regenerated": "2026-08-13T18:59:33.531314Z"
   },
   "categories": {
     "core_documentation": [
@@ -204,6 +204,7 @@
       "/docs/en/manage-claude/compliance-faq",
       "/docs/en/manage-claude/compliance-integration-patterns",
       "/docs/en/manage-claude/compliance-org-data",
+      "/docs/en/manage-claude/compliance-sessions",
       "/docs/en/manage-claude/data-residency",
       "/docs/en/manage-claude/inference-hooks",
       "/docs/en/manage-claude/inference-hooks-configuration",
@@ -661,6 +662,16 @@
       "/docs/en/api/compliance/apps/projects/documents/retrieve",
       "/docs/en/api/compliance/apps/projects/list",
       "/docs/en/api/compliance/apps/projects/retrieve",
+      "/docs/en/api/compliance/apps/sessions",
+      "/docs/en/api/compliance/apps/sessions/local",
+      "/docs/en/api/compliance/apps/sessions/local/list",
+      "/docs/en/api/compliance/apps/sessions/local/messages",
+      "/docs/en/api/compliance/apps/sessions/local/messages/list",
+      "/docs/en/api/compliance/apps/sessions/local/retrieve",
+      "/docs/en/api/compliance/apps/sessions/remote",
+      "/docs/en/api/compliance/apps/sessions/remote/list",
+      "/docs/en/api/compliance/apps/sessions/remote/messages",
+      "/docs/en/api/compliance/apps/sessions/remote/messages/list",
       "/docs/en/api/compliance/code",
       "/docs/en/api/compliance/code/artifacts",
       "/docs/en/api/compliance/code/artifacts/delete",
