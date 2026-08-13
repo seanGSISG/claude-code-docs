@@ -6,13 +6,12 @@ description: Pre-built, configurable agent harness that runs in managed infrastr
 
 Anthropic offers two ways to build with Claude, each suited to different use cases:
 
-|                | Messages API                                                                                     | Claude Managed Agents                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| **What it is** | Direct model prompting access                                                                    | Pre-built, configurable agent harness that runs in managed infrastructure                 |
-| **Best for**   | Custom agent loops and fine-grained control                                                      | Long-running tasks and asynchronous work                                                  |
-| **Learn more** | [Messages API docs](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) | [Claude Managed Agents docs](https://platform.claude.com/docs/en/managed-agents/overview) |
+|                | Messages API                                | Claude Managed Agents                                                     |
+| -------------- | ------------------------------------------- | ------------------------------------------------------------------------- |
+| **What it is** | Direct model prompting access               | Pre-built, configurable agent harness that runs in managed infrastructure |
+| **Best for**   | Custom agent loops and fine-grained control | Long-running tasks and asynchronous work                                  |
 
-Claude Managed Agents provides the harness and infrastructure for running Claude as an autonomous agent. Instead of building your own agent loop, tool execution, and runtime, you get a fully managed environment where Claude can read files, run commands, browse the web, and run code securely. The harness supports built-in prompt caching, compaction, and other performance optimizations for high-quality, efficient agent outputs.
+Claude Managed Agents provides the harness and infrastructure for running Claude as an autonomous agent. Instead of building your own agent loop, tool execution, and runtime, you get a fully managed environment where Claude can read files, run commands, browse the web, and run code securely. The harness supports built-in prompt caching, compaction, and other performance optimizations for high-quality, efficient agent outputs. To build your own agent loop with direct model access instead, see [Using the Messages API](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
 <Note>
   Claude Managed Agents is also available on Claude Platform on AWS, with some differences in feature availability and session behavior. See [Claude Managed Agents](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws#claude-managed-agents) in the Claude Platform on AWS guide.

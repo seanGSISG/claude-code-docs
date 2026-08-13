@@ -82,7 +82,7 @@ Every API response includes a unique `request-id` header. This header contains a
 
 On [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), responses include two request IDs: the AWS request ID (`x-amzn-requestid`, primary, indexed in CloudTrail) and the Anthropic request ID (`request-id`, secondary). Use the AWS request ID for CloudTrail lookups and the Anthropic request ID for Anthropic support tickets.
 
-The Python and TypeScript SDKs expose the request ID as a `_request_id` property on top-level response objects. The C#, Go, Java, and PHP SDKs expose it through their raw-response accessors, which also let you read any other response header. On Claude Platform on AWS, use the raw-response accessor to read the AWS request ID (`x-amzn-requestid`) as well:
+The Python and TypeScript SDKs expose the request ID as a `_request_id` property on top-level response objects. The C#, Go, Java, and PHP SDKs expose it through their raw-response accessors, and the Ruby SDK through [middleware](https://platform.claude.com/docs/en/cli-sdks-libraries/middleware). The same mechanisms, along with `with_raw_response` in Python and `.withResponse()` in TypeScript, read any other [response header](https://platform.claude.com/docs/en/api/overview#response-headers) too, such as `anthropic-organization-id` and [`anthropic-workspace-id`](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response). On Claude Platform on AWS, use the raw-response accessor to read the AWS request ID (`x-amzn-requestid`) as well:
 
 <CodeGroup>
   ```bash cURL
@@ -131,7 +131,7 @@ The Python and TypeScript SDKs expose the request ID as a `_request_id` property
   ```csharp C#
   AnthropicClient client = new();
 
-  var response = await client.WithRawResponse.Messages.Create(new MessageCreateParams
+  using var response = await client.WithRawResponse.Messages.Create(new MessageCreateParams
   {
       Model = Model.ClaudeSonnet5,
       MaxTokens = 1024,
@@ -144,7 +144,7 @@ The Python and TypeScript SDKs expose the request ID as a `_request_id` property
   client := anthropic.NewClient()
 
   var response *http.Response
-  message, err := client.Messages.New(
+  _, err := client.Messages.New(
   	context.Background(),
   	anthropic.MessageNewParams{
   		Model:     anthropic.ModelClaudeSonnet5,
@@ -160,12 +160,6 @@ The Python and TypeScript SDKs expose the request ID as a `_request_id` property
   }
 
   fmt.Println("Request ID:", response.Header.Get("request-id"))
-  for _, block := range message.Content {
-  	if textBlock, ok := block.AsAny().(anthropic.TextBlock); ok {
-  		fmt.Println(textBlock.Text)
-  		break
-  	}
-  }
   ```
 
   ```java Java
@@ -203,8 +197,25 @@ The Python and TypeScript SDKs expose the request ID as a `_request_id` property
   ```
 
   ```ruby Ruby
-  # Accessing raw response headers is not currently supported in the Ruby SDK.
-  # To read the request-id header, use one of the other SDK examples.
+  client = Anthropic::Client.new
+
+  # Read response headers in per-request middleware, which receives the
+  # raw HTTP response before the SDK parses it
+  request_id = nil
+  read_request_id = lambda do |request, call_next|
+    response = call_next.call(request)
+    # Keys in response.headers are lowercase
+    request_id = response.headers["request-id"]
+    response
+  end
+
+  client.messages.create(
+    model: Anthropic::Model::CLAUDE_SONNET_5,
+    max_tokens: 1024,
+    messages: [{ role: "user", content: "Hello, Claude" }],
+    request_options: { middleware: [read_request_id] }
+  )
+  puts "Request ID: #{request_id}"
   ```
 
   ```python Python (Claude Platform on AWS)

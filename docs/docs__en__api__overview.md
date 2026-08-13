@@ -65,7 +65,7 @@ Anthropic provides official SDKs that simplify API integration by handling authe
 
 **Benefits:**
 
-* Automatic header management (x-api-key, anthropic-version, content-type)
+* Automatic header management (`x-api-key`, `anthropic-version`, `content-type`)
 * Type-safe request and response handling
 * Built-in retry logic and error handling
 * Streaming support
@@ -121,10 +121,15 @@ If you exceed these limits, you'll receive a 413 `request_too_large` error.
 
 ### Response headers
 
-The Claude API includes the following headers in every response:
+The Claude API includes the following headers in its responses:
 
-* `request-id`: A globally unique identifier for the request
-* `anthropic-organization-id`: The organization ID associated with the API key used in the request
+| Header                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request-id`                | A globally unique identifier for the request, such as `req_018EeWyXxfu5pfWkrYcMdjWG`. Include it when you contact support about a specific request. See [Request ID](https://platform.claude.com/docs/en/api/errors#request-id).                                                                                                                                                                                                                                                                                                                                                        |
+| `anthropic-organization-id` | The ID of the organization that the API key or access token used in the request belongs to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `anthropic-workspace-id`    | The `wrkspc_`-prefixed ID of the [workspace](https://platform.claude.com/docs/en/manage-claude/workspaces) that the API key or access token resolved to, such as `wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ`, including when that is your organization's Default Workspace. Absent when the credential doesn't resolve to a workspace (for example, on Admin API requests) or the request fails before authentication completes. See [Identify the workspace behind an API response](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response). |
+
+For the rate limit headers, see [Response headers](https://platform.claude.com/docs/en/api/rate-limits#response-headers) in Rate limits. For examples that read a response header by name with each SDK, see [Identify the workspace behind an API response](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response).
 
 <Note>
   Claude Platform on AWS adds an AWS request ID (`x-amzn-requestid`) alongside the standard `request-id` header. See [Request IDs](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws#request-ids) for the dual-ID handling pattern.

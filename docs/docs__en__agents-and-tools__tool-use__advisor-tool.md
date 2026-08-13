@@ -263,7 +263,7 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
   ```
 </CodeGroup>
 
-The response `content` includes an `advisor_tool_result` block carrying the advisor's guidance. With Claude Opus 5, Claude Fable 5, or Claude Mythos 5 as the advisor, the block's `content` field is an `advisor_redacted_result` variant (encrypted; the executor reads it server-side, but your client does not). To see the advice text directly in your response, use `claude-opus-4-8` as the advisor model instead, which returns the plaintext `advisor_result` variant. See [Result variants](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants) for both shapes and [Model compatibility](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#model-compatibility) for the full list of valid pairs.
+The response `content` includes an `advisor_tool_result` block carrying the advisor's guidance. With `claude-opus-5` as the advisor, as in this quick start, the block's `content` field is an `advisor_redacted_result` variant (encrypted; the executor reads it server-side, but your client does not). To see the advice text directly in your response, use `claude-opus-4-8` as the advisor model instead, which returns the plaintext `advisor_result` variant. See [Result variants](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants) for both shapes side by side and which advisor models return which, and [Model compatibility](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#model-compatibility) for the full list of valid pairs.
 
 ## How it works
 
@@ -297,7 +297,7 @@ The advisor tool also accepts the generic properties available on any tool defin
 
 ### Successful advisor call
 
-When the advisor is called, a `server_tool_use` block is followed by an `advisor_tool_result` block in the assistant's content. The following example shows the plaintext `advisor_result` variant returned by a Claude Opus 4.8 advisor. The [Quick start](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#quick-start) uses Claude Opus 5, which returns the encrypted `advisor_redacted_result` variant instead; see [Result variants](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants).
+When the advisor is called, a `server_tool_use` block is followed by an `advisor_tool_result` block in the assistant's content. The following example shows the plaintext `advisor_result` variant returned by a Claude Opus 4.8 advisor. The [Quick start](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#quick-start) uses Claude Opus 5, which returns the encrypted `advisor_redacted_result` variant instead; see [Result variants](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants) for both shapes side by side.
 
 ```json
 {
@@ -340,7 +340,37 @@ The `advisor_tool_result.content` field is a discriminated union. For successful
 | `advisor_result`          | `text`, `stop_reason`              | The advisor model returns plaintext (for example, Claude Opus 4.8). |
 | `advisor_redacted_result` | `encrypted_content`, `stop_reason` | The advisor model returns encrypted output.                         |
 
-Claude Opus 5, Claude Fable 5, and Claude Mythos 5 advisors return `advisor_redacted_result`. The other advisor models in the [compatibility table](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#model-compatibility) return `advisor_result`.
+<Note>
+  Currently, Claude Opus 5, Claude Fable 5, and Claude Mythos 5 advisors return the encrypted `advisor_redacted_result`. Every other advisor model in the [compatibility table](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#model-compatibility) returns the plaintext `advisor_result`. To read the advice text in your own responses, use an advisor that returns plaintext, such as `claude-opus-4-8`.
+</Note>
+
+Here is the same request sent twice, identical except for the advisor `model` in the tool definition, showing both variants.
+
+With `"model": "claude-opus-4-8"`, the advice is plaintext:
+
+```json
+{
+  "type": "advisor_tool_result",
+  "tool_use_id": "srvtoolu_abc123",
+  "content": {
+    "type": "advisor_result",
+    "text": "Use a channel-based coordination pattern. The tricky part is draining in-flight work during shutdown: close the input channel first, then wait on a WaitGroup..."
+  }
+}
+```
+
+With `"model": "claude-opus-5"`, the advice is encrypted:
+
+```json
+{
+  "type": "advisor_tool_result",
+  "tool_use_id": "srvtoolu_abc123",
+  "content": {
+    "type": "advisor_redacted_result",
+    "encrypted_content": "EqQBCkYIBRgCIiQ5ZjE0N2M2OC0yYWIxLTRkZTktYjA3ZC1hZTUyMzkxYjhkMmU..."
+  }
+}
+```
 
 Both result variants carry a `stop_reason` field when you set [`max_tokens`](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#capping-advisor-output) on the tool definition, and omit it when you do not. It holds the advisor sub-call's stop reason, typically `"end_turn"`, or `"max_tokens"` when the cap is hit. The values match the top-level Messages API [`stop_reason`](https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons).
 
@@ -379,7 +409,7 @@ Advisor rate limits draw from the same per-model bucket as direct calls to the a
 
 ## Multi-turn conversations
 
-Pass the full assistant content, including `advisor_tool_result` blocks, back to the API on subsequent turns. This example uses `claude-opus-4-8` as the advisor so the plaintext advice is visible in `response.content`; the mechanics are identical for any advisor model.
+Pass the full assistant content, including `advisor_tool_result` blocks, back to the API on subsequent turns. Round-trip the result blocks verbatim: with a Claude Opus 5 advisor the result block's `content` is the encrypted `advisor_redacted_result` variant, and the server decrypts it and renders the advice into the executor's prompt on the next turn (see [Result variants](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants)). The mechanics are identical for any advisor model.
 
 <CodeGroup exclude="shell">
   ```python Python
@@ -389,7 +419,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
       {
           "type": "advisor_20260301",
           "name": "advisor",
-          "model": "claude-opus-4-8",
+          "model": "claude-opus-5",
       }
   ]
 
@@ -430,7 +460,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
     {
       type: "advisor_20260301",
       name: "advisor",
-      model: "claude-opus-4-8"
+      model: "claude-opus-5"
     }
   ];
 
@@ -472,7 +502,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
   var tools = new BetaToolUnion[]
   {
-      new BetaAdvisorTool20260301 { Model = Messages::Model.ClaudeOpus4_8 }
+      new BetaAdvisorTool20260301 { Model = Messages::Model.ClaudeOpus5 }
   };
 
   var messages = new List<BetaMessageParam>
@@ -514,7 +544,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
   tools := []anthropic.BetaToolUnionParam{
   	{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
-  		Model: anthropic.ModelClaudeOpus4_8,
+  		Model: anthropic.ModelClaudeOpus5,
   	}},
   }
 
@@ -580,7 +610,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
       List<BetaToolUnion> tools = List.of(
           BetaToolUnion.ofAdvisorTool20260301(
-              BetaAdvisorTool20260301.builder().model(Model.CLAUDE_OPUS_4_8).build()));
+              BetaAdvisorTool20260301.builder().model(Model.CLAUDE_OPUS_5).build()));
 
       List<BetaMessageParam> messages = new ArrayList<>();
       messages.add(BetaMessageParam.builder()
@@ -590,7 +620,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
       BetaMessage response = client.beta().messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_SONNET_5)
-          .maxTokens(4096L)
+          .maxTokens(1024L)
           .tools(tools)
           .messages(messages)
           .addBeta("advisor-tool-2026-03-01")
@@ -611,7 +641,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
       BetaMessage followUp = client.beta().messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_SONNET_5)
-          .maxTokens(4096L)
+          .maxTokens(1024L)
           .tools(tools)
           .messages(messages)
           .addBeta("advisor-tool-2026-03-01")
@@ -626,7 +656,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
       [
           'type' => 'advisor_20260301',
           'name' => 'advisor',
-          'model' => 'claude-opus-4-8',
+          'model' => 'claude-opus-5',
       ],
   ];
 
@@ -667,7 +697,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
     {
       type: "advisor_20260301",
       name: "advisor",
-      model: "claude-opus-4-8"
+      model: "claude-opus-5"
     }
   ]
 
@@ -1301,16 +1331,89 @@ The `advisor_tool_result` block is cacheable like any other content block. A `ca
 
 Set `caching` on the tool definition to enable prompt caching for the advisor's own transcript across calls within the same conversation:
 
-```python
-tools = [
+<CodeGroup exclude="shell">
+  ```python Python
+  tools = [
+      {
+          "type": "advisor_20260301",
+          "name": "advisor",
+          "model": "claude-opus-5",
+          "caching": {"type": "ephemeral", "ttl": "5m"},
+      }
+  ]
+  ```
+
+  ```typescript TypeScript
+  const tools: Anthropic.Beta.Messages.BetaToolUnion[] = [
     {
-        "type": "advisor_20260301",
-        "name": "advisor",
-        "model": "claude-opus-5",
-        "caching": {"type": "ephemeral", "ttl": "5m"},
+      type: "advisor_20260301",
+      name: "advisor",
+      model: "claude-opus-5",
+      caching: { type: "ephemeral", ttl: "5m" }
     }
-]
-```
+  ];
+  ```
+
+  ```csharp C#
+  using Anthropic.Models.Beta.Messages;
+  using Messages = Anthropic.Models.Messages;
+
+  var tools = new BetaToolUnion[]
+  {
+      new BetaAdvisorTool20260301
+      {
+          Model = Messages::Model.ClaudeOpus5,
+          Caching = new BetaCacheControlEphemeral { Ttl = Ttl.Ttl5m }
+      }
+  };
+  ```
+
+  ```go Go
+  tools := []anthropic.BetaToolUnionParam{
+  	{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
+  		Model:   anthropic.ModelClaudeOpus5,
+  		Caching: anthropic.BetaCacheControlEphemeralParam{TTL: anthropic.BetaCacheControlEphemeralTTLTTL5m},
+  	}},
+  }
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.messages.BetaAdvisorTool20260301;
+  import com.anthropic.models.beta.messages.BetaCacheControlEphemeral;
+  import com.anthropic.models.beta.messages.BetaToolUnion;
+  import com.anthropic.models.messages.Model;
+
+  List<BetaToolUnion> tools = List.of(
+      BetaToolUnion.ofAdvisorTool20260301(BetaAdvisorTool20260301.builder()
+          .model(Model.CLAUDE_OPUS_5)
+          .caching(BetaCacheControlEphemeral.builder()
+              .ttl(BetaCacheControlEphemeral.Ttl.TTL_5M)
+              .build())
+          .build()));
+  ```
+
+  ```php PHP
+  $tools = [
+      [
+          'type' => 'advisor_20260301',
+          'name' => 'advisor',
+          'model' => 'claude-opus-5',
+          'caching' => ['type' => 'ephemeral', 'ttl' => '5m'],
+      ],
+  ];
+  ```
+
+  ```ruby Ruby
+  tools = [
+    {
+      type: "advisor_20260301",
+      name: "advisor",
+      model: "claude-opus-5",
+      caching: { type: "ephemeral", ttl: "5m" }
+    }
+  ]
+  ```
+</CodeGroup>
 
 The advisor's prompt on the Nth call is the (N-1)th call's prompt with one more segment appended, so the prefix is stable across calls. With `caching` enabled, each advisor call writes a cache entry, and the next call reads up to that point and pays only for the delta. You'll see `cache_read_input_tokens` become non-zero on the second and later `advisor_message` iterations.
 
@@ -1326,28 +1429,168 @@ The advisor's prompt on the Nth call is the (N-1)th call's prompt with one more 
 
 The advisor tool composes with other server-side and client-side tools. Add them all to the same `tools` array:
 
-```python
-tools = [
+<CodeGroup exclude="shell">
+  ```python Python
+  tools = [
+      {
+          "type": "web_search_20250305",
+          "name": "web_search",
+          "max_uses": 5,
+      },
+      {
+          "type": "advisor_20260301",
+          "name": "advisor",
+          "model": "claude-opus-5",
+      },
+      {
+          "name": "run_bash",
+          "description": "Run a bash command",
+          "input_schema": {
+              "type": "object",
+              "properties": {"command": {"type": "string"}},
+          },
+      },
+  ]
+  ```
+
+  ```typescript TypeScript
+  const tools: Anthropic.Beta.Messages.BetaToolUnion[] = [
     {
-        "type": "web_search_20250305",
-        "name": "web_search",
-        "max_uses": 5,
+      type: "web_search_20250305",
+      name: "web_search",
+      max_uses: 5
     },
     {
-        "type": "advisor_20260301",
-        "name": "advisor",
-        "model": "claude-opus-5",
+      type: "advisor_20260301",
+      name: "advisor",
+      model: "claude-opus-5"
     },
     {
-        "name": "run_bash",
-        "description": "Run a bash command",
-        "input_schema": {
-            "type": "object",
-            "properties": {"command": {"type": "string"}},
-        },
+      name: "run_bash",
+      description: "Run a bash command",
+      input_schema: {
+        type: "object",
+        properties: { command: { type: "string" } }
+      }
+    }
+  ];
+  ```
+
+  ```csharp C#
+  using System.Text.Json;
+  using Anthropic.Models.Beta.Messages;
+  using Messages = Anthropic.Models.Messages;
+
+  var tools = new BetaToolUnion[]
+  {
+      new BetaWebSearchTool20250305 { MaxUses = 5 },
+      new BetaAdvisorTool20260301 { Model = Messages::Model.ClaudeOpus5 },
+      new BetaTool
+      {
+          Name = "run_bash",
+          Description = "Run a bash command",
+          InputSchema = new()
+          {
+              Properties = new Dictionary<string, JsonElement>
+              {
+                  ["command"] = JsonSerializer.SerializeToElement(new { type = "string" })
+              }
+          }
+      }
+  };
+  ```
+
+  ```go Go
+  tools := []anthropic.BetaToolUnionParam{
+  	{OfWebSearchTool20250305: &anthropic.BetaWebSearchTool20250305Param{
+  		MaxUses: anthropic.Int(5),
+  	}},
+  	{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
+  		Model: anthropic.ModelClaudeOpus5,
+  	}},
+  	{OfTool: &anthropic.BetaToolParam{
+  		Name:        "run_bash",
+  		Description: anthropic.String("Run a bash command"),
+  		InputSchema: anthropic.BetaToolInputSchemaParam{
+  			Properties: map[string]any{
+  				"command": map[string]any{"type": "string"},
+  			},
+  		},
+  	}},
+  }
+  ```
+
+  ```java Java
+  import com.anthropic.core.JsonValue;
+  import com.anthropic.models.beta.messages.BetaAdvisorTool20260301;
+  import com.anthropic.models.beta.messages.BetaTool;
+  import com.anthropic.models.beta.messages.BetaToolUnion;
+  import com.anthropic.models.beta.messages.BetaWebSearchTool20250305;
+  import com.anthropic.models.messages.Model;
+
+  List<BetaToolUnion> tools = List.of(
+      BetaToolUnion.ofWebSearchTool20250305(BetaWebSearchTool20250305.builder()
+          .maxUses(5L)
+          .build()),
+      BetaToolUnion.ofAdvisorTool20260301(BetaAdvisorTool20260301.builder()
+          .model(Model.CLAUDE_OPUS_5)
+          .build()),
+      BetaToolUnion.ofBetaTool(BetaTool.builder()
+          .name("run_bash")
+          .description("Run a bash command")
+          .inputSchema(BetaTool.InputSchema.builder()
+              .properties(JsonValue.from(Map.of(
+                  "command", Map.of("type", "string"))))
+              .build())
+          .build()));
+  ```
+
+  ```php PHP
+  $tools = [
+      [
+          'type' => 'web_search_20250305',
+          'name' => 'web_search',
+          'max_uses' => 5,
+      ],
+      [
+          'type' => 'advisor_20260301',
+          'name' => 'advisor',
+          'model' => 'claude-opus-5',
+      ],
+      [
+          'name' => 'run_bash',
+          'description' => 'Run a bash command',
+          'input_schema' => [
+              'type' => 'object',
+              'properties' => ['command' => ['type' => 'string']],
+          ],
+      ],
+  ];
+  ```
+
+  ```ruby Ruby
+  tools = [
+    {
+      type: "web_search_20250305",
+      name: "web_search",
+      max_uses: 5
     },
-]
-```
+    {
+      type: "advisor_20260301",
+      name: "advisor",
+      model: "claude-opus-5"
+    },
+    {
+      name: "run_bash",
+      description: "Run a bash command",
+      input_schema: {
+        type: "object",
+        properties: { command: { type: "string" } }
+      }
+    }
+  ]
+  ```
+</CodeGroup>
 
 The executor can search the web, call the advisor, and use your custom tools in the same turn. The advisor's plan can inform which tools the executor reaches for next.
 
@@ -1461,16 +1704,86 @@ Pair this approach with the timing guidance in [Suggested system prompt for codi
 
 Set `max_tokens` on the tool definition to cap the advisor's total output (thinking plus text) per call:
 
-```python
-tools = [
+<CodeGroup exclude="shell">
+  ```python Python
+  tools = [
+      {
+          "type": "advisor_20260301",
+          "name": "advisor",
+          "model": "claude-opus-5",
+          "max_tokens": 2048,
+      }
+  ]
+  ```
+
+  ```typescript TypeScript
+  const tools: Anthropic.Beta.Messages.BetaToolUnion[] = [
     {
-        "type": "advisor_20260301",
-        "name": "advisor",
-        "model": "claude-opus-4-8",
-        "max_tokens": 2048,
+      type: "advisor_20260301",
+      name: "advisor",
+      model: "claude-opus-5",
+      max_tokens: 2048
     }
-]
-```
+  ];
+  ```
+
+  ```csharp C#
+  using Anthropic.Models.Beta.Messages;
+  using Messages = Anthropic.Models.Messages;
+
+  var tools = new BetaToolUnion[]
+  {
+      new BetaAdvisorTool20260301
+      {
+          Model = Messages::Model.ClaudeOpus5,
+          MaxTokens = 2048
+      }
+  };
+  ```
+
+  ```go Go
+  tools := []anthropic.BetaToolUnionParam{
+  	{OfAdvisorTool20260301: &anthropic.BetaAdvisorTool20260301Param{
+  		Model:     anthropic.ModelClaudeOpus5,
+  		MaxTokens: anthropic.Int(2048),
+  	}},
+  }
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.messages.BetaAdvisorTool20260301;
+  import com.anthropic.models.beta.messages.BetaToolUnion;
+  import com.anthropic.models.messages.Model;
+
+  List<BetaToolUnion> tools = List.of(
+      BetaToolUnion.ofAdvisorTool20260301(BetaAdvisorTool20260301.builder()
+          .model(Model.CLAUDE_OPUS_5)
+          .maxTokens(2048L)
+          .build()));
+  ```
+
+  ```php PHP
+  $tools = [
+      [
+          'type' => 'advisor_20260301',
+          'name' => 'advisor',
+          'model' => 'claude-opus-5',
+          'max_tokens' => 2048,
+      ],
+  ];
+  ```
+
+  ```ruby Ruby
+  tools = [
+    {
+      type: "advisor_20260301",
+      name: "advisor",
+      model: "claude-opus-5",
+      max_tokens: 2048
+    }
+  ]
+  ```
+</CodeGroup>
 
 The minimum value is 1024. Setting `max_tokens` above the advisor model's own output cap returns a 400 error. The cap applies to each advisor call independently and is not shared across calls in the same request.
 
@@ -1486,15 +1799,15 @@ This is not a hard truncation alone. The server also passes the advisor its rema
 
 Hard reasoning tasks elicit substantially longer advisor output than the [typical 1,400 to 1,800 tokens](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#usage-and-billing) quoted earlier for lighter workloads. Use this table to size the savings ratio, not as a universal baseline for advisor output.
 
-When the advisor does hit the cap, the result block carries `stop_reason: "max_tokens"`. The API also appends `[Advisor output truncated at max_tokens=2048.]` (naming your cap) to the advice text, so the executor sees the truncation in its own context. Use `stop_reason` to detect truncated advice and decide whether to raise the cap or let the executor proceed with partial guidance. Both signals appear only when you set `max_tokens` on the tool definition.
+When the advisor does hit the cap, the result block carries `stop_reason: "max_tokens"` on both [result variants](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool#result-variants), whichever advisor model you use. Use `stop_reason` to detect truncated advice and decide whether to raise the cap or let the executor proceed with partial guidance. The API also appends `[Advisor output truncated at max_tokens=2048.]` (naming your cap) to the advice text, so the executor sees the truncation in its own context; with a plaintext `advisor_result` advisor that marker is visible to your client as well. Both signals appear only when you set `max_tokens` on the tool definition.
 
 ```json
 {
   "type": "advisor_tool_result",
   "tool_use_id": "srvtoolu_abc123",
   "content": {
-    "type": "advisor_result",
-    "text": "Use a channel-based coordination pattern. The tricky part is\n\n[Advisor output truncated at max_tokens=2048.]",
+    "type": "advisor_redacted_result",
+    "encrypted_content": "EqQBCkYIBRgCIiQ3YTAwMjY1Mi1mZjM5LTQ1NGUtODgxNC1kNjNjNTk1ZWI3Y...",
     "stop_reason": "max_tokens"
   }
 }
