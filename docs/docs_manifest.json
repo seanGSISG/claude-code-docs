@@ -3528,12 +3528,6 @@
       "hash": "4eebb61915c3db72b2735385190393b5194e43f60fa17562e14494a16dea67ea",
       "last_updated": "2026-08-13T19:11:15.327028"
     },
-    "docs__en__release-notes__system-prompts.md": {
-      "original_url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
-      "original_md_url": "https://platform.claude.com/docs/en/release-notes/system-prompts.md",
-      "hash": "5f22f4f307bd1f954bc676c4c9a158f967c99171c7c047db722b2bd139eec59d",
-      "last_updated": "2026-08-12T19:09:39.037381"
-    },
     "claude-code__sandboxing.md": {
       "original_url": "https://platform.claude.com/docs/en/sandboxing",
       "original_md_url": "https://platform.claude.com/docs/en/sandboxing.md",
@@ -3651,11 +3645,11 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-14T13:16:44.289448",
-    "fetch_duration_seconds": 1013.825454,
+    "last_fetch_completed": "2026-08-14T19:06:12.688170",
+    "fetch_duration_seconds": 985.119372,
     "total_pages_discovered": 752,
-    "pages_fetched_successfully": 608,
-    "pages_failed": 145,
+    "pages_fetched_successfully": 607,
+    "pages_failed": 146,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/accessibility",
@@ -3758,6 +3752,7 @@
       "/docs/en/plugin-hints",
       "/docs/en/plugin-relevance",
       "/docs/en/prompt-caching",
+      "/docs/en/release-notes/system-prompts",
       "/docs/en/remote-control",
       "/docs/en/resources/overview",
       "/docs/en/routines",
@@ -3805,10 +3800,10 @@
     ],
     "sitemap_url": "https://platform.claude.com/sitemap.xml",
     "base_url": "https://platform.claude.com",
-    "total_files": 608,
+    "total_files": 607,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-14T13:16:44.289474",
+  "last_updated": "2026-08-14T19:06:12.688189",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
