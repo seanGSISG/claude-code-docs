@@ -2829,8 +2829,8 @@
     "claude-code__claude-code-on-the-web.md": {
       "original_url": "https://platform.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://platform.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "cf076d4c0071f7a405159832a9f1c33efc672ab92a54a50d0b585962dd147a80",
-      "last_updated": "2026-08-14T01:50:49.194027"
+      "hash": "e9dcd4c6efcc46658ba87bda8c16bcedfff802cc11355902cb573ba6421f0cd5",
+      "last_updated": "2026-08-15T18:31:09.863943"
     },
     "docs__en__claude_api_primer.md": {
       "original_url": "https://platform.claude.com/docs/en/claude_api_primer",
@@ -2841,8 +2841,8 @@
     "claude-code__cli-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-reference",
       "original_md_url": "https://platform.claude.com/docs/en/cli-reference.md",
-      "hash": "0efaa65cf7c575c9c5ccdcba6f9bd7bede5e84ab1d7b42cafa911e3af8fa9c03",
-      "last_updated": "2026-08-15T06:40:37.062435"
+      "hash": "3a0c9da336b03d58206aa25e75869edf97868cdf7c3cdce0194894a72ba35a04",
+      "last_updated": "2026-08-15T18:31:30.574175"
     },
     "docs__en__cli-sdks-libraries__cli__authentication.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication",
@@ -3471,8 +3471,8 @@
     "claude-code__model-config.md": {
       "original_url": "https://platform.claude.com/docs/en/model-config",
       "original_md_url": "https://platform.claude.com/docs/en/model-config.md",
-      "hash": "b7471509414ca218e1e3252730553986afbb7c885969cc0309ed703414b7a7f3",
-      "last_updated": "2026-08-15T01:15:45.473679"
+      "hash": "f08fed33c2bd1783fc76bc860c342b3e0d368d97eb23467b05333857660a23ca",
+      "last_updated": "2026-08-15T18:35:24.105531"
     },
     "claude-code__monitoring-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/monitoring-usage",
@@ -3579,8 +3579,8 @@
     "claude-code__sub-agents.md": {
       "original_url": "https://platform.claude.com/docs/en/sub-agents",
       "original_md_url": "https://platform.claude.com/docs/en/sub-agents.md",
-      "hash": "d10513fcf72757870b9d9656dad18c60bbf5912f78a88f65054811df3b0c2201",
-      "last_updated": "2026-08-15T06:46:36.920809"
+      "hash": "ca660359d8230ec7198f05a70943df5bb0474dfe71710a6955811d639890861f",
+      "last_updated": "2026-08-15T18:37:24.428603"
     },
     "claude-code__terminal-config.md": {
       "original_url": "https://platform.claude.com/docs/en/terminal-config",
@@ -3657,8 +3657,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-15T12:47:21.491244",
-    "fetch_duration_seconds": 941.387573,
+    "last_fetch_completed": "2026-08-15T18:39:47.749550",
+    "fetch_duration_seconds": 907.632361,
     "total_pages_discovered": 753,
     "pages_fetched_successfully": 609,
     "pages_failed": 145,
@@ -3814,7 +3814,7 @@
     "total_files": 609,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-15T12:47:21.491263",
+  "last_updated": "2026-08-15T18:39:47.749574",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
