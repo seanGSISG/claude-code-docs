@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-14T18:49:48.438868Z",
-    "total_paths": 752,
+    "generated_at": "2026-08-15T01:04:26.536577Z",
+    "total_paths": 753,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-14T18:49:48.438876Z"
+    "last_regenerated": "2026-08-15T01:04:26.536584Z"
   },
   "categories": {
     "core_documentation": [
@@ -13,6 +13,7 @@
       "/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
       "/docs/en/about-claude/models/migration-guide",
       "/docs/en/about-claude/models/model-ids-and-versions",
+      "/docs/en/about-claude/models/optimizing-for-cost-and-intelligence",
       "/docs/en/about-claude/models/overview",
       "/docs/en/about-claude/models/whats-new-opus-5",
       "/docs/en/about-claude/models/whats-new-sonnet-5",
