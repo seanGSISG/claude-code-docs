@@ -3009,14 +3009,14 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "2d12e3861770c65b0db9a3bf3cea34e90925ad3fa5622203246a98eb53a2e5d2",
-      "last_updated": "2026-08-15T06:43:00.825833"
+      "hash": "bc6ebfe342d20f3e1100853deebf44c1aae2a12d612f74d421397ac275818da6",
+      "last_updated": "2026-08-16T18:34:05.478400"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
       "original_md_url": "https://platform.claude.com/docs/en/hooks-guide.md",
-      "hash": "988a0517b43b96726248a7707712769981c300e34dc8d9cf839c3ebd7e23d916",
-      "last_updated": "2026-08-15T01:14:12.836810"
+      "hash": "e4ce7337cb6467b51c38fe10e6566ea28fca5a7a40358f7015512748a0375c33",
+      "last_updated": "2026-08-16T18:34:06.467619"
     },
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
@@ -3555,8 +3555,8 @@
     "claude-code__settings.md": {
       "original_url": "https://platform.claude.com/docs/en/settings",
       "original_md_url": "https://platform.claude.com/docs/en/settings.md",
-      "hash": "c782756812870fa743d2152c02fa969578de9a4f51b7d41b217caa7d7fb5064f",
-      "last_updated": "2026-08-15T06:46:28.909163"
+      "hash": "6538b8ad2cb9bb83fb75efffc32b471d03755f282257e9b7c1e4dd8af51f4ab2",
+      "last_updated": "2026-08-16T18:37:33.738545"
     },
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
@@ -3657,8 +3657,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-16T12:48:35.281842",
-    "fetch_duration_seconds": 925.670994,
+    "last_fetch_completed": "2026-08-16T18:40:05.372557",
+    "fetch_duration_seconds": 941.783658,
     "total_pages_discovered": 753,
     "pages_fetched_successfully": 609,
     "pages_failed": 145,
@@ -3814,7 +3814,7 @@
     "total_files": 609,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-16T12:48:35.281871",
+  "last_updated": "2026-08-16T18:40:05.372586",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
