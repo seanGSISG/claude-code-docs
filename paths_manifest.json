@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-18T18:33:45.449727Z",
-    "total_paths": 753,
+    "generated_at": "2026-08-19T01:04:56.785524Z",
+    "total_paths": 752,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-18T18:33:45.449733Z"
+    "last_regenerated": "2026-08-19T01:04:56.785530Z"
   },
   "categories": {
     "core_documentation": [
@@ -335,7 +335,6 @@
       "/docs/en/agent-sdk/session-storage",
       "/docs/en/agent-sdk/sessions",
       "/docs/en/agent-sdk/skills",
-      "/docs/en/agent-sdk/slash-commands",
       "/docs/en/agent-sdk/streaming-output",
       "/docs/en/agent-sdk/streaming-vs-single-mode",
       "/docs/en/agent-sdk/structured-outputs",
