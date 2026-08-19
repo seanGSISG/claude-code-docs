@@ -2697,8 +2697,8 @@
     "docs__en__build-with-claude__prompt-caching.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching.md",
-      "hash": "4af14eac456ba952ff0ee0fb0664b9d51bee244eb9a4fdef9ace0066f84fd6e6",
-      "last_updated": "2026-08-13T19:05:05.786743"
+      "hash": "3ce76cbe15423204c0abd1613dcd8806f61559e0ed254beb652b4fdbc8cea579",
+      "last_updated": "2026-08-19T06:44:33.775802"
     },
     "docs__en__build-with-claude__prompt-engineering__claude-prompting-best-practices.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
@@ -3657,8 +3657,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-19T01:20:59.638117",
-    "fetch_duration_seconds": 963.664053,
+    "last_fetch_completed": "2026-08-19T06:54:35.663967",
+    "fetch_duration_seconds": 947.000203,
     "total_pages_discovered": 752,
     "pages_fetched_successfully": 609,
     "pages_failed": 144,
@@ -3813,7 +3813,7 @@
     "total_files": 609,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-19T01:20:59.638135",
+  "last_updated": "2026-08-19T06:54:35.663992",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
