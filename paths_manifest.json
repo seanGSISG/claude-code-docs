@@ -1,12 +1,13 @@
 {
   "metadata": {
-    "generated_at": "2026-08-19T12:39:58.811557Z",
-    "total_paths": 752,
+    "generated_at": "2026-08-19T18:30:36.076260Z",
+    "total_paths": 753,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-19T12:39:58.811564Z"
+    "last_regenerated": "2026-08-19T18:30:36.076267Z"
   },
   "categories": {
     "core_documentation": [
+      "/docs/en/about-claude/additional-resources",
       "/docs/en/about-claude/glossary",
       "/docs/en/about-claude/model-deprecations",
       "/docs/en/about-claude/models/choosing-a-model",
