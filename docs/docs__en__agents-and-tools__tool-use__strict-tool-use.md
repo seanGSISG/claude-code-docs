@@ -577,7 +577,7 @@ For example, suppose a booking system needs `passengers: int`. Without strict mo
       if err != nil {
       	log.Fatal(err)
       }
-      fmt.Println(response)
+      fmt.Println(response.RawJSON())
       ```
 
       ```java Java
@@ -962,7 +962,7 @@ For example, suppose a booking system needs `passengers: int`. Without strict mo
       if err != nil {
       	log.Fatal(err)
       }
-      fmt.Println(response)
+      fmt.Println(response.RawJSON())
       ```
 
       ```java Java

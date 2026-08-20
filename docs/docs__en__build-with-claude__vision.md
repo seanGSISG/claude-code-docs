@@ -541,14 +541,12 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   FILE_ID=$(curl -sS -X POST https://api.anthropic.com/v1/files \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: files-api-2025-04-14" \
     -F "file=@vision-example.jpg" | jq -r '.id')
 
   # Then use the returned file_id in your message
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: files-api-2025-04-14" \
     -H "content-type: application/json" \
     -d @- <<EOF
   {
@@ -581,13 +579,12 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
     https://platform.claude.com/docs/images/vision-example.jpg
 
   # First, upload your image to the Files API
-  FILE_ID=$(ant beta:files upload \
+  FILE_ID=$(ant files upload \
     --file ./vision-example.jpg \
     --transform id --raw-output)
 
   # Then use the returned file_id in your message
-  ant beta:messages create \
-    --beta files-api-2025-04-14 \
+  ant messages create \
     --transform content --format yaml <<YAML
   model: claude-opus-5
   max_tokens: 1024
@@ -608,13 +605,12 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
 
   # Upload the image file
   with open("vision-example.jpg", "rb") as f:
-      file_upload = client.beta.files.upload(file=("vision-example.jpg", f, "image/jpeg"))
+      file_upload = client.files.upload(file=("vision-example.jpg", f, "image/jpeg"))
 
   # Use the uploaded file in a message
-  message = client.beta.messages.create(
+  message = client.messages.create(
       model="claude-opus-5",
       max_tokens=1024,
-      betas=["files-api-2025-04-14"],
       messages=[
           {
               "role": "user",
@@ -639,17 +635,16 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   const anthropic = new Anthropic();
 
   // Upload the image file
-  const fileUpload = await anthropic.beta.files.upload({
+  const fileUpload = await anthropic.files.upload({
     file: await toFile(fs.createReadStream("vision-example.jpg"), undefined, {
       type: "image/jpeg"
     })
   });
 
   // Use the uploaded file in a message
-  const response = await anthropic.beta.messages.create({
+  const response = await anthropic.messages.create({
     model: "claude-opus-5",
     max_tokens: 1024,
-    betas: ["files-api-2025-04-14"],
     messages: [
       {
         role: "user",
@@ -674,38 +669,45 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   ```
 
   ```csharp C#
+  using System.Collections.Generic;
   using Anthropic;
+  using Anthropic.Core;
+  using Anthropic.Models.Files;
+  using Anthropic.Models.Messages;
 
-  var client = new AnthropicClient();
+  AnthropicClient client = new();
 
   // Upload the image file
-  var fileUpload = await client.Beta.Files.Upload(
-      new FileUploadParams { File = File.OpenRead("vision-example.jpg") });
+  var fileUpload = await client.Files.Upload(new FileUploadParams
+  {
+      File = new BinaryContent
+      {
+          Stream = File.OpenRead("vision-example.jpg"),
+          FileName = "vision-example.jpg",
+          ContentType = new("image/jpeg"),
+      },
+  });
 
   // Use the uploaded file in a message
-  var response = await client.Beta.Messages.Create(
-      new MessageCreateParams
-      {
-          Model = "claude-opus-5",
-          MaxTokens = 1024,
-          Betas = new[] { "files-api-2025-04-14" },
-          Messages = new[]
+  var response = await client.Messages.Create(new MessageCreateParams
+  {
+      Model = Model.ClaudeOpus5,
+      MaxTokens = 1024,
+      Messages =
+      [
+          new()
           {
-              new BetaMessageParam
+              Role = Role.User,
+              Content = new MessageParamContent(new List<ContentBlockParam>
               {
-                  Role = "user",
-                  Content = new object[]
-                  {
-                      new
-                      {
-                          type = "image",
-                          source = new { type = "file", file_id = fileUpload.Id }
-                      },
-                      new { type = "text", text = "Describe this image." }
-                  }
-              }
+                  new ContentBlockParam(new ImageBlockParam(
+                      new ImageBlockParamSource(new FileImageSource(fileUpload.ID))
+                  )),
+                  new ContentBlockParam(new TextBlockParam("Describe this image.")),
+              }),
           }
-      });
+      ]
+  });
 
   Console.WriteLine(response);
   ```
@@ -720,26 +722,25 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   }
   defer file.Close()
 
-  fileUpload, err := client.Beta.Files.Upload(context.Background(),
-  	anthropic.BetaFileUploadParams{
-  		File: file,
+  fileUpload, err := client.Files.Upload(context.Background(),
+  	anthropic.FileUploadParams{
+  		File: anthropic.File(file, "vision-example.jpg", "image/jpeg"),
   	})
   if err != nil {
   	log.Fatal(err)
   }
 
   // Use the uploaded file in a message
-  message, err := client.Beta.Messages.New(context.Background(),
-  	anthropic.BetaMessageNewParams{
+  message, err := client.Messages.New(context.Background(),
+  	anthropic.MessageNewParams{
   		Model:     anthropic.ModelClaudeOpus5,
   		MaxTokens: 1024,
-  		Betas:     []anthropic.AnthropicBeta{anthropic.AnthropicBetaFilesAPI2025_04_14},
-  		Messages: []anthropic.BetaMessageParam{
-  			anthropic.NewBetaUserMessage(
-  				anthropic.NewBetaImageBlock(anthropic.BetaFileImageSourceParam{
+  		Messages: []anthropic.MessageParam{
+  			anthropic.NewUserMessage(
+  				anthropic.NewImageBlock(anthropic.FileImageSourceParam{
   					FileID: fileUpload.ID,
   				}),
-  				anthropic.NewBetaTextBlock("Describe this image."),
+  				anthropic.NewTextBlock("Describe this image."),
   			),
   		},
   	})
@@ -751,20 +752,24 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   ```
 
   ```java Java
-  import com.anthropic.models.beta.files.FileMetadata;
-  import com.anthropic.models.beta.files.FileUploadParams;
+  import com.anthropic.core.MultipartField;
+  import com.anthropic.models.files.FileMetadata;
+  import com.anthropic.models.files.FileUploadParams;
   // ...
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       // Upload the image file
-      FileMetadata file = client
-        .beta()
-        .files()
-        .upload(
-          FileUploadParams.builder()
-            .file(Files.newInputStream(Path.of("vision-example.jpg")))
-            .build()
-        );
+      FileMetadata file = client.files().upload(
+        FileUploadParams.builder()
+          .file(
+            MultipartField.<InputStream>builder()
+              .value(Files.newInputStream(Path.of("vision-example.jpg")))
+              .filename("vision-example.jpg")
+              .contentType("image/jpeg")
+              .build()
+          )
+          .build()
+      );
 
       // Use the uploaded file in a message
       ImageBlockParam imageParam = ImageBlockParam.builder().fileSource(file.id()).build();
@@ -791,7 +796,7 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
 
   // Upload the image file
   $fileUpload = $client->beta->files->upload(
-      file: fopen('vision-example.jpg', 'r'),
+      FileParam::fromResource(fopen('vision-example.jpg', 'rb'), contentType: 'image/jpeg'),
   );
 
   // Use the uploaded file in a message
@@ -820,15 +825,17 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   client = Anthropic::Client.new
 
   # Upload the image file
-  file_upload = client.beta.files.upload(
-    file: File.open("vision-example.jpg", "rb")
+  file_upload = client.files.upload(
+    file: Anthropic::FilePart.new(
+      File.open("vision-example.jpg", "rb"),
+      content_type: "image/jpeg"
+    )
   )
 
   # Use the uploaded file in a message
-  message = client.beta.messages.create(
+  message = client.messages.create(
     model: "claude-opus-5",
     max_tokens: 1024,
-    betas: ["files-api-2025-04-14"],
     messages: [
       {
         role: "user",

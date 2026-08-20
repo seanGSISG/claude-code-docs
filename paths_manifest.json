@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T12:41:55.290140Z",
-    "total_paths": 753,
+    "generated_at": "2026-08-20T18:34:40.105189Z",
+    "total_paths": 769,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-20T12:41:55.290146Z"
+    "last_regenerated": "2026-08-20T18:34:40.105197Z"
   },
   "categories": {
     "core_documentation": [
@@ -695,6 +695,12 @@
       "/docs/en/api/compliance/organizations/users",
       "/docs/en/api/compliance/organizations/users/list",
       "/docs/en/api/errors",
+      "/docs/en/api/files",
+      "/docs/en/api/files/delete",
+      "/docs/en/api/files/download",
+      "/docs/en/api/files/list",
+      "/docs/en/api/files/retrieve_metadata",
+      "/docs/en/api/files/upload",
       "/docs/en/api/ip-addresses",
       "/docs/en/api/messages",
       "/docs/en/api/messages/batches",
@@ -712,6 +718,16 @@
       "/docs/en/api/overview",
       "/docs/en/api/rate-limits",
       "/docs/en/api/service-tiers",
+      "/docs/en/api/skills",
+      "/docs/en/api/skills/create",
+      "/docs/en/api/skills/delete",
+      "/docs/en/api/skills/list",
+      "/docs/en/api/skills/retrieve",
+      "/docs/en/api/skills/versions",
+      "/docs/en/api/skills/versions/create",
+      "/docs/en/api/skills/versions/delete",
+      "/docs/en/api/skills/versions/list",
+      "/docs/en/api/skills/versions/retrieve",
       "/docs/en/api/supported-regions",
       "/docs/en/api/versioning"
     ],

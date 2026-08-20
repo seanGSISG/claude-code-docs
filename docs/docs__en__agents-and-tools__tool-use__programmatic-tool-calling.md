@@ -249,7 +249,7 @@ Here's an example where Claude programmatically queries a database multiple time
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java
@@ -874,7 +874,7 @@ Send the full conversation history plus your tool result. Three details matter o
   response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
   	Model:     anthropic.ModelClaudeOpus5,
   	MaxTokens: 4096,
-  	Container: anthropic.MessageNewParamsContainerUnion{
+  	Container: anthropic.MessageCreateParamsContainerUnion{
   		OfString: anthropic.String("container_xyz789"),
   	},
   	Messages: []anthropic.MessageParam{
@@ -936,7 +936,7 @@ Send the full conversation history plus your tool result. Three details matter o
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java

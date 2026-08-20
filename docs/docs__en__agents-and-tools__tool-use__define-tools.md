@@ -400,7 +400,7 @@ Add an optional `input_examples` field to your tool definition with an array of 
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java
@@ -738,7 +738,7 @@ In some cases, you may want Claude to use a specific tool to answer the user's q
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java

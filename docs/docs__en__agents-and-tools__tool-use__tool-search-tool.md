@@ -365,7 +365,7 @@ The following example includes the tool search tool and two deferred tools:
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java

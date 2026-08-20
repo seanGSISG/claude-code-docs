@@ -183,7 +183,7 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java
@@ -348,7 +348,7 @@ Provide the web fetch tool in your API request:
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java
@@ -800,7 +800,7 @@ When both the web search and web fetch tools are enabled, and the user names a s
   if err != nil {
   	log.Fatal(err)
   }
-  fmt.Println(response)
+  fmt.Println(response.RawJSON())
   ```
 
   ```java Java
