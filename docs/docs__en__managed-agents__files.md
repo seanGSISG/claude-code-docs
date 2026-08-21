@@ -71,6 +71,7 @@ First, upload a file using the [Files API](https://platform.claude.com/docs/en/b
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $file = $client->beta->files->upload(
       FileParam::fromResource(fopen($csvPath, 'r'), filename: 'data.csv', contentType: 'text/csv'),
   );
@@ -537,7 +538,7 @@ List all resources on a session with `resources.list`. To remove a file, call `r
 
 ## Listing and downloading session files
 
-Use the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) to list files scoped to a session and download them. Filtering by `scope_id` requires the `managed-agents-2026-04-01` beta header, so the list examples use the `beta` files namespace and pass that header explicitly. Downloading a file doesn't require a beta header.
+Use the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) to list files scoped to a session and download them. Filtering by `scope_id` requires the `managed-agents-2026-04-01` beta header, so the list examples use the `beta` files namespace and pass that header explicitly.
 
 <CodeGroup>
   ```bash cURL
@@ -650,6 +651,7 @@ Use the [Files API](https://platform.claude.com/docs/en/build-with-claude/files)
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   // List files associated with a session
   $files = $client->beta->files->list(
       scopeID: 'sesn_abc123',

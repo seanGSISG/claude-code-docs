@@ -54,10 +54,6 @@ Example rubric:
 
 Pass the rubric as inline text on `user.define_outcome` (see [Create a session with an outcome](https://platform.claude.com/docs/en/managed-agents/define-outcomes#create-a-session-with-an-outcome)), or upload it through the Files API for reuse across sessions.
 
-<Note>
-  Uploading through the Files API doesn't require a beta header. The cURL example sends the `managed-agents-2026-04-01` header it uses throughout this walkthrough, which the Files API also accepts.
-</Note>
-
 <CodeGroup>
   ```bash cURL
   rubric=$(curl -fsSL https://api.anthropic.com/v1/files \
@@ -242,6 +238,7 @@ Pass the rubric as inline text on `user.define_outcome` (see [Create a session w
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   use Anthropic\Client;
   use Anthropic\Core\FileParam;
 
@@ -715,11 +712,7 @@ You can either listen on the [event stream](https://platform.claude.com/docs/en/
 
 ## Retrieve deliverables
 
-The agent writes output files to `/mnt/session/outputs/` inside the sandbox. Once the session is idle, fetch them through the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) scoped to the session.
-
-<Note>
-  Filtering by `scope_id` requires the `managed-agents-2026-04-01` beta header on the list request, so the SDK and CLI examples make that call through the `beta` namespace and pass the header explicitly. Downloading a file by ID needs no beta header.
-</Note>
+The agent writes output files to `/mnt/session/outputs/` inside the sandbox. Once the session is idle, fetch them through the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) scoped to the session. Filtering by `scope_id` requires the `managed-agents-2026-04-01` beta header on the list request, so the SDK and CLI examples make that call through the `beta` namespace and pass the header explicitly.
 
 <CodeGroup>
   ```bash cURL
@@ -865,6 +858,7 @@ The agent writes output files to `/mnt/session/outputs/` inside the sandbox. Onc
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   // List files produced by this session
   // scope_id filtering requires the managed-agents beta on the files request
   $files = $client->beta->files->list(scopeID: $session->id, betas: ['managed-agents-2026-04-01']);

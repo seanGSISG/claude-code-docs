@@ -806,6 +806,10 @@ Anthropic publishes the schema and trains Claude on it. Your application still e
   <Card title="Computer use tool" icon="computer" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool">
     Take screenshots and control the mouse and keyboard in a desktop environment.
   </Card>
+
+  <Card title="Browser use tool" icon="browser" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/browser-use-tool">
+    Navigate, read, and interact with webpages in your own browser environment.
+  </Card>
 </CardGroup>
 
 ### Server tools
@@ -813,7 +817,7 @@ Anthropic publishes the schema and trains Claude on it. Your application still e
 Server tools run on Anthropic's infrastructure, with no handler code in your application. See [Server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools) for the mechanics they share.
 
 <CardGroup cols={2}>
-  <Card title="Web search tool" icon="browser" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool">
+  <Card title="Web search tool" icon="magnifying-glass" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool">
     Search the web for information beyond the knowledge cutoff, with cited sources.
   </Card>
 

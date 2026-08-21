@@ -739,9 +739,7 @@ Plain text documents are automatically chunked into sentences. You can provide t
   </Tab>
 
   <Tab title="Files API">
-    <Note>
-      These examples reference the uploaded file as a `document` source, and no beta header is required. See [Files API](https://platform.claude.com/docs/en/build-with-claude/files) for upload details.
-    </Note>
+    These examples reference a file uploaded through the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) as a `document` source.
 
     <CodeGroup>
       ```bash cURL
@@ -922,6 +920,7 @@ Plain text documents are automatically chunked into sentences. You can provide t
       ```
 
       ```php PHP
+      // The PHP SDK supports file_id document and image sources only through $client->beta->messages with the files beta.
       $citedResponse = $client->beta->messages->create(
           maxTokens: 1024,
           messages: [
@@ -1563,9 +1562,7 @@ PDF documents can be provided as base64-encoded data, a URL, or by `file_id`. PD
   </Tab>
 
   <Tab title="Files API">
-    <Note>
-      These examples reference the uploaded file as a `document` source, and no beta header is required. See [Files API](https://platform.claude.com/docs/en/build-with-claude/files) for upload details.
-    </Note>
+    These examples reference a file uploaded through the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) as a `document` source.
 
     <CodeGroup>
       ```bash cURL
@@ -1746,6 +1743,7 @@ PDF documents can be provided as base64-encoded data, a URL, or by `file_id`. PD
       ```
 
       ```php PHP
+      // The PHP SDK supports file_id document and image sources only through $client->beta->messages with the files beta.
       $citedResponse = $client->beta->messages->create(
           maxTokens: 1024,
           messages: [

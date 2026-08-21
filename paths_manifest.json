@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T18:34:40.105189Z",
-    "total_paths": 769,
+    "generated_at": "2026-08-21T01:07:57.821465Z",
+    "total_paths": 770,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-20T18:34:40.105197Z"
+    "last_regenerated": "2026-08-21T01:07:57.821475Z"
   },
   "categories": {
     "core_documentation": [
@@ -48,6 +48,7 @@
       "/docs/en/agents-and-tools/remote-mcp-servers",
       "/docs/en/agents-and-tools/tool-use/advisor-tool",
       "/docs/en/agents-and-tools/tool-use/bash-tool",
+      "/docs/en/agents-and-tools/tool-use/browser-use-tool",
       "/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent",
       "/docs/en/agents-and-tools/tool-use/code-execution-tool",
       "/docs/en/agents-and-tools/tool-use/computer-use-tool",

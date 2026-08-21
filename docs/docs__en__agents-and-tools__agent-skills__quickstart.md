@@ -95,6 +95,7 @@ First, check what Skills are available. Use the Skills API to list all Anthropic
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
   // List Anthropic-managed Skills
   $skills = $client->beta->skills->list(source: 'anthropic');
 
@@ -300,6 +301,7 @@ Use the PowerPoint Skill to create a presentation about renewable energy. Specif
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   // Create a message with the PowerPoint Skill
   $response = $client->beta->messages->create(
       model: 'claude-opus-5',
@@ -351,9 +353,7 @@ The request includes the following parts:
 * **`tools`:** Enables code execution (required for Skills)
 
 <Note>
-  Skills are generally available on the Claude API and don't require a beta header. This covers the Skills API, the `container.skills` parameter, and the Files API. Requests that still send the `skills-2025-10-02` or `files-api-2025-04-14` header keep working, and the Skills API and Files API return the earlier response format for them. The PHP tabs in this quickstart still call the SDK's `beta` namespace and send those headers, so their printed output shows the earlier response fields.
-
-  The examples use the `code_execution_20260521` tool version, and the Step 3 code parses the result types that current tool versions return. Skills also work with older [code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool) versions such as `code_execution_20250825`: any current code execution tool version satisfies the Skills requirement without a beta header. If you use a different version, use the tool `type` listed on the code execution tool page.
+  The examples use the `code_execution_20260521` tool version, and the Step 3 code parses the result types that current tool versions return. Skills also work with older [code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool) versions such as `code_execution_20250825`: any current code execution tool version satisfies the Skills requirement. If you use a different version, use the tool `type` listed on the code execution tool page.
 </Note>
 
 When you make this request, Claude automatically matches your task to the relevant Skill. Because you asked for a presentation, Claude determines the PowerPoint Skill is relevant and loads its full instructions: the second level of progressive disclosure. Then Claude runs the Skill's code to create your presentation.
@@ -546,6 +546,7 @@ The presentation was created in the code execution container and saved as a file
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   // Extract the file ID. The code execution tool runs the Skill's code through
   // its Bash sub-tool, and generated files appear as bash_code_execution_output
   // items inside the bash_code_execution_tool_result block.
@@ -760,6 +761,7 @@ Try these variations:
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $response = $client->beta->messages->create(
       model: 'claude-opus-5',
       maxTokens: 16000,
@@ -954,6 +956,7 @@ Try these variations:
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $response = $client->beta->messages->create(
       model: 'claude-opus-5',
       maxTokens: 16000,
@@ -1148,6 +1151,7 @@ Try these variations:
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $response = $client->beta->messages->create(
       model: 'claude-opus-5',
       maxTokens: 16000,

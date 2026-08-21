@@ -380,6 +380,8 @@ For example, suppose a booking system needs `passengers: int`. Without strict mo
   </Step>
 </Steps>
 
+The [computer use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) and [browser use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/browser-use-tool) toolset entries (`computer_toolset_20260801` and `browser_toolset_20260801`) don't accept `strict: true`; a request that sets it on either entry is rejected.
+
 ## Common use cases
 
 <AccordionGroup>

@@ -32,10 +32,6 @@ The Files API provides a create-once, use-many-times approach for working with f
 
 ## How to use the Files API
 
-<Note>
-  Requests to the Files API endpoints (`/v1/files`) don't need a beta header. Neither do Messages or Message Batches requests that reference an uploaded file as a `document` or `image` source, or in a `container_upload` block for the code execution tool. Requests that still send the `anthropic-beta: files-api-2025-04-14` header keep working. On Files API requests, that header also selects the earlier response format: the list endpoint paginates with `before_id` and `after_id`, returns `has_more`, `first_id`, and `last_id` instead of `next_page`, and rejects the `page` and `ids[]` parameters as unknown fields. File objects returned under the header omit `expires_at` instead of returning `null` when no expiration is set. To use `page` and `ids[]` as described under [List files](https://platform.claude.com/docs/en/build-with-claude/files#list-files), send the request without the header. The PHP tabs on this page still call the SDK's `beta` namespace, which sends the header, so their list output uses the earlier format.
-</Note>
-
 ### Uploading a file
 
 Upload a file to be referenced in future API calls:
@@ -127,6 +123,7 @@ Upload a file to be referenced in future API calls:
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $file = $client->beta->files->upload(
       FileParam::fromResource(fopen('/path/to/document.pdf', 'rb'), contentType: 'application/pdf'),
   );
@@ -333,6 +330,7 @@ Once uploaded, reference the file by passing the `id` from the upload response a
   ```
 
   ```php PHP
+  // The PHP SDK supports file_id document and image sources only through $client->beta->messages with the files beta.
   $response = $client->beta->messages->create(
       maxTokens: 1024,
       messages: [
@@ -741,6 +739,8 @@ Retrieve a list of your uploaded files. The endpoint is paginated: each request 
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
+  // list() paginates with afterID, beforeID, and limit; page and ids[] are not parameters here.
   $client = new Client();
 
   $files = $client->beta->files->list();
@@ -756,8 +756,6 @@ Retrieve a list of your uploaded files. The endpoint is paginated: each request 
 </CodeGroup>
 
 To check a known set of files in one request instead of paging, pass up to 100 file IDs as `ids[]` query parameters. An `ids[]` request always returns a single page (`next_page` is `null`), and any ID that does not resolve to a file in your workspace is silently omitted from `data`; compare the returned IDs against the requested IDs to detect misses. `ids[]` cannot be combined with `page` or `limit`.
-
-The `page` parameter, the `next_page` cursor, and the `ids[]` filter apply to requests sent without the `anthropic-beta: files-api-2025-04-14` header. Requests that send the header receive the earlier list format described in the note under [How to use the Files API](https://platform.claude.com/docs/en/build-with-claude/files#how-to-use-the-files-api).
 
 #### Get file metadata
 
@@ -806,6 +804,7 @@ Retrieve information about a specific file:
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $file = $client->beta->files->retrieveMetadata($fileId);
   echo $file;
   ```
@@ -856,6 +855,7 @@ Remove a file from your workspace:
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $client->beta->files->delete($fileId);
   ```
 
@@ -932,6 +932,7 @@ Download files that were created by [skills](https://platform.claude.com/docs/en
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $fileContent = $client->beta->files->download($fileId);
 
   file_put_contents("downloaded_file.txt", $fileContent);

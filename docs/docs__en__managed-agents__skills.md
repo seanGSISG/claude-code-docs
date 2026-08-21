@@ -21,8 +21,6 @@ To learn how to author custom skills, see [Agent Skills](https://platform.claude
 
 A custom skill is a directory containing a `SKILL.md` file plus any supporting files, uploaded to your workspace as a zip archive or as individual files. Creating the skill returns the `skill_*` ID you reference when attaching it to an agent. Anthropic pre-built skills are already available in every workspace and don't require this step. To use only pre-built skills, skip to [Attach skills to an agent](https://platform.claude.com/docs/en/managed-agents/skills#attach-skills-to-an-agent).
 
-The Skills API doesn't require a beta header. Requests that still send `anthropic-beta: skills-2025-10-02` keep working and return the earlier response fields.
-
 These examples omit the optional `display_name` field, so the skill's display name is derived from the `name` field in `SKILL.md`. An explicit `display_name` can be up to 255 characters and doesn't need to be unique within your workspace.
 
 <CodeGroup defaultLanguage="CLI">
@@ -151,8 +149,7 @@ These examples omit the optional `display_name` field, so the skill's display na
   ```
 
   ```php PHP
-  <?php
-
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
   use Anthropic\Client;
   use Anthropic\Core\FileParam;
 

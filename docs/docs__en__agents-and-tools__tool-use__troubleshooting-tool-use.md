@@ -74,6 +74,6 @@ See [Thinking blocks cannot be modified](https://platform.claude.com/docs/en/api
   </Card>
 
   <Card title="Tool reference" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference">
-    Full directory of Anthropic-schema tools and their version strings.
+    Full directory of Anthropic-provided tools and their version strings.
   </Card>
 </CardGroup>

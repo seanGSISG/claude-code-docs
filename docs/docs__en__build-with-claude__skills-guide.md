@@ -60,8 +60,6 @@ To use Skills, you need:
 1. **Claude API key** from the [Claude Console](https://platform.claude.com/settings/keys)
 2. **[Code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool)** enabled in your requests
 
-Skills are generally available on the Claude API and don't require an `anthropic-beta` header, either for the Skills API or for `container.skills` in Messages requests. Requests that still send the `skills-2025-10-02` beta header keep working, and Skills API requests that send it keep the earlier beta response format. The PHP tabs on this page still call the SDK's `beta` namespace and send that header, so their printed output shows the earlier response fields.
-
 Skills require the code execution tool, so use a model from its [model compatibility list](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool#model-compatibility).
 
 ***
@@ -252,6 +250,7 @@ The structure is identical for both Anthropic and custom Skills. Specify the req
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   $message = $client->beta->messages->create(
@@ -668,6 +667,8 @@ To provide input files for Skills to work on, [upload them with the Files API](h
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   // Step 1: Use a Skill to create a file
@@ -902,6 +903,7 @@ To provide input files for Skills to work on, [upload them with the Files API](h
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $client = new Client();
   $fileId = 'file_011CNha8iCJcU1wXNR6q4V8w';
 
@@ -1258,6 +1260,7 @@ The response's `container` object carries the container's `id` and `expires_at` 
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   $response1 = $client->beta->messages->create(
@@ -1736,6 +1739,7 @@ Skills may perform operations that require multiple turns. Handle `pause_turn` s
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   $messages = [
@@ -2090,6 +2094,7 @@ Combine multiple Skills in a single request to handle complex workflows:
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   $message = $client->beta->messages->create(
@@ -2403,6 +2408,7 @@ Files are identified by the filename you attach (the `;filename=` suffix in the 
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
   use Anthropic\Core\FileParam;
   // ...
 
@@ -2589,6 +2595,7 @@ Retrieve all Skills available to your workspace, including both Anthropic pre-bu
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
   $client = new Client();
 
   // List Skills (first page)
@@ -2698,6 +2705,7 @@ Get details about a specific Skill:
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
   $client = new Client();
 
   $skill = $client->beta->skills->retrieve(
@@ -2775,10 +2783,10 @@ Deleting a Skill also removes all of its versions.
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
   $client = new Client();
 
-  // The PHP SDK still uses the beta Skills namespace, where a Skill's versions
-  // must be deleted before the Skill itself.
+  // In the beta namespace, a Skill's versions must be deleted before the Skill itself.
   $skillId = 'skill_01AbCdEfGhIjKlMnOpQrStUv';
   foreach ($client->beta->skills->versions->list($skillId)->pagingEachItem() as $version) {
       $client->beta->skills->versions->delete($version->version, skillID: $skillId);
@@ -3221,6 +3229,8 @@ A new version is a complete snapshot, not a delta: upload the Skill's full file 
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Skills API under the beta namespace; field names can differ from other SDKs.
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   use Anthropic\Core\FileParam;
 
   // ...
@@ -3611,6 +3621,7 @@ Combine Excel and custom DCF analysis Skills:
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   // Custom DCF analysis Skill (ID obtained from Skills API create response)
@@ -3717,7 +3728,7 @@ Combine Skills when tasks involve multiple document types or domains:
 
 The SDK tabs in this section show the `container` value to include in a Messages request. The cURL and CLI tabs show the full request.
 
-**For production:** pin a specific version, so Skill updates never change your deployed behavior. If you omit `version` or set it to `"latest"`, requests use the newest version of the Skill, so a version uploaded by anyone in the [workspace](https://platform.claude.com/docs/en/build-with-claude/skills-guide#workspace-scoped-access) immediately changes what your production agents run. The version ID comes from the create-version response in [Versioning](https://platform.claude.com/docs/en/build-with-claude/skills-guide#versioning) or from the [List Skill Versions API](https://platform.claude.com/docs/en/api/skills/versions/list). The ID is always a string, so quote it in JSON or YAML (versions created under the `skills-2025-10-02` beta header have numeric-looking epoch-timestamp IDs).
+**For production:** pin a specific version, so Skill updates never change your deployed behavior. If you omit `version` or set it to `"latest"`, requests use the newest version of the Skill, so a version uploaded by anyone in the [workspace](https://platform.claude.com/docs/en/build-with-claude/skills-guide#workspace-scoped-access) immediately changes what your production agents run. The version ID comes from the create-version response in [Versioning](https://platform.claude.com/docs/en/build-with-claude/skills-guide#versioning) or from the [List Skill Versions API](https://platform.claude.com/docs/en/api/skills/versions/list). The ID is always a string, so quote it in JSON or YAML even when it looks numeric.
 
 <CodeGroup>
   ```bash cURL
@@ -4319,6 +4330,7 @@ If you use [Prompt caching](https://platform.claude.com/docs/en/build-with-claud
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   $client = new Client();
 
   // Skills render into the system prompt in a fixed, cache-friendly order
@@ -4609,6 +4621,7 @@ Handle Skill-related errors gracefully:
   ```
 
   ```php PHP
+  // The PHP SDK supports container skills only through $client->beta->messages with the skills beta.
   use Anthropic\Core\Exceptions\BadRequestException;
 
   $client = new Client();

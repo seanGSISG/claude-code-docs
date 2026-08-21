@@ -275,11 +275,7 @@ If you want Claude to run code for a borderline request, ask explicitly (for exa
 
 ### Upload and analyze your own files
 
-To analyze your own data files (such as CSV, Excel, or images), upload them through the Files API and reference them in your request:
-
-<Note>
-  This workflow doesn't require a beta header: uploading and downloading files through the Files API and referencing them in `container_upload` blocks are all generally available.
-</Note>
+To analyze your own data files (such as CSV, Excel, or images), upload them through the Files API and reference them in your request.
 
 The Python environment can process various file types uploaded through the Files API, including:
 
@@ -509,6 +505,7 @@ The Python environment can process various file types uploaded through the Files
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $client = new Client();
 
   // Upload a file
@@ -810,6 +807,7 @@ When Claude saves files to its output directory during code execution (see [How 
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
   $client = new Client();
 
   // Request code execution that creates files

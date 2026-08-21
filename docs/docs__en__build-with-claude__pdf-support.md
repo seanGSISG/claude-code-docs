@@ -941,6 +941,8 @@ For PDFs you'll use repeatedly, or when you want to avoid encoding overhead, use
   ```
 
   ```php PHP
+  // The PHP SDK exposes the Files API under the beta namespace; field names can differ from other SDKs.
+  // The PHP SDK supports file_id document and image sources only through $client->beta->messages with the files beta.
   use Anthropic\Core\FileParam;
 
   $client = new Client();
