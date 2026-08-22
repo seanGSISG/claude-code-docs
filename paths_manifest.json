@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-21T18:32:09.672161Z",
-    "total_paths": 770,
+    "generated_at": "2026-08-22T01:04:08.962506Z",
+    "total_paths": 773,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-21T18:32:09.672167Z"
+    "last_regenerated": "2026-08-22T01:04:08.962514Z"
   },
   "categories": {
     "core_documentation": [
@@ -255,6 +255,7 @@
       "/docs/en/managed-agents/vaults",
       "/docs/en/managed-agents/webhooks",
       "/docs/en/managed-mcp",
+      "/docs/en/managed-settings",
       "/docs/en/mcp-quickstart",
       "/docs/en/mobile",
       "/docs/en/permission-modes",
@@ -278,6 +279,8 @@
       "/docs/en/self-hosted-environments-testing",
       "/docs/en/server-managed-settings",
       "/docs/en/sessions",
+      "/docs/en/settings-example",
+      "/docs/en/settings-reference",
       "/docs/en/slack",
       "/docs/en/test-and-evaluate/develop-tests",
       "/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals",
