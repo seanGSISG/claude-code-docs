@@ -3621,8 +3621,8 @@
     "claude-code__plugins-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/plugins-reference",
       "original_md_url": "https://platform.claude.com/docs/en/plugins-reference.md",
-      "hash": "9cc919151ddfa0f388eaf0b1ca903a982f466ac0efa1f66560e23dc4673e5394",
-      "last_updated": "2026-08-22T18:37:59.131780"
+      "hash": "2997c815eebad8c8eccc5d0dbc10992d194b06de3eff855f497c7bcd6d81d0f1",
+      "last_updated": "2026-08-23T01:21:54.418783"
     },
     "docs__en__prompt-library.md": {
       "original_url": "https://platform.claude.com/docs/en/prompt-library",
@@ -3759,17 +3759,17 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "7b9bfdc80cbcf54b12d00a2b39de78f8ec1f9b96e09d783952225143c95320ef",
-      "last_updated": "2026-08-22T18:42:07.061877",
+      "hash": "7fa0af750dcef775f8876ab15fdfaa1a1086a3b366e3c1ff3886994827add172",
+      "last_updated": "2026-08-23T01:26:00.451599",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-22T18:42:07.061969",
-    "fetch_duration_seconds": 992.839937,
-    "total_pages_discovered": 773,
+    "last_fetch_completed": "2026-08-23T01:26:00.451713",
+    "fetch_duration_seconds": 998.789796,
+    "total_pages_discovered": 775,
     "pages_fetched_successfully": 627,
-    "pages_failed": 147,
+    "pages_failed": 149,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/accessibility",
@@ -3915,6 +3915,8 @@
       "/docs/en/whats-new/2026-w29",
       "/docs/en/whats-new/2026-w30",
       "/docs/en/whats-new/2026-w32",
+      "/docs/en/whats-new/2026-w33",
+      "/docs/en/whats-new/2026-w34",
       "/docs/en/workflows",
       "/docs/en/worktrees",
       "/docs/en/zero-data-retention"
@@ -3924,7 +3926,7 @@
     "total_files": 627,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-22T18:42:07.061987",
+  "last_updated": "2026-08-23T01:26:00.451728",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
