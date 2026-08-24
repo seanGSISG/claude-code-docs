@@ -3633,8 +3633,8 @@
     "claude-code__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/quickstart",
       "original_md_url": "https://platform.claude.com/docs/en/quickstart.md",
-      "hash": "6a7a0a38ced1235db962c3cd321c05a4370dc68732c9b41780d47ee489b33e0e",
-      "last_updated": "2026-08-22T18:38:06.658848"
+      "hash": "a11c7b3caeac3debfebd7f916c8fe358d52a48f2f74dbd79de7f8966be096573",
+      "last_updated": "2026-08-24T18:56:50.534705"
     },
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
@@ -3765,8 +3765,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-24T13:00:09.607189",
-    "fetch_duration_seconds": 1027.491258,
+    "last_fetch_completed": "2026-08-24T19:00:48.883056",
+    "fetch_duration_seconds": 1506.19096,
     "total_pages_discovered": 775,
     "pages_fetched_successfully": 627,
     "pages_failed": 149,
@@ -3926,7 +3926,7 @@
     "total_files": 627,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-24T13:00:09.607217",
+  "last_updated": "2026-08-24T19:00:48.883085",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
