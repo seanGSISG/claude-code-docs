@@ -1,6 +1,6 @@
 ---
 title: Introducing Claude Fable 5 and Claude Mythos 5
-url: https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5
+url: https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5
 description: Claude Fable 5 and Claude Mythos 5 capabilities, API changes, and availability.
 ---
 
@@ -10,7 +10,7 @@ description: Claude Fable 5 and Claude Mythos 5 capabilities, API changes, and a
 
 Claude Fable 5 is Anthropic's most capable widely released model, built for the most demanding reasoning and long-horizon agentic work. Claude Mythos 5 shares the same capabilities and is available only in limited release through [Project Glasswing](https://anthropic.com/glasswing).
 
-The headline change for integrations: Claude Fable 5 includes safety classifiers that can decline requests. Claude Mythos 5 does not include these classifiers. If your integration calls Claude Fable 5, plan for three changes: new response handling for refusals, fallback options for retrying on another Claude model, and new billing rules. [Refusals, fallback, and billing on Claude Fable 5](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5#refusals-fallback-and-billing-on-claude-fable-5) summarizes all three.
+The headline change for integrations: Claude Fable 5 includes safety classifiers that can decline requests. Claude Mythos 5 does not include these classifiers. If your integration calls Claude Fable 5, plan for three changes: new response handling for refusals, fallback options for retrying on another Claude model, and new billing rules. [Refusals, fallback, and billing on Claude Fable 5](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5#refusals-fallback-and-billing-on-claude-fable-5) summarizes all three.
 
 ## Models
 
@@ -24,7 +24,7 @@ Claude Fable 5 and Claude Mythos 5 share the same specs and pricing:
 * **Context window and output:** a [1M token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) by default, and up to 128k output tokens per request.
 * **Pricing:** $10 USD per million input tokens and $50 USD per million output tokens.
 
-For specs across all current models, see the [models overview](https://platform.claude.com/docs/en/about-claude/models/overview).
+For specs across all current models, see the [models overview](https://platform.claude.com/docs/en/models/overview).
 
 ## Refusals, fallback, and billing on Claude Fable 5
 
@@ -103,7 +103,7 @@ Step-by-step instructions live in the migration guide:
     Step-by-step upgrade instructions from Claude Opus 4.8 and Claude Mythos Preview.
   </Card>
 
-  <Card title="Models overview" icon="settings" href="https://platform.claude.com/docs/en/about-claude/models/overview">
+  <Card title="Models overview" icon="settings" href="https://platform.claude.com/docs/en/models/overview">
     Specs and comparison for all current Claude models.
   </Card>
 

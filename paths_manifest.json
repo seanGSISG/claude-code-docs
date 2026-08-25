@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-24T18:35:43.498669Z",
-    "total_paths": 775,
+    "generated_at": "2026-08-25T01:05:58.955623Z",
+    "total_paths": 803,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-24T18:35:43.498677Z"
+    "last_regenerated": "2026-08-25T01:05:58.955631Z"
   },
   "categories": {
     "core_documentation": [
@@ -11,13 +11,9 @@
       "/docs/en/about-claude/glossary",
       "/docs/en/about-claude/model-deprecations",
       "/docs/en/about-claude/models/choosing-a-model",
-      "/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
       "/docs/en/about-claude/models/migration-guide",
       "/docs/en/about-claude/models/model-ids-and-versions",
       "/docs/en/about-claude/models/optimizing-for-cost-and-intelligence",
-      "/docs/en/about-claude/models/overview",
-      "/docs/en/about-claude/models/whats-new-opus-5",
-      "/docs/en/about-claude/models/whats-new-sonnet-5",
       "/docs/en/about-claude/pricing",
       "/docs/en/about-claude/use-case-guides/content-moderation",
       "/docs/en/about-claude/use-case-guides/customer-support-chat",
@@ -258,6 +254,21 @@
       "/docs/en/managed-settings",
       "/docs/en/mcp-quickstart",
       "/docs/en/mobile",
+      "/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5",
+      "/docs/en/models/fable-5/overview",
+      "/docs/en/models/haiku-4-5/overview",
+      "/docs/en/models/mythos-5/overview",
+      "/docs/en/models/opus-4-5/overview",
+      "/docs/en/models/opus-4-6/overview",
+      "/docs/en/models/opus-4-7/overview",
+      "/docs/en/models/opus-4-8/overview",
+      "/docs/en/models/opus-5/overview",
+      "/docs/en/models/opus-5/whats-new-opus-5",
+      "/docs/en/models/overview",
+      "/docs/en/models/sonnet-4-5/overview",
+      "/docs/en/models/sonnet-4-6/overview",
+      "/docs/en/models/sonnet-5/overview",
+      "/docs/en/models/sonnet-5/whats-new-sonnet-5",
       "/docs/en/permission-modes",
       "/docs/en/permissions",
       "/docs/en/platforms",
@@ -788,7 +799,24 @@
     ],
     "release_notes": [
       "/docs/en/release-notes/overview",
-      "/docs/en/release-notes/system-prompts"
+      "/docs/en/release-notes/system-prompts/claude-fable-5",
+      "/docs/en/release-notes/system-prompts/claude-haiku-3",
+      "/docs/en/release-notes/system-prompts/claude-haiku-3-5",
+      "/docs/en/release-notes/system-prompts/claude-haiku-4-5",
+      "/docs/en/release-notes/system-prompts/claude-opus-3",
+      "/docs/en/release-notes/system-prompts/claude-opus-4",
+      "/docs/en/release-notes/system-prompts/claude-opus-4-1",
+      "/docs/en/release-notes/system-prompts/claude-opus-4-5",
+      "/docs/en/release-notes/system-prompts/claude-opus-4-6",
+      "/docs/en/release-notes/system-prompts/claude-opus-4-7",
+      "/docs/en/release-notes/system-prompts/claude-opus-4-8",
+      "/docs/en/release-notes/system-prompts/claude-opus-5",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-3-5",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-3-7",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-4",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-4-5",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-4-6",
+      "/docs/en/release-notes/system-prompts/overview"
     ],
     "resources": [
       "/docs/en/resources/overview"

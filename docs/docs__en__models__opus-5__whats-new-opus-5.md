@@ -1,6 +1,6 @@
 ---
 title: What's new in Claude Opus 5
-url: https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5
+url: https://platform.claude.com/docs/en/models/opus-5/whats-new-opus-5
 description: Overview of new features and behavior changes in Claude Opus 5.
 ---
 
@@ -14,7 +14,7 @@ Claude Opus 5 is a step-change improvement over Claude Opus 4.8, with the larges
 
 Claude Opus 5 has a [1M token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) (1M tokens is both the default and the maximum; there is no smaller context variant), 128k max output tokens, and [thinking](https://platform.claude.com/docs/en/build-with-claude/thinking) on by default.
 
-For complete pricing and specs, see the [models overview](https://platform.claude.com/docs/en/about-claude/models/overview).
+For complete pricing and specs, see the [models overview](https://platform.claude.com/docs/en/models/overview).
 
 ## New features
 
@@ -230,7 +230,7 @@ This request turns effort all the way up to `max`:
   ```
 </CodeGroup>
 
-Thinking is [on by default](https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5#thinking-on-by-default) on Claude Opus 5, so no `thinking` field is needed.
+Thinking is [on by default](https://platform.claude.com/docs/en/models/opus-5/whats-new-opus-5#thinking-on-by-default) on Claude Opus 5, so no `thinking` field is needed.
 
 ### Disabling thinking requires effort `high` or below
 
@@ -316,12 +316,12 @@ To migrate from Claude Opus 4.8, update your model ID:
   ```
 </CodeGroup>
 
-Then review the two [behavior changes](https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5#behavior-changes): thinking is on by default, and disabling thinking with effort `xhigh` or `max` returns a 400 error. See the [migration guide](https://platform.claude.com/docs/en/about-claude/models/migration-guide#migrating-from-claude-opus-4-8-to-claude-opus-5) for step-by-step instructions.
+Then review the two [behavior changes](https://platform.claude.com/docs/en/models/opus-5/whats-new-opus-5#behavior-changes): thinking is on by default, and disabling thinking with effort `xhigh` or `max` returns a 400 error. See the [migration guide](https://platform.claude.com/docs/en/about-claude/models/migration-guide#migrating-from-claude-opus-4-8-to-claude-opus-5) for step-by-step instructions.
 
 ## Next steps
 
 <CardGroup cols={3}>
-  <Card title="Models overview" icon="arrow-right" href="https://platform.claude.com/docs/en/about-claude/models/overview">
+  <Card title="Models overview" icon="arrow-right" href="https://platform.claude.com/docs/en/models/overview">
     Complete specs and pricing for all current Claude models.
   </Card>
 
