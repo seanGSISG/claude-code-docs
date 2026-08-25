@@ -2037,8 +2037,8 @@
     "docs__en__api__claude-platform-on-aws-iam-actions.md": {
       "original_url": "https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions",
       "original_md_url": "https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions.md",
-      "hash": "b2ad51115f4545214573f97bd2e5f5cdd770f017740277123cbc1ed122a70489",
-      "last_updated": "2026-08-12T19:02:14.107056"
+      "hash": "a5c7eee985411ee4792f20ec12acb43d44253db1dd77b6062851b8545b4fbe4d",
+      "last_updated": "2026-08-25T06:45:31.644431"
     },
     "docs__en__api__completions.md": {
       "original_url": "https://platform.claude.com/docs/en/api/completions",
@@ -2685,8 +2685,8 @@
     "docs__en__build-with-claude__claude-platform-on-aws.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws.md",
-      "hash": "460a7f6436eee06a45934a7b860f857398738a0086f8aa7c7d14a73e2089f7d2",
-      "last_updated": "2026-08-22T01:10:18.274470"
+      "hash": "d769dc2d4bc6264830e5cbefec82c7ed4a13899121dce28fc084a097907ea998",
+      "last_updated": "2026-08-25T06:47:05.370014"
     },
     "docs__en__build-with-claude__compaction.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/compaction",
@@ -3405,8 +3405,8 @@
     "docs__en__managed-agents__environments.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/environments",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/environments.md",
-      "hash": "4fa66f7a7f2930cd2414e62b41949cb88bb98123c05e3f18788b26b4b829de29",
-      "last_updated": "2026-08-22T01:15:49.569243"
+      "hash": "8374f7fda90137f89491006f08bc6fa7378eed7f33d1a0c8b873e4d7fcc25a94",
+      "last_updated": "2026-08-25T06:52:34.686920"
     },
     "docs__en__managed-agents__events-and-streaming.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/events-and-streaming",
@@ -3921,14 +3921,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "fabbc3176faf09abd35a552f291635406601b3618274b2e328b6782f4312f94a",
-      "last_updated": "2026-08-25T01:22:41.426971",
+      "hash": "aacdb0b6482feba429a5200df93af8b7e5402c8663afb2729a393a6ffa067f32",
+      "last_updated": "2026-08-25T06:58:22.633012",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-25T01:22:41.427647",
-    "fetch_duration_seconds": 1003.233741,
+    "last_fetch_completed": "2026-08-25T06:58:22.633133",
+    "fetch_duration_seconds": 1032.795476,
     "total_pages_discovered": 803,
     "pages_fetched_successfully": 654,
     "pages_failed": 150,
@@ -4089,7 +4089,7 @@
     "total_files": 654,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-25T01:22:41.427662",
+  "last_updated": "2026-08-25T06:58:22.633152",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
