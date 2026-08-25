@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-08-25T12:41:28.005279Z",
-    "total_paths": 803,
+    "generated_at": "2026-08-25T18:35:31.973651Z",
+    "total_paths": 807,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-08-25T12:41:28.005288Z"
+    "last_regenerated": "2026-08-25T18:35:31.973661Z"
   },
   "categories": {
     "core_documentation": [
@@ -255,18 +255,22 @@
       "/docs/en/mcp-quickstart",
       "/docs/en/mobile",
       "/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5",
+      "/docs/en/models/fable-5/migration-guide",
       "/docs/en/models/fable-5/overview",
+      "/docs/en/models/haiku-4-5/migration-guide",
       "/docs/en/models/haiku-4-5/overview",
       "/docs/en/models/mythos-5/overview",
       "/docs/en/models/opus-4-5/overview",
       "/docs/en/models/opus-4-6/overview",
       "/docs/en/models/opus-4-7/overview",
       "/docs/en/models/opus-4-8/overview",
+      "/docs/en/models/opus-5/migration-guide",
       "/docs/en/models/opus-5/overview",
       "/docs/en/models/opus-5/whats-new-opus-5",
       "/docs/en/models/overview",
       "/docs/en/models/sonnet-4-5/overview",
       "/docs/en/models/sonnet-4-6/overview",
+      "/docs/en/models/sonnet-5/migration-guide",
       "/docs/en/models/sonnet-5/overview",
       "/docs/en/models/sonnet-5/whats-new-sonnet-5",
       "/docs/en/permission-modes",
