@@ -327,8 +327,8 @@
     "claude-code__amazon-bedrock.md": {
       "original_url": "https://platform.claude.com/docs/en/amazon-bedrock",
       "original_md_url": "https://platform.claude.com/docs/en/amazon-bedrock.md",
-      "hash": "74232094253720e126512b857d5eea2cfca8a45b0dec69094ba18827f998bac8",
-      "last_updated": "2026-08-25T01:07:06.087464"
+      "hash": "2143018a3a195c7a805b84383adb932ad838b013c9b710758fa34e25a481509c",
+      "last_updated": "2026-08-26T01:09:13.767340"
     },
     "claude-code__analytics.md": {
       "original_url": "https://platform.claude.com/docs/en/analytics",
@@ -3027,8 +3027,8 @@
     "claude-code__costs.md": {
       "original_url": "https://platform.claude.com/docs/en/costs",
       "original_md_url": "https://platform.claude.com/docs/en/costs.md",
-      "hash": "f360b37cede6cc48230dad82dbb6dd8fcc9e59a76343518fcdda20317a5bf768",
-      "last_updated": "2026-08-25T01:14:08.516811"
+      "hash": "df3782e51e3ee54930ccd9c61866150985042616efd2acb66abd287037fd3200",
+      "last_updated": "2026-08-26T01:16:13.962064"
     },
     "claude-code__data-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/data-usage",
@@ -3039,8 +3039,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "278e73ae05b0f38306f00af94ad0aed44ed984c1ed672ee0dd9297fc04ee9462",
-      "last_updated": "2026-08-22T18:34:16.931068"
+      "hash": "2ed26d7c1efde71300e02a5bf4c5d32fa8cb5227635ec29e418cc1532f4d2e89",
+      "last_updated": "2026-08-26T01:16:30.967820"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -3675,8 +3675,8 @@
     "claude-code__monitoring-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/monitoring-usage",
       "original_md_url": "https://platform.claude.com/docs/en/monitoring-usage.md",
-      "hash": "60a535943bc480869d4231360e4699729fda3185c261938f1e0703e6dfc36d06",
-      "last_updated": "2026-08-22T01:16:26.964120"
+      "hash": "a3139221d34ee9f6a4d7affcb38dbacf16e69d1fa3036343e8235201683919dc",
+      "last_updated": "2026-08-26T01:19:42.087603"
     },
     "claude-code__network-config.md": {
       "original_url": "https://platform.claude.com/docs/en/network-config",
@@ -3693,8 +3693,8 @@
     "claude-code__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/overview",
       "original_md_url": "https://platform.claude.com/docs/en/overview.md",
-      "hash": "90cbed4c0ccdaefe35e85a86692343170a90a3def932ae3398970cc1dd2ef7b2",
-      "last_updated": "2026-08-22T01:16:29.443311"
+      "hash": "efd04a3424a2ca6bd42eba7756a49e9071ae82b39dc56e7b9a91f813ac6e674e",
+      "last_updated": "2026-08-26T01:19:44.288475"
     },
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
@@ -3723,8 +3723,8 @@
     "claude-code__quickstart.md": {
       "original_url": "https://platform.claude.com/docs/en/quickstart",
       "original_md_url": "https://platform.claude.com/docs/en/quickstart.md",
-      "hash": "5103508ee3a996b48abf344d5c6937750483d6bc1140f6b01e7190f90e6cb7f8",
-      "last_updated": "2026-08-25T01:18:25.165356"
+      "hash": "9dbd8fd3a0b9eeefc7d45c127e638fbf9f54078d1f1f5b6287e54ad61fef40ef",
+      "last_updated": "2026-08-26T01:20:23.872972"
     },
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
@@ -3867,8 +3867,8 @@
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
       "original_md_url": "https://platform.claude.com/docs/en/statusline.md",
-      "hash": "b0811428721bd7c30df85fa7bb8f604c69bd4ee7c4b549a7c8ea88fbe1be9723",
-      "last_updated": "2026-08-22T06:50:01.409936"
+      "hash": "47a244f29967c8fd99fb7e69188027c55f42dba4d2ef24b629e727b496920b9b",
+      "last_updated": "2026-08-26T01:22:00.961956"
     },
     "claude-code__sub-agents.md": {
       "original_url": "https://platform.claude.com/docs/en/sub-agents",
@@ -3879,8 +3879,8 @@
     "claude-code__terminal-config.md": {
       "original_url": "https://platform.claude.com/docs/en/terminal-config",
       "original_md_url": "https://platform.claude.com/docs/en/terminal-config.md",
-      "hash": "b0de0429756ae86344b84fa8983cb4ec2a6fff9253baf27a50a53da915a47459",
-      "last_updated": "2026-08-22T01:18:46.741957"
+      "hash": "4e9fd51df62ff4ca4f688ad5e6bcfd0358de36636f671032b96d2948970a02a5",
+      "last_updated": "2026-08-26T01:22:02.525795"
     },
     "docs__en__test-and-evaluate__develop-tests.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
@@ -3945,14 +3945,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "aacdb0b6482feba429a5200df93af8b7e5402c8663afb2729a393a6ffa067f32",
-      "last_updated": "2026-08-25T06:58:22.633012",
+      "hash": "172b76bef2c6d15f1634464245975d22448965fdc49d3214c4390b30d71d2540",
+      "last_updated": "2026-08-26T01:24:33.964818",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-08-25T18:53:59.880883",
-    "fetch_duration_seconds": 1116.362802,
+    "last_fetch_completed": "2026-08-26T01:24:33.964952",
+    "fetch_duration_seconds": 987.525764,
     "total_pages_discovered": 807,
     "pages_fetched_successfully": 658,
     "pages_failed": 150,
@@ -4113,7 +4113,7 @@
     "total_files": 658,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-08-25T18:53:59.880919",
+  "last_updated": "2026-08-26T01:24:33.964970",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
