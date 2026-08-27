@@ -41,7 +41,7 @@ Anthropic calls your key management service from its standard public IP range. I
 
 CMEK is currently available in US regions only, and all encryption operations are processed in US regions.
 
-On [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), CMEK is available with AWS KMS keys only; Google Cloud KMS and Azure Key Vault keys cannot be registered. Create and attach keys in the Claude Console; the `external_keys` API endpoints are not currently available on Claude Platform on AWS. There is no separate validation step. The key policy is first exercised when a workspace starts using the key, so a key policy problem surfaces at that point rather than at registration. The key must be in the same AWS region as the workspace it is attached to.
+On [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), CMEK is available with AWS KMS keys only; Google Cloud KMS and Azure Key Vault keys cannot be registered. Create and attach keys in the Claude Console; the `external_keys` API endpoints are not currently available on Claude Platform on AWS. There is no separate validation step: the key is implicitly validated when you attach it to a workspace (the attach call performs an encrypt/decrypt round), so a key policy problem surfaces at attach time rather than at registration. The key must be in the same AWS region as the workspace it is attached to.
 
 For minimal latency, choose a region close to Anthropic's US infrastructure:
 
@@ -147,6 +147,7 @@ Outside of [CSAM screening](https://support.claude.com/en/articles/9020328-csam-
 * **Latency:** Operations that wrap or unwrap data keys make a round-trip to your key management service, which can add a small amount of latency to actions that read or write data at rest.
 * **Revocation delay:** Key revocation can take up to 1 hour (the cache TTL). Requests already in flight during that window may continue to succeed.
 * **KMS costs:** CMEK requires a key in a third-party key management service (AWS KMS, Google Cloud KMS, or Azure Key Vault), which might incur separate charges billed by your KMS provider.
+* **Claude Code telemetry behind a gateway:** When Claude Code connects through an LLM gateway or proxy (a custom `ANTHROPIC_BASE_URL`), CMEK does not apply to Claude Code's operational telemetry. To turn this telemetry off, set the `DISABLE_TELEMETRY` environment variable to `1`, as described under [Telemetry services](https://code.claude.com/docs/en/data-usage#telemetry-services) in the Claude Code documentation.
 
 ## Configure your provider
 
