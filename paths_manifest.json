@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-01T16:02:50.779944Z",
-    "total_paths": 879,
+    "generated_at": "2026-09-01T20:32:22.665344Z",
+    "total_paths": 889,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-01T16:02:50.779953Z"
+    "last_regenerated": "2026-09-01T20:32:22.665351Z"
   },
   "categories": {
     "core_documentation": [
@@ -95,10 +95,12 @@
       "/docs/en/build-with-claude/multilingual-support",
       "/docs/en/build-with-claude/overview",
       "/docs/en/build-with-claude/pdf-support",
+      "/docs/en/build-with-claude/preserved-thinking",
       "/docs/en/build-with-claude/prompt-caching",
       "/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
       "/docs/en/build-with-claude/prompt-engineering/overview",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5",
+      "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-4-8",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5",
@@ -254,11 +256,15 @@
       "/docs/en/managed-settings",
       "/docs/en/mcp-quickstart",
       "/docs/en/mobile",
+      "/docs/en/models/fable-5-1/migration-guide",
+      "/docs/en/models/fable-5-1/overview",
+      "/docs/en/models/fable-5-1/whats-new-fable-5-1",
       "/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5",
       "/docs/en/models/fable-5/migration-guide",
       "/docs/en/models/fable-5/overview",
       "/docs/en/models/haiku-4-5/migration-guide",
       "/docs/en/models/haiku-4-5/overview",
+      "/docs/en/models/mythos-5-1/overview",
       "/docs/en/models/mythos-5/overview",
       "/docs/en/models/opus-4-5/overview",
       "/docs/en/models/opus-4-6/overview",
@@ -585,6 +591,9 @@
       "/docs/en/api/beta/organization/api_keys/list",
       "/docs/en/api/beta/organization/api_keys/retrieve",
       "/docs/en/api/beta/organization/api_keys/update",
+      "/docs/en/api/beta/organization/compliance_settings",
+      "/docs/en/api/beta/organization/compliance_settings/retrieve",
+      "/docs/en/api/beta/organization/compliance_settings/update",
       "/docs/en/api/beta/organization/external_keys",
       "/docs/en/api/beta/organization/external_keys/create",
       "/docs/en/api/beta/organization/external_keys/delete",
@@ -876,6 +885,7 @@
     "release_notes": [
       "/docs/en/release-notes/overview",
       "/docs/en/release-notes/system-prompts/claude-fable-5",
+      "/docs/en/release-notes/system-prompts/claude-fable-5-1",
       "/docs/en/release-notes/system-prompts/claude-haiku-3",
       "/docs/en/release-notes/system-prompts/claude-haiku-3-5",
       "/docs/en/release-notes/system-prompts/claude-haiku-4-5",
