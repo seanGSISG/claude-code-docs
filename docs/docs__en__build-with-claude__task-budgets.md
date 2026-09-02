@@ -439,6 +439,8 @@ If your agentic loop compacts or rewrites context between requests (for example,
   ```
 </CodeGroup>
 
+In this example, the tokens spent before compaction are the usage of all the messages you have removed from the history so far, measured as in [Measure your current usage](https://platform.claude.com/docs/en/build-with-claude/task-budgets#measure-your-current-usage). Leave out anything still present in the messages you send, including any summary you added, because the server counts those tokens itself. Update this figure only when you replace the history this way; don't decrement it per request. Pass the resulting `remaining` on every request, not only the one that compacts.
+
 For loops that resend the full uncompacted history on every turn, omit `remaining` and let the server track the countdown.
 
 ## Changing the budget mid-conversation
