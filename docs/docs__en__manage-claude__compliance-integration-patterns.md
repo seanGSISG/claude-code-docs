@@ -44,6 +44,7 @@ Set `created_at.lt` at least 1 minute in the past so that every activity in the 
 curl --fail-with-body -sS -G \
   "https://api.anthropic.com/v1/compliance/activities" \
   --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
+  --header "anthropic-version: 2023-06-01" \
   --data-urlencode "created_at.gte=2026-04-20T07:00:00Z" \
   --data-urlencode "created_at.lt=2026-04-20T08:00:00Z" \
   --data-urlencode "limit=5000"
@@ -65,6 +66,7 @@ first_id="activity_01XyDMpzjS89pFZXqSFUBDr6"  # first_id from a previous respons
 curl --fail-with-body -sS -G \
   "https://api.anthropic.com/v1/compliance/activities" \
   --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
+  --header "anthropic-version: 2023-06-01" \
   --data-urlencode "limit=5000" \
   --data-urlencode "before_id=$first_id"
 ```

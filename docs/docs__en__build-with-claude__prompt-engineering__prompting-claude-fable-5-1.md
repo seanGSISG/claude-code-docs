@@ -553,9 +553,10 @@ The following loop shows this placement. Each assistant turn goes back exactly a
           for (BetaToolUseBlock toolUse : toolUses) {
               Map<String, JsonValue> input =
                   (Map<String, JsonValue>) toolUse._input().asObject().orElseThrow();
-              String path = Optional.ofNullable(input.get("path"))
-                  .flatMap(JsonValue::asString)
-                  .orElse("");
+              JsonValue pathValue = input.get("path");
+              String path = pathValue != null && pathValue.asString().isPresent()
+                  ? pathValue.asStringOrThrow()
+                  : "";
               String fileText = FILES.get(path);
               BetaToolResultBlockParam.Builder result = BetaToolResultBlockParam.builder()
                   .toolUseId(toolUse.id());
