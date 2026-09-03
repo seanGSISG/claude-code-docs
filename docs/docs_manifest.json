@@ -3093,8 +3093,8 @@
     "docs__en__build-with-claude__batch-processing.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing.md",
-      "hash": "5c1501ce73f82df3071d3e9f0cad93b645e0143cc64c59664e77533381f73bb2",
-      "last_updated": "2026-09-01T20:39:17.606534"
+      "hash": "e1df24b2de12d22c8eed0e85d4dbc46cf6c2e1c8300d6d635d0667fd22a439c4",
+      "last_updated": "2026-09-03T20:35:54.305089"
     },
     "docs__en__build-with-claude__cache-diagnostics.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics",
@@ -4443,8 +4443,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-03T16:04:56.348681",
-    "fetch_duration_seconds": 1137.609966,
+    "last_fetch_completed": "2026-09-03T20:46:47.664337",
+    "fetch_duration_seconds": 1057.177402,
     "total_pages_discovered": 889,
     "pages_fetched_successfully": 740,
     "pages_failed": 150,
@@ -4605,7 +4605,7 @@
     "total_files": 740,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-03T16:04:56.348708",
+  "last_updated": "2026-09-03T20:46:47.664359",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
