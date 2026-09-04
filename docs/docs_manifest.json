@@ -3375,8 +3375,8 @@
     "claude-code__claude-code-on-the-web.md": {
       "original_url": "https://platform.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://platform.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "f6a53f0617b8872a25c47b03e34a8eeef6b0158d825a58e51316c0621ead3114",
-      "last_updated": "2026-08-29T20:31:10.899085"
+      "hash": "7274a272b2a556dce7d278c022ea7d772e432a40285fc396bfbefddcfba431da",
+      "last_updated": "2026-09-04T10:42:20.317487"
     },
     "docs__en__claude_api_primer.md": {
       "original_url": "https://platform.claude.com/docs/en/claude_api_primer",
@@ -4443,8 +4443,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-04T03:12:21.222850",
-    "fetch_duration_seconds": 1114.208483,
+    "last_fetch_completed": "2026-09-04T10:51:50.220931",
+    "fetch_duration_seconds": 1034.824463,
     "total_pages_discovered": 889,
     "pages_fetched_successfully": 740,
     "pages_failed": 150,
@@ -4605,7 +4605,7 @@
     "total_files": 740,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-04T03:12:21.222872",
+  "last_updated": "2026-09-04T10:51:50.220959",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
