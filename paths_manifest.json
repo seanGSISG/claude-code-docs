@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-04T20:15:44.681154Z",
-    "total_paths": 889,
+    "generated_at": "2026-09-05T02:55:37.285670Z",
+    "total_paths": 890,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-04T20:15:44.681162Z"
+    "last_regenerated": "2026-09-05T02:55:37.285678Z"
   },
   "categories": {
     "core_documentation": [
@@ -134,6 +134,7 @@
       "/docs/en/claude-security",
       "/docs/en/claude-tag",
       "/docs/en/claude_api_primer",
+      "/docs/en/cli-sdks-libraries/cli/apply",
       "/docs/en/cli-sdks-libraries/cli/authentication",
       "/docs/en/cli-sdks-libraries/cli/quickstart",
       "/docs/en/cli-sdks-libraries/cli/scripting",
