@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-09T15:54:18.943587Z",
-    "total_paths": 890,
+    "generated_at": "2026-09-09T20:23:56.584500Z",
+    "total_paths": 891,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-09T15:54:18.943599Z"
+    "last_regenerated": "2026-09-09T20:23:56.584507Z"
   },
   "categories": {
     "core_documentation": [
@@ -15,6 +15,7 @@
       "/docs/en/about-claude/models/model-ids-and-versions",
       "/docs/en/about-claude/models/optimizing-for-cost-and-intelligence",
       "/docs/en/about-claude/pricing",
+      "/docs/en/about-claude/use-case-guides/commerce-agents",
       "/docs/en/about-claude/use-case-guides/content-moderation",
       "/docs/en/about-claude/use-case-guides/customer-support-chat",
       "/docs/en/about-claude/use-case-guides/legal-summarization",
