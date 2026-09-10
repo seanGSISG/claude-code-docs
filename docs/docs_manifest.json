@@ -4029,8 +4029,8 @@
     "claude-code__model-config.md": {
       "original_url": "https://platform.claude.com/docs/en/model-config",
       "original_md_url": "https://platform.claude.com/docs/en/model-config.md",
-      "hash": "ee7bc6489e19d93a548a0e4b9e74f18e6b823d759e2a004b55e1ab5c7821ae21",
-      "last_updated": "2026-09-10T03:17:03.646457"
+      "hash": "7fc6cc04beae83dc18002a120c76f0f7c84573b99b6a461907475c60d760e49d",
+      "last_updated": "2026-09-10T16:03:08.447155"
     },
     "docs__en__models__fable-5-1__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide",
@@ -4197,8 +4197,8 @@
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
       "original_md_url": "https://platform.claude.com/docs/en/plugin-marketplaces.md",
-      "hash": "b4e24fbb220bba40120fff65cf2f0f17556b1f313abd6507dbb71e0a84fe52d3",
-      "last_updated": "2026-09-10T03:17:48.012534"
+      "hash": "29a446b8bdb5490e4288c254287432c33a9bbfe6523cb1f535cc3870f865e580",
+      "last_updated": "2026-09-10T16:03:54.969180"
     },
     "claude-code__plugins.md": {
       "original_url": "https://platform.claude.com/docs/en/plugins",
@@ -4455,8 +4455,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-10T10:54:16.638866",
-    "fetch_duration_seconds": 1110.426187,
+    "last_fetch_completed": "2026-09-10T16:08:41.535182",
+    "fetch_duration_seconds": 1168.928704,
     "total_pages_discovered": 891,
     "pages_fetched_successfully": 742,
     "pages_failed": 150,
@@ -4617,7 +4617,7 @@
     "total_files": 742,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-10T10:54:16.638891",
+  "last_updated": "2026-09-10T16:08:41.535205",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
