@@ -66245,19 +66245,6 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
 }
 ```
 
-## Beta › Webhooks
-
-### Unwrap
-
-Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and `webhook-signature`
-headers using your webhook signing key, then parses the payload into an event. Fails if the
-signature is missing or invalid.
-
-### Parse Unverified
-
-Parses a webhook payload into an event without verifying its signature. Prefer `unwrap()` unless
-you have already verified the signature yourself.
-
 ## Beta › User Profiles
 
 ### Create User Profile

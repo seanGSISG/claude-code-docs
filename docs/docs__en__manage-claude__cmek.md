@@ -69,6 +69,7 @@ What CMEK covers depends on which product you use.
 * Compliance API [local session transcripts](https://platform.claude.com/docs/en/manage-claude/compliance-sessions#retrieve-local-sessions) captured from sessions on users' machines. If your key cannot be used, the messages endpoint returns [503 Service Unavailable](https://platform.claude.com/docs/en/manage-claude/compliance-errors#local-sessions-temporarily-unavailable) instead of transcript content. Session metadata is still listed.
 * Office agents.
 * Claude in Chrome.
+* Claude Science. Data that users send from the app to their own compute, such as SSH hosts or cloud compute accounts, is held on those systems, not by Anthropic, and is not covered.
 
 On both products, backups and snapshots inherit the key.
 
