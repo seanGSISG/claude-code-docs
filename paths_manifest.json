@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-11T15:51:11.002922Z",
-    "total_paths": 819,
+    "generated_at": "2026-09-11T20:25:34.727494Z",
+    "total_paths": 820,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-11T15:51:11.002929Z"
+    "last_regenerated": "2026-09-11T20:25:34.727502Z"
   },
   "categories": {
     "core_documentation": [
@@ -285,6 +285,7 @@
       "/docs/en/permissions",
       "/docs/en/platforms",
       "/docs/en/plugin-dependencies",
+      "/docs/en/plugin-evals",
       "/docs/en/plugin-hints",
       "/docs/en/plugin-relevance",
       "/docs/en/prompt-caching",
