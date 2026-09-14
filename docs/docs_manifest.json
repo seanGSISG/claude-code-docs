@@ -3081,8 +3081,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "b8a6ef9c5dd76007afc525b06e2a1efe32e3cc000604f840bafe59492aa8f105",
-      "last_updated": "2026-09-13T20:26:56.858358"
+      "hash": "5c6c8360a3563a1150224187c55d6ceeb12d863748930bd6be7fca8246e87deb",
+      "last_updated": "2026-09-14T11:55:12.101142"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -4023,8 +4023,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-14T03:37:06.378232",
-    "fetch_duration_seconds": 989.843203,
+    "last_fetch_completed": "2026-09-14T12:03:21.928238",
+    "fetch_duration_seconds": 1012.250965,
     "total_pages_discovered": 820,
     "pages_fetched_successfully": 670,
     "pages_failed": 151,
@@ -4186,7 +4186,7 @@
     "total_files": 670,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-14T03:37:06.378260",
+  "last_updated": "2026-09-14T12:03:21.928258",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
