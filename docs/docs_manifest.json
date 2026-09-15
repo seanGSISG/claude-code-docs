@@ -2715,8 +2715,8 @@
     "docs__en__build-with-claude__compaction.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/compaction",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/compaction.md",
-      "hash": "ef6ae7f3db36c52dbf64d94eb4e299753f9fbfa31984a8699ff31a69f9de801b",
-      "last_updated": "2026-09-01T20:39:22.876066"
+      "hash": "63ce04d34972106f552a31375a7c0e00b114cab9ba0475dc157a59c87066fa98",
+      "last_updated": "2026-09-15T16:21:09.872572"
     },
     "docs__en__build-with-claude__context-editing.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/context-editing",
@@ -2805,8 +2805,8 @@
     "docs__en__build-with-claude__preserved-thinking.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking.md",
-      "hash": "99e447435262560913bf7bee7418902f3df352afe2fd532fd37d136eddd48c36",
-      "last_updated": "2026-09-14T17:46:57.704135"
+      "hash": "7f3a3c7c028b56d5e8ec459ff4bc662adae74f9bff71e3a64d7557bb30dd8e89",
+      "last_updated": "2026-09-15T16:21:21.326748"
     },
     "docs__en__build-with-claude__prompt-caching.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
@@ -3603,8 +3603,8 @@
     "docs__en__models__fable-5-1__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide",
       "original_md_url": "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide.md",
-      "hash": "15dff47e55aa49162aed40b5d23ed8a618ffb4c0843e506abf68387ac0d8ece8",
-      "last_updated": "2026-09-11T16:02:58.428693"
+      "hash": "a890f3f0e81d6bc8354433c22bc2ee6917d3b8325a57714afcf7a5877b107ef7",
+      "last_updated": "2026-09-15T16:27:13.815628"
     },
     "docs__en__models__fable-5-1__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/overview",
@@ -3765,8 +3765,8 @@
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
       "original_md_url": "https://platform.claude.com/docs/en/plugin-marketplaces.md",
-      "hash": "31f5d8304ea1402709ee32466306b75c9fbbbb5a8682cfa1b47057f6967933de",
-      "last_updated": "2026-09-15T03:35:58.261872"
+      "hash": "7f3c421906a5929950d4994a9566224ecd8b3b56e05575e8751f1ba28cf11078",
+      "last_updated": "2026-09-15T16:28:04.105738"
     },
     "claude-code__plugins.md": {
       "original_url": "https://platform.claude.com/docs/en/plugins",
@@ -3795,8 +3795,8 @@
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
       "original_md_url": "https://platform.claude.com/docs/en/release-notes/overview.md",
-      "hash": "5f80d2c55c8539d25cb2e16dd90a0bd654060b4155d9eec5ca6ea97924660f4d",
-      "last_updated": "2026-09-10T20:38:06.800814"
+      "hash": "22e8aaef098443055ac3c3ad3ac81a0f5f96a0511e98135f94fa7d724e244c56",
+      "last_updated": "2026-09-15T16:28:15.992744"
     },
     "docs__en__release-notes__system-prompts__claude-fable-5.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-fable-5",
@@ -3975,8 +3975,8 @@
     "docs__en__test-and-evaluate__strengthen-guardrails__mitigate-jailbreaks.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
       "original_md_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks.md",
-      "hash": "07336594cc28a417d9f0cc36c86c72d53f2fd8fcb692529f2a8bfd5f90106e5b",
-      "last_updated": "2026-08-12T19:11:05.106256"
+      "hash": "5543541f08a4e6569693a952bfec8cc5b1eaee078d22e63f99087aeee254dc1f",
+      "last_updated": "2026-09-15T16:29:58.728632"
     },
     "docs__en__test-and-evaluate__strengthen-guardrails__reduce-hallucinations.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
@@ -4023,8 +4023,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-15T11:20:08.402201",
-    "fetch_duration_seconds": 1010.665128,
+    "last_fetch_completed": "2026-09-15T16:32:38.696048",
+    "fetch_duration_seconds": 1117.541646,
     "total_pages_discovered": 823,
     "pages_fetched_successfully": 670,
     "pages_failed": 154,
@@ -4189,7 +4189,7 @@
     "total_files": 670,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-15T11:20:08.402227",
+  "last_updated": "2026-09-15T16:32:38.696077",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
