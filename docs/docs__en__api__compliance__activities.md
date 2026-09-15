@@ -17,7 +17,7 @@ compliance activities that can be filtered by various criteria.
 
 ### Query parameters
 
-- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 490 more`
+- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 492 more`
 
   Filter activities by type. See the response `data` schema for the additional fields each type returns. Cannot be combined with `exclude_activity_types[]`.
 
@@ -184,6 +184,14 @@ compliance activities that can be filtered by various criteria.
   - `"ccr_agent_updated"`
 
     A Claude Code agent's configuration was updated. Also emitted with updated_fields ["is_virtual"] alone when an auto-provisioned agent is promoted to a configured one, whether by an update request targeting it or by binding an agent proxy profile to it.
+
+  - `"ccr_channel_manager_added"`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+  - `"ccr_channel_manager_removed"`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
 
   - `"ccr_role_channel_assignment_deleted"`
 
@@ -2048,7 +2056,7 @@ compliance activities that can be filtered by various criteria.
 
     format: date-time
 
-- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 490 more`
+- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 492 more`
 
   Exclude activities of these types. Cannot be combined with `activity_types[]`.
 
@@ -2215,6 +2223,14 @@ compliance activities that can be filtered by various criteria.
   - `"ccr_agent_updated"`
 
     A Claude Code agent's configuration was updated. Also emitted with updated_fields ["is_virtual"] alone when an auto-provisioned agent is promoted to a configured one, whether by an update request targeting it or by binding an agent proxy profile to it.
+
+  - `"ccr_channel_manager_added"`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+  - `"ccr_channel_manager_removed"`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
 
   - `"ccr_role_channel_assignment_deleted"`
 
@@ -4067,17 +4083,11 @@ compliance activities that can be filtered by various criteria.
 
 ### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 ### Returns
 
-- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 490 more`
+- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 492 more`
 
   List of activity records. Each element's `type` field identifies which activity it is and which additional fields are present.
 
@@ -7419,7 +7429,7 @@ compliance activities that can be filtered by various criteria.
 
       The artifact's identifier.
 
-    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 9 more`
+    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 10 more`
 
       The action recorded: for example a new comment thread, a reply to an existing thread, a thread resolved, reopened, or deleted, a thread's Claude activation granted or revoked, a comment's text rewritten by its author, an existing comment sent to Claude or withdrawn from Claude, or a thread resolved by a Claude session.
 
@@ -7432,6 +7442,8 @@ compliance activities that can be filtered by various criteria.
       - `"delete_thread"`
 
       - `"edit_comment"`
+
+      - `"move_thread"`
 
       - `"reopen"`
 
@@ -10474,11 +10486,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -10746,11 +10762,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -11034,11 +11054,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -11310,11 +11334,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -16535,6 +16563,502 @@ compliance activities that can be filtered by various criteria.
     - `updated_fields: optional array of string`
 
       Names of the configuration fields included in the update, e.g. "display_name", "system_prompt_addendum", "guest_policy". Includes "is_virtual" when this update was the first administrator action on an auto-provisioned agent — a durable state change even when no other field was supplied.
+
+  - `CcrChannelManagerAdded object`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_added"`
+
+      default: ccr_channel_manager_added
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment is recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member may now manage, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member who was assigned.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `CcrChannelManagerRemoved object`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_removed"`
+
+      default: ccr_channel_manager_removed
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment was recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member managed, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member whose assignment was removed.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
   - `CcrRoleChannelAssignmentDeleted object`
 
@@ -77866,7 +78390,7 @@ compliance activities that can be filtered by various criteria.
 
         - `user_agent: optional string or null`
 
-    - `updates: array of Name or Capabilities or RedactContent or 92 more`
+    - `updates: array of Name or Capabilities or RedactContent or 94 more`
 
       - `Name object`
 
@@ -79584,6 +80108,38 @@ compliance activities that can be filtered by various criteria.
         - `type: optional "skills_api_enabled"`
 
           default: skills_api_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `PasswordManagerIntegrationEnabled object`
+
+        The password manager integration setting was changed for the organization.
+
+        - `type: optional "password_manager_integration_enabled"`
+
+          default: password_manager_integration_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `APIKeyCreationEnabled object`
+
+        The setting that allows members to create new API keys was changed for the organization.
+
+        - `type: optional "api_key_creation_enabled"`
+
+          default: api_key_creation_enabled
 
         - `current_value: optional boolean or null`
 
@@ -126322,6 +126878,7 @@ compliance activities that can be filtered by various criteria.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/activities \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126356,7 +126913,7 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
 ### Activity List Response
 
-- `ActivityListResponse = AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 490 more`
+- `ActivityListResponse = AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 492 more`
 
   - `AbuseDecisionReceived object`
 
@@ -129696,7 +130253,7 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
       The artifact's identifier.
 
-    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 9 more`
+    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 10 more`
 
       The action recorded: for example a new comment thread, a reply to an existing thread, a thread resolved, reopened, or deleted, a thread's Claude activation granted or revoked, a comment's text rewritten by its author, an existing comment sent to Claude or withdrawn from Claude, or a thread resolved by a Claude session.
 
@@ -129709,6 +130266,8 @@ curl https://api.anthropic.com/v1/compliance/activities \
       - `"delete_thread"`
 
       - `"edit_comment"`
+
+      - `"move_thread"`
 
       - `"reopen"`
 
@@ -132751,11 +133310,15 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -133023,11 +133586,15 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -133311,11 +133878,15 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -133587,11 +134158,15 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -138812,6 +139387,502 @@ curl https://api.anthropic.com/v1/compliance/activities \
     - `updated_fields: optional array of string`
 
       Names of the configuration fields included in the update, e.g. "display_name", "system_prompt_addendum", "guest_policy". Includes "is_virtual" when this update was the first administrator action on an auto-provisioned agent — a durable state change even when no other field was supplied.
+
+  - `CcrChannelManagerAdded object`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_added"`
+
+      default: ccr_channel_manager_added
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment is recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member may now manage, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member who was assigned.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `CcrChannelManagerRemoved object`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_removed"`
+
+      default: ccr_channel_manager_removed
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment was recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member managed, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member whose assignment was removed.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
   - `CcrRoleChannelAssignmentDeleted object`
 
@@ -200143,7 +201214,7 @@ curl https://api.anthropic.com/v1/compliance/activities \
 
         - `user_agent: optional string or null`
 
-    - `updates: array of Name or Capabilities or RedactContent or 92 more`
+    - `updates: array of Name or Capabilities or RedactContent or 94 more`
 
       - `Name object`
 
@@ -201861,6 +202932,38 @@ curl https://api.anthropic.com/v1/compliance/activities \
         - `type: optional "skills_api_enabled"`
 
           default: skills_api_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `PasswordManagerIntegrationEnabled object`
+
+        The password manager integration setting was changed for the organization.
+
+        - `type: optional "password_manager_integration_enabled"`
+
+          default: password_manager_integration_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `APIKeyCreationEnabled object`
+
+        The setting that allows members to create new API keys was changed for the organization.
+
+        - `type: optional "api_key_creation_enabled"`
+
+          default: api_key_creation_enabled
 
         - `current_value: optional boolean or null`
 

@@ -19,7 +19,7 @@ compliance activities that can be filtered by various criteria.
 
 #### Query parameters
 
-- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 490 more`
+- `activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 492 more`
 
   Filter activities by type. See the response `data` schema for the additional fields each type returns. Cannot be combined with `exclude_activity_types[]`.
 
@@ -186,6 +186,14 @@ compliance activities that can be filtered by various criteria.
   - `"ccr_agent_updated"`
 
     A Claude Code agent's configuration was updated. Also emitted with updated_fields ["is_virtual"] alone when an auto-provisioned agent is promoted to a configured one, whether by an update request targeting it or by binding an agent proxy profile to it.
+
+  - `"ccr_channel_manager_added"`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+  - `"ccr_channel_manager_removed"`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
 
   - `"ccr_role_channel_assignment_deleted"`
 
@@ -2050,7 +2058,7 @@ compliance activities that can be filtered by various criteria.
 
     format: date-time
 
-- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 490 more`
+- `exclude_activity_types: optional array of "abuse_decision_received" or "account_deleted" or "admin_api_key_created" or 492 more`
 
   Exclude activities of these types. Cannot be combined with `activity_types[]`.
 
@@ -2217,6 +2225,14 @@ compliance activities that can be filtered by various criteria.
   - `"ccr_agent_updated"`
 
     A Claude Code agent's configuration was updated. Also emitted with updated_fields ["is_virtual"] alone when an auto-provisioned agent is promoted to a configured one, whether by an update request targeting it or by binding an agent proxy profile to it.
+
+  - `"ccr_channel_manager_added"`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+  - `"ccr_channel_manager_removed"`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
 
   - `"ccr_role_channel_assignment_deleted"`
 
@@ -4069,17 +4085,11 @@ compliance activities that can be filtered by various criteria.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
 
-- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 490 more`
+- `data: optional array of AbuseDecisionReceived or AccountDeleted or AdminAPIKeyCreated or 492 more`
 
   List of activity records. Each element's `type` field identifies which activity it is and which additional fields are present.
 
@@ -7421,7 +7431,7 @@ compliance activities that can be filtered by various criteria.
 
       The artifact's identifier.
 
-    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 9 more`
+    - `comment_action: "activate_thread" or "create_thread" or "deactivate_thread" or 10 more`
 
       The action recorded: for example a new comment thread, a reply to an existing thread, a thread resolved, reopened, or deleted, a thread's Claude activation granted or revoked, a comment's text rewritten by its author, an existing comment sent to Claude or withdrawn from Claude, or a thread resolved by a Claude session.
 
@@ -7434,6 +7444,8 @@ compliance activities that can be filtered by various criteria.
       - `"delete_thread"`
 
       - `"edit_comment"`
+
+      - `"move_thread"`
 
       - `"reopen"`
 
@@ -10476,11 +10488,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -10748,11 +10764,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -11036,11 +11056,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -11312,11 +11336,15 @@ compliance activities that can be filtered by various criteria.
 
       - `via_full_manage: boolean`
 
-        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized via the per-channel `claude_tag_channel:manage` permission for the Slack channel identified below.
+        True when the actor held the organization-wide Claude Tag management permission. False when the actor was instead authorized for the Slack channel identified below, either via the per-channel `claude_tag_channel:manage` permission or, when `via_account_assignment` is true, via a direct channel-manager assignment.
 
       - `granting_role_ids: optional array of string`
 
-        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated).
+        The tagged IDs of the custom roles that granted the actor the per-channel `claude_tag_channel:manage` permission, e.g. "rbac_role_01HX...". Empty when `via_full_manage` is true (the actor was authorized by the organization-wide permission, so no per-channel role grant was evaluated) and when `via_account_assignment` is true (no role stands behind a direct assignment).
+
+      - `via_account_assignment: optional boolean or null`
+
+        True when the actor was authorized because an owner or admin assigned them directly as a manager of the Slack channel identified below (see ccr_channel_manager_added), rather than through a permission held via a role. When true, `via_full_manage` and `via_entitlement_leg` are false and `granting_role_ids` is empty. Absent on events recorded before direct channel-manager assignments existed; treat absence as false.
 
     - `created_at: optional string`
 
@@ -16537,6 +16565,502 @@ compliance activities that can be filtered by various criteria.
     - `updated_fields: optional array of string`
 
       Names of the configuration fields included in the update, e.g. "display_name", "system_prompt_addendum", "guest_policy". Includes "is_virtual" when this update was the first administrator action on an auto-provisioned agent — a durable state change even when no other field was supplied.
+
+  - `CcrChannelManagerAdded object`
+
+    An org owner/admin assigned an organization member to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_added"`
+
+      default: ccr_channel_manager_added
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment is recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member may now manage, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member who was assigned.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+  - `CcrChannelManagerRemoved object`
+
+    An org owner/admin removed an organization member's assignment to manage the Claude-in-Slack configuration of one Slack channel.
+
+    - `type: optional "ccr_channel_manager_removed"`
+
+      default: ccr_channel_manager_removed
+
+    - `actor: APIActor or UserActor or UnauthenticatedUserActor or 8 more`
+
+      - `APIActor object`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `UserActor object`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+      - `UnauthenticatedUserActor object`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+        - `email_address: optional string or null`
+
+          format: email
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+      - `AdminAPIKeyActor object`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+      - `ServiceAccountActor object`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+      - `ScimDirectorySyncActor object`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `user_agent: optional string or null`
+
+    - `agent_id: string`
+
+      The channel's Claude agent (cagt_...) the assignment was recorded against.
+
+    - `slack_channel_id: string`
+
+      The Slack channel the member managed, e.g. "C01ABC...".
+
+    - `slack_team_id: string`
+
+      The Slack workspace containing the channel, e.g. "T01ABC...".
+
+    - `user_id: string`
+
+      Tagged ID of the member whose assignment was removed.
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
   - `CcrRoleChannelAssignmentDeleted object`
 
@@ -77868,7 +78392,7 @@ compliance activities that can be filtered by various criteria.
 
         - `user_agent: optional string or null`
 
-    - `updates: array of Name or Capabilities or RedactContent or 92 more`
+    - `updates: array of Name or Capabilities or RedactContent or 94 more`
 
       - `Name object`
 
@@ -79586,6 +80110,38 @@ compliance activities that can be filtered by various criteria.
         - `type: optional "skills_api_enabled"`
 
           default: skills_api_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `PasswordManagerIntegrationEnabled object`
+
+        The password manager integration setting was changed for the organization.
+
+        - `type: optional "password_manager_integration_enabled"`
+
+          default: password_manager_integration_enabled
+
+        - `current_value: optional boolean or null`
+
+          Setting value immediately after this change
+
+        - `previous_value: optional boolean or null`
+
+          Setting value immediately before this change
+
+      - `APIKeyCreationEnabled object`
+
+        The setting that allows members to create new API keys was changed for the organization.
+
+        - `type: optional "api_key_creation_enabled"`
+
+          default: api_key_creation_enabled
 
         - `current_value: optional boolean or null`
 
@@ -126324,6 +126880,7 @@ compliance activities that can be filtered by various criteria.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/activities \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126380,12 +126937,6 @@ Returns organizations sorted by creation date in ascending order. Use
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -126418,6 +126969,7 @@ Returns organizations sorted by creation date in ascending order. Use
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/organizations \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126464,12 +127016,6 @@ List current user members of an organization.
   Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -126531,6 +127077,7 @@ List current user members of an organization.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/users \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126580,12 +127127,6 @@ List Compliance Roles
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -126630,6 +127171,7 @@ List Compliance Roles
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126669,12 +127211,6 @@ Get Compliance Role
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -126707,6 +127243,7 @@ Get Compliance Role
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126754,12 +127291,6 @@ List Compliance Role Permissions
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -126792,6 +127323,7 @@ List Compliance Role Permissions
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE_ID/permissions \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -126835,12 +127367,6 @@ unknown organizations and organizations outside the hierarchy return 404.
   The organization's UUID
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -127145,6 +127671,7 @@ unknown organizations and organizations outside the hierarchy return 404.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/organizations/$ORGANIZATION_ID/settings \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -127206,12 +127733,6 @@ List Compliance Groups
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -127264,6 +127785,7 @@ List Compliance Groups
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/groups \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -127303,12 +127825,6 @@ Get Compliance Group
   The group ID (tagged ID, e.g., rbac_group_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -127350,6 +127866,7 @@ Get Compliance Group
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -127398,12 +127915,6 @@ List Compliance Group Members
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -127444,6 +127955,7 @@ List Compliance Group Members
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID/members \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -127577,12 +128089,6 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -127681,6 +128187,7 @@ no time filter) with the default `order_by`. `user_ids[]` with
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -127726,12 +128233,6 @@ files. This is a destructive operation that cannot be undone.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -127751,6 +128252,7 @@ files. This is a destructive operation that cannot be undone.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -127868,12 +128370,6 @@ Retrieves message history and file metadata for a specific chat.
     format: date-time
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -128175,6 +128671,7 @@ Retrieves message history and file metadata for a specific chat.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128261,12 +128758,6 @@ download the bytes.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -128309,6 +128800,7 @@ download the bytes.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128346,12 +128838,6 @@ operation that cannot be undone.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -128371,6 +128857,7 @@ operation that cannot be undone.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128397,18 +128884,13 @@ Downloads the binary content of a file referenced in chat messages.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128429,12 +128911,6 @@ Use the sibling `/content` endpoint to download the bytes.
   The generated-file id (e.g., 'claude_gen_file_abc123') as returned in `chat_messages[].generated_files[].id` from GET /apps/chats/{claude_chat_id}/messages.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -128474,6 +128950,7 @@ Use the sibling `/content` endpoint to download the bytes.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_GEN_FILE_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128505,18 +128982,13 @@ Downloads the binary content of a file the assistant created via tool use.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_GEN_FILE_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128603,12 +129075,6 @@ are sorted chronologically (time ascending) by created_at.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -128685,6 +129151,7 @@ are sorted chronologically (time ascending) by created_at.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128725,12 +129192,6 @@ Get detailed information for a specific project.
   The project ID (tagged ID, e.g., claude_proj_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -128812,6 +129273,7 @@ Get detailed information for a specific project.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128861,12 +129323,6 @@ Project must have no attached chats - returns 409 if chats exist.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -128886,6 +129342,7 @@ Project must have no attached chats - returns 409 if chats exist.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -128934,12 +129391,6 @@ GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
   Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129033,6 +129484,7 @@ GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachments \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129088,12 +129540,6 @@ role.
   Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129243,6 +129689,7 @@ role.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/collaborators \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129278,12 +129725,6 @@ Get detailed information for a specific project document.
   The document ID (tagged ID, e.g., claude_proj_doc_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129327,6 +129768,7 @@ Get detailed information for a specific project document.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129363,12 +129805,6 @@ consumer can dedupe or match hashes without downloading every document.
   The document ID (tagged ID, e.g., claude_proj_doc_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129426,6 +129862,7 @@ consumer can dedupe or match hashes without downloading every document.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID/metadata \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129463,12 +129900,6 @@ Hard-deletes the project document permanently.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -129488,6 +129919,7 @@ Hard-deletes the project document permanently.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129520,12 +129952,6 @@ without downloading every artifact.
   The artifact version ID (tagged ID, e.g., claude_artifact_version_abc123)
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129569,6 +129995,7 @@ without downloading every artifact.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129603,18 +130030,13 @@ Returns the full text content of the artifact version.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID/content \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129664,12 +130086,6 @@ forward-only via `next_page`; there is no reverse cursor.
     format: date-time
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129737,6 +130153,7 @@ forward-only via `next_page`; there is no reverse cursor.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/local \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129778,12 +130195,6 @@ inference call has aged out returns 404.
 - `local_session_id: string`
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -129843,6 +130254,7 @@ inference call has aged out returns 404.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/local/$LOCAL_SESSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -129919,12 +130331,6 @@ explicit 400; restart the walk to read under the current boundary.
   default: 10000, maximum: 2147483647, minimum: -1
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -130071,12 +130477,14 @@ explicit 400; restart the walk to read under the current boundary.
       A transcript marker generated by the endpoint rather than sent by
       either party during the session. Marker messages indicate that the
       prompt history diverged from what was captured, that the request's
-      `system` field was present but is not shown, or that
-      prompt-carried history was suppressed because the session spans the
-      child organization's retention boundary and those turns cannot be
-      placed against it (the marker's text names the cause). Markers that
-      report a mismatch with captured history can result from normal request
-      or client processing, not only client modification.
+      `system` field was present but is not shown, or that earlier turns
+      that a request re-sent as history were withheld because they cannot
+      be dated against the child organization's data-retention period
+      (only for organizations with a finite retention period; the request's
+      new user input after its last assistant turn is not affected). The
+      marker's text names the cause. Markers that report a mismatch with
+      captured history can result from normal request or client processing,
+      not only client modification.
 
       - `type: "synthetic_marker"`
 
@@ -130152,6 +130560,7 @@ explicit 400; restart the walk to read under the current boundary.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/local/$LOCAL_SESSION_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -130273,12 +130682,6 @@ retrieve the next page, and stop when `next_page` is null.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -130353,6 +130756,7 @@ retrieve the next page, and stop when `next_page` is null.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/remote \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -130447,12 +130851,6 @@ malformed session identifier returns 400.
   default: 10000, maximum: 2147483647, minimum: -1
 
 #### Headers
-
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -130648,6 +131046,7 @@ malformed session identifier returns 400.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/sessions/remote/$CLAUDE_REMOTE_SESSION_ID/messages \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -130764,12 +131163,6 @@ returned.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -130859,6 +131252,7 @@ returned.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -130921,18 +131315,13 @@ only for identity-stored content; validate against it when present.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Example
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID/versions/$VERSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
@@ -130957,12 +131346,6 @@ Artifact.
 
 #### Headers
 
-- `"anthropic-version": optional string`
-
-  The version of the Claude API you want to use.
-
-  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
-
 - `"x-api-key": optional string`
 
 #### Returns
@@ -130982,6 +131365,7 @@ Artifact.
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
