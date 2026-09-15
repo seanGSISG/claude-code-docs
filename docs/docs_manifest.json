@@ -189,8 +189,8 @@
     "docs__en__agents-and-tools__tool-use__browser-use-tool.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/browser-use-tool",
       "original_md_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/browser-use-tool.md",
-      "hash": "8545d84d7c206cf2a3bb26bc3eb814efe827a4012e6330842f11b15a0a75b188",
-      "last_updated": "2026-09-11T20:26:34.501946"
+      "hash": "8119432f8aaee579c2a63b50183e20e46f9ccc6347ac780651ca55150497b558",
+      "last_updated": "2026-09-15T20:52:21.209256"
     },
     "docs__en__agents-and-tools__tool-use__build-a-tool-using-agent.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent",
@@ -207,8 +207,8 @@
     "docs__en__agents-and-tools__tool-use__computer-use-tool.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
       "original_md_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool.md",
-      "hash": "4de659db5a454a438de8f37a25742b665254c305624f55cfcc5b76491ae62d46",
-      "last_updated": "2026-09-01T20:33:18.693073"
+      "hash": "23aa6bf74b1040e9628082f6e64adaa89d9e448e9af03e78594c73deffd452b3",
+      "last_updated": "2026-09-15T20:52:23.481887"
     },
     "docs__en__agents-and-tools__tool-use__define-tools.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
@@ -2781,8 +2781,8 @@
     "docs__en__build-with-claude__mid-conversation-system-messages.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages.md",
-      "hash": "df760c4030d37d545d7d610864982695777705ebe792bad1e2bac361376eef32",
-      "last_updated": "2026-09-09T20:31:28.259665"
+      "hash": "694c87e03757a6d03b2e39b10075240e2ed85b6433d89b753759d34a6bcacbae",
+      "last_updated": "2026-09-15T20:57:53.886421"
     },
     "docs__en__build-with-claude__multilingual-support.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/multilingual-support",
@@ -3933,8 +3933,8 @@
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
       "original_md_url": "https://platform.claude.com/docs/en/skills.md",
-      "hash": "41d2fa0c7cd609fc74cf6a1c2ba78b8e9a229a95e2593a22a15acac53ef125d1",
-      "last_updated": "2026-09-15T03:37:40.039274"
+      "hash": "1a0b8c64e2d2e4240ca214e4087cf71550f9d30445d6663e902a0baaae8d0276",
+      "last_updated": "2026-09-15T21:06:43.894228"
     },
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
@@ -4017,17 +4017,17 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "0a635f596ff8ee6ea3d57af010d7af19e254ef9ba7fc370f76a153c32ace79d9",
-      "last_updated": "2026-09-15T03:40:37.961890",
+      "hash": "17749bd28562eb8401fc0ca5b6b3a2ee66e31fc66de5bab67547b0afe6bf5eab",
+      "last_updated": "2026-09-15T21:09:40.227862",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-15T16:32:38.696048",
-    "fetch_duration_seconds": 1117.541646,
-    "total_pages_discovered": 823,
+    "last_fetch_completed": "2026-09-15T21:09:40.227991",
+    "fetch_duration_seconds": 1097.507687,
+    "total_pages_discovered": 824,
     "pages_fetched_successfully": 670,
-    "pages_failed": 154,
+    "pages_failed": 155,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/accessibility",
@@ -4035,6 +4035,7 @@
       "/docs/en/advisor",
       "/docs/en/agent-sdk/agent-loop",
       "/docs/en/agent-sdk/claude-code-features",
+      "/docs/en/agent-sdk/configuration",
       "/docs/en/agent-sdk/cost-tracking",
       "/docs/en/agent-sdk/custom-tools",
       "/docs/en/agent-sdk/examples",
@@ -4189,7 +4190,7 @@
     "total_files": 670,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-15T16:32:38.696077",
+  "last_updated": "2026-09-15T21:09:40.228018",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",

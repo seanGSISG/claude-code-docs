@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-15T16:14:03.637828Z",
-    "total_paths": 823,
+    "generated_at": "2026-09-15T20:51:24.098442Z",
+    "total_paths": 824,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-15T16:14:03.637836Z"
+    "last_regenerated": "2026-09-15T20:51:24.098450Z"
   },
   "categories": {
     "core_documentation": [
@@ -350,6 +350,7 @@
     "api_reference": [
       "/docs/en/agent-sdk/agent-loop",
       "/docs/en/agent-sdk/claude-code-features",
+      "/docs/en/agent-sdk/configuration",
       "/docs/en/agent-sdk/cost-tracking",
       "/docs/en/agent-sdk/custom-tools",
       "/docs/en/agent-sdk/examples",
