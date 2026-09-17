@@ -3261,8 +3261,8 @@
     "docs__en__manage-claude__compliance-api.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/compliance-api",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/compliance-api.md",
-      "hash": "b0a027ef41f6ec3835bc9043256db8513c2e285227c0d03efbdf6716e4d2266c",
-      "last_updated": "2026-09-15T11:14:00.645140"
+      "hash": "b9e1556cbc023fb368705dd7861ca27d8028342f9b1cbcb546b2ad1620501269",
+      "last_updated": "2026-09-17T16:25:29.602185"
     },
     "docs__en__manage-claude__compliance-api-access.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/compliance-api-access",
@@ -3285,8 +3285,8 @@
     "docs__en__manage-claude__compliance-faq.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/compliance-faq",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/compliance-faq.md",
-      "hash": "5bf64030dfe74a7f445991ded3f0240660e949b96dc6e4555cc2bc1e3983960b",
-      "last_updated": "2026-09-15T11:14:03.258326"
+      "hash": "e38364c9ee038e90ece00bd7e1302f1f59612f2f0a0ccb6229b89b5c5d89e1e4",
+      "last_updated": "2026-09-17T16:25:32.262607"
     },
     "docs__en__manage-claude__compliance-integration-patterns.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/compliance-integration-patterns",
@@ -3303,8 +3303,8 @@
     "docs__en__manage-claude__compliance-sessions.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/compliance-sessions",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/compliance-sessions.md",
-      "hash": "0ef7476fd1acf661516ae34a07acc46c464ca8ef4d72af97d2273abda907c98a",
-      "last_updated": "2026-09-03T03:06:33.930834"
+      "hash": "ac6365e4d14477f4ee487ab8480215fff26e028cb6896fe6ac30f4009d360f89",
+      "last_updated": "2026-09-17T16:25:34.396930"
     },
     "docs__en__manage-claude__data-residency.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/data-residency",
@@ -3801,8 +3801,8 @@
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
       "original_md_url": "https://platform.claude.com/docs/en/release-notes/overview.md",
-      "hash": "12545727b99579bdbe69fdc45fe4d0a78396ed6217b5fc0d86c7ea96c5ee4603",
-      "last_updated": "2026-09-16T16:19:52.983480"
+      "hash": "a8fbd46306206cce1e95b395933fd8e22c50c5352dac6e10ac7d5eb2df2cb313",
+      "last_updated": "2026-09-17T16:27:26.909082"
     },
     "docs__en__release-notes__system-prompts__claude-fable-5.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-fable-5",
@@ -4029,8 +4029,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-17T11:14:17.176467",
-    "fetch_duration_seconds": 1037.059178,
+    "last_fetch_completed": "2026-09-17T16:31:58.954886",
+    "fetch_duration_seconds": 1114.294942,
     "total_pages_discovered": 825,
     "pages_fetched_successfully": 671,
     "pages_failed": 155,
@@ -4196,7 +4196,7 @@
     "total_files": 671,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-17T11:14:17.176497",
+  "last_updated": "2026-09-17T16:31:58.954912",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
