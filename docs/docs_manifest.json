@@ -3585,8 +3585,8 @@
     "claude-code__mcp.md": {
       "original_url": "https://platform.claude.com/docs/en/mcp",
       "original_md_url": "https://platform.claude.com/docs/en/mcp.md",
-      "hash": "94ac427b5b58b688da9e67844e474caaec004be5dfa564847aa9fc4f8b628282",
-      "last_updated": "2026-09-16T03:30:40.881205"
+      "hash": "67dccd0f48a35655d560f921f3974ed2a8c50fb999a9859439d3748dd8a48221",
+      "last_updated": "2026-09-17T11:08:47.169247"
     },
     "claude-code__memory.md": {
       "original_url": "https://platform.claude.com/docs/en/memory",
@@ -3747,8 +3747,8 @@
     "claude-code__monitoring-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/monitoring-usage",
       "original_md_url": "https://platform.claude.com/docs/en/monitoring-usage.md",
-      "hash": "cb0e2e3223fa1f7e1b205140b537482aa0a6d3da557188f1202853cd504a8aa6",
-      "last_updated": "2026-09-16T21:05:21.755608"
+      "hash": "84ac804235de9291c5f3e789974cc5f2258d9a09df4bec9c55ed21708815e0fd",
+      "last_updated": "2026-09-17T11:09:13.832259"
     },
     "claude-code__network-config.md": {
       "original_url": "https://platform.claude.com/docs/en/network-config",
@@ -3771,8 +3771,8 @@
     "claude-code__plugin-marketplaces.md": {
       "original_url": "https://platform.claude.com/docs/en/plugin-marketplaces",
       "original_md_url": "https://platform.claude.com/docs/en/plugin-marketplaces.md",
-      "hash": "417eeebe9a3a635e4b1d1db6e7e13e113a1534a153a61f905f36b7e2cb24a74f",
-      "last_updated": "2026-09-16T21:05:50.807485"
+      "hash": "31e8773f0cff90d72c6ef8530ba3a6c52438c47c95cb419be4fff315d7ec47f5",
+      "last_updated": "2026-09-17T11:09:46.552872"
     },
     "claude-code__plugins.md": {
       "original_url": "https://platform.claude.com/docs/en/plugins",
@@ -4029,8 +4029,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-17T03:43:17.243656",
-    "fetch_duration_seconds": 1103.734126,
+    "last_fetch_completed": "2026-09-17T11:14:17.176467",
+    "fetch_duration_seconds": 1037.059178,
     "total_pages_discovered": 825,
     "pages_fetched_successfully": 671,
     "pages_failed": 155,
@@ -4196,7 +4196,7 @@
     "total_files": 671,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-17T03:43:17.243673",
+  "last_updated": "2026-09-17T11:14:17.176497",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
