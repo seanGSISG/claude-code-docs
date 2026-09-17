@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-17T16:13:30.008910Z",
-    "total_paths": 825,
+    "generated_at": "2026-09-17T20:56:20.884187Z",
+    "total_paths": 826,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-17T16:13:30.008917Z"
+    "last_regenerated": "2026-09-17T20:56:20.884193Z"
   },
   "categories": {
     "core_documentation": [
@@ -132,6 +132,7 @@
       "/docs/en/claude-apps-gateway-spend-limits",
       "/docs/en/claude-directory",
       "/docs/en/claude-platform-on-aws",
+      "/docs/en/claude-projects",
       "/docs/en/claude-security",
       "/docs/en/claude-tag",
       "/docs/en/claude_api_primer",
