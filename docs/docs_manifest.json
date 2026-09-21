@@ -3603,8 +3603,8 @@
     "claude-code__model-config.md": {
       "original_url": "https://platform.claude.com/docs/en/model-config",
       "original_md_url": "https://platform.claude.com/docs/en/model-config.md",
-      "hash": "98334d9d22a0f7fb9cd93b108e5ba48ddad767952f1922e1c3ab74a0e96ca505",
-      "last_updated": "2026-09-16T03:30:54.682009"
+      "hash": "a50163d776d222e11a9f89a7617761c53bcc95862e6298a5821d998d20306ebe",
+      "last_updated": "2026-09-21T18:20:44.023957"
     },
     "docs__en__models__fable-5-1__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide",
@@ -4029,8 +4029,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-21T12:16:59.440748",
-    "fetch_duration_seconds": 1090.24355,
+    "last_fetch_completed": "2026-09-21T18:26:10.749487",
+    "fetch_duration_seconds": 1057.752973,
     "total_pages_discovered": 826,
     "pages_fetched_successfully": 671,
     "pages_failed": 156,
@@ -4197,7 +4197,7 @@
     "total_files": 671,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-21T12:16:59.440767",
+  "last_updated": "2026-09-21T18:26:10.749510",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
