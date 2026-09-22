@@ -152,6 +152,7 @@ Resources refer to each other by path. Wherever the API expects another resource
 
   <File filename="environments/cloud.yaml">
     ```yaml
+    # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
     name: review-env
     description: Cloud container with unrestricted networking for review sessions.
     config:
@@ -163,6 +164,7 @@ Resources refer to each other by path. Wherever the API expects another resource
 
   <File filename="memory_stores/review-notes.yaml">
     ```yaml
+    # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/memory_store.json
     name: Review notes
     description: Recurring issues and house-style decisions the reviewer has recorded between runs.
     ```

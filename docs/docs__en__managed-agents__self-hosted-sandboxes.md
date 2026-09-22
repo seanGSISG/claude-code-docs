@@ -96,6 +96,7 @@ You need:
 
         <File filename="environment.yaml">
           ```yaml
+          # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
           name: self-hosted
           config:
             type: self_hosted

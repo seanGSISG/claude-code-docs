@@ -222,7 +222,7 @@ The lifetime is measured from the start of the request that writes or reads the 
 <Tip>
   **Prompt caching caches the full prefix**
 
-  Prompt caching references the entire prompt - `tools`, `system`, and `messages` (in that order) up to and including the block designated with `cache_control`.
+  Prompt caching references the entire prompt: `tools`, `system`, and `messages` (in that order), up to and including the block designated with `cache_control`.
 </Tip>
 
 ***
@@ -518,7 +518,7 @@ Automatic caching uses the same underlying caching infrastructure. Pricing, mini
 * If the last block already has an explicit `cache_control` with the same TTL, automatic caching is a no-op.
 * If the last block has an explicit `cache_control` with a different TTL, the API returns a 400 error.
 * If 4 explicit block-level breakpoints already exist, the API returns a 400 error (no slots left for automatic caching).
-* If the last block is not eligible as an automatic cache breakpoint target, the system silently walks backwards to find the nearest eligible block. If none is found, caching is skipped.
+* If the last block is not eligible as an automatic cache breakpoint target, the system silently walks backward to find the nearest eligible block. If none is found, caching is skipped.
 
 <Note>
   Automatic caching is available on every platform except the legacy [Amazon Bedrock (Opus 4.6 and earlier)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy) integration. On that integration, the API returns a 400 error for a top-level `cache_control` field, so use [explicit cache breakpoints](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#explicit-cache-breakpoints) instead.
@@ -587,7 +587,7 @@ You can define up to 4 cache breakpoints if you want to:
 * **Cache reads:** When cached content is used (10% of base input token price, or 2.5% on Claude Fable 5.1 and Claude Mythos 5.1)
 * **Regular input tokens:** For any uncached content
 
-Adding more `cache_control` breakpoints doesn't increase your costs - you still pay the same amount based on what content is actually cached and read. The breakpoints give you control over what sections can be cached independently.
+Adding more `cache_control` breakpoints doesn't increase your costs; you still pay the same amount based on what content is actually cached and read. The breakpoints give you control over what sections can be cached independently.
 
 ***
 
@@ -678,7 +678,7 @@ Monitor cache performance using these API response fields, within `usage` in the
 <Note>
   **Understanding the token breakdown**
 
-  The `input_tokens` field represents only the tokens that come **after the last cache breakpoint** in your request - not all the input tokens you sent.
+  The `input_tokens` field represents only the tokens that come **after the last cache breakpoint** in your request, not all the input tokens you sent.
 
   To calculate total input tokens:
 
@@ -775,7 +775,7 @@ To optimize prompt caching performance:
 Tailor your prompt caching strategy to your scenario:
 
 * Conversational agents: Reduce cost and latency for extended conversations, especially those with long instructions or uploaded documents.
-* Coding assistants: Improve autocomplete and codebase Q\&A by keeping relevant sections or a summarized version of the codebase in the prompt.
+* Coding assistants: Improve autocomplete and code base Q\&A by keeping relevant sections or a summarized version of the code base in the prompt.
 * Large document processing: Incorporate complete long-form material including images in your prompt without increasing response latency.
 * Detailed instruction sets: Share extensive lists of instructions, procedures, and examples to fine-tune Claude's responses. Developers often include an example or two in the prompt, but with prompt caching you can get even better performance by including 20+ diverse examples of high quality answers.
 * Agentic tool use: Enhance performance for scenarios involving multiple tool calls and iterative code changes, where each step typically requires a new API call.
@@ -849,7 +849,7 @@ If you have prompts that are used at a regular cadence (that is, system prompts 
 The 1-hour cache is best used in the following scenarios:
 
 * When you have prompts that are likely used less frequently than 5 minutes, but more frequently than every hour. For example, when an agentic side-agent will take longer than 5 minutes, or when storing a long chat conversation with a user and you generally expect that user may not respond in the next 5 minutes.
-* When latency is important and your follow up prompts may be sent beyond 5 minutes.
+* When latency is important and your follow-up prompts may be sent beyond 5 minutes.
 * When you want to improve your rate limit utilization, because cache hits are not deducted against your rate limit.
 
 <Note>
@@ -1059,7 +1059,7 @@ Place the `cache_control` breakpoint on the last block that is shared with the f
       messages: [['role' => 'user', 'content' => 'warmup']],
   );
 
-  echo $prewarm->stopReason->value, PHP_EOL; // "max_tokens"
+  echo $prewarm->stopReason, PHP_EOL; // "max_tokens"
   echo json_encode($prewarm->content), PHP_EOL; // []
   echo json_encode($prewarm->usage), PHP_EOL;
   ```
@@ -3202,7 +3202,7 @@ For ZDR eligibility across all features, see [API and data retention](https://pl
     * Reading from cache (a fraction of the base input token price, see [Pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pricing))
     * Regular input tokens for uncached content
 
-    The number of breakpoints doesn't affect pricing - only the amount of content cached and read matters.
+    The number of breakpoints doesn't affect pricing; only the amount of content cached and read matters.
   </Accordion>
 
   <Accordion title="How do I calculate total input tokens from the usage fields?">
@@ -3216,7 +3216,7 @@ For ZDR eligibility across all features, see [API and data retention](https://pl
     * `cache_creation_input_tokens`: New tokens being written to cache (at cache breakpoints)
     * `input_tokens`: Tokens **after the last cache breakpoint** that aren't cached
 
-    **Important:** `input_tokens` does NOT represent all input tokens - only the portion after your last cache breakpoint. If you have cached content, `input_tokens` will typically be much smaller than your total input.
+    **Important:** `input_tokens` does NOT represent all input tokens, only the portion after your last cache breakpoint. If you have cached content, `input_tokens` will typically be much smaller than your total input.
 
     **Example:** With a 200k token document cached and a 50 token user question:
 
@@ -3333,7 +3333,7 @@ For ZDR eligibility across all features, see [API and data retention](https://pl
     client.beta.promptCaching.messages.create(/* ... */);
     ```
 
-    Simply use:
+    Use:
 
     ```typescript
     client.messages.create(/* ... */);

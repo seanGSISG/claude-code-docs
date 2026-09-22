@@ -150,7 +150,7 @@ How you register the key depends on which product you use.
           </Step>
 
           <Step title="Attach the key to a workspace">
-            Open **Settings > Workspaces**, choose the workspace, and open its **Security** tab. Under **Encryption key**, select the key, click **Save**, and confirm. Attaching a key can't be undone. For a workspace that already receives requests, the key can take [up to a day to take effect](https://platform.claude.com/docs/en/manage-claude/cmek#how-it-works).
+            In the Claude Console, go to [Manage > Security](https://platform.claude.com/settings/workspaces/default/security-compliance) and select the workspace in the workspace picker at the top of the sidebar. Under **Encryption key**, select the key, click **Save**, and confirm. Attaching a key can't be undone. For a workspace that already receives requests, the key can take [up to a day to take effect](https://platform.claude.com/docs/en/manage-claude/cmek#how-it-works).
           </Step>
         </Steps>
       </Tab>

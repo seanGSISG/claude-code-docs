@@ -381,6 +381,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
         <File filename="environment.yaml">
           ```yaml
+          # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
           name: quickstart-env
           config:
             type: cloud

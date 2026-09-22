@@ -128,6 +128,8 @@ You can configure your model in several ways, listed in order of priority:
 
 Typing `/model <name>` directly behaves like `Enter`. To switch for this session only, open the picker with `/model` and press `s` on the model's row.
 
+If you switch models with `/model`, the switch also reaches [subagents that inherit the main conversation's model](/docs/en/sub-agents#choose-a-model), because Claude Code resolves their model from the one your session is using when Claude starts them. Switch to Opus before Claude delegates research or test runs to one of them, and that work runs on Opus too. To keep a custom subagent on a smaller model, set `model` in its definition.
+
 If you set a model with `/model` in [non-interactive mode](/docs/en/headless), with the `-p` flag, your choice applies to the current session only and isn't saved as your default; `/model` in that mode requires Claude Code v2.1.205 or later. Project and managed settings still take precedence and reapply on the next launch. An [organization default model](#organization-default-model) that your admin has configured to override user selection also reapplies on the next launch.
 
 In v2.1.144 through v2.1.152, `/model` applied to the current session only and `d` in the picker saved a default.
