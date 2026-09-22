@@ -1212,6 +1212,12 @@
       "hash": "42e90d7f6515a4db428c8d6338cbffcdde3cf903f012f30a8a2e46318a800a4c",
       "last_updated": "2026-09-18T20:26:22.941314"
     },
+    "docs__en__api__beta__organization__mcp_tunnels__tunnel_certificates.md": {
+      "original_url": "https://platform.claude.com/docs/en/api/beta/organization/mcp_tunnels/tunnel_certificates",
+      "original_md_url": "https://platform.claude.com/docs/en/api/beta/organization/mcp_tunnels/tunnel_certificates.md",
+      "hash": "507ff559093746c7ce61c936d10d100b42aae5f7bacd55914dc14c732c3b17e3",
+      "last_updated": "2026-09-22T11:00:33.242422"
+    },
     "docs__en__api__beta__organization__mcp_tunnels__tunnel_certificates__archive.md": {
       "original_url": "https://platform.claude.com/docs/en/api/beta/organization/mcp_tunnels/tunnel_certificates/archive",
       "original_md_url": "https://platform.claude.com/docs/en/api/beta/organization/mcp_tunnels/tunnel_certificates/archive.md",
@@ -1739,6 +1745,12 @@
       "original_md_url": "https://platform.claude.com/docs/en/api/beta/sessions/threads/archive.md",
       "hash": "c11bb3747336d712ec7d713e6bcf9995f722fd2bc26943a893bec3c1cb6af99f",
       "last_updated": "2026-09-22T03:23:01.011615"
+    },
+    "docs__en__api__beta__sessions__threads__events.md": {
+      "original_url": "https://platform.claude.com/docs/en/api/beta/sessions/threads/events",
+      "original_md_url": "https://platform.claude.com/docs/en/api/beta/sessions/threads/events.md",
+      "hash": "3ed57e310bb205d43609f8cce646f78f61964dee05707de5c995b910da431e16",
+      "last_updated": "2026-09-22T11:01:37.946482"
     },
     "docs__en__api__beta__sessions__threads__events__list.md": {
       "original_url": "https://platform.claude.com/docs/en/api/beta/sessions/threads/events/list",
@@ -4047,11 +4059,11 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-22T03:38:37.577176",
-    "fetch_duration_seconds": 1275.257975,
+    "last_fetch_completed": "2026-09-22T11:15:37.469998",
+    "fetch_duration_seconds": 1081.627233,
     "total_pages_discovered": 831,
-    "pages_fetched_successfully": 674,
-    "pages_failed": 158,
+    "pages_fetched_successfully": 676,
+    "pages_failed": 156,
     "failed_pages": [
       "/docs/en/about-claude/use-case-guides/overview",
       "/docs/en/accessibility",
@@ -4092,8 +4104,6 @@
       "/docs/en/agent-teams",
       "/docs/en/agent-view",
       "/docs/en/agents",
-      "/docs/en/api/beta/organization/mcp_tunnels/tunnel_certificates",
-      "/docs/en/api/beta/sessions/threads/events",
       "/docs/en/artifacts",
       "/docs/en/authentication",
       "/docs/en/auto-mode-config",
@@ -4214,10 +4224,10 @@
     ],
     "sitemap_url": "https://platform.claude.com/sitemap.xml",
     "base_url": "https://platform.claude.com",
-    "total_files": 674,
+    "total_files": 676,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-22T03:38:37.577192",
+  "last_updated": "2026-09-22T11:15:37.470025",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
