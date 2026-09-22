@@ -21,7 +21,7 @@ Write the agent as a Markdown file under `agents/` and apply it:
     ```markdown
     ---
     name: Summarizer
-    model: claude-opus-5
+    model: claude-opus-5-5
     tools:
       - type: agent_toolset_20260401
     ---
@@ -111,7 +111,7 @@ Resources refer to each other by path. Wherever the API expects another resource
     ```markdown
     ---
     name: Code reviewer
-    model: claude-opus-5
+    model: claude-opus-5-5
     tools:
       - type: agent_toolset_20260401
     skills:
@@ -126,7 +126,7 @@ Resources refer to each other by path. Wherever the API expects another resource
     ```markdown
     ---
     name: Engineering lead
-    model: claude-opus-5
+    model: claude-opus-5-5
     multiagent:
       type: coordinator
       agents:
