@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-23T16:05:13.675741Z",
-    "total_paths": 831,
+    "generated_at": "2026-09-23T21:04:18.941901Z",
+    "total_paths": 834,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-23T16:05:13.675750Z"
+    "last_regenerated": "2026-09-23T21:04:18.941909Z"
   },
   "categories": {
     "core_documentation": [
@@ -109,6 +109,7 @@
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-4-8",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5",
+      "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5",
       "/docs/en/build-with-claude/refusals-and-fallback",
       "/docs/en/build-with-claude/search-results",
@@ -279,9 +280,10 @@
       "/docs/en/models/opus-4-6/overview",
       "/docs/en/models/opus-4-7/overview",
       "/docs/en/models/opus-4-8/overview",
-      "/docs/en/models/opus-5/migration-guide",
+      "/docs/en/models/opus-5-5/migration-guide",
+      "/docs/en/models/opus-5-5/overview",
+      "/docs/en/models/opus-5-5/whats-new-opus-5-5",
       "/docs/en/models/opus-5/overview",
-      "/docs/en/models/opus-5/whats-new-opus-5",
       "/docs/en/models/overview",
       "/docs/en/models/sonnet-4-5/overview",
       "/docs/en/models/sonnet-4-6/overview",
@@ -839,6 +841,7 @@
       "/docs/en/release-notes/system-prompts/claude-opus-4-7",
       "/docs/en/release-notes/system-prompts/claude-opus-4-8",
       "/docs/en/release-notes/system-prompts/claude-opus-5",
+      "/docs/en/release-notes/system-prompts/claude-opus-5-5",
       "/docs/en/release-notes/system-prompts/claude-sonnet-3-5",
       "/docs/en/release-notes/system-prompts/claude-sonnet-3-7",
       "/docs/en/release-notes/system-prompts/claude-sonnet-4",
