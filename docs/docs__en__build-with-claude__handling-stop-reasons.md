@@ -1953,7 +1953,7 @@ A refused request on Claude Fable 5.1, Claude Fable 5, Claude Opus 5.5, or Claud
 Claude stopped because it reached the model's context window limit. This lets you request the maximum possible tokens without knowing the exact input size.
 
 <Note>
-  This stop reason is currently typed only in the SDKs' `beta` namespace, so the following examples call `client.beta.messages` and use the `Beta`-prefixed types. On Sonnet 4.5 and newer models the API returns this value without a beta header. For earlier models, add the `model-context-window-exceeded-2025-08-26` beta header to enable it.
+  This stop reason is currently typed only in the SDKs' `beta` namespace, so the following examples call `client.beta.messages` (csharp, go: `client.Beta.Messages`; java: `client.beta().messages()`; php: `$client->beta->messages`) and use the `Beta`-prefixed types. On Sonnet 4.5 and newer models the API returns this value without a beta header. For earlier models, add the `model-context-window-exceeded-2025-08-26` beta header to enable it.
 </Note>
 
 <CodeGroup>
@@ -2394,7 +2394,10 @@ When using [server tools](https://platform.claude.com/docs/en/agents-and-tools/t
 
       for _ in range(max_continuations):
           response = client.messages.create(
-              model="claude-opus-5-5", max_tokens=4096, messages=messages, tools=tools
+              model="claude-opus-5-5",
+              max_tokens=4096,
+              messages=messages,
+              tools=tools,
           )
 
           if response.stop_reason != "pause_turn":
@@ -3034,7 +3037,10 @@ When using streaming, `stop_reason` is:
 
       while True:
           response = client.messages.create(
-              model="claude-opus-5-5", max_tokens=1024, messages=messages, tools=tools
+              model="claude-opus-5-5",
+              max_tokens=1024,
+              messages=messages,
+              tools=tools,
           )
 
           if response.stop_reason == "tool_use":
