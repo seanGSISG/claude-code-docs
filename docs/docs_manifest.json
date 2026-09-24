@@ -3657,20 +3657,20 @@
     "docs__en__models__fable-5-1__whats-new-fable-5-1.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1",
       "original_md_url": "https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1.md",
-      "hash": "59d2a26f6e123d009a9e86aac9283705f7bfd15549b185dc07aa1858241baf19",
-      "last_updated": "2026-09-11T16:02:59.774429"
+      "hash": "d0865b3a3f03c114ebbb5922f66ae2b058f0fa9658617600ad2ffb018e3945f1",
+      "last_updated": "2026-09-24T16:41:54.636186"
     },
     "docs__en__models__fable-5__introducing-claude-fable-5-and-claude-mythos-5.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5",
       "original_md_url": "https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5.md",
-      "hash": "b9b9f1515b90003c25852524ffeb5db8ec4f90decea4be130f5233648f955c5d",
-      "last_updated": "2026-09-01T20:45:45.098801"
+      "hash": "ef578afa7326a00d19811b597daace9b06909d0d3a0fdf1c9cbbc56d8eed03d4",
+      "last_updated": "2026-09-24T16:41:55.317041"
     },
     "docs__en__models__fable-5__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5/migration-guide",
       "original_md_url": "https://platform.claude.com/docs/en/models/fable-5/migration-guide.md",
-      "hash": "88a8c6bf920e69dc0b9420af99bb09ac5a72d631761abbc0c78c0b7028e644eb",
-      "last_updated": "2026-09-23T21:16:26.478794"
+      "hash": "fc74ee89803f7bc716f002db12b5084d4f7e22bd7c3f5024e5b84d8d145d45c0",
+      "last_updated": "2026-09-24T16:41:56.070020"
     },
     "docs__en__models__fable-5__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5/overview",
@@ -3741,8 +3741,8 @@
     "docs__en__models__opus-5-5__whats-new-opus-5-5.md": {
       "original_url": "https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5",
       "original_md_url": "https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5.md",
-      "hash": "90fb6efa547a193cbf1eb4b836ef5310234da054f2e83abbe15ce41b0d4c5a6a",
-      "last_updated": "2026-09-23T21:16:34.467079"
+      "hash": "6ba1ff350b0ced73d0eeba0330b37f14cd516a7100f3eb404410f82e6826d546",
+      "last_updated": "2026-09-24T16:42:04.132169"
     },
     "docs__en__models__opus-5__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/models/opus-5/overview",
@@ -3843,8 +3843,8 @@
     "docs__en__release-notes__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/overview",
       "original_md_url": "https://platform.claude.com/docs/en/release-notes/overview.md",
-      "hash": "26c5052b07733d9c0a1fa4243d0798fcaefe2d602e0fa97c86c8a3fead1d8207",
-      "last_updated": "2026-09-23T21:17:25.261656"
+      "hash": "05b8b4e0a3471e8fb14756f46b2f6990608a657cf7ffbf98bdc30ebb0a257b7b",
+      "last_updated": "2026-09-24T16:42:54.396315"
     },
     "docs__en__release-notes__system-prompts__claude-fable-5.md": {
       "original_url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-fable-5",
@@ -4017,8 +4017,8 @@
     "docs__en__test-and-evaluate__strengthen-guardrails__handle-streaming-refusals.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals",
       "original_md_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals.md",
-      "hash": "7897b228df5ddbac83658403b330f8cd26aecf26cd71c7f9fedd9fae68cfc9f6",
-      "last_updated": "2026-09-24T03:22:22.355512"
+      "hash": "7a6976fb0463248753437dcc30e79f5121e1b507ca4602142596e46bc88b27d6",
+      "last_updated": "2026-09-24T16:44:38.046021"
     },
     "docs__en__test-and-evaluate__strengthen-guardrails__increase-consistency.md": {
       "original_url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency",
@@ -4077,8 +4077,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-24T11:23:21.919040",
-    "fetch_duration_seconds": 1040.777707,
+    "last_fetch_completed": "2026-09-24T16:47:15.258949",
+    "fetch_duration_seconds": 1080.313463,
     "total_pages_discovered": 834,
     "pages_fetched_successfully": 679,
     "pages_failed": 156,
@@ -4245,7 +4245,7 @@
     "total_files": 679,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-24T11:23:21.919061",
+  "last_updated": "2026-09-24T16:47:15.258976",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
