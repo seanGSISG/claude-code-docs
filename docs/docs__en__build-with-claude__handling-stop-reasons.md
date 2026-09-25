@@ -2394,10 +2394,7 @@ When using [server tools](https://platform.claude.com/docs/en/agents-and-tools/t
 
       for _ in range(max_continuations):
           response = client.messages.create(
-              model="claude-opus-5-5",
-              max_tokens=4096,
-              messages=messages,
-              tools=tools,
+              model="claude-opus-5-5", max_tokens=4096, messages=messages, tools=tools
           )
 
           if response.stop_reason != "pause_turn":
@@ -3037,10 +3034,7 @@ When using streaming, `stop_reason` is:
 
       while True:
           response = client.messages.create(
-              model="claude-opus-5-5",
-              max_tokens=1024,
-              messages=messages,
-              tools=tools,
+              model="claude-opus-5-5", max_tokens=1024, messages=messages, tools=tools
           )
 
           if response.stop_reason == "tool_use":
