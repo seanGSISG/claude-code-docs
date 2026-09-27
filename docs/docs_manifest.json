@@ -3177,14 +3177,14 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "d0148a9023a7cea82ba48755e83101c9f839e46d10a8dd20b431c6eba0f8e6ca",
-      "last_updated": "2026-09-26T03:40:15.808556"
+      "hash": "366c11e0a5f7286eaba39223bd39c6006b746c8f12e95563819190a6f860c1b6",
+      "last_updated": "2026-09-27T16:32:49.637056"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
       "original_md_url": "https://platform.claude.com/docs/en/hooks-guide.md",
-      "hash": "658b953245f6bbe793186ffd18efd0aef6d8c689dea1e796eec24786e2c3f332",
-      "last_updated": "2026-09-25T03:35:25.268236"
+      "hash": "4fc4171c12764e34e7ad194899e330cde63d2a026aaa99080498eb4bd8b51708",
+      "last_updated": "2026-09-27T16:32:50.198727"
     },
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
@@ -4059,8 +4059,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-09-27T11:41:32.872098",
-    "fetch_duration_seconds": 1089.936561,
+    "last_fetch_completed": "2026-09-27T16:41:07.540061",
+    "fetch_duration_seconds": 1094.310992,
     "total_pages_discovered": 846,
     "pages_fetched_successfully": 676,
     "pages_failed": 171,
@@ -4242,7 +4242,7 @@
     "total_files": 676,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-09-27T11:41:32.872133",
+  "last_updated": "2026-09-27T16:41:07.540088",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
