@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-28T12:53:45.036239Z",
-    "total_paths": 846,
+    "generated_at": "2026-09-28T22:55:28.349439Z",
+    "total_paths": 848,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-28T12:53:45.036247Z"
+    "last_regenerated": "2026-09-28T22:55:28.349446Z"
   },
   "categories": {
     "core_documentation": [
@@ -194,6 +194,7 @@
       "/docs/en/llm-gateway-protocol",
       "/docs/en/llm-gateway-rollout",
       "/docs/en/manage-claude/access-transparency",
+      "/docs/en/manage-claude/access-transparency-log",
       "/docs/en/manage-claude/admin-api",
       "/docs/en/manage-claude/admin-api-keys",
       "/docs/en/manage-claude/analytics-api",
@@ -859,6 +860,7 @@
       "/docs/en/release-notes/system-prompts/claude-sonnet-4",
       "/docs/en/release-notes/system-prompts/claude-sonnet-4-5",
       "/docs/en/release-notes/system-prompts/claude-sonnet-4-6",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-5",
       "/docs/en/release-notes/system-prompts/overview"
     ],
     "resources": [

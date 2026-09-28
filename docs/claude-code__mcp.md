@@ -513,11 +513,11 @@ See the [plugin components reference](/docs/en/plugins/components#mcp-servers) f
 
 MCP servers can be configured at three scopes. The scope you choose controls which projects the server loads in and whether the configuration is shared with your team. Administrators can also deploy or provide servers for every user via [managed configuration](#managed-mcp-configuration).
 
-| Scope                     | Loads in             | Shared with team         | Stored in                   |
-| ------------------------- | -------------------- | ------------------------ | --------------------------- |
-| [Local](#local-scope)     | Current project only | No                       | `~/.claude.json`            |
+| Scope | Loads in | Shared with team | Stored in |
+| - | - | - | - |
+| [Local](#local-scope) | Current project only | No | `~/.claude.json` |
 | [Project](#project-scope) | Current project only | Yes, via version control | `.mcp.json` in project root |
-| [User](#user-scope)       | All your projects    | No                       | `~/.claude.json`            |
+| [User](#user-scope) | All your projects | No | `~/.claude.json` |
 
 ### Local scope
 
@@ -986,11 +986,11 @@ If the server rejects the helper's credential while connecting, Claude Code repo
 
 Claude Code sets these environment variables when executing the helper:
 
-| Variable                      | Value                                                                                                         |
-| :---------------------------- | :------------------------------------------------------------------------------------------------------------ |
-| `CLAUDE_CODE_MCP_SERVER_NAME` | the name of the MCP server                                                                                    |
-| `CLAUDE_CODE_MCP_SERVER_URL`  | the URL of the MCP server                                                                                     |
-| `CLAUDE_PLUGIN_ROOT`          | the plugin's root directory. Set only when a [plugin](/docs/en/plugins/components#mcp-servers) provides the server |
+| Variable | Value |
+| :- | :- |
+| `CLAUDE_CODE_MCP_SERVER_NAME` | the name of the MCP server |
+| `CLAUDE_CODE_MCP_SERVER_URL` | the URL of the MCP server |
+| `CLAUDE_PLUGIN_ROOT` | the plugin's root directory. Set only when a [plugin](/docs/en/plugins/components#mcp-servers) provides the server |
 
 Use these to write a single helper script that serves multiple MCP servers.
 
@@ -1000,11 +1000,11 @@ A plugin-provided `headersHelper` can't reference the plugin's [`${user_config.*
 
 Claude Code picks the `headersHelper` command's working directory from the configuration that declares the server. A `cd` that Claude runs in Bash doesn't move it, and [`/cd`](/docs/en/permissions#move-the-session-to-another-directory) moves it only for servers that run from the session's primary working directory. Each row below gives the directory that a relative path in your `headersHelper` command resolves against.
 
-| Where you configured the server                                                                                                                                                                              | Working directory                                                                            |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| A [plugin](/docs/en/plugins/components#mcp-servers)                                                                                                                                                               | The plugin's root directory. Requires Claude Code v2.1.195 or later                          |
-| A project `.mcp.json` or a [local-scope](#local-scope) server                                                                                                                                                | The project directory the server is declared in                                              |
-| An agent file in your project, a server from the SDK's `mcpServers` option or `setMcpServers()` method, or [`--mcp-config`](/docs/en/cli-reference)                                                               | The session's [primary working directory](/docs/en/permissions#working-directories)               |
+| Where you configured the server | Working directory |
+| :- | :- |
+| A [plugin](/docs/en/plugins/components#mcp-servers) | The plugin's root directory. Requires Claude Code v2.1.195 or later |
+| A project `.mcp.json` or a [local-scope](#local-scope) server | The project directory the server is declared in |
+| An agent file in your project, a server from the SDK's `mcpServers` option or `setMcpServers()` method, or [`--mcp-config`](/docs/en/cli-reference) | The session's [primary working directory](/docs/en/permissions#working-directories) |
 | [User scope](#user-scope), [managed MCP](/docs/en/managed-mcp), a [claude.ai connector](#use-mcp-servers-from-claude-ai), or an agent file from outside your project, including one from an `--add-dir` directory | Your configuration directory, `~/.claude` unless you set [`CLAUDE_CONFIG_DIR`](/docs/en/env-vars) |
 
 Before v2.1.238, Claude Code also ran the helpers of user-scope, managed, and claude.ai connector servers, and of agent files from outside your project, from the directory you started it in.
@@ -1125,6 +1125,8 @@ If you've logged into Claude Code with a [claude.ai](https://claude.ai) account,
   </Step>
 </Steps>
 
+Anthropic also provides some connectors itself, without you or an admin adding them. On accounts where [Claude Docs](/docs/en/artifacts#write-a-document-with-claude-docs) is available, `/mcp` lists `claude.ai Claude Docs` with no setup, and Claude uses it when you ask for a document meant for other people. To turn it off, add a `serverName` entry of `"claude.ai Claude Docs"` to `deniedMcpServers` or use the `/mcp` toggle, both described in [Disable claude.ai connectors](#disable-claude-ai-connectors).
+
 Claude Code marks a connector `managed` in `/mcp` and in the [`/plugin`](/docs/en/plugins/install) manager when your organization manages its authentication in claude.ai. Managed status doesn't change how Claude Code connects to the connector or applies your organization's [tool controls](#organization-controls-on-connector-tools).
 
 Connectors you have never signed in to are collapsed behind a `Show unused connectors` row at the end of the claude.ai section, so an organization-provisioned list doesn't fill the panel. Select the row to expand them. A connector you signed in to before stays visible even when it currently needs re-authentication.
@@ -1157,11 +1159,11 @@ After you remove your entry with `claude mcp remove <name>` and connect the serv
 
 Which settings govern a claude.ai connector depends on where your session runs, because only some sessions fetch connectors from claude.ai themselves. Each row below names how connectors arrive in one kind of session and what controls them there. The desktop app's [WSL sessions](/docs/en/desktop-wsl#what-works-in-a-wsl-session) have no row because connectors aren't available in them yet.
 
-| Where the session runs                                                                                                     | How connectors arrive                    | What governs them                                                                                                                                                                                                               |
-| :------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Terminal, [VS Code](/docs/en/vs-code), [JetBrains](/docs/en/jetbrains), and [Agent SDK](/docs/en/agent-sdk/claude-code-features) sessions | Claude Code fetches them from claude.ai  | The settings in this section and [managed MCP configuration](/docs/en/managed-mcp)                                                                                                                                                   |
-| [Cloud sessions](/docs/en/claude-code-on-the-web)                                                                               | The cloud host passes them in            | Your claude.ai organization settings, plus the [allowlist and denylist](/docs/en/managed-mcp#policy-based-control-with-allowlists-and-denylists) settings that reach the session and any `managed-mcp.json` on the host that runs it |
-| The [desktop app](/docs/en/desktop)'s local and SSH sessions                                                                    | The desktop app delivers them in-process | `blocked` entries in your organization's [connector tool controls](#organization-controls-on-connector-tools)                                                                                                                   |
+| Where the session runs | How connectors arrive | What governs them |
+| :- | :- | :- |
+| Terminal, [VS Code](/docs/en/vs-code), [JetBrains](/docs/en/jetbrains), and [Agent SDK](/docs/en/agent-sdk/claude-code-features) sessions | Claude Code fetches them from claude.ai | The settings in this section and [managed MCP configuration](/docs/en/managed-mcp) |
+| [Cloud sessions](/docs/en/claude-code-on-the-web) | The cloud host passes them in | Your claude.ai organization settings, plus the [allowlist and denylist](/docs/en/managed-mcp#policy-based-control-with-allowlists-and-denylists) settings that reach the session and any `managed-mcp.json` on the host that runs it |
+| The [desktop app](/docs/en/desktop)'s local and SSH sessions | The desktop app delivers them in-process | `blocked` entries in your organization's [connector tool controls](#organization-controls-on-connector-tools) |
 
 [`disableClaudeAiConnectors`](#disable-claude-ai-connectors), `ENABLE_CLAUDEAI_MCP_SERVERS`, and [`allowAllClaudeAiMcps`](/docs/en/settings-reference#allowallclaudeaimcps) act only on the first row, the connectors Claude Code fetches itself. The other two rows differ from it in these ways:
 
@@ -1457,13 +1459,13 @@ Before v2.1.221, Claude Code disabled tool search for all models on Google Cloud
 
 Control tool search behavior with the `ENABLE_TOOL_SEARCH` environment variable:
 
-| Value    | Behavior                                                                                                                                                                                                                                                                                                                                                                                                      |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| (unset)  | All MCP tools deferred and loaded on demand. Falls back to loading upfront on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, when `ANTHROPIC_BASE_URL` is a non-first-party host, or on a Microsoft Foundry deployment hosted on Azure                                                                                                                                          |
-| `true`   | All MCP tools deferred, except on a Microsoft Foundry deployment hosted on Azure, where the server-side rejection still forces upfront loading, and on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, where Claude Code keeps loading tools upfront. Claude Code sends the beta header through proxies, and requests fail on proxies that don't support `tool_reference` blocks |
-| `auto`   | Threshold mode: Claude Code loads the tools it would otherwise defer upfront while their definitions total less than 10% of the context window, and defers all of them once the definitions reach 10%                                                                                                                                                                                                         |
-| `auto:N` | Threshold mode with a custom percentage, where `N` is 0-100. For example, `auto:5` for 5%                                                                                                                                                                                                                                                                                                                     |
-| `false`  | All MCP tools loaded upfront, no deferral                                                                                                                                                                                                                                                                                                                                                                     |
+| Value | Behavior |
+| :- | :- |
+| (unset) | All MCP tools deferred and loaded on demand. Falls back to loading upfront on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, when `ANTHROPIC_BASE_URL` is a non-first-party host, or on a Microsoft Foundry deployment hosted on Azure |
+| `true` | All MCP tools deferred, except on a Microsoft Foundry deployment hosted on Azure, where the server-side rejection still forces upfront loading, and on Google Cloud's Agent Platform models earlier than the Claude 4.5 generation, where Claude Code keeps loading tools upfront. Claude Code sends the beta header through proxies, and requests fail on proxies that don't support `tool_reference` blocks |
+| `auto` | Threshold mode: Claude Code loads the tools it would otherwise defer upfront while their definitions total less than 10% of the context window, and defers all of them once the definitions reach 10% |
+| `auto:N` | Threshold mode with a custom percentage, where `N` is 0-100. For example, `auto:5` for 5% |
+| `false` | All MCP tools loaded upfront, no deferral |
 
 ```bash theme={null}
 # Use a custom 5% threshold
