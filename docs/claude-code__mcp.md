@@ -269,12 +269,7 @@ In `/mcp`, including a server's menu there, and in the [`/plugin`](/docs/en/plug
 
 The discovery cache is off by default unless a gradual rollout has enabled it for your account. Set [`MCP_DISCOVERY_CACHE=1`](/docs/en/env-vars) to turn it on, or `0` to keep it off even when the rollout has enabled it. Before v2.1.238, the cache was on by default.
 
-Two actions in a server's menu in `/mcp` also affect that server's cache entry:
-
-* **Reconnect**: on a `cached` server, Claude Code connects it now rather than on its first tool call and keeps the entry. On a connected or failed server, Claude Code reconnects it and also discards the entry.
-* **Clear authentication**: Claude Code revokes the server's authentication and also discards the entry.
-
-After discarding the entry, Claude Code fetches the server's tool list from the server instead of from the cache.
+When you select **Disable** or **Clear authentication** from a server's menu in `/mcp`, Claude Code also discards that server's cache entry. **Reconnect** discards it too on a connected or failed server; on a `cached` server, **Reconnect** connects the server now and keeps the entry. The next time Claude Code connects to the server after discarding the entry, it fetches the tool list from the server instead of from the cache.
 
 When a server's status is `✘ Failed to connect`, `claude mcp list` appends the failure detail to that status line, and `claude mcp get <name>` shows it on an `Issue:` line: the HTTP status or error code, plus any error text the server returned. The server's detail view in `/mcp` includes the same server-reported text in its `Issue:` row. Claude Code redacts credential-like text from this detail and never includes the expanded server URL, which can carry secrets. Claude Code appends no detail to a `✘ Connection error` status, because the exception text it would print there can embed that URL. Before v2.1.219, both commands showed only the bare failure status, without the status code or the server's error text.
 
@@ -603,7 +598,7 @@ When the same server is defined in more than one place, Claude Code connects to 
 4. [Plugin-provided servers](/docs/en/plugins/components#mcp-servers)
 5. [claude.ai connectors](#use-mcp-servers-from-claude-ai)
 
-Claude Code matches duplicates across the three scopes by name. It matches plugins and connectors by endpoint, so one that points at the same URL or command as a server above counts as a duplicate.
+Claude Code matches duplicates across the three scopes by name. It matches plugins and connectors by endpoint, so one that points at the same URL or command as an enabled server above counts as a duplicate.
 
 Two URL spellings count as the same endpoint when they differ only in the letter case of the scheme or host, the scheme's default port, such as `:443` on `https`, or a trailing slash. A different path, query string, userinfo, or non-default port makes two servers.
 
@@ -823,13 +818,13 @@ Some MCP servers don't support automatic OAuth setup via Dynamic Client Registra
   <Step title="Register an OAuth app with the server">
     Create an app through the server's developer portal and note your client ID and client secret.
 
-    Many servers also require a redirect URI. If so, choose a port and register a redirect URI in the format `http://localhost:PORT/callback`. Use that same port with `--callback-port` in the next step.
+    If the registration form asks for a redirect URI, pick any available port and enter `http://localhost:PORT/callback` with that port. You'll use the same port in the next step.
 
     In v2.1.229, Claude Code sent `http://127.0.0.1:PORT/callback` instead, and servers that exact-match the registered redirect URI rejected the sign-in with a redirect URI mismatch. Claude Code v2.1.231 restored the `localhost` form. To recover on v2.1.229, upgrade Claude Code, or temporarily add the `http://127.0.0.1:PORT/callback` form to the server's registered redirect URIs.
   </Step>
 
   <Step title="Add the server with your credentials">
-    Choose one of the following methods. The port used for `--callback-port` can be any available port. It needs to match the redirect URI you registered in the previous step.
+    The tabs cover both commands: `claude mcp add` takes your client ID and callback port as flags, and `claude mcp add-json` takes them in an `oauth` object. If you registered a redirect URI, set the callback port to the port in that URI.
 
     <Tabs>
       <Tab title="claude mcp add">
@@ -853,7 +848,7 @@ Some MCP servers don't support automatic OAuth setup via Dynamic Client Registra
       </Tab>
 
       <Tab title="claude mcp add-json (callback port only)">
-        Use `--callback-port` without a client ID to fix the port while using dynamic client registration:
+        To fix only the callback port and let Claude Code register the client automatically, set `callbackPort` on its own:
 
         ```bash theme={null}
         claude mcp add-json my-server \

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-09-28T22:55:28.349439Z",
-    "total_paths": 848,
+    "generated_at": "2026-09-29T04:12:25.716068Z",
+    "total_paths": 851,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-09-28T22:55:28.349446Z"
+    "last_regenerated": "2026-09-29T04:12:25.716077Z"
   },
   "categories": {
     "core_documentation": [
@@ -111,6 +111,7 @@
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5",
+      "/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5",
       "/docs/en/build-with-claude/refusals-and-fallback",
       "/docs/en/build-with-claude/search-results",
       "/docs/en/build-with-claude/skills-guide",
@@ -286,9 +287,10 @@
       "/docs/en/models/overview",
       "/docs/en/models/sonnet-4-5/overview",
       "/docs/en/models/sonnet-4-6/overview",
-      "/docs/en/models/sonnet-5/migration-guide",
+      "/docs/en/models/sonnet-5-5/migration-guide",
+      "/docs/en/models/sonnet-5-5/overview",
+      "/docs/en/models/sonnet-5-5/whats-new-sonnet-5-5",
       "/docs/en/models/sonnet-5/overview",
-      "/docs/en/models/sonnet-5/whats-new-sonnet-5",
       "/docs/en/permission-modes",
       "/docs/en/permissions",
       "/docs/en/platforms",
@@ -861,6 +863,7 @@
       "/docs/en/release-notes/system-prompts/claude-sonnet-4-5",
       "/docs/en/release-notes/system-prompts/claude-sonnet-4-6",
       "/docs/en/release-notes/system-prompts/claude-sonnet-5",
+      "/docs/en/release-notes/system-prompts/claude-sonnet-5-5",
       "/docs/en/release-notes/system-prompts/overview"
     ],
     "resources": [
