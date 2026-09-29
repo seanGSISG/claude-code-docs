@@ -266,7 +266,7 @@ For details on settings file resolution, see [settings](/docs/en/settings).
 
 Hooks from settings files, managed policy settings, and plugins also run inside [subagents](/docs/en/sub-agents). When a subagent calls a tool, tool events such as `PreToolUse` and `PostToolUse` fire the same configured hooks as in the main conversation, and the input carries the `agent_id` and `agent_type` [common input fields](#common-input-fields) that identify the subagent.
 
-Enterprise administrators can use `allowManagedHooksOnly` to restrict which hooks run:
+Administrators can use [`allowManagedHooksOnly`](/docs/en/settings-reference#allowmanagedhooksonly) in [managed settings](/docs/en/managed-settings) to restrict which hooks run:
 
 * Your user, project, local, and plugin hooks are blocked. Hooks from plugins force-enabled in managed settings `enabledPlugins` are exempt
 * Claude Code also narrows your [`statusLine`](/docs/en/statusline), [`fileSuggestion`](/docs/en/settings-reference#filesuggestion), and [`subagentStatusLine`](/docs/en/statusline#subagent-status-lines) settings to managed settings
@@ -2259,7 +2259,7 @@ You receive these hook events even with desktop notifications turned off: the `p
 | `elicitation_url_dialog` | An MCP server asks you to open a browser URL and you haven't typed for about six seconds |
 | `elicitation_complete` | An MCP server reports that a [URL-mode elicitation](#elicitation-input) is complete |
 | `elicitation_response` | An MCP elicitation response is sent back to the server |
-| `agent_needs_input` | A background session starts waiting on your input while [agent view](/docs/en/agent-view) is open in a terminal, or the current session asks you an [agent team teammate's terminal setup question](/docs/en/agent-teams#choose-a-display-mode) and you haven't typed for about six seconds |
+| `agent_needs_input` | A background session starts waiting on your input while [agent view](/docs/en/agent-view) is open in a terminal. Also fires when a terminal session shows you an [agent team teammate's terminal setup question](/docs/en/agent-teams#choose-a-display-mode) or auto mode's notice about [classifier request charges](/docs/en/auto-mode-classifier-billing) and you haven't typed for about six seconds |
 | `agent_completed` | A background session finishes or fails. Fires only while [agent view](/docs/en/agent-view) is open in a terminal |
 | `quota_auto_resume_fired` | Claude Code continues your task after a claude.ai usage limit paused it: at the reset, or sooner when something you do in Claude Code during the wait, such as adding usage credits, upgrading your plan, or switching models, makes usage available again, with the [model-setting exception](/docs/en/interactive-mode#wait-for-a-usage-limit-to-reset) |
 | `quota_auto_resume_stale` | A claude.ai usage limit reset while your computer slept for more than about 30 minutes. Claude Code waits for you to press `Enter` instead of continuing. After a shorter sleep it continues and fires `quota_auto_resume_fired` instead |
@@ -2993,7 +2993,13 @@ Runs when a worktree is being removed. This is the cleanup counterpart to [Workt
 * a subagent with `isolation: "worktree"` finishes
 * you delete a [background session](/docs/en/agent-view#what-deleting-a-session-removes) whose worktree the hook created
 
-For git-based worktrees, Claude Code handles cleanup automatically with `git worktree remove`. If you configured a WorktreeCreate hook for a non-git version control system, pair it with a WorktreeRemove hook to handle cleanup. Without one, the worktree directory is left on disk.
+For git-based worktrees, Claude Code handles cleanup automatically with `git worktree remove`. If you configured a WorktreeCreate hook, pair it with a WorktreeRemove hook to control cleanup of the worktrees it creates:
+
+* **No WorktreeRemove hook**: when you exit a `--worktree` session and choose removal, Claude Code falls back to `git worktree remove --force` on the path your WorktreeCreate hook returned, so a worktree git recognizes is removed. A worktree git doesn't recognize, for example one your hook created with a non-git version control system, stays on disk. For what deleting a [background session](/docs/en/agent-view#what-deleting-a-session-removes) does with a hook-created worktree, see agent view's delete rules.
+* **Hook exits 0**: the worktree counts as removed. Claude Code reads nothing else from the hook, so make sure your hook deleted the directory.
+* **Hook exits non-zero**: the removal fails if the directory at `worktree_path` still exists afterward, and the worktree stays on disk with no git fallback. A hook that deleted the directory before exiting non-zero counts as removed. For how the failure is reported, see [WorktreeRemove input](#worktreeremove-input).
+
+Claude Code never deletes a branch belonging to a hook-created worktree, because it only knows the path your WorktreeCreate hook returned. If your WorktreeCreate hook creates a branch, delete it in your WorktreeRemove hook.
 
 Claude Code discards a WorktreeRemove hook's [JSON output fields](#json-output), such as `systemMessage` and `continue`.
 
