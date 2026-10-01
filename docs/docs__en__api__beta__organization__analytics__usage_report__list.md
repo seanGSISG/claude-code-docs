@@ -1,21 +1,18 @@
 ---
-title: Get Per-User Token Usage
-url: https://platform.claude.com/docs/en/api/beta/organization/analytics/usage/list_by_user
+title: Get Token Usage Over Time
+url: https://platform.claude.com/docs/en/api/beta/organization/analytics/usage_report/list
 ---
 
-# Get Per-User Token Usage
+# Get Token Usage Over Time
 
-**GET** `/v1/organizations/analytics/user_usage_report`
+**GET** `/v1/organizations/analytics/usage_report`
 
-Get per-user token usage across a date range.
+Get token usage over time across a date range.
 
-Returns one row per user, ranked by the chosen token metric. Use this to
-see which users consume the most tokens. Only usage attributable to a
-seat user is included; for organization-wide totals including direct
-API-key and automation traffic, use the bucketed
-`/v1/organizations/analytics/usage_report` endpoint. Available to
-organizations on a Claude Enterprise plan. Requires an API key with the
-`read:analytics` scope.
+Returns token usage bucketed by minute, hour, or day, optionally broken
+down by product, model, context window, inference region, or speed.
+Available to organizations on a Claude Enterprise plan. Requires an API
+key with the `read:analytics` scope.
 
 ## Query parameters
 
@@ -27,7 +24,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `bucket_width: optional "1d" or "1h" or "1m"`
 
-  Time-bucket granularity. When set, each row's `starting_at` and `ending_at` are populated and one actor may span several rows (one per time bucket with usage). The time bucket counts toward `limit`, so one page can return multiple rows for the same actor. `ending_at` is required when `bucket_width` is set, and with `bucket_width="1m"` the range may span at most 24 hours. When omitted, each row aggregates the full `[starting_at, ending_at)` range.
+  Time bucket granularity.
+
+  default: 1d
 
   - `"1d"`
 
@@ -35,7 +34,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `"1m"`
 
-- `claude_tag_categories: optional array of "dm" or "engaged" or "monitoring" or 2 more`
+- `claude_tag_categories: optional array of BetaAnalyticsClaudeTagCategory`
 
   Filter to Claude Tag (Claude in Slack) usage in specific spend categories. Usage with no category never matches. `dm` usage is reported under the user's product rather than `claude-tag`, so combining this filter with `products[]=claude-tag` excludes it. Use `group_by[]=claude_tag_category` to break out per-category values.
 
@@ -57,7 +56,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   maxItems: 100
 
-- `context_windows: optional array of "0-200k" or "200k-1M"`
+- `context_windows: optional array of BetaAnalyticsContextWindow`
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
@@ -73,15 +72,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   format: date-time
 
-- `exclude_deleted_users: optional boolean`
-
-  If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
-
-  default: false
-
 - `group_by: optional array of "claude_tag_category" or "claude_tag_user_id" or "context_window" or 6 more`
 
-  Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/usage_report` endpoint. `limit` bounds (actor × time bucket × dimension) rows — with dimensions or `bucket_width` present, one actor may span several rows.
+  Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
 
   maxItems: 100
 
@@ -103,7 +96,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   - `"speed"`
 
-- `inference_geos: optional array of "global" or "not_available" or "us"`
+- `inference_geos: optional array of BetaAnalyticsInferenceGeoFilter`
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
@@ -117,9 +110,9 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 - `limit: optional number`
 
-  Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
+  Maximum number of time buckets per page. Defaults and caps vary by `bucket_width` (`1d`: default 7, max 31; `1h`: default 24, max 168; `1m`: default 60, max 256).
 
-  default: 20, minimum: 1, maximum: 1000
+  minimum: 1
 
 - `models: optional array of string`
 
@@ -127,37 +120,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   maxItems: 100
 
-- `order: optional "asc" or "desc"`
-
-  Sort direction. Defaults to `desc`.
-
-  default: desc
-
-  - `"asc"`
-
-  - `"desc"`
-
-- `order_by: optional "output_tokens" or "requests" or "total_tokens" or "uncached_input_tokens"`
-
-  Metric to rank actors by. Defaults to `total_tokens`.
-
-  default: total_tokens
-
-  - `"output_tokens"`
-
-  - `"requests"`
-
-  - `"total_tokens"`
-
-  - `"uncached_input_tokens"`
-
 - `page: optional string`
 
   Opaque cursor from a previous response's `next_page` field.
 
-- `products: optional array of "chat" or "claude-tag" or "claude_code" or 4 more`
+- `products: optional array of BetaAnalyticsProductFilter`
 
-  Product surfaces to include. Defaults to all products.
+  Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values.
 
   maxItems: 100
 
@@ -205,41 +174,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
 ## Returns
 
-- `BetaUserUsage object`
+- `data: array of BetaAnalyticsUsageReportTimeBucket`
 
-  - `data: array of object`
+  Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
 
-    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
+  - `ending_at: string`
 
-    - `actor: BetaAnalyticsUserActor`
+    End of the time bucket (exclusive) in RFC 3339 format.
 
-      The user this row's usage or cost is attributed to. Always a `user_actor`.
+    format: date-time
 
-      - `type: "user_actor"`
+  - `results: array of BetaAnalyticsUsageBucketedResult`
 
-        Actor type. Always `"user_actor"`.
-
-      - `deleted: boolean`
-
-        True when the account has been deleted, or when the user is no longer a member of the organization or its associated organizations (for example, their membership was removed or they were deprovisioned via your identity provider). `email_address` stays populated for removed users and is null when the account has been deleted. `name` follows the rules described on that field. The `user_id` is still populated for reconciliation.
-
-      - `email_address: string or null`
-
-        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
-
-      - `name: string or null`
-
-        The user's full name. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted, or when the user is no longer a member of the organization or its associated organizations and the organization has chosen to hide the names of removed users. Otherwise, the name stays populated for removed users. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
-
-      - `user_id: string`
-
-        Tagged user ID.
-
-      - `email: string or null`
-
-        **Deprecated**
-
-        Deprecated: use `email_address`, which carries the same value.
+    Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
 
     - `cache_creation: BetaCacheCreation`
 
@@ -261,7 +208,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       The number of input tokens read from the cache.
 
-    - `claude_tag_category: "dm" or "engaged" or "monitoring" or 2 more or null`
+    - `claude_tag_category: BetaAnalyticsClaudeTagCategory or null`
 
       Claude Tag (Claude in Slack) spend category: `engaged` (a person addressed Claude in a channel or thread), `proactive` (Claude responded without being addressed), `scheduled` (a scheduled routine ran), `monitoring` (Claude watching a channel it was asked to monitor), or `dm` (direct messages with Claude). Populated only when `claude_tag_category` is in `group_by[]`; null for usage that is not Claude Tag. Direct-message usage is billed to the individual user and is reported under that user's product, not under `claude-tag`. New categories may be added over time.
 
@@ -279,19 +226,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Slack user ID (for example `U0123ABCDEF`) of the member the Claude Tag (Claude in Slack) usage is attributed to, not a claude.ai user ID. Populated only when `claude_tag_user_id` is in `group_by[]`; null for usage that is not Claude Tag and for Claude Tag usage that is not attributed to a single user (for example `monitoring`, and `proactive` usage Claude initiated), so per-user rows can sum to less than the Claude Tag total. Cannot be combined with `group_by[]=rbac_group_id` or the `rbac_group_ids[]` filter.
 
-    - `context_window: "0-200k" or "200k-1M" or null`
+    - `context_window: BetaAnalyticsContextWindow or null`
 
       Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
 
       - `"0-200k"`
 
       - `"200k-1M"`
-
-    - `ending_at: string or null`
-
-      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
-
-      format: date-time
 
     - `inference_geo: "global" or "us" or null`
 
@@ -321,7 +262,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
 
-    - `server_tool_use: object`
+    - `server_tool_use: BetaAnalyticsServerToolUse`
 
       Server-side tool usage metrics.
 
@@ -341,42 +282,38 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       - `"standard"`
 
-    - `starting_at: string or null`
-
-      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
-
-      format: date-time
-
-    - `total_tokens: number`
-
-      Total token count across all token types. This is the value the default `order_by` (`total_tokens`) sorts on.
-
     - `uncached_input_tokens: number`
 
       The number of uncached input tokens processed.
 
-  - `data_refreshed_at: string or null`
+  - `starting_at: string`
 
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+    Start of the time bucket (inclusive) in RFC 3339 format.
 
     format: date-time
 
-  - `has_more: boolean`
+- `data_refreshed_at: string or null`
 
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
+  RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
 
-  - `next_page: string or null`
+  format: date-time
 
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
+- `has_more: boolean`
 
-  - `organization_id: string`
+  Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
 
-    ID of the Organization.
+- `next_page: string or null`
+
+  Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
+
+- `organization_id: string`
+
+  ID of the Organization.
 
 ## Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/analytics/user_usage_report \
+curl https://api.anthropic.com/v1/organizations/analytics/usage_report \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
@@ -387,37 +324,32 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_usage_report \
 {
   "data": [
     {
-      "actor": {
-        "deleted": true,
-        "email": "jane@example.com",
-        "email_address": "jane@example.com",
-        "name": "Jane Smith",
-        "type": "user_actor",
-        "user_id": "user_01AbCdEfGhIjKlMnOpQrSt"
-      },
-      "cache_creation": {
-        "ephemeral_1h_input_tokens": 0,
-        "ephemeral_5m_input_tokens": 0
-      },
-      "cache_read_input_tokens": 3200000,
-      "claude_tag_category": "dm",
-      "claude_tag_user_id": "U0123ABCDEF",
-      "context_window": "0-200k",
       "ending_at": "2019-12-27T18:11:19.117Z",
-      "inference_geo": "global",
-      "model": "claude-opus-5",
-      "output_tokens": 891000,
-      "product": "chat",
-      "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
-      "requests": 128,
-      "server_tool_use": {
-        "web_search_requests": 10
-      },
-      "slack_channel_id": "C0123ABCDEF",
-      "speed": "fast",
-      "starting_at": "2019-12-27T18:11:19.117Z",
-      "total_tokens": 5377000,
-      "uncached_input_tokens": 1284500
+      "results": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "claude_tag_category": "dm",
+          "claude_tag_user_id": "U0123ABCDEF",
+          "context_window": "0-200k",
+          "inference_geo": "global",
+          "model": "claude-opus-5",
+          "output_tokens": 0,
+          "product": "chat",
+          "rbac_group_id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
+          "requests": 0,
+          "server_tool_use": {
+            "web_search_requests": 10
+          },
+          "slack_channel_id": "C0123ABCDEF",
+          "speed": "fast",
+          "uncached_input_tokens": 0
+        }
+      ],
+      "starting_at": "2019-12-27T18:11:19.117Z"
     }
   ],
   "data_refreshed_at": "2019-12-27T18:11:19.117Z",

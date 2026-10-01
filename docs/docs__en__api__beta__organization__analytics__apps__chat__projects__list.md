@@ -1,6 +1,6 @@
 ---
 title: Get Chat Project Usage
-url: https://platform.claude.com/docs/en/api/beta/organization/analytics/chat_projects/list
+url: https://platform.claude.com/docs/en/api/beta/organization/analytics/apps/chat/projects/list
 ---
 
 # Get Chat Project Usage
@@ -75,75 +75,71 @@ plan. Requires an API key with the `read:analytics` scope.
 
 ## Returns
 
-- `BetaChatProjectUsage object`
+- `data: array of BetaAnalyticsProjectActivity`
 
-  Response for GET /v1/organizations/analytics/apps/chat/projects.
+  - `distinct_user_count: number`
 
-  - `data: array of object`
+    Number of distinct users who used the project on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
 
-    - `distinct_user_count: number`
+  - `message_count: number`
 
-      Number of distinct users who used the project on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
+    Number of messages sent in the project on the requested day
 
-    - `message_count: number`
+  - `project_id: string`
 
-      Number of messages sent in the project on the requested day
+    Tagged project identifier (e.g. `claude_proj_...`)
 
-    - `project_id: string`
+  - `project_name: string`
 
-      Tagged project identifier (e.g. `claude_proj_...`)
+    Name of the project
 
-    - `project_name: string`
+  - `created_at: optional string or null`
 
-      Name of the project
+    Project creation timestamp in RFC 3339 format. Null if the project was deleted before attribution was recorded.
 
-    - `created_at: optional string or null`
+    format: date-time
 
-      Project creation timestamp in RFC 3339 format. Null if the project was deleted before attribution was recorded.
+  - `created_by: optional BetaAnalyticsUser or null`
 
-      format: date-time
+    User who created the project. Null if the project was deleted before attribution was recorded, or if the creator's account no longer exists.
 
-    - `created_by: optional BetaAnalyticsUser or null`
+    - `type: "user"`
 
-      User who created the project. Null if the project was deleted before attribution was recorded, or if the creator's account no longer exists.
+      Object type. Always `user`.
 
-      - `type: "user"`
+      default: user
 
-        Object type. Always `user`.
+    - `id: string`
 
-        default: user
+      Tagged user identifier (e.g. `user_...`)
 
-      - `id: string`
+    - `email_address: string`
 
-        Tagged user identifier (e.g. `user_...`)
+      Email address of the user
 
-      - `email_address: string`
+  - `distinct_conversation_count: optional number or null`
 
-        Email address of the user
+    Number of distinct conversations in the project. Null on aggregated rows where a distinct count cannot be computed.
 
-    - `distinct_conversation_count: optional number or null`
+  - `product: optional string or null`
 
-      Number of distinct conversations in the project. Null on aggregated rows where a distinct count cannot be computed.
+    Product that produced this row's activity: one of `chat`, `claude_code`, `cowork`, or `office_agent` (the canonical Cost & Usage product naming; an `office_agent` row's per-surface breakdown is in its `office_metrics`). On `/plugins` only `cowork` and `claude_code` occur (the only surfaces with plugin attribution); on `/artifacts` only `chat`, `claude_code`, and `cowork` occur (the surfaces that create artifacts); `/apps/chat/projects` does not support the product dimension (a `product` entry in `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by `product`.
 
-    - `product: optional string or null`
+  - `rbac_group_id: optional string or null`
 
-      Product that produced this row's activity: one of `chat`, `claude_code`, `cowork`, or `office_agent` (the canonical Cost & Usage product naming; an `office_agent` row's per-surface breakdown is in its `office_metrics`). On `/plugins` only `cowork` and `claude_code` occur (the only surfaces with plugin attribution); on `/artifacts` only `chat`, `claude_code`, and `cowork` occur (the surfaces that create artifacts); `/apps/chat/projects` does not support the product dimension (a `product` entry in `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by `product`.
+    Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
 
-    - `rbac_group_id: optional string or null`
+  - `rbac_group_name: optional string or null`
 
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
+    Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
 
-    - `rbac_group_name: optional string or null`
+  - `user_id: optional string or null`
 
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
+    Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
 
-    - `user_id: optional string or null`
+- `next_page: string or null`
 
-      Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null if no more results
+  Opaque cursor for the next page, or null if no more results
 
 ## Example
 

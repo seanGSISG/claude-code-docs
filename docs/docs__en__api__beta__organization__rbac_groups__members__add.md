@@ -1,6 +1,6 @@
 ---
 title: Add RBAC Group Member
-url: https://platform.claude.com/docs/en/api/beta/organization/rbac_groups/members/create
+url: https://platform.claude.com/docs/en/api/beta/organization/rbac_groups/members/add
 ---
 
 # Add RBAC Group Member
