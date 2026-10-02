@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-02T11:52:08.651587Z",
-    "total_paths": 967,
+    "generated_at": "2026-10-02T17:26:43.719659Z",
+    "total_paths": 972,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-02T11:52:08.651598Z"
+    "last_regenerated": "2026-10-02T17:26:43.719668Z"
   },
   "categories": {
     "core_documentation": [
@@ -256,7 +256,12 @@
       "/docs/en/managed-agents/reference",
       "/docs/en/managed-agents/scheduled-deployments",
       "/docs/en/managed-agents/self-hosted-sandboxes",
+      "/docs/en/managed-agents/self-hosted-sandboxes-custom-tools",
+      "/docs/en/managed-agents/self-hosted-sandboxes-memory",
+      "/docs/en/managed-agents/self-hosted-sandboxes-operations",
+      "/docs/en/managed-agents/self-hosted-sandboxes-reference",
       "/docs/en/managed-agents/self-hosted-sandboxes-security",
+      "/docs/en/managed-agents/self-hosted-sandboxes-workers",
       "/docs/en/managed-agents/session-operations",
       "/docs/en/managed-agents/sessions",
       "/docs/en/managed-agents/skills",
