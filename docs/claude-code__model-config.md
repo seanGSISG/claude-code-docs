@@ -257,7 +257,10 @@ Claude Code handles any other blocked selection according to where the model was
 * **`advisorModel` setting**: the advisor is disabled for the session
 * **`--advisor` flag**: Claude Code exits with an error at launch. In a [background session](/docs/en/agent-view), it starts the session without the advisor instead of exiting
 
-Claude Code hides excluded models from the `/model` picker. A full model ID in the list that has no built-in picker row, such as an older version that the list pins, appears in the `/model` picker as its own labeled row, unless Claude Code replaces the built-in options with a [`modelPicker`](/docs/en/settings-reference#modelpicker) lineup. Before v2.1.199, such an ID was selectable only by typing `/model <id>`.
+Claude Code hides excluded models from the `/model` picker. Whether a model ID you list also gets a row of its own differs by provider:
+
+* **Anthropic API, [Claude Platform on AWS](/docs/en/claude-platform-on-aws), [Claude apps gateway](/docs/en/claude-apps-gateway), or an [LLM gateway](/docs/en/llm-gateway) set through `ANTHROPIC_BASE_URL`**: an Anthropic model ID you list that has no built-in picker row appears as its own labeled row. Claude Code adds such a row for Opus, Sonnet, and Haiku versions, such as an older version that the list pins. If you set `replaceBuiltInOptions` in a [`modelPicker`](/docs/en/settings-reference#modelpicker) lineup, that row doesn't appear. Before v2.1.199, such an ID was selectable only by typing `/model <id>`.
+* **Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry**: unless a model ID you list starts with `anthropic.`, Claude Code doesn't add a row for it, whether it's an Anthropic model ID or a provider-specific one. [Mantle model IDs](#mantle-model-ids) carry that prefix. To show a listed version that has no built-in row, also add it to a [`modelPicker`](/docs/en/settings-reference#modelpicker) lineup, which accepts IDs in your provider's format.
 
 Model changes that Claude Code makes on your behalf are checked the same way:
 
@@ -348,7 +351,7 @@ Within the effective list, an entry naming a specific model in a family, whether
 
 ### Mantle model IDs
 
-When the [Amazon Bedrock Mantle endpoint](/docs/en/amazon-bedrock#use-the-mantle-endpoint) is enabled, entries in `availableModels` that start with `anthropic.` are added to the `/model` picker as custom options and routed to the Mantle endpoint. This is an exception to the alias matching described in [Pin models for third-party deployments](#pin-models-for-third-party-deployments). The setting still restricts the picker to listed entries, and a Mantle ID embeds a family name, so it counts as a specific entry and disables that family's wildcard: alongside any Mantle IDs, list the version prefixes or full IDs you want to keep selectable. See [Merge behavior](#merge-behavior).
+Entries in `availableModels` that start with `anthropic.` are added to the `/model` picker as custom options. This is an exception to the alias matching described in [Pin models for third-party deployments](#pin-models-for-third-party-deployments). With the [Amazon Bedrock Mantle endpoint](/docs/en/amazon-bedrock#use-the-mantle-endpoint) enabled, Claude Code routes the entries that match the Mantle format to that endpoint. The setting still restricts the picker to listed entries, and a Mantle ID embeds a family name, so it counts as a specific entry and disables that family's wildcard: alongside any Mantle IDs, list the version prefixes or full IDs you want to keep selectable. See [Merge behavior](#merge-behavior).
 
 ### Block specific models or versions
 
