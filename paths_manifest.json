@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-01T22:20:03.127291Z",
-    "total_paths": 966,
+    "generated_at": "2026-10-02T04:02:12.478300Z",
+    "total_paths": 967,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-01T22:20:03.127302Z"
+    "last_regenerated": "2026-10-02T04:02:12.478308Z"
   },
   "categories": {
     "core_documentation": [
@@ -928,6 +928,7 @@
       "/docs/en/plugins/mods/api",
       "/docs/en/plugins/mods/create",
       "/docs/en/plugins/mods/events",
+      "/docs/en/plugins/mods/gallery",
       "/docs/en/plugins/mods/interface",
       "/docs/en/plugins/mods/overview",
       "/docs/en/plugins/mods/reference",
