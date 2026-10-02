@@ -380,6 +380,10 @@ Claude Code doesn't retry in these cases:
 
 After a server connects, Claude Code sends it capability discovery requests such as `tools/list`, `prompts/list`, and `resources/list`. Claude Code retries those requests up to three times with short backoff after a transient network or server error. It doesn't retry authentication errors, 4xx responses, or request timeouts.
 
+#### Retry failed servers yourself
+
+To retry every server that failed or needs authentication, run `/mcp reconnect all`. In the interactive terminal this requires Claude Code v2.1.284 or later, and earlier versions print `MCP server "all" not found` there.
+
 #### How Claude learns that a server failed
 
 Whether Claude Code tells Claude about a configured server that failed to connect depends on [tool search](#scale-with-mcp-tool-search), which is on by default:
