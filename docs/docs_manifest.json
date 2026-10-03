@@ -3813,14 +3813,14 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "bb10057ad439cff2300c90e6188ee76d1aaa835346c72cfd8ce090e2a8642dec",
-      "last_updated": "2026-10-03T03:59:04.493005"
+      "hash": "755e30355fb80abada5a6a5ec10fe491cc1a57bf123232c80d1cc68312869ae5",
+      "last_updated": "2026-10-03T11:16:18.454618"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
       "original_md_url": "https://platform.claude.com/docs/en/hooks-guide.md",
-      "hash": "0deaa81ea57fec96f12f9c592a3ec6be720b63e40b4e2ebefb78520d2f8e238c",
-      "last_updated": "2026-10-02T21:59:32.945444"
+      "hash": "1cd8d9956c1526bd9142ec462903a950834d64aa94847bb0038ae7c13f798f81",
+      "last_updated": "2026-10-03T11:16:19.058534"
     },
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
@@ -4473,8 +4473,8 @@
     "claude-code__monitoring-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/monitoring-usage",
       "original_md_url": "https://platform.claude.com/docs/en/monitoring-usage.md",
-      "hash": "6f437dec1458422f86e31b63700c8db678c566f421c10f59977d04ba70dd8047",
-      "last_updated": "2026-10-02T17:40:53.339394"
+      "hash": "48cd694336bc75fba8afad8b132eda4955393a8b896cc8b44596349db4f51af9",
+      "last_updated": "2026-10-03T11:18:20.351631"
     },
     "claude-code__network-config.md": {
       "original_url": "https://platform.claude.com/docs/en/network-config",
@@ -4755,8 +4755,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-03T04:08:08.729670",
-    "fetch_duration_seconds": 1231.000885,
+    "last_fetch_completed": "2026-10-03T11:25:30.899482",
+    "fetch_duration_seconds": 1227.738741,
     "total_pages_discovered": 972,
     "pages_fetched_successfully": 792,
     "pages_failed": 181,
@@ -4948,7 +4948,7 @@
     "total_files": 792,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-03T04:08:08.729697",
+  "last_updated": "2026-10-03T11:25:30.899502",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
