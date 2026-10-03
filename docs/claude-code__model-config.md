@@ -724,7 +724,7 @@ Claude Code checks these plan requirements only when it connects to the Anthropi
 
 <span id="context-window-behind-a-gateway" />
 
-If you set `ANTHROPIC_BASE_URL` to an [LLM gateway](/docs/en/llm-gateway) or another proxy, Claude Code gives each model it recognizes the same context window the model has on the Anthropic API. Fable 5.1, Fable 5, Sonnet 5 and later, and Opus 4.7 and later get the 1M window with no `[1m]` variant to select, and a model that reaches 1M only through its `[1m]` variant, such as Opus 4.6, runs at 200K without it. Claude Code can't detect a lower limit that the gateway or the server behind it enforces. If your gateway rejects requests above 200K tokens, run [`/autocompact 200k`](#set-the-auto-compact-window) so sessions compact at that boundary.
+If you set `ANTHROPIC_BASE_URL` to an [LLM gateway](/docs/en/llm-gateway) or another proxy, Claude Code gives each model it recognizes the same context window the model has on the Anthropic API. Fable 5.1, Fable 5, Sonnet 5 and later, and Opus 4.7 and later get the 1M window with no `[1m]` variant to select, and a model that reaches 1M only through its `[1m]` variant, such as Opus 4.6, runs at 200K without it. Claude Code can't detect a lower limit that the gateway or the server behind it enforces. If your gateway rejects requests above 200K tokens, set [`CLAUDE_CODE_AUTO_COMPACT_WINDOW=200000`](/docs/en/env-vars) in the environment that starts Claude Code, so sessions on every model [compact at that boundary](#set-the-auto-compact-window).
 
 To turn off 1M context, set `CLAUDE_CODE_DISABLE_1M_CONTEXT=1`. Claude Code removes 1M model variants from the model picker. On models with a native 1M window, such as Sonnet 5 and the Fable models, it also treats the model as having a 200K context window:
 
@@ -764,9 +764,10 @@ The auto-compact window is how full the context window can get before Claude Cod
 
 ### Set the auto-compact window
 
-You can set the auto-compact window in three places:
+You can set the auto-compact window in these places:
 
-* **For this session and later ones**: run `/autocompact` with a value, like `/autocompact 500k`. Claude Code saves it to your user settings as [`autoCompactWindow`](/docs/en/settings-reference#autocompactwindow) and applies it to the current session; if a higher-priority [settings scope](/docs/en/settings#settings-precedence) such as managed settings sets the key, the command saves your value but the session keeps that scope's window, and the command says so. Run `/autocompact auto` to return to the window tuned for your model.
+* **For the current model, in this session and later ones**: run `/autocompact` with a value, like `/autocompact 500k`. Claude Code saves it to your user settings under the current model in [`modelSettings`](/docs/en/settings-reference#modelsettings) and applies it to the current session. If a higher-priority [settings scope](/docs/en/settings#settings-precedence) such as managed settings sets its own window for that model or for every model, the command saves your value but the session keeps that scope's window, and the command says so. Run `/autocompact auto` to return to the window tuned for your model. Before v2.1.288, the command saved one window for every model, as the top-level `autoCompactWindow`.
+* **For every model**: set [`autoCompactWindow`](/docs/en/settings-reference#autocompactwindow) in a settings file, such as `"autoCompactWindow": 200000` in `~/.claude/settings.json`. A window you saved for a model with `/autocompact` takes precedence over this key in the same file for that model.
 * **For one launch**: pass [`--autocompact`](/docs/en/cli-reference#cli-flags) when starting Claude Code. The flag overrides your saved setting for that launch without changing it, and `claude --autocompact auto` runs the session at the tuned window even if your saved setting has a value. Unlike `/autocompact`, the flag isn't preempted by a higher-priority settings scope such as managed settings.
 * **In scripts and cloud environments**: set [`CLAUDE_CODE_AUTO_COMPACT_WINDOW`](/docs/en/env-vars). While it's set, it takes precedence over the command, the flag, and the setting, and `/autocompact` reports the override instead of changing the window.
 
