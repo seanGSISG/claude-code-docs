@@ -79,7 +79,7 @@ Inference hooks are available to Claude Enterprise organizations. Configuring th
 
 One hook governs conversations across claude.ai, Cowork, Claude Code, and Claude Tag sessions in your Claude Enterprise organization, whether they run on the web, in the desktop or mobile apps, in the CLI, or in Slack. Inference hooks are not available on Amazon Bedrock or Google Cloud.
 
-Governed requests are the inference requests behind the user's conversation. Ancillary requests, such as conversation title generation, aren't sent to your endpoint, and system prompts and tool definitions are never included in what is sent. Voice mode is not covered.
+Governed requests are the inference requests behind the user's conversation. Ancillary requests aren't sent to your endpoint. These include conversation title generation and a measurement that Anthropic runs on Claude's reply after Claude Tag has posted it in Slack. System prompts and tool definitions are never included in what is sent. Voice mode is not covered.
 
 With **Validate tool calls** on, `tool_call` events may leave out calls to some of claude.ai's own tools, such as tools that suggest connectors or skills, give Claude the user's local time, or read the user's own past chats and saved memory. These calls and their results stay in the conversation, so the next `prompt` event from that conversation, if there is one, includes them.
 
