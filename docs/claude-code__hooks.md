@@ -747,7 +747,7 @@ Only [`SessionStart`](#sessionstart) hooks can receive a `model` field, and Clau
 
 There is no `$CLAUDE_MODEL` environment variable. The hook can read `$ANTHROPIC_MODEL` if you set it in your shell, but that value doesn't change when you switch models with `/model` during a session.
 
-A hook process inherits the parent environment, apart from the `OTEL_*` exporter variables that Claude Code [removes from every subprocess it spawns](/docs/en/monitoring-usage#administrator-configuration) and, when [`CLAUDE_CODE_SUBPROCESS_ENV_SCRUB`](/docs/en/env-vars#variables) is set to `1`, the variables it strips.
+A hook process inherits the parent environment, apart from the `OTEL_*` exporter variables that Claude Code [removes from every subprocess it spawns](/docs/en/monitoring-usage#administrator-configuration) and, when [`CLAUDE_CODE_SUBPROCESS_ENV_SCRUB`](/docs/en/env-vars#variables) is set to `1`, the variables it strips. In a session that [gets the HIPAA configuration](/docs/en/hipaa-setup#check-how-developers-sign-in-and-connect), Claude Code also [removes Anthropic credentials](/docs/en/hipaa-setup#anthropic-credentials-in-commands-hooks-and-mcp-servers) from the hook's environment.
 
 For example, a `PreToolUse` hook for a Bash command receives this on stdin:
 
@@ -1992,7 +1992,7 @@ The `updatedPermissions` output field and the [`permission_suggestions` input fi
 | `addRules` | `rules`, `behavior`, `destination` | Adds permission rules. `rules` is an array of `{toolName, ruleContent?}` objects. Omit `ruleContent` to match the whole tool. `behavior` is `"allow"`, `"deny"`, or `"ask"` |
 | `replaceRules` | `rules`, `behavior`, `destination` | Replaces all rules of the given `behavior` at the `destination` with the provided `rules` |
 | `removeRules` | `rules`, `behavior`, `destination` | Removes matching rules of the given `behavior` |
-| `setMode` | `mode`, `destination` | Changes the permission mode. Valid modes are `default`, `auto`, `acceptEdits`, `dontAsk`, `bypassPermissions`, `plan`, and `manual` as an alias for `default`. The `manual` alias requires Claude Code v2.1.200 or later |
+| `setMode` | `mode`, `destination` | Changes the permission mode. Valid modes are `default`, `auto`, `acceptEdits`, `dontAsk`, `bypassPermissions`, `plan`, and `manual` as an alias for `default` |
 | `addDirectories` | `directories`, `destination` | Adds working directories. `directories` is an array of path strings |
 | `removeDirectories` | `directories`, `destination` | Removes working directories |
 

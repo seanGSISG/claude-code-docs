@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-05T13:35:18.119682Z",
-    "total_paths": 972,
+    "generated_at": "2026-10-05T23:43:30.188125Z",
+    "total_paths": 973,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-05T13:35:18.119690Z"
+    "last_regenerated": "2026-10-05T23:43:30.188135Z"
   },
   "categories": {
     "core_documentation": [
@@ -187,6 +187,7 @@
       "/docs/en/github-enterprise-server",
       "/docs/en/glossary",
       "/docs/en/goal",
+      "/docs/en/hipaa-setup",
       "/docs/en/how-claude-code-works",
       "/docs/en/intro",
       "/docs/en/keybindings",
