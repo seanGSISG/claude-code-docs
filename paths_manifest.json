@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-06T12:44:18.818795Z",
-    "total_paths": 973,
+    "generated_at": "2026-10-06T22:19:08.536525Z",
+    "total_paths": 974,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-06T12:44:18.818802Z"
+    "last_regenerated": "2026-10-06T22:19:08.536534Z"
   },
   "categories": {
     "core_documentation": [
@@ -267,6 +267,7 @@
       "/docs/en/managed-agents/sessions",
       "/docs/en/managed-agents/skills",
       "/docs/en/managed-agents/tools",
+      "/docs/en/managed-agents/tools-web-restrictions",
       "/docs/en/managed-agents/vaults",
       "/docs/en/managed-agents/webhooks",
       "/docs/en/managed-mcp",
