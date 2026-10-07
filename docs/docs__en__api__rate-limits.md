@@ -145,6 +145,7 @@ Rate limits are applied separately for each model; therefore you can use differe
     | Claude Sonnet 5.5                                                                                                                     | 1,000                             | 2,000,000                              | 400,000                                 |
     | Claude Sonnet 5                                                                                                                       | 1,000                             | 2,000,000                              | 400,000                                 |
     | Claude Sonnet 4.x3                                                                                                                    | 1,000                             | 2,000,000                              | 400,000                                 |
+    | Claude Haiku 5.5                                                                                                                      | 1,000                             | 2,000,000                              | 400,000                                 |
     | Claude Haiku 4.5                                                                                                                      | 1,000                             | 2,000,000                              | 400,000                                 |
     | Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations)) | 1,000                             | 100,0004                               | 20,000                                  |
   </Tab>
@@ -159,6 +160,7 @@ Rate limits are applied separately for each model; therefore you can use differe
     | Claude Sonnet 5.5                                                                                                                     | 5,000                             | 5,000,000                              | 1,000,000                               |
     | Claude Sonnet 5                                                                                                                       | 5,000                             | 5,000,000                              | 1,000,000                               |
     | Claude Sonnet 4.x3                                                                                                                    | 5,000                             | 5,000,000                              | 1,000,000                               |
+    | Claude Haiku 5.5                                                                                                                      | 5,000                             | 5,000,000                              | 1,000,000                               |
     | Claude Haiku 4.5                                                                                                                      | 5,000                             | 5,000,000                              | 1,000,000                               |
     | Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations)) | 2,000                             | 200,0004                               | 40,000                                  |
   </Tab>
@@ -173,6 +175,7 @@ Rate limits are applied separately for each model; therefore you can use differe
     | Claude Sonnet 5.5                                                                                                                     | 10,000                            | 10,000,000                             | 2,000,000                               |
     | Claude Sonnet 5                                                                                                                       | 10,000                            | 10,000,000                             | 2,000,000                               |
     | Claude Sonnet 4.x3                                                                                                                    | 10,000                            | 10,000,000                             | 2,000,000                               |
+    | Claude Haiku 5.5                                                                                                                      | 10,000                            | 10,000,000                             | 2,000,000                               |
     | Claude Haiku 4.5                                                                                                                      | 10,000                            | 10,000,000                             | 2,000,000                               |
     | Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations)) | 4,000                             | 400,0004                               | 80,000                                  |
   </Tab>
@@ -186,7 +189,7 @@ Rate limits are applied separately for each model; therefore you can use differe
 
 *2 Opus rate limit is a total limit that applies to combined traffic across Claude Opus 4.8, Opus 4.7, Opus 4.6, and Opus 4.5. Claude Opus 5.5 and Claude Opus 5 each have a separate rate limit and are not part of this combined bucket.*
 
-*3 Sonnet 4.x rate limit is a total limit that applies to combined traffic across Sonnet 4.6 and Sonnet 4.5. Claude Sonnet 5.5 and Claude Sonnet 5 each have a separate rate limit and are not part of this combined bucket.*
+*3 Sonnet 4.x rate limit is a total limit that applies to combined traffic across Sonnet 4.6 and Sonnet 4.5 ([deprecated](https://platform.claude.com/docs/en/about-claude/model-deprecations)). Claude Sonnet 5.5 and Claude Sonnet 5 each have a separate rate limit and are not part of this combined bucket.*
 
 *4 Limit counts `cache_read_input_tokens` toward ITPM usage.*
 

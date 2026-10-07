@@ -879,6 +879,7 @@ When you use `tools`, the API also automatically includes a special system promp
 | Claude Sonnet 4.6                                                                                                                     | 497 tokens                                | 589 tokens                               |
 | Claude Sonnet 4.5                                                                                                                     | 496 tokens                                | 588 tokens                               |
 | Claude Sonnet 4 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))  | 313 tokens                                | 315 tokens                               |
+| Claude Haiku 5.5                                                                                                                      | 286 tokens                                | 406 tokens                               |
 | Claude Haiku 4.5                                                                                                                      | 496 tokens                                | 588 tokens                               |
 | Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations)) | 264 tokens                                | 355 tokens                               |
 
