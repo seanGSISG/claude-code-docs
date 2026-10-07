@@ -18,7 +18,7 @@ description: "Migrate to Claude Fable 5.1 and Claude Mythos 5.1 from Claude Fabl
   The skill applies the model ID swap and, as needed, breaking parameter changes, prefill replacement, and effort calibration for your target model across your code base, then produces a checklist of items to verify manually. It asks you to confirm the migration scope (entire working directory, a subdirectory, or a specific file list) before editing any files. The skill also detects Amazon Bedrock and Claude Platform on AWS clients and adjusts model ID formats and feature changes for those platforms.
 </Tip>
 
-[Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1) succeeds Claude Fable 5 at the same input and output prices, with cache reads at a quarter of the cost. It's available on the Claude API, [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock), [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai), and [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry). [Claude Mythos 5.1](https://anthropic.com/glasswing) shares the same capabilities and is offered only to approved customers in Project Glasswing. For behavioral differences and prompting patterns, see [Prompting Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1).
+[Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1) succeeds Claude Fable 5 at the same input and output prices, with cache reads at a quarter of the cost. It's available on the Claude API, [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock), [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai), and [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry). [Claude Mythos 5.1](https://platform.claude.com/docs/en/models/mythos-5-1/overview) shares the same capabilities and is available only to organizations verified through Anthropic's verification programs, such as the [Cyber Verification Program](https://support.claude.com/en/articles/14604842). For behavioral differences and prompting patterns, see [Prompting Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1).
 
 The baseline settings shared by `claude-fable-5-1` and `claude-mythos-5-1`:
 
@@ -32,7 +32,7 @@ The baseline settings shared by `claude-fable-5-1` and `claude-mythos-5-1`:
 
 Where the two models diverge:
 
-* **Availability:** Claude Fable 5.1 doesn't require access approval. Claude Mythos 5.1 is available only to approved customers in [Project Glasswing](https://anthropic.com/glasswing). Contact your Anthropic account team for access.
+* **Availability:** Claude Fable 5.1 doesn't require access approval. Claude Mythos 5.1 is available only to organizations verified through Anthropic's verification programs, such as the [Cyber Verification Program](https://support.claude.com/en/articles/14604842). To request access, apply to the program that covers your use case, or contact your Anthropic account team.
 * **Priority Tier:** Neither model is supported on [Priority Tier](https://platform.claude.com/docs/en/api/service-tiers#supported-models). Claude Fable 5 is.
 
 ## Migrating to Claude Fable 5.1 from Claude Fable 5
@@ -45,7 +45,7 @@ Migration is mostly drop-in. The API surface, limits, per-token pricing, tokeniz
 model = "claude-fable-5"  # Before
 model = "claude-fable-5-1"  # After
 
-# Or, for the Project Glasswing model with the same capabilities:
+# Or, for Claude Mythos 5.1, which offers the same capabilities to verified organizations:
 model = "claude-mythos-5-1"  # After
 ```
 
@@ -1542,7 +1542,7 @@ Claude Fable 5.1 uses the same [Messages API](https://platform.claude.com/docs/e
 model = "claude-opus-5"  # Before
 model = "claude-fable-5-1"  # After
 
-# Or, for the Project Glasswing model with the same capabilities:
+# Or, for Claude Mythos 5.1, which offers the same capabilities to verified organizations:
 model = "claude-mythos-5-1"  # After
 ```
 
@@ -1582,7 +1582,7 @@ First apply [Migrating to Claude Mythos 5 and Claude Fable 5 from Claude Opus 4.
 model = "claude-opus-4-8"  # Before
 model = "claude-fable-5-1"  # After
 
-# Or, for the Project Glasswing model with the same capabilities:
+# Or, for Claude Mythos 5.1, which offers the same capabilities to verified organizations:
 model = "claude-mythos-5-1"  # After
 ```
 
@@ -1600,7 +1600,7 @@ model = "claude-mythos-5-1"  # After
 
 ## Migrating to Claude Mythos 5.1 from Claude Mythos 5
 
-[Claude Mythos 5.1](https://anthropic.com/glasswing) is the access-gated counterpart to Claude Fable 5.1. Confirm your organization's access with your Anthropic account team before switching model IDs.
+[Claude Mythos 5.1](https://platform.claude.com/docs/en/models/mythos-5-1/overview) is the counterpart to Claude Fable 5.1 for organizations verified through Anthropic's verification programs, such as the [Cyber Verification Program](https://support.claude.com/en/articles/14604842). Confirm that your organization has access to Claude Mythos 5.1 before you switch model IDs.
 
 The API-level delta matches [Migrating to Claude Fable 5.1 from Claude Fable 5](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#migrating-from-claude-fable-5-to-claude-fable-5-1): forced tool choice returns a 400 error, and thinking blocks are preserved only for the model that produced them or a newer one (Claude Mythos 5.1 reads Claude Mythos 5's blocks, not the reverse). Unlike Claude Fable 5.1, Claude Mythos 5.1 doesn't run the conversation check, so editing earlier turns doesn't [invalidate thinking blocks](https://platform.claude.com/docs/en/models/fable-5-1/migration-guide#fable-5-1-preserved-thinking), though it still restarts the prompt cache.
 

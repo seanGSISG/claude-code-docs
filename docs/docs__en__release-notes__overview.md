@@ -22,6 +22,7 @@ The Claude Platform release notes list changes to the Claude API, the client SDK
 
 ### September 30, 2026
 
+* In Python SDK 1.10.0, TypeScript SDK 0.130.0, C# SDK 12.52.0, Go SDK 1.77.0, Java SDK 2.67.0, PHP SDK 0.53.0, Ruby SDK 1.75.0, and version 1.37.0 of the `ant` CLI, the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) methods for organization info, members, invites, workspaces, API keys, rate limits, service accounts, workload identity federation, customer-managed encryption keys, and compliance settings are out of beta: call them under `client.organization` and `ant organization`. These releases also keep `client.beta.organization` and `ant beta:organization`.
 * We announced the deprecation of the Claude Sonnet 4.5 model (`claude-sonnet-4-5-20250929`), with retirement on the Claude API scheduled for November 30, 2026. We recommend migrating to [Claude Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide#migrating-from-sonnet-45). Read more in [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations).
 
 ### September 28, 2026
