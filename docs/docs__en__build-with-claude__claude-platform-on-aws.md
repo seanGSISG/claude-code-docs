@@ -833,7 +833,7 @@ The Claude Console does not support organization switching for Claude Platform o
 
 Organizations on Claude Platform on AWS are placed on the Start tier. Anthropic manages rate limits directly, not through AWS quota systems.
 
-Organizations on Claude Platform on AWS can move to a higher usage tier automatically as they build a history of paid AWS Marketplace invoices. The self-service **Request rate limit increase** flow in the Claude Console is not available: the Rate limits page directs you to your Anthropic account representative instead.
+Organizations on Claude Platform on AWS can move to a higher usage tier automatically as they build a history of paid AWS Marketplace invoices. The self-service **Request tier increase** flow in the Claude Console is not available: the Rate limits page directs you to your Anthropic account representative instead.
 
 To request higher limits, contact your Anthropic account representative or [Anthropic support](https://support.claude.com). Include the following in your request:
 
