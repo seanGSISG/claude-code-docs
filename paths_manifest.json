@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-07T22:41:11.608145Z",
-    "total_paths": 974,
+    "generated_at": "2026-10-08T04:28:58.579253Z",
+    "total_paths": 980,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-07T22:41:11.608152Z"
+    "last_regenerated": "2026-10-08T04:28:58.579260Z"
   },
   "categories": {
     "core_documentation": [
@@ -107,6 +107,7 @@
       "/docs/en/build-with-claude/prompt-engineering/overview",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1",
+      "/docs/en/build-with-claude/prompt-engineering/prompting-claude-haiku-5-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-4-8",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5",
@@ -243,6 +244,7 @@
       "/docs/en/managed-agents/define-outcomes",
       "/docs/en/managed-agents/dreams",
       "/docs/en/managed-agents/environments",
+      "/docs/en/managed-agents/event-deltas",
       "/docs/en/managed-agents/events-and-streaming",
       "/docs/en/managed-agents/files",
       "/docs/en/managed-agents/github",
@@ -263,6 +265,7 @@
       "/docs/en/managed-agents/self-hosted-sandboxes-reference",
       "/docs/en/managed-agents/self-hosted-sandboxes-security",
       "/docs/en/managed-agents/self-hosted-sandboxes-workers",
+      "/docs/en/managed-agents/session-observability",
       "/docs/en/managed-agents/session-operations",
       "/docs/en/managed-agents/sessions",
       "/docs/en/managed-agents/skills",
@@ -280,8 +283,10 @@
       "/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5",
       "/docs/en/models/fable-5/migration-guide",
       "/docs/en/models/fable-5/overview",
-      "/docs/en/models/haiku-4-5/migration-guide",
       "/docs/en/models/haiku-4-5/overview",
+      "/docs/en/models/haiku-5-5/migration-guide",
+      "/docs/en/models/haiku-5-5/overview",
+      "/docs/en/models/haiku-5-5/whats-new-haiku-5-5",
       "/docs/en/models/mythos-5-1/overview",
       "/docs/en/models/mythos-5/overview",
       "/docs/en/models/opus-4-5/overview",
@@ -971,6 +976,7 @@
       "/docs/en/release-notes/system-prompts/claude-haiku-3",
       "/docs/en/release-notes/system-prompts/claude-haiku-3-5",
       "/docs/en/release-notes/system-prompts/claude-haiku-4-5",
+      "/docs/en/release-notes/system-prompts/claude-haiku-5-5",
       "/docs/en/release-notes/system-prompts/claude-opus-3",
       "/docs/en/release-notes/system-prompts/claude-opus-4",
       "/docs/en/release-notes/system-prompts/claude-opus-4-1",

@@ -1,12 +1,10 @@
 ---
 title: Claude Haiku 4.5
 url: https://platform.claude.com/docs/en/models/haiku-4-5/overview
-description: "Claude Haiku 4.5 reference: lifecycle status, model IDs on every platform, context window, output limits, pricing, and migration resources. Claude Haiku 5.5 is the current Haiku model."
+description: "Claude Haiku 4.5 reference: lifecycle status, model IDs on every platform, context window, output limits, pricing, and migration resources. Claude Haiku 4.5 is a legacy model; Claude Haiku 5.5 is the current Haiku model."
 ---
 
 **Legacy.** Released October 15, 2025.
-
-The fastest model with near-frontier intelligence
 
 Although Claude Haiku 4.5 is still available, you should consider migrating to Claude Haiku 5.5 for improved performance. [See Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview) · [Migrate to Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide)
 
@@ -16,7 +14,7 @@ Context window: 200K tokens · Max output: 64K tokens · Input pricing: $1 / MTo
 
 [Announcement](https://www.anthropic.com/news/claude-haiku-4-5)
 
-## How it compares
+## How it compares to the current lineup
 
 | Model                                                                               | Context | Max output | Price / MTok       | Thinking             | Default effort | Knowledge cutoff |
 | :---------------------------------------------------------------------------------- | :------ | :--------- | :----------------- | :------------------- | :------------- | :--------------- |
