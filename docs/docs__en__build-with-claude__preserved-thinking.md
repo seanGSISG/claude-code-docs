@@ -34,14 +34,16 @@ Also check your integration if it sends Claude Sonnet 5.5 or Claude Haiku 5.5 th
 
 ## Switching models mid-conversation
 
-Claude Fable 5.1 and Claude Mythos 5.1 read thinking blocks produced by each other and by earlier Claude models. No earlier model reads thinking blocks from Claude Fable 5.1 or Claude Mythos 5.1.
+Claude Fable 5.1 and Claude Mythos 5.1 read thinking blocks produced by each other and by earlier Claude models. No other model reads thinking blocks from Claude Fable 5.1 or Claude Mythos 5.1.
 
 Claude Opus 5.5 reads thinking blocks from Claude Opus 5, from earlier Opus, Sonnet, and Haiku models, and, on the Claude API and Google Cloud, from Claude Sonnet 5.5 and Claude Haiku 5.5, but not from Claude Fable or Claude Mythos models. On the Claude API, Claude Fable 5.1 and Claude Mythos 5.1 read thinking blocks from Claude Opus 5.5; no other model does. So a conversation that moves from Claude Opus 5 onto Claude Opus 5.5 keeps its reasoning, and so does one that moves from Claude Opus 5.5 up to Claude Fable 5.1 or Claude Mythos 5.1 on the Claude API. One that moves from Claude Fable 5.1 or Claude Mythos 5.1 to Claude Opus 5.5, or from Claude Opus 5.5 to any model other than those two, runs the turns after the switch without the previous model's reasoning. The blocks are dropped, not rejected, as described later in this section.
 
 Claude Sonnet 5.5 reads thinking blocks from Claude Sonnet 5, Claude Opus 4.8, Claude Haiku 4.5, and earlier models, and, on the Claude API and Google Cloud, from Claude Haiku 5.5, but not from Claude Opus 5, Claude Opus 5.5, or any Claude Fable or Claude Mythos model. On the Claude API and Google Cloud, Claude Opus 5.5 reads thinking blocks from Claude Sonnet 5.5; no other model does. So a conversation that moves from Claude Sonnet 5 onto Claude Sonnet 5.5 keeps its reasoning, and so does one that moves from Claude Sonnet 5.5 up to Claude Opus 5.5 on the Claude API and Google Cloud. One that moves onto Claude Sonnet 5.5 from Claude Opus 5, Claude Opus 5.5, or a Claude Fable or Claude Mythos model runs the turns after the switch without the previous model's reasoning. So does any other move away from Claude Sonnet 5.5, for example a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback) to Claude Sonnet 5.
 
+Claude Haiku 5.5 reads thinking blocks from Claude Sonnet 5, Claude Opus 4.8, Claude Haiku 4.5, and earlier models, but not from Claude Opus 5, Claude Opus 5.5, Claude Sonnet 5.5, or any Claude Fable or Claude Mythos model. On the Claude API and Google Cloud, Claude Opus 5.5 and Claude Sonnet 5.5 read thinking blocks from Claude Haiku 5.5; no other model does. So a conversation that moves from Claude Haiku 4.5 onto Claude Haiku 5.5 keeps its reasoning, and so does one that moves from Claude Haiku 5.5 up to Claude Opus 5.5 or Claude Sonnet 5.5 on the Claude API and Google Cloud. One that moves onto Claude Haiku 5.5 from Claude Opus 5, Claude Opus 5.5, Claude Sonnet 5.5, or a Claude Fable or Claude Mythos model runs the turns after the switch without the previous model's reasoning, and so does any other move away from Claude Haiku 5.5.
+
 * **A conversation that moves to Claude Fable 5.1 from an earlier model, or from Claude Opus 5.5 on the Claude API, keeps its reasoning.** The earlier model's thinking blocks stay readable, so the model thinks as usual from the first turn after the switch.
-* **A conversation that moves down to an earlier model loses Claude Fable 5.1's reasoning for that request.** This occurs when a router sends a turn to a cheaper model, after a [classifier refusal fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback), or during a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback). The API removes the unreadable blocks before the prompt reaches the model. They aren't billed and don't count toward `input_tokens`.
+* **A conversation that moves from Claude Fable 5.1 to any model other than Claude Mythos 5.1 loses Claude Fable 5.1's reasoning for that request.** This occurs when a router sends a turn to a cheaper model, after a [classifier refusal fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback), or during a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback). The API removes the unreadable blocks before the prompt reaches the model. They aren't billed and don't count toward `input_tokens`.
 
 Keep sending the full history on every request, thinking blocks included, and let the API drop what the current model can't read. The API never edits your `messages` array, so the dropped blocks stay in your history. When the same history goes back to Claude Fable 5.1, its blocks are readable again, along with the earlier model's thinking. The reasoning is lost for good only if your client removes the blocks itself, for example a harness that strips thinking on a model switch or rebuilds the history from what each model used.
 
@@ -95,7 +97,7 @@ You choose with `thinking.block_binding.prefix_mismatch_behavior`:
 * **`"drop_block"`:** the API drops each failing block and every thinking block after it, and the request succeeds. Dropped blocks aren't billed. The model answers that turn without using reasoning from dropped blocks, and the prompt cache restarts at the edit. The response lists each dropped block in `input_transformations` (on the `message_start` event when streaming) with `reason: "prefix_binding_mismatch"`.
 
 <Warning>
-  `"drop_block"` hides the error but doesn't fix the edit that caused it. Dropped blocks aren't billed, but a session's token usage might still increase because Claude can sometimes think more to re-create the dropped thinking. The increase tends to be larger when more thinking blocks are dropped, or when blocks are dropped on more turns of a long session.
+  `"drop_block"` keeps requests succeeding, but it doesn't fix the edit that caused the mismatch, and it has a cost. Dropping blocks can significantly increase the output tokens generated, especially at higher effort levels or when blocks are dropped on every turn. For more information, see [Output-token cost of `"drop_block"`](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#drop-block-cost). Dropped blocks aren't billed, but Claude re-creates the reasoning it can no longer read, so it generates more output tokens. Output quality might also change on tasks where later turns build on earlier reasoning. Use `"drop_block"` as a stopgap while you fix the edit, but not as a long-term setting.
 </Warning>
 
 Count the responses in each session whose `input_transformations` has a `prefix_binding_mismatch` entry, alert on them, and replace each edit with the matching pattern in [Make changes without editing the prefix](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#replace-prefix-edits). In the Message Batches API, an item that leaves the field unset doesn't fail. Where the API enforces the check by default, it drops the failing blocks instead. Set `"error"` explicitly there if you want batch items to fail.
@@ -118,9 +120,17 @@ It usually ends with a sentence naming what changed, for example that the `syste
 
 A tampered or undecryptable signature is a different failure. It always returns a 400 (``Invalid `signature` in `thinking` block`` with no sentence about the conversation), and `prefix_mismatch_behavior` doesn't apply to it.
 
+#### Output-token cost of `"drop_block"`
+
+In Anthropic's testing on a multi-turn coding benchmark, dropping thinking blocks once per session increased output tokens by 2.5% at low effort, 3.9% at medium, 4.5% at high, and 20.1% at max. Dropping them on every turn after the first increased output tokens by 4.6% at low effort, 9.7% at medium, 10.3% at high, and 67.1% at max. The exact impact depends on your harness.
+
+When Claude can no longer read reasoning from earlier turns, it re-creates that reasoning, so requests that drop thinking blocks generate more output tokens and can take longer to respond. A drop on every turn costs more than an occasional drop, and how much more depends on your harness: how often it edits the prefix and how much each turn builds on earlier reasoning.
+
+Before you rely on `"drop_block"`, run evals on your own workload to measure the increase. If it's small, `"drop_block"` can keep requests succeeding while you fix the edit. Either way, fixing the edit with a pattern from [Make changes without editing the prefix](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#replace-prefix-edits) is a better long-term solution.
+
 #### Handle the error in code
 
-This is the 400 `invalid_request_error` shown earlier in this section. Don't resend the same body: it fails the same way every time. Retry once with the beta header and `prefix_mismatch_behavior: "drop_block"`, and store that choice with the session so every later request sends it too, including after a restart. On Claude Sonnet 5.5 and Claude Haiku 5.5, `block_binding` works only with `thinking: {"type": "adaptive"}`. With `between_tools` on Claude Sonnet 5.5, or `thinking: {"type": "disabled"}` on Claude Haiku 5.5, keep the history append-only, or strip the thinking blocks from the edited turn on. If you can't send the beta header, remove every `thinking` and `redacted_thinking` block from the history once, leave them out, and continue. Then fix the edit that caused the mismatch.
+This is the 400 `invalid_request_error` shown earlier in this section. Don't resend the same body: it fails the same way every time. Retry once with the beta header and `prefix_mismatch_behavior: "drop_block"`, as a stopgap ([`"drop_block"` can raise output tokens](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#drop-block-cost)), and store that choice with the session so every later request sends it too, including after a restart. On Claude Sonnet 5.5 and Claude Haiku 5.5, `block_binding` works only with `thinking: {"type": "adaptive"}`. With `between_tools` on Claude Sonnet 5.5, or `thinking: {"type": "disabled"}` on Claude Haiku 5.5, keep the history append-only, or strip the thinking blocks from the edited turn on. If you can't send the beta header, remove every `thinking` and `redacted_thinking` block from the history once, leave them out, and continue. Then fix the edit that caused the mismatch.
 
 ### Set the mismatch behavior and read `input_transformations`
 
@@ -1259,7 +1269,7 @@ Other platforms that offer these betas use the same names. To send them there, s
 
 Store the `content` array from each response and send it back unchanged as the assistant turn: every block type, in the order received, including `thinking` blocks whose `thinking` field is empty. A serializer that drops unknown block types, drops empty fields, or reorders blocks edits the prefix for every later turn.
 
-On Claude Fable 5.1 and Claude Haiku 5.5, the `thinking` field is empty by default and the `signature` carries the reasoning, so a serializer that skips empty blocks removes thinking. If it removes all of them, nothing fails and the model loses its earlier reasoning on every turn. If you parse the stream yourself, keep the block even when no thinking text arrives: it opens, receives its `signature` in a `signature_delta` event, and closes. A block sent back with an empty `signature` fails.
+On Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5, the `thinking` field is empty by default and the `signature` carries the reasoning, so a serializer that skips empty blocks removes thinking. If it removes all of them, nothing fails and the model loses its earlier reasoning on every turn. If you parse the stream yourself, keep the block even when no thinking text arrives: it opens, receives its `signature` in a `signature_delta` event, and closes. A block sent back with an empty `signature` fails.
 
 ### Add instructions with a mid-conversation system message
 
@@ -1417,13 +1427,13 @@ The `role: "system"` messages that carry these blocks join the prefix for later 
 
 ### Change effort with a per-message `output_config`
 
-Changing top-level `output_config.effort` between requests doesn't invalidate thinking, because effort isn't part of the prefix. Changing top-level effort does restart the prompt cache. On Claude Fable 5.1 and on Claude Haiku 5.5 with adaptive thinking, use [per-message effort](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta) instead: append a `role: "system"` message with empty `content` and the new level. It needs the beta header `mid-conversation-output-config-2026-07-01`.
+Changing top-level `output_config.effort` between requests doesn't invalidate thinking, because effort isn't part of the prefix. Changing top-level effort does restart the prompt cache. Where the model and platform support [per-message effort](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta), use it instead: append a `role: "system"` message with empty `content` and the new level. It needs the beta header `mid-conversation-output-config-2026-07-01`. On Claude Haiku 5.5, per-message effort is available on the Claude API and Google Cloud and needs adaptive thinking.
 
 ```json
 { "role": "system", "content": [], "output_config": { "effort": "low" } }
 ```
 
-The new level takes effect from the next `user` turn. Once sent, the message is part of `messages` and therefore part of the prefix for later thinking: leave it in place on later requests, and append another one to change effort again.
+When the new level takes effect depends on where you put the message. Directly after a `user` message with new input, it starts with Claude's reply to that message. Anywhere else, such as after an `assistant` message or after a `user` message that holds only `tool_result` blocks, it starts with the next `user` message with new input, so a tool loop already under way keeps the current level until then. Once sent, the message is part of `messages` and therefore part of the prefix for later thinking: leave it in place on later requests, and append another one to change effort again.
 
 ### Trim context on the server
 
@@ -1717,7 +1727,7 @@ A library, proxy, or gateway sits between someone else's history and the API, so
   </Accordion>
 
   <Accordion title="Does changing effort or other thinking settings between requests invalidate earlier thinking?">
-    No. `output_config.effort`, `max_tokens`, and the `thinking` configuration aren't part of the checked prefix, which covers only `system`, `tools`, and `messages`. A top-level effort change invalidates most of the prompt cache. On Claude Fable 5.1 and on Claude Haiku 5.5 with adaptive thinking, a [per-message effort](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#effort-changes) change keeps the prompt cache and is used as the new effort level until changed again.
+    No. `output_config.effort`, `max_tokens`, and the `thinking` configuration aren't part of the checked prefix, which covers only `system`, `tools`, and `messages`. A top-level effort change invalidates most of the prompt cache. Where the model and platform support [per-message effort](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#effort-changes), a per-message effort change keeps the prompt cache and is used as the new effort level until changed again.
   </Accordion>
 
   <Accordion title="My tool list changes mid-session. How do I avoid invalidating the conversation?">

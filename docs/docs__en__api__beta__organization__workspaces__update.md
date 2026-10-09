@@ -13,6 +13,14 @@ Update Workspace
 
 - `workspace_id: string`
 
+## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
+
 ## Body parameters
 
 - `data_residency: optional BetaDataResidencyUpdateConfig or null`
@@ -63,7 +71,7 @@ Update Workspace
 
   Name of the Workspace.
 
-  minLength: 1, maxLength: 40
+  minLength: 1, maxLength: 255
 
 - `tags: optional map[string] or null`
 

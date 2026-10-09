@@ -19,6 +19,12 @@ Future models and features will not be compatible with Text Completions. See our
 
 ### Headers
 
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
+
 - `"anthropic-workspace-id": optional string`
 
   Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -203,11 +209,7 @@ Future models and features will not be compatible with Text Completions. See our
 
   - `"claude-haiku-4-5"`
 
-    Fastest model with near-frontier intelligence
-
   - `"claude-haiku-4-5-20251001"`
-
-    Fastest model with near-frontier intelligence
 
   - `"claude-opus-4-5"`
 
@@ -403,11 +405,7 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `"claude-haiku-4-5"`
 
-      Fastest model with near-frontier intelligence
-
     - `"claude-haiku-4-5-20251001"`
-
-      Fastest model with near-frontier intelligence
 
     - `"claude-opus-4-5"`
 
@@ -560,11 +558,7 @@ curl https://api.anthropic.com/v1/complete \
 
     - `"claude-haiku-4-5"`
 
-      Fastest model with near-frontier intelligence
-
     - `"claude-haiku-4-5-20251001"`
-
-      Fastest model with near-frontier intelligence
 
     - `"claude-opus-4-5"`
 

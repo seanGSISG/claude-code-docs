@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-09T12:33:43.763645Z",
-    "total_paths": 980,
+    "generated_at": "2026-10-09T22:14:09.398493Z",
+    "total_paths": 982,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-09T12:33:43.763654Z"
+    "last_regenerated": "2026-10-09T22:14:09.398502Z"
   },
   "categories": {
     "core_documentation": [
@@ -267,12 +267,14 @@
       "/docs/en/managed-agents/self-hosted-sandboxes-workers",
       "/docs/en/managed-agents/session-observability",
       "/docs/en/managed-agents/session-operations",
+      "/docs/en/managed-agents/session-threads",
       "/docs/en/managed-agents/sessions",
       "/docs/en/managed-agents/skills",
       "/docs/en/managed-agents/tools",
       "/docs/en/managed-agents/tools-web-restrictions",
       "/docs/en/managed-agents/vaults",
       "/docs/en/managed-agents/webhooks",
+      "/docs/en/managed-agents/workflow-runs",
       "/docs/en/managed-mcp",
       "/docs/en/managed-settings",
       "/docs/en/mcp-quickstart",
