@@ -45,8 +45,8 @@
     "docs__en__about-claude__pricing.md": {
       "original_url": "https://platform.claude.com/docs/en/about-claude/pricing",
       "original_md_url": "https://platform.claude.com/docs/en/about-claude/pricing.md",
-      "hash": "a3ec70f7d95205b2de6f177e470c4b2445c6628dffc415dce25362d4e3c901c5",
-      "last_updated": "2026-10-08T12:48:03.678098"
+      "hash": "c7839126109bc538fa84e674e91fe1410458ae22337f1b53632d7c0ad454ddfd",
+      "last_updated": "2026-10-09T04:32:56.527305"
     },
     "docs__en__about-claude__use-case-guides__commerce-agents.md": {
       "original_url": "https://platform.claude.com/docs/en/about-claude/use-case-guides/commerce-agents",
@@ -3639,8 +3639,8 @@
     "claude-code__cli-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-reference",
       "original_md_url": "https://platform.claude.com/docs/en/cli-reference.md",
-      "hash": "7926078745a7337b5fd37026e767506a18bf31b67ef4cd3ef7279e2e8f64dc9e",
-      "last_updated": "2026-10-07T22:50:30.523620"
+      "hash": "54587c07d51da9f23418857237434cd0140561736c943296e247d8e13cb85a58",
+      "last_updated": "2026-10-09T04:42:18.607613"
     },
     "docs__en__cli-sdks-libraries__cli__apply.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply",
@@ -3765,8 +3765,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "25106fd869d57a1a7ff15ae5a7824bb63a4513ab5cf65699755efc3f94e91fad",
-      "last_updated": "2026-10-08T23:02:39.891025"
+      "hash": "9bed96290fa7448920a494a9b17d9d0fc6343026d587210b15c0b075f44eb06f",
+      "last_updated": "2026-10-09T04:43:22.240090"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -3825,8 +3825,8 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "9c0b958af1e75b122872eff11aa8f3818161066cbae12ea06facbc9f3f06e725",
-      "last_updated": "2026-10-08T23:04:00.658029"
+      "hash": "3bd21d31955304d9ab33efb052a0b3bfdfeb19d1af5028a2588d69c5d9bdea95",
+      "last_updated": "2026-10-09T04:44:48.748325"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
@@ -3897,8 +3897,8 @@
     "docs__en__manage-claude__api-and-data-retention.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention.md",
-      "hash": "c45b4c95445a462b56f52c22fa16cb1bfbcfeac1d8b3065a014da90641e341a8",
-      "last_updated": "2026-10-01T22:32:19.901684"
+      "hash": "40900400de1749c16e6867957e7ec4c1c91afd8b15dc0447133ca616e98cabce",
+      "last_updated": "2026-10-09T04:45:29.247227"
     },
     "docs__en__manage-claude__app-attest.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/app-attest",
@@ -4113,8 +4113,8 @@
     "docs__en__manage-claude__workspaces.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/workspaces",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/workspaces.md",
-      "hash": "33f8d9bf5ff2826a0deee5c0ecd77ec4b34e3bdb8adfb65b7b1466f85e055a0c",
-      "last_updated": "2026-10-08T13:00:41.912764"
+      "hash": "f946f65160fbcbd00d7fb61ce266ba3a0a5b95d2867af010c770b1712a1f5036",
+      "last_updated": "2026-10-09T04:45:53.512190"
     },
     "docs__en__managed-agents__agent-setup.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/agent-setup",
@@ -4515,8 +4515,8 @@
     "claude-code__monitoring-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/monitoring-usage",
       "original_md_url": "https://platform.claude.com/docs/en/monitoring-usage.md",
-      "hash": "9ac6a89ec89e05d98687679e6d43c3f4aea2860d8dc13cf355fc3fcaa8d98405",
-      "last_updated": "2026-10-08T23:06:04.827011"
+      "hash": "daad0305a35b5b7fd6624dc9fb262af6f31c7b66a70b279bcf86ca0c74682fca",
+      "last_updated": "2026-10-09T04:46:57.354153"
     },
     "claude-code__network-config.md": {
       "original_url": "https://platform.claude.com/docs/en/network-config",
@@ -4701,8 +4701,8 @@
     "claude-code__settings.md": {
       "original_url": "https://platform.claude.com/docs/en/settings",
       "original_md_url": "https://platform.claude.com/docs/en/settings.md",
-      "hash": "5c41248aea5764d32b14f90b77f4aa149486ca6bad6517c400398d9096b0ee25",
-      "last_updated": "2026-10-07T22:59:22.660386"
+      "hash": "0da9be3c724c42a996b9e5354fc7e7d3fd13b401e916b337077d2da56cdaa4f4",
+      "last_updated": "2026-10-09T04:51:23.194101"
     },
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
@@ -4713,8 +4713,8 @@
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
       "original_md_url": "https://platform.claude.com/docs/en/skills.md",
-      "hash": "122b065227f63905c8417644d8bffcd3375236e2f8b8c4e1d66ef651c617957c",
-      "last_updated": "2026-10-08T04:47:24.111615"
+      "hash": "cb03f1b79427b89be38758f36f36c6f290e9d2b253cc0e26a2616fc12bb8778f",
+      "last_updated": "2026-10-09T04:51:34.866112"
     },
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
@@ -4803,8 +4803,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-08T23:13:20.762783",
-    "fetch_duration_seconds": 1237.322648,
+    "last_fetch_completed": "2026-10-09T04:54:34.269614",
+    "fetch_duration_seconds": 1303.55211,
     "total_pages_discovered": 980,
     "pages_fetched_successfully": 800,
     "pages_failed": 181,
@@ -4996,7 +4996,7 @@
     "total_files": 800,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-08T23:13:20.762804",
+  "last_updated": "2026-10-09T04:54:34.269640",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
