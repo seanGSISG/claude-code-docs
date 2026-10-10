@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-10T16:57:24.470467Z",
-    "total_paths": 980,
+    "generated_at": "2026-10-10T21:08:53.877385Z",
+    "total_paths": 981,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-10T16:57:24.470474Z"
+    "last_regenerated": "2026-10-10T21:08:53.877390Z"
   },
   "categories": {
     "core_documentation": [
@@ -71,6 +71,7 @@
       "/docs/en/agents-and-tools/tool-use/web-search-tool",
       "/docs/en/artifacts",
       "/docs/en/authentication",
+      "/docs/en/auto-mode-classifier-billing",
       "/docs/en/auto-mode-config",
       "/docs/en/best-practices",
       "/docs/en/build-with-claude/batch-processing",
