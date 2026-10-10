@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-10T04:18:35.869716Z",
-    "total_paths": 982,
+    "generated_at": "2026-10-10T11:54:16.152727Z",
+    "total_paths": 980,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-10T04:18:35.869722Z"
+    "last_regenerated": "2026-10-10T11:54:16.152735Z"
   },
   "categories": {
     "core_documentation": [
@@ -282,8 +282,6 @@
       "/docs/en/models/fable-5-1/migration-guide",
       "/docs/en/models/fable-5-1/overview",
       "/docs/en/models/fable-5-1/whats-new-fable-5-1",
-      "/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5",
-      "/docs/en/models/fable-5/migration-guide",
       "/docs/en/models/fable-5/overview",
       "/docs/en/models/haiku-4-5/overview",
       "/docs/en/models/haiku-5-5/migration-guide",
