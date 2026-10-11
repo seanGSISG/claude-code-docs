@@ -272,21 +272,137 @@ A session started by the deployment behaves exactly like any other budgeted sess
 
 The following example sets a budget on an existing deployment:
 
-```bash cURL
-curl --fail-with-body -sS "https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID?beta=true" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: managed-agents-2026-04-01" \
-  -H "content-type: application/json" \
-  -d @- <<'EOF'
-{
-  "budget": {
-    "type": "limit",
-    "max_list_cost": {"amount": "2000", "currency": "USD"}
+<CodeGroup defaultLanguage="CLI">
+  ```bash cURL
+  curl --fail-with-body -sS "https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID?beta=true" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-beta: managed-agents-2026-04-01" \
+    -H "content-type: application/json" \
+    -d @- <<'EOF'
+  {
+    "budget": {
+      "type": "limit",
+      "max_list_cost": {"amount": "2000", "currency": "USD"}
+    }
   }
-}
-EOF
-```
+  EOF
+  ```
+
+  <CodeGroupItem>
+    ```bash CLI
+    ant apply deployment.md
+    ```
+
+    <File filename="deployment.md">
+      ```markdown
+      ---
+      name: Weekly compliance scan
+      agent: agent_011CYm1BLqPXpQRk5khsSXrs
+      environment_id: env_01595EKxaaTTGwwY3kyXdtbs
+      schedule:
+        type: cron
+        expression: "0 20 * * 5"
+        timezone: America/New_York
+      budget:
+        type: limit
+        max_list_cost:
+          amount: "2000"
+          currency: USD
+      ---
+
+      Run the weekly compliance scan.
+      ```
+    </File>
+  </CodeGroupItem>
+
+  ```python Python
+  updated_deployment = client.beta.deployments.update(
+      deployment.id,
+      budget={
+          "type": "limit",
+          "max_list_cost": {"amount": "2000", "currency": "USD"},
+      },
+  )
+  print(updated_deployment.budget.max_list_cost.amount)  # 2000
+  ```
+
+  ```typescript TypeScript
+  const updatedDeployment = await client.beta.deployments.update(deployment.id, {
+    budget: {
+      type: "limit",
+      max_list_cost: { amount: "2000", currency: "USD" },
+    },
+  });
+  console.log(updatedDeployment.budget?.max_list_cost.amount); // 2000
+  ```
+
+  ```csharp C#
+  var updatedDeployment = await client.Beta.Deployments.Update(deployment.ID, new()
+  {
+      Budget = new()
+      {
+          Type = BetaManagedAgentsBudgetLimitType.Limit,
+          MaxListCost = new() { Amount = "2000", Currency = BetaCurrency.Usd },
+      },
+  });
+  Console.WriteLine(updatedDeployment.Budget?.MaxListCost.Amount);  // 2000
+  ```
+
+  ```go Go
+  updatedDeployment, err := client.Beta.Deployments.Update(ctx, deployment.ID, anthropic.BetaDeploymentUpdateParams{
+  	Budget: anthropic.BetaManagedAgentsBudgetLimitParam{
+  		Type: anthropic.BetaManagedAgentsBudgetLimitTypeLimit,
+  		MaxListCost: anthropic.BetaMonetaryAmountParam{
+  			Amount:   "2000",
+  			Currency: anthropic.BetaCurrencyUsd,
+  		},
+  	},
+  })
+  if err != nil {
+  	panic(err)
+  }
+  fmt.Println(updatedDeployment.Budget.MaxListCost.Amount) // 2000
+  ```
+
+  ```java Java
+  var updatedDeployment = client.beta().deployments().update(
+      deployment.id(),
+      DeploymentUpdateParams.builder()
+          .budget(BetaManagedAgentsBudgetLimit.builder()
+              .type(BetaManagedAgentsBudgetLimit.Type.LIMIT)
+              .maxListCost(BetaMonetaryAmount.builder()
+                  .amount("2000")
+                  .currency(BetaCurrency.USD)
+                  .build())
+              .build())
+          .build()
+  );
+  IO.println(updatedDeployment.budget().orElseThrow().maxListCost().amount());  // 2000
+  ```
+
+  ```php PHP
+  $updatedDeployment = $client->beta->deployments->update(
+      $deployment->id,
+      budget: [
+          'type' => 'limit',
+          'max_list_cost' => ['amount' => '2000', 'currency' => 'USD'],
+      ],
+  );
+  echo "{$updatedDeployment->budget->maxListCost->amount}\n"; // 2000
+  ```
+
+  ```ruby Ruby
+  updated_deployment = client.beta.deployments.update(
+    deployment.id,
+    budget: {
+      type: "limit",
+      max_list_cost: {amount: "2000", currency: "USD"}
+    }
+  )
+  puts updated_deployment.budget.max_list_cost.amount # 2000
+  ```
+</CodeGroup>
 
 ## Deployment runs
 

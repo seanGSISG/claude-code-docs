@@ -800,27 +800,134 @@ The following example starts a session from an agent whose model has no geo pin,
 
 ### Set a session budget
 
-To cap what a session can spend, pass the optional `budget` object when you create it. A budget is a hard ceiling on the session's list cost: the platform prices everything the session consumes at public list rates, and the session stops issuing new model requests once that running total reaches `max_list_cost`. Set `type` to `limit` and give `max_list_cost` an `amount` and a `currency`. `amount` is a whole number of US cents written as a string, such as `"2500"` for $25.00; the API takes a string rather than a number so no floating-point rounding is ever applied. `USD` is the only currency currently supported. When the session reaches the cap, it pauses and goes idle with the stop reason `budget_reached`. The cap is enforced between model requests, so the request that crosses it finishes first and the session's final list cost can land [a fraction past the cap](https://platform.claude.com/docs/en/managed-agents/budgets#when-a-session-reaches-its-budget). A budget can only be attached at creation: you can [change or remove](https://platform.claude.com/docs/en/managed-agents/session-operations#updating-the-session-budget) it later, but you can't add one to a session created without it.
+To cap what a session can spend, pass the optional `budget` object when you create it. A budget is a hard ceiling on the session's list cost: the platform prices everything the session consumes at public list rates, and the session stops issuing new model requests once that running total reaches `max_list_cost`. Set `type` to `limit` and give `max_list_cost` an `amount` and a `currency`. `amount` is a whole number of US cents written as a string, such as `"125"` for $1.25. The API takes a string rather than a number so no floating-point rounding is ever applied. `USD` is the only currency currently supported. When the session reaches the cap, it pauses and goes idle with the stop reason `budget_reached`. The cap is enforced between model requests, so the request that crosses it finishes first and the session's final list cost can land [a fraction past the cap](https://platform.claude.com/docs/en/managed-agents/budgets#when-a-session-reaches-its-budget). A budget can only be attached at creation: you can [change or remove](https://platform.claude.com/docs/en/managed-agents/session-operations#updating-the-session-budget) it later, but you can't add one to a session created without it.
 
-The following example creates a session with a $25.00 budget; the response echoes the `budget` on the session resource:
+The following example creates a session with a $1.25 budget:
 
-```bash cURL
-curl -fsSL https://api.anthropic.com/v1/sessions \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: managed-agents-2026-04-01" \
-  -H "content-type: application/json" \
-  -d @- <<EOF
-{
-  "agent": "$AGENT_ID",
-  "environment_id": "$ENVIRONMENT_ID",
-  "budget": {
-    "type": "limit",
-    "max_list_cost": {"amount": "2500", "currency": "USD"}
+<CodeGroup>
+  ```bash cURL
+  curl -sS --fail-with-body https://api.anthropic.com/v1/sessions \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-beta: managed-agents-2026-04-01" \
+    -H "content-type: application/json" \
+    -d @- <<EOF
+  {
+    "agent": "$AGENT_ID",
+    "environment_id": "$ENVIRONMENT_ID",
+    "budget": {
+      "type": "limit",
+      "max_list_cost": {"amount": "125", "currency": "USD"}
+    }
   }
-}
-EOF
-```
+  EOF
+  ```
+
+  ```bash CLI
+  # Keep the amount quoted so it is sent as a string, not a number.
+  ant beta:sessions create \
+    --agent "$AGENT_ID" \
+    --environment-id "$ENVIRONMENT_ID" \
+    --budget '{type: limit, max_list_cost: {amount: "125", currency: USD}}'
+  ```
+
+  ```python Python
+  session = client.beta.sessions.create(
+      agent=agent.id,
+      environment_id=environment.id,
+      budget={
+          "type": "limit",
+          "max_list_cost": {"amount": "125", "currency": "USD"},
+      },
+  )
+  print(session.id, session.budget.max_list_cost.amount)  # sesn_01... 125
+  ```
+
+  ```typescript TypeScript
+  const session = await client.beta.sessions.create({
+    agent: agent.id,
+    environment_id: environment.id,
+    budget: {
+      type: "limit",
+      max_list_cost: { amount: "125", currency: "USD" }
+    }
+  });
+  console.log(session.id, session.budget?.max_list_cost.amount); // sesn_01... 125
+  ```
+
+  ```csharp C#
+  var session = await client.Beta.Sessions.Create(new()
+  {
+      Agent = agent.ID,
+      EnvironmentID = environment.ID,
+      Budget = new()
+      {
+          Type = BetaManagedAgentsBudgetLimitType.Limit,
+          MaxListCost = new() { Amount = "125", Currency = BetaCurrency.Usd },
+      },
+  });
+  Console.WriteLine($"{session.ID} {session.Budget?.MaxListCost.Amount}");  // sesn_01... 125
+  ```
+
+  ```go Go
+  session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
+  	Agent: anthropic.BetaSessionNewParamsAgentUnion{
+  		OfString: anthropic.String(agent.ID),
+  	},
+  	EnvironmentID: environment.ID,
+  	Budget: anthropic.BetaManagedAgentsBudgetLimitParam{
+  		Type: anthropic.BetaManagedAgentsBudgetLimitTypeLimit,
+  		MaxListCost: anthropic.BetaMonetaryAmountParam{
+  			Amount:   "125",
+  			Currency: anthropic.BetaCurrencyUsd,
+  		},
+  	},
+  })
+  if err != nil {
+  	panic(err)
+  }
+  fmt.Println(session.ID, session.Budget.MaxListCost.Amount) // sesn_01... 125
+  ```
+
+  ```java Java
+  var session = client.beta().sessions().create(SessionCreateParams.builder()
+      .agent(agent.id())
+      .environmentId(environment.id())
+      .budget(BetaManagedAgentsBudgetLimit.builder()
+          .type(BetaManagedAgentsBudgetLimit.Type.LIMIT)
+          .maxListCost(BetaMonetaryAmount.builder()
+              .amount("125")
+              .currency(BetaCurrency.USD)
+              .build())
+          .build())
+      .build());
+  IO.println(session.id() + " " + session.budget().orElseThrow().maxListCost().amount());  // sesn_01... 125
+  ```
+
+  ```php PHP
+  $session = $client->beta->sessions->create(
+      agent: $agent->id,
+      environmentID: $environment->id,
+      budget: [
+          'type' => 'limit',
+          'max_list_cost' => ['amount' => '125', 'currency' => 'USD'],
+      ],
+  );
+  echo "{$session->id} {$session->budget->maxListCost->amount}\n"; // sesn_01... 125
+  ```
+
+  ```ruby Ruby
+  session = client.beta.sessions.create(
+    agent: agent.id,
+    environment_id: environment.id,
+    budget: {
+      type: "limit",
+      max_list_cost: {amount: "125", currency: "USD"}
+    }
+  )
+  puts "#{session.id} #{session.budget.max_list_cost.amount}" # sesn_01... 125
+  ```
+</CodeGroup>
 
 See [Session budgets](https://platform.claude.com/docs/en/managed-agents/budgets) for how enforcement works, what counts toward list cost, and how budgets behave in multiagent sessions.
 

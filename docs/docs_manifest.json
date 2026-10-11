@@ -3765,8 +3765,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "bdb7832fbd67dfbc93aedf6f9d98d7cac879b98c2ae3d733d4b5e522693e3236",
-      "last_updated": "2026-10-10T21:19:44.087598"
+      "hash": "1e159a0ea0243f2ae2589cd3ac4076350e025ba6139fe8c9fd1b9ab4f72f156b",
+      "last_updated": "2026-10-11T21:38:36.937270"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -3825,8 +3825,8 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "3a1f944503d05a61fdc0fac62add9ba3d877ccb03dd4ef9c3c79881c973938ef",
-      "last_updated": "2026-10-10T21:21:10.448937"
+      "hash": "31754d5adce5052af35acf85dc2ed207bb082b7dbf87f25218047b10a024a073",
+      "last_updated": "2026-10-11T21:40:09.388384"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
@@ -3897,8 +3897,8 @@
     "docs__en__manage-claude__api-and-data-retention.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention.md",
-      "hash": "40900400de1749c16e6867957e7ec4c1c91afd8b15dc0447133ca616e98cabce",
-      "last_updated": "2026-10-09T04:45:29.247227"
+      "hash": "33e7f0c480895e4f9e6ef21d8c969303104465880b0a68c2832e09aadf350f00",
+      "last_updated": "2026-10-11T21:40:48.481153"
     },
     "docs__en__manage-claude__app-attest.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/app-attest",
@@ -4233,8 +4233,8 @@
     "docs__en__managed-agents__scheduled-deployments.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/scheduled-deployments",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/scheduled-deployments.md",
-      "hash": "8d688a1b2df23b279cff978ce49c6d6a61ad064cd3db055536d0222c8ef0b012",
-      "last_updated": "2026-10-02T17:40:02.800352"
+      "hash": "7e8680402f48e533fcfb158dae3db09ea04425a02f4d412dbb5b371b821e7cc7",
+      "last_updated": "2026-10-11T21:41:30.563654"
     },
     "docs__en__managed-agents__self-hosted-sandboxes.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes",
@@ -4299,8 +4299,8 @@
     "docs__en__managed-agents__sessions.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/sessions",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/sessions.md",
-      "hash": "4f415e500ba49de700ab00b158905d5d19995bd7830d01904de917da0e3e3f2d",
-      "last_updated": "2026-10-09T22:27:37.628685"
+      "hash": "c26cb2290617c5c18142cff3ebacc7d146f210f387cb8f20ec6a974fe3332388",
+      "last_updated": "2026-10-11T21:41:38.307915"
     },
     "docs__en__managed-agents__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/skills",
@@ -4689,8 +4689,8 @@
     "claude-code__sandboxing.md": {
       "original_url": "https://platform.claude.com/docs/en/sandboxing",
       "original_md_url": "https://platform.claude.com/docs/en/sandboxing.md",
-      "hash": "3af277f8d73cdc6b27145b09c8db755f0e25c50b49ab5ea86c5191695defce46",
-      "last_updated": "2026-10-10T21:27:01.278725"
+      "hash": "f3feed627e09b91db74255475a605fd692a80e48b6b05be20b0b0b3efbfb378e",
+      "last_updated": "2026-10-11T21:46:05.963754"
     },
     "claude-code__security.md": {
       "original_url": "https://platform.claude.com/docs/en/security",
@@ -4803,8 +4803,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-11T12:26:48.742434",
-    "fetch_duration_seconds": 1269.839344,
+    "last_fetch_completed": "2026-10-11T21:50:24.354509",
+    "fetch_duration_seconds": 1368.915164,
     "total_pages_discovered": 981,
     "pages_fetched_successfully": 800,
     "pages_failed": 182,
@@ -4997,7 +4997,7 @@
     "total_files": 800,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-11T12:26:48.742460",
+  "last_updated": "2026-10-11T21:50:24.354536",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
