@@ -3753,8 +3753,8 @@
     "claude-code__costs.md": {
       "original_url": "https://platform.claude.com/docs/en/costs",
       "original_md_url": "https://platform.claude.com/docs/en/costs.md",
-      "hash": "fdfc7c104df5e97e90298956fcaffde68a673bd607df833f622147332d853d6a",
-      "last_updated": "2026-10-07T22:51:17.135333"
+      "hash": "4f4bca5c46ea26db7653076516f6e29ada41ad853b7b63c37484943b02d65a00",
+      "last_updated": "2026-10-11T04:08:22.079003"
     },
     "claude-code__data-usage.md": {
       "original_url": "https://platform.claude.com/docs/en/data-usage",
@@ -4719,8 +4719,8 @@
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
       "original_md_url": "https://platform.claude.com/docs/en/statusline.md",
-      "hash": "961458b05ed18ec520f3f77269668262829844c914f42dd64f4c78438c06a472",
-      "last_updated": "2026-10-08T04:47:28.645629"
+      "hash": "70800ec65a20b6d025fae667157751e5b44678784f64511be1f5fbb4552d5fc0",
+      "last_updated": "2026-10-11T04:16:51.336223"
     },
     "claude-code__sub-agents.md": {
       "original_url": "https://platform.claude.com/docs/en/sub-agents",
@@ -4803,8 +4803,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-10T21:31:14.363406",
-    "fetch_duration_seconds": 1341.435662,
+    "last_fetch_completed": "2026-10-11T04:19:36.284092",
+    "fetch_duration_seconds": 1295.97104,
     "total_pages_discovered": 981,
     "pages_fetched_successfully": 800,
     "pages_failed": 182,
@@ -4997,7 +4997,7 @@
     "total_files": 800,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-10T21:31:14.363427",
+  "last_updated": "2026-10-11T04:19:36.284117",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
