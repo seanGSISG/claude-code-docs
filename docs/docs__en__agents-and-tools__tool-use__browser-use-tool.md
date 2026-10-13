@@ -673,7 +673,7 @@ Here's a skeleton of that loop's tool-call step in two parts. First, stub member
           'type' => typeText($input['text']),
           'screenshot' => captureScreenshot(),
           // Handle other actions as needed
-          default => throw new RuntimeException("Unknown or unimplemented member: {$name}"),
+          default => throw new \RuntimeException("Unknown or unimplemented member: {$name}"),
       };
   }
   ```
@@ -1006,7 +1006,7 @@ The second part runs a batch in order, dispatches each block to those handlers, 
           try {
               // A real executor also returns a browser_state block on navigation and tab-management results
               $toolResults[] = [...$result, 'content' => handleBrowserAction($block->name, $block->input)];
-          } catch (Throwable $e) {
+          } catch (\Throwable $e) {
               $failed = true;
               $toolResults[] = [...$result, 'content' => 'Error: ' . $e->getMessage(), 'is_error' => true];
           }

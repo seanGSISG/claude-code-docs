@@ -261,6 +261,10 @@ Stream events from the session to receive real-time updates as the agent works. 
   ```
 
   ```php PHP
+  use Anthropic\Beta\Sessions\Events\ManagedAgentsAgentMessageEvent;
+  use Anthropic\Beta\Sessions\Events\ManagedAgentsSessionErrorEvent;
+  use Anthropic\Beta\Sessions\Events\ManagedAgentsTextBlock;
+
   // Open the stream first, then send the user message
   $stream = $client->beta->sessions->events->streamStream($session->id);
   $client->beta->sessions->events->send(
@@ -275,11 +279,11 @@ Stream events from the session to receive real-time updates as the agent works. 
 
   foreach ($stream as $event) {
       match (true) {
-          $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsAgentMessageEvent => array_walk(
+          $event instanceof ManagedAgentsAgentMessageEvent => array_walk(
               $event->content,
-              static fn ($block) => $block instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsTextBlock ? print($block->text) : null,
+              static fn ($block) => $block instanceof ManagedAgentsTextBlock ? print($block->text) : null,
           ),
-          $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsSessionErrorEvent => printf("\n[Error: %s]", $event->error?->message ?? 'unknown'),
+          $event instanceof ManagedAgentsSessionErrorEvent => printf("\n[Error: %s]", $event->error?->message ?? 'unknown'),
           default => null,
       };
       if ($event->type === 'session.status_idle' || $event->type === 'session.error') {
@@ -525,6 +529,9 @@ To reconnect to an existing session without missing events, combine a new stream
   ```
 
   ```php PHP
+  use Anthropic\Beta\Sessions\Events\ManagedAgentsAgentMessageEvent;
+  use Anthropic\Beta\Sessions\Events\ManagedAgentsTextBlock;
+
   $stream = $client->beta->sessions->events->streamStream($session->id);
 
   // Stream is open and buffering. List history before tailing live.
@@ -540,9 +547,9 @@ To reconnect to an existing session without missing events, combine a new stream
       }
       $seenEventIds[$event->id] = true;
       match (true) {
-          $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsAgentMessageEvent => array_walk(
+          $event instanceof ManagedAgentsAgentMessageEvent => array_walk(
               $event->content,
-              static fn ($block) => $block instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsTextBlock ? print($block->text) : null,
+              static fn ($block) => $block instanceof ManagedAgentsTextBlock ? print($block->text) : null,
           ),
           default => null,
       };
@@ -1769,7 +1776,14 @@ Pass a `types` (java, php; csharp, go: `Types`) filter to return only specific e
   ```
 
   ```php PHP
-  // In PHP, pass the types you want on EventListParams; see the Anthropic PHP SDK.
+  $events = $client->beta->sessions->events->list(
+      $session->id,
+      types: ['agent.tool_use', 'agent.tool_result'],
+  );
+  foreach ($events->data as $event) {
+      $processedAt = ($event->processedAt ?? null)?->format(DATE_RFC3339) ?? 'null';
+      echo "[{$event->type}] {$processedAt}\n";
+  }
   ```
 
   ```ruby Ruby

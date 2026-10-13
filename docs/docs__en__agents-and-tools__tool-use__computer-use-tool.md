@@ -1215,7 +1215,7 @@ The computer use tool is implemented as a schema-less tool. When using this tool
               'left_click' => clickAt($input['coordinate'] ?? null),
               'type' => typeText($input['text']),
               // Handle other actions as needed
-              default => throw new RuntimeException("Unknown or unimplemented member: {$name}"),
+              default => throw new \RuntimeException("Unknown or unimplemented member: {$name}"),
           };
       }
       ```
@@ -1534,7 +1534,7 @@ The computer use tool is implemented as a schema-less tool. When using this tool
               try {
                   // A string, or the image block list that screenshot returns
                   $toolResults[] = [...$result, 'content' => handleComputerAction($block->name, $block->input)];
-              } catch (Throwable $e) {
+              } catch (\Throwable $e) {
                   $failed = true;
                   $toolResults[] = [...$result, 'content' => 'Error: ' . $e->getMessage(), 'is_error' => true];
               }
