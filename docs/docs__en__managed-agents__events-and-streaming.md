@@ -417,8 +417,12 @@ To reconnect to an existing session without missing events, combine a new stream
   // Tail live events, skipping anything already seen
   tail: for await (const event of stream) {
     // Preview events (event_start/event_delta) carry no top-level id
-    if (event.type === "event_start" || event.type === "event_delta") continue;
-    if (seenEventIds.has(event.id)) continue;
+    if (event.type === "event_start" || event.type === "event_delta") {
+      continue;
+    }
+    if (seenEventIds.has(event.id)) {
+      continue;
+    }
     seenEventIds.add(event.id);
     switch (event.type) {
       case "agent.message":
@@ -858,7 +862,9 @@ The following example answers each call as it arrives:
         break;
       }
       case "session.status_idle":
-        if (event.stop_reason.type === "end_turn") break loop;
+        if (event.stop_reason.type === "end_turn") {
+          break loop;
+        }
         break;
     }
   }
@@ -1100,9 +1106,15 @@ The following example approves every pending call:
   const stream = await client.beta.sessions.events.stream(session.id);
 
   for await (const event of stream) {
-    if (event.type !== "session.status_idle") continue;
-    if (event.stop_reason.type === "end_turn") break;
-    if (event.stop_reason.type !== "requires_action") continue;
+    if (event.type !== "session.status_idle") {
+      continue;
+    }
+    if (event.stop_reason.type === "end_turn") {
+      break;
+    }
+    if (event.stop_reason.type !== "requires_action") {
+      continue;
+    }
 
     for (const eventId of event.stop_reason.event_ids) {
       // Approve the pending tool call

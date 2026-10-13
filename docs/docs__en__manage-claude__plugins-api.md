@@ -1866,7 +1866,9 @@ Downloading a **member-owned** plugin's archive records a `claude_plugin_archive
   const response = await client.beta.organization.plugins.versions.download(versionId, {
     plugin_id: pluginId
   });
-  if (!response.body) throw new Error("The download returned no body");
+  if (!response.body) {
+    throw new Error("The download returned no body");
+  }
 
   await writeFile(`${pluginId}_${versionId}.zip`, response.body);
   ```

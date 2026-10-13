@@ -743,7 +743,9 @@ Most use cases need multidimensional evaluation along several success criteria.
         }
         const lcs = lcsLengths[candidateWords.length][referenceWords.length];
 
-        if (lcs === 0) return 0;
+        if (lcs === 0) {
+          return 0;
+        }
         const precision = lcs / candidateWords.length;
         const recall = lcs / referenceWords.length;
         return (2 * precision * recall) / (precision + recall);

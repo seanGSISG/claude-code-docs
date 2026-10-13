@@ -142,12 +142,12 @@ The 30-day data retention requirement applies wherever Covered Models are offere
 Organizations with a ZDR arrangement can make these models available in a specific workspace by enabling 30-day retention for that workspace only. Other workspaces in the organization keep zero data retention.
 
 <Steps>
-  <Step title="Open the workspace's privacy controls">
-    In [Claude Console > Settings > Workspaces](https://platform.claude.com/settings/workspaces), select the workspace. In the panel that opens, click **Security** to open the workspace's Security page. Under **Data retention**, click **Manage in Privacy controls**.
+  <Step title="Open the workspace's data retention settings">
+    In the Claude Console, go to the [Data retention](https://platform.claude.com/settings/privacy) page (`platform.claude.com/settings/privacy`) and select the workspace from the dropdown menu at the top of the page.
   </Step>
 
   <Step title="Turn on 30-day data retention">
-    Enable the 30-day data retention setting for the workspace.
+    Select **Standard data retention** (30-day retention) and click **Save**. A confirmation dialog box then asks you to review and accept the terms that apply to data retention for the workspace. Data retention turns on for the workspace only after you accept them.
   </Step>
 
   <Step title="Verify">

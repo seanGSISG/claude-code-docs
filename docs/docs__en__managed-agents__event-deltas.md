@@ -252,7 +252,9 @@ The following examples opt in to `agent.message` previews and reconcile them wit
         // 1. Note the announced id and open the snapshot. Deltas and the
         //    buffered event carry the same id.
         const preview = accumulateManagedAgentsEvent(undefined, event);
-        if (preview) previews.set(event.event.id, preview);
+        if (preview) {
+          previews.set(event.event.id, preview);
+        }
         console.log(`event_start             ${event.event.type} ${event.event.id}`);
         break;
       }
@@ -752,7 +754,9 @@ A thread stream's path ends in `/threads/{thread_id}/stream`. `/events/stream` e
       break;
     }
   }
-  if (!childThreadId) throw new Error("No child thread found");
+  if (!childThreadId) {
+    throw new Error("No child thread found");
+  }
 
   // The child thread's stream takes the same event_deltas parameter as the
   // session stream.
