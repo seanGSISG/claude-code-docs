@@ -2259,20 +2259,20 @@
     "docs__en__api__compliance.md": {
       "original_url": "https://platform.claude.com/docs/en/api/compliance",
       "original_md_url": "https://platform.claude.com/docs/en/api/compliance.md",
-      "hash": "51d960ff97ee856b55ba9600ccae4d1259a6328bdb0a81498518e9b29965f1b0",
-      "last_updated": "2026-10-13T00:12:23.325336"
+      "hash": "2773fe09ce155ac31d16a92a3844d861d3ee068a494c245a2a5f6607b503a67c",
+      "last_updated": "2026-10-13T22:21:24.534931"
     },
     "docs__en__api__compliance__activities.md": {
       "original_url": "https://platform.claude.com/docs/en/api/compliance/activities",
       "original_md_url": "https://platform.claude.com/docs/en/api/compliance/activities.md",
-      "hash": "989537802a849fa2516a76053784534d48ceac8cebb1c22eb0b4ebe7bda0c6b3",
-      "last_updated": "2026-10-13T00:12:24.519702"
+      "hash": "d884f5aeaa64b7d3c8c1d63b2e993614b5e0b876285f8bc86503c1706008bc30",
+      "last_updated": "2026-10-13T22:21:25.596608"
     },
     "docs__en__api__compliance__activities__list.md": {
       "original_url": "https://platform.claude.com/docs/en/api/compliance/activities/list",
       "original_md_url": "https://platform.claude.com/docs/en/api/compliance/activities/list.md",
-      "hash": "8611f11b0b6d9d1480df0a717a5197979349b886d159cd4ff630d9d2c795515d",
-      "last_updated": "2026-10-13T00:12:25.387728"
+      "hash": "635435d14d1df29d91950f8d15e66b0cdb298bf9c7fdc31bac5958751bd91a8a",
+      "last_updated": "2026-10-13T22:21:26.409855"
     },
     "docs__en__api__compliance__apps.md": {
       "original_url": "https://platform.claude.com/docs/en/api/compliance/apps",
@@ -3765,8 +3765,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "1e159a0ea0243f2ae2589cd3ac4076350e025ba6139fe8c9fd1b9ab4f72f156b",
-      "last_updated": "2026-10-11T21:38:36.937270"
+      "hash": "4d0b145dbebe4ee284d001637a5945534ad6b94535d699fadfd15e2947e1ad58",
+      "last_updated": "2026-10-13T22:27:18.411870"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -4803,8 +4803,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-13T13:55:53.197148",
-    "fetch_duration_seconds": 1349.866255,
+    "last_fetch_completed": "2026-10-13T22:38:32.557139",
+    "fetch_duration_seconds": 1315.940818,
     "total_pages_discovered": 981,
     "pages_fetched_successfully": 800,
     "pages_failed": 182,
@@ -4997,7 +4997,7 @@
     "total_files": 800,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-13T13:55:53.197174",
+  "last_updated": "2026-10-13T22:38:32.557166",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
