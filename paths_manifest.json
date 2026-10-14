@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-13T22:16:37.237702Z",
-    "total_paths": 981,
+    "generated_at": "2026-10-14T03:30:51.341909Z",
+    "total_paths": 984,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-13T22:16:37.237709Z"
+    "last_regenerated": "2026-10-14T03:30:51.341917Z"
   },
   "categories": {
     "core_documentation": [
@@ -259,6 +259,9 @@
       "/docs/en/managed-agents/quickstart",
       "/docs/en/managed-agents/reference",
       "/docs/en/managed-agents/scheduled-deployments",
+      "/docs/en/managed-agents/secure-deployment",
+      "/docs/en/managed-agents/secure-deployment-monitoring",
+      "/docs/en/managed-agents/secure-deployment-risks",
       "/docs/en/managed-agents/self-hosted-sandboxes",
       "/docs/en/managed-agents/self-hosted-sandboxes-custom-tools",
       "/docs/en/managed-agents/self-hosted-sandboxes-memory",
