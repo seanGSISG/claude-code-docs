@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-14T16:31:01.334413Z",
-    "total_paths": 984,
+    "generated_at": "2026-10-14T21:16:27.564878Z",
+    "total_paths": 999,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-14T16:31:01.334421Z"
+    "last_regenerated": "2026-10-14T21:16:27.564887Z"
   },
   "categories": {
     "core_documentation": [
@@ -223,6 +223,9 @@
       "/docs/en/manage-claude/inference-hooks",
       "/docs/en/manage-claude/inference-hooks-configuration",
       "/docs/en/manage-claude/inference-hooks-endpoint",
+      "/docs/en/manage-claude/opentelemetry",
+      "/docs/en/manage-claude/opentelemetry/api",
+      "/docs/en/manage-claude/opentelemetry/sdk",
       "/docs/en/manage-claude/plugins-api",
       "/docs/en/manage-claude/rate-limits-api",
       "/docs/en/manage-claude/spend-limits-api",
@@ -622,6 +625,17 @@
       "/docs/en/api/beta/organization/spend_limits/list",
       "/docs/en/api/beta/organization/spend_limits/retrieve",
       "/docs/en/api/beta/organization/spend_limits/set",
+      "/docs/en/api/beta/organization/telemetry_destinations",
+      "/docs/en/api/beta/organization/telemetry_destinations/create",
+      "/docs/en/api/beta/organization/telemetry_destinations/delete",
+      "/docs/en/api/beta/organization/telemetry_destinations/list",
+      "/docs/en/api/beta/organization/telemetry_destinations/retrieve",
+      "/docs/en/api/beta/organization/telemetry_destinations/test",
+      "/docs/en/api/beta/organization/telemetry_destinations/update",
+      "/docs/en/api/beta/organization/telemetry_destinations/workspaces",
+      "/docs/en/api/beta/organization/telemetry_destinations/workspaces/add",
+      "/docs/en/api/beta/organization/telemetry_destinations/workspaces/list",
+      "/docs/en/api/beta/organization/telemetry_destinations/workspaces/remove",
       "/docs/en/api/beta/organization/usage_report",
       "/docs/en/api/beta/organization/usage_report/retrieve_claude_code",
       "/docs/en/api/beta/organization/usage_report/retrieve_messages",
@@ -806,6 +820,7 @@
       "/docs/en/api/models",
       "/docs/en/api/models/list",
       "/docs/en/api/models/retrieve",
+      "/docs/en/api/opentelemetry/spans",
       "/docs/en/api/organization",
       "/docs/en/api/organization/api_keys",
       "/docs/en/api/organization/api_keys/list",
