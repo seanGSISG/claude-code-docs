@@ -1,13 +1,14 @@
 {
   "metadata": {
-    "generated_at": "2026-10-14T21:16:27.564878Z",
-    "total_paths": 999,
+    "generated_at": "2026-10-15T03:10:28.452242Z",
+    "total_paths": 1000,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-14T21:16:27.564887Z"
+    "last_regenerated": "2026-10-15T03:10:28.452251Z"
   },
   "categories": {
     "core_documentation": [
       "/docs/en/about-claude/additional-resources",
+      "/docs/en/about-claude/api-credits-for-subscribers",
       "/docs/en/about-claude/glossary",
       "/docs/en/about-claude/model-deprecations",
       "/docs/en/about-claude/models/choosing-a-model",
