@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-15T16:17:47.114696Z",
-    "total_paths": 1000,
+    "generated_at": "2026-10-15T20:55:11.387211Z",
+    "total_paths": 1008,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-15T16:17:47.114702Z"
+    "last_regenerated": "2026-10-15T20:55:11.387217Z"
   },
   "categories": {
     "core_documentation": [
@@ -46,6 +46,7 @@
       "/docs/en/agents-and-tools/remote-mcp-servers",
       "/docs/en/agents-and-tools/tool-use/advisor-tool",
       "/docs/en/agents-and-tools/tool-use/bash-tool",
+      "/docs/en/agents-and-tools/tool-use/browser-use-sdk",
       "/docs/en/agents-and-tools/tool-use/browser-use-tool",
       "/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent",
       "/docs/en/agents-and-tools/tool-use/code-execution-tool",
@@ -164,6 +165,12 @@
       "/docs/en/cli-sdks-libraries/sdks/typescript",
       "/docs/en/cloud-environments",
       "/docs/en/code-review",
+      "/docs/en/code-review-costs",
+      "/docs/en/code-review-customize",
+      "/docs/en/code-review-local",
+      "/docs/en/code-review-pull-requests",
+      "/docs/en/code-review-setup",
+      "/docs/en/code-review-troubleshooting",
       "/docs/en/commands",
       "/docs/en/communications-kit",
       "/docs/en/computer-use",
@@ -245,6 +252,7 @@
       "/docs/en/manage-claude/workspaces",
       "/docs/en/managed-agents/agent-setup",
       "/docs/en/managed-agents/budgets",
+      "/docs/en/managed-agents/choosing-an-environment",
       "/docs/en/managed-agents/cloud-sandboxes-reference",
       "/docs/en/managed-agents/define-outcomes",
       "/docs/en/managed-agents/dreams",
