@@ -1,6 +1,6 @@
 ---
 title: List Code Artifacts
-url: https://platform.claude.com/docs/en/api/compliance/code/artifacts/list
+url: https://platform.claude.com/docs/en/api/compliance/apps/code/artifacts/list
 ---
 
 # List Code Artifacts
@@ -118,7 +118,7 @@ returned.
 
   - `published_version_id: string or null`
 
-    Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened.
+    Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened. Null for a Claude Doc; see `versions`.
 
   - `read_mode: "org" or "owner" or "public" or "users"`
 
@@ -152,7 +152,7 @@ returned.
 
   - `versions: array of object`
 
-    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
+    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content. Empty for a Claude Doc, because a Doc's versions hold only the web page that displays it, not its text. Download a Doc's text with `GET /v1/compliance/apps/code/artifacts/{artifact_id}/content?multi_file_format=zip`.
 
     - `id: string`
 
@@ -191,7 +191,7 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
   "data": [
     {
       "id": "cart_01Tu9VwXyZaBcDeFgHiJkLmN",
-      "artifact_type": "claude_docs",
+      "artifact_type": "code",
       "organization_uuid": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
       "owner_user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
       "published_version_id": "1741803761-9f3a",

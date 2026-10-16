@@ -1,6 +1,6 @@
 ---
 title: Artifacts
-url: https://platform.claude.com/docs/en/api/compliance/code/artifacts
+url: https://platform.claude.com/docs/en/api/compliance/apps/code/artifacts
 ---
 
 # Artifacts
@@ -120,7 +120,7 @@ returned.
 
   - `published_version_id: string or null`
 
-    Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened.
+    Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened. Null for a Claude Doc; see `versions`.
 
   - `read_mode: "org" or "owner" or "public" or "users"`
 
@@ -154,7 +154,7 @@ returned.
 
   - `versions: array of object`
 
-    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
+    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content. Empty for a Claude Doc, because a Doc's versions hold only the web page that displays it, not its text. Download a Doc's text with `GET /v1/compliance/apps/code/artifacts/{artifact_id}/content?multi_file_format=zip`.
 
     - `id: string`
 
@@ -193,7 +193,7 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
   "data": [
     {
       "id": "cart_01Tu9VwXyZaBcDeFgHiJkLmN",
-      "artifact_type": "claude_docs",
+      "artifact_type": "code",
       "organization_uuid": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
       "owner_user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
       "published_version_id": "1741803761-9f3a",
@@ -228,11 +228,17 @@ Returns 404 for Artifacts that don't exist or belong to another parent
 organization. A listed version id can start returning 404 if subsequent
 publishes rotated it out of retained history — re-list on 404. Returns
 503 while the version's content upload is still in flight or was
-abandoned — retry with backoff. Returns 422 for a version that has more
-than one file, because the Compliance API returns only single-file
-versions. Do not retry a 422. The 422's `error.details.error_code` is
-`multi_file_unavailable`. Oversized
-encoded content aborts mid-stream: headers and initial bytes arrive
+abandoned — retry with backoff. Returns 422 with
+`error.details.error_code` `multi_file_unavailable` for a version that
+has more than one file, unless the request sets `multi_file_format=zip`,
+which returns those files as a ZIP archive. With `multi_file_format=zip`,
+a version with more than one file, one of them with a name the API cannot
+export, gets 422 `file_set_unavailable`. Do not retry a 422. A Claude
+Doc's versions hold only the web page that displays the Doc and never come
+back as a ZIP. That page usually has more than one file, so a Doc's version
+usually gets the 422 `multi_file_unavailable`. Download the Doc's text with
+`GET /v1/compliance/apps/code/artifacts/{artifact_id}/content?multi_file_format=zip`.
+Oversized encoded content aborts mid-stream: headers and initial bytes arrive
 but the body terminates early — an aborted chunked transfer is the
 only truncation signal for encoded content. `Content-MD5` is emitted
 only for identity-stored content; validate against it when present.
@@ -246,6 +252,12 @@ only for identity-stored content; validate against it when present.
 - `version_id: string`
 
   Opaque version identifier from the Artifact's `versions` list
+
+### Query parameters
+
+- `multi_file_format: optional string`
+
+  Set to `zip`, its only value, to receive a version that has more than one file as a ZIP archive of its files with an index, `files.json`. Files the artifact copied from its type (the app that displays every artifact of that type) are listed under `omitted_files` in the index, and left out of the archive, when an organization other than the artifact's owns that type. A Claude Doc's version never comes back as a ZIP: it is answered as without this parameter, except that a version with more than one file, one of them with a name the API cannot export, gets 422 `file_set_unavailable`. A version with one file is returned as that file, as without this parameter.
 
 ### Headers
 
@@ -261,6 +273,61 @@ only for identity-stored content; validate against it when present.
 
 ```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID/versions/$VERSION_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+## Download Code Artifact Content
+
+**GET** `/v1/compliance/apps/code/artifacts/{artifact_id}/content`
+
+Streams an Artifact's current content as the response body. For a
+Claude Doc, that is the Doc's text as a ZIP archive of Word files, one per
+text tab, and the request must set `multi_file_format=zip`. For any other
+Artifact, it is the latest version, as
+`GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}`
+returns it.
+
+Returns 404 for Artifacts that don't exist or that the API key cannot read.
+Returns 400 with `error.details.error_code` `cmek_key_disabled` when the
+organization's customer-managed encryption key can't be used, for example
+because it is disabled or revoked. Returns 503 when the content can't be
+produced right now; wait the number of seconds in the `Retry-After`
+header, or retry with backoff when it is absent. For a Claude Doc, a 422's
+`error.details.error_code` is `multi_file_unavailable` when the request
+does not set `multi_file_format=zip`, `document_unavailable` when the Doc
+has no text to export (for example, it has no text tab or is in the trash),
+`document_too_large` when the export is over 16 MiB, or
+`cmek_org_unsupported` when the organization uses customer-managed
+encryption keys and the export can't be served for it right now. For any
+other Artifact, the 422s are the version download's.
+
+### Path parameters
+
+- `artifact_id: string`
+
+  The Artifact ID (tagged ID, e.g., cart_abc123)
+
+### Query parameters
+
+- `multi_file_format: optional string`
+
+  Set to `zip`, its only value. A Claude Doc downloads only this way, as a ZIP archive of Word files, one per text tab. For any other Artifact it works as on the version download: when the latest version has more than one file, it comes back as a ZIP archive of its files with an index, `files.json`.
+
+### Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
+
+- `"x-api-key": optional string`
+
+### Example
+
+```bash
+curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID/content \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
@@ -366,7 +433,7 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
 
   - `published_version_id: string or null`
 
-    Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened.
+    Identifier of the version a non-owner viewer would render when `read_mode` permits them — the version the owner has pinned for non-owner readers if one is pinned, otherwise the owner's latest. When `read_mode` is `owner` no non-owner renders any version; the field still reports which version would be served were read_mode widened. Null for a Claude Doc; see `versions`.
 
   - `read_mode: "org" or "owner" or "public" or "users"`
 
@@ -400,7 +467,7 @@ curl https://api.anthropic.com/v1/compliance/apps/code/artifacts/$ARTIFACT_ID \
 
   - `versions: array of object`
 
-    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
+    Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content. Empty for a Claude Doc, because a Doc's versions hold only the web page that displays it, not its text. Download a Doc's text with `GET /v1/compliance/apps/code/artifacts/{artifact_id}/content?multi_file_format=zip`.
 
     - `id: string`
 

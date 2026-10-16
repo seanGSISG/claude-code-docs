@@ -14,25 +14,19 @@ Fast mode delivers up to 2.5x higher output tokens per second from Claude Opus 5
   To learn how zero data retention (ZDR) applies to this feature, see [API and data retention](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention).
 </Note>
 
-## Supported models
+## Supported models and platforms
 
-Fast mode is supported on the following models:
+Fast mode is supported on the following models and platforms:
 
-* Claude Opus 5.5 (claude-opus-5-5)
-* Claude Opus 5 (claude-opus-5)
-* Claude Opus 4.8 (claude-opus-4-8)
+| Supported model                   | Supported platforms                                                                                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude Opus 5.5 (claude-opus-5-5) | Claude API, including [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview)<br />[Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), for deployments hosted on Azure |
+| Claude Opus 5 (claude-opus-5)     | Claude API, including [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview)                                                                                                                                                        |
+| Claude Opus 4.8 (claude-opus-4-8) | Claude API, including [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview)                                                                                                                                                        |
 
-<Note>
-  Fast mode is available on the Claude API, including [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview), only. It is not available on Amazon Bedrock, Claude Platform on AWS, Google Cloud, or Microsoft Foundry.
-</Note>
+If you were using fast mode on an earlier model, [migrate to a model that supports fast mode](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide).
 
-<Note>
-  Fast mode is not available on Claude Opus 4.7. Requests to `claude-opus-4-7` with `speed: "fast"` return an error; unlike Claude Opus 4.6 (see the following note), requests do not fall back to standard speed. The model itself remains available at standard speed. To continue using fast mode, see [Migrating to Claude Opus 5.5 from Claude Opus 4.7](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-47).
-</Note>
-
-<Note>
-  Fast mode is not available on Claude Opus 4.6. Requests to `claude-opus-4-6` that set `speed` need the `fast-mode-2026-02-01` beta header; without it, they return a `400` error. With the header, requests with `speed: "fast"` run at standard speed and are billed at [standard rates](https://platform.claude.com/docs/en/about-claude/pricing) rather than fast mode's premium rates, and the response reports [`usage.speed: "standard"`](https://platform.claude.com/docs/en/build-with-claude/fast-mode#checking-which-speed-was-used). To continue using fast mode, see [Migrating to Claude Opus 5.5 from Claude Opus 4.6 and earlier Opus models](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-46).
-</Note>
+Fast mode is not available for Claude in Microsoft Foundry deployments [hosted on Anthropic](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#hosting-options).
 
 ## How fast mode works
 
@@ -185,7 +179,7 @@ Models in research preview also need the `fast-mode-2026-02-01` [beta header](ht
   );
 
   foreach ($response->content as $block) {
-      if ($block->type === 'text') {
+      if ($block instanceof \Anthropic\Messages\TextBlock) {
           echo $block->text, PHP_EOL;
       }
   }
@@ -227,7 +221,7 @@ For complete pricing details, see the [Pricing](https://platform.claude.com/docs
 
 Fast mode has a dedicated rate limit that is separate from standard Opus rate limits. When your fast mode rate limit is exceeded, the API returns a `429` error with a `retry-after` header indicating when capacity will be available.
 
-Claude Opus 5.5 has a default fast mode rate limit in every [usage tier](https://platform.claude.com/docs/en/api/rate-limits), so you don't need to request access to use fast mode with it.
+Claude Opus 5.5 has a default fast mode rate limit in the Start, Build, and Scale [usage tiers](https://platform.claude.com/docs/en/api/rate-limits), so you don't need to request access to use fast mode with it. Organizations in the Evaluation tier can use fast mode with Claude Opus 5.5 once they move to the Start, Build, or Scale tier.
 
 The response includes headers that indicate your fast mode rate limit status:
 
@@ -244,7 +238,7 @@ To see your fast mode rate limits, go to the [Rate limits](https://platform.clau
 
 ## Checking which speed was used
 
-The response `usage` object includes a `speed` field that indicates which speed was used, either `"fast"` or `"standard"`. Requesting `speed: "fast"` on a [model that doesn't support fast mode](https://platform.claude.com/docs/en/build-with-claude/fast-mode#supported-models) returns an error, and so does exceeding fast mode's rate limits or capacity (a `429` or `529`). When a request with `speed: "fast"` succeeds, `usage.speed` is `"fast"`. Claude Opus 4.6 is an exception: a request with `speed: "fast"` and the `fast-mode-2026-02-01` beta header does not return an error but runs at standard speed, and `usage.speed` shows `"standard"`. Without the header, the request returns a `400` error.
+The response `usage` object includes a `speed` field that indicates which speed was used, either `"fast"` or `"standard"`. Requesting `speed: "fast"` on a [model that doesn't support fast mode](https://platform.claude.com/docs/en/build-with-claude/fast-mode#supported-models-and-platforms) returns an error, and so does exceeding fast mode's rate limits or capacity (a `429` or `529`). When a request with `speed: "fast"` succeeds, `usage.speed` is `"fast"`. Claude Opus 4.6 is an exception: instead of returning an error, a request with `speed: "fast"` and the `fast-mode-2026-02-01` beta header succeeds, but runs at standard speed. This behavior is correctly reflected in `usage.speed`, which shows `"standard"` in this situation.
 
 <CodeGroup>
   ```bash cURL
@@ -394,10 +388,6 @@ To track fast mode usage and costs across your organization, see the [Usage and 
 When fast mode rate limits are exceeded, the API returns a `429` error with a `retry-after` header. The SDK automatically retries these requests up to 2 times by default (configurable with `max_retries` (typescript, java, php: `maxRetries`; csharp: `MaxRetries`; go: `option.WithMaxRetries`)), waiting for the server-specified delay before each retry. Because fast mode uses continuous token replenishment, the `retry-after` delay is typically short and requests succeed once capacity is available.
 
 ### Falling back to standard speed
-
-<Note>
-  This section covers an opt-in client-side fallback when fast mode is rate limited. It is separate from the behavior on [Claude Opus 4.6](https://platform.claude.com/docs/en/build-with-claude/fast-mode#supported-models), where fast mode is not available.
-</Note>
 
 If you'd prefer to fall back to standard speed rather than wait for fast mode capacity, catch the rate limit error and retry without `speed: "fast"`. Set `max_retries` (typescript, java, php: `maxRetries`; csharp: `MaxRetries`; go: `option.WithMaxRetries`) to `0` on the initial fast request to skip automatic retries and fail immediately on rate limit errors.
 
@@ -731,7 +721,6 @@ Because setting `max_retries` (typescript, java, php: `maxRetries`; csharp: `Max
 ## Considerations
 
 * **Prompt caching:** Switching between fast and standard speed invalidates the prompt cache. Requests at different speeds do not share cached prefixes.
-* **Supported models:** Fast mode is supported on Claude Opus 5.5, Claude Opus 5, and Claude Opus 4.8. See [Supported models](https://platform.claude.com/docs/en/build-with-claude/fast-mode#supported-models).
 * **TTFT:** Fast mode's benefits are focused on output tokens per second (OTPS), not time to first token (TTFT).
 * **Batch API:** Fast mode is not available with the [Batch API](https://platform.claude.com/docs/en/build-with-claude/batch-processing).
 * **Priority Tier:** Fast mode is not available with a [Priority Tier](https://platform.claude.com/docs/en/api/service-tiers) commitment.

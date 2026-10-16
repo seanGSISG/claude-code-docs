@@ -64,7 +64,7 @@ Claude Opus 5.5 supports [per-message effort](https://platform.claude.com/docs/e
 
 ### Fast mode
 
-[Fast mode](https://platform.claude.com/docs/en/build-with-claude/fast-mode) is available for Claude Opus 5.5 on the Claude API only; it is not available on Amazon Bedrock, Claude Platform on AWS, Google Cloud, or Microsoft Foundry. On the Claude API, set `speed: "fast"` on your request. Claude Opus 5.5 doesn't need a beta header. See [Fast mode](https://platform.claude.com/docs/en/build-with-claude/fast-mode) for supported models, rate limits, and pricing.
+[Fast mode](https://platform.claude.com/docs/en/build-with-claude/fast-mode) is available for Claude Opus 5.5 on the Claude API and on [Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry) for deployments hosted on Azure, but not for deployments hosted on Anthropic; it is not available on Amazon Bedrock, Claude Platform on AWS, or Google Cloud. On the Claude API, set `speed: "fast"` on your request. Claude Opus 5.5 doesn't need a beta header. See [Fast mode](https://platform.claude.com/docs/en/build-with-claude/fast-mode) for supported models, rate limits, and pricing.
 
 ### Define tools in a message (beta)
 

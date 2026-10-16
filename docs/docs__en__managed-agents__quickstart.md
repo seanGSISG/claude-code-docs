@@ -94,7 +94,7 @@ ant --version
 
   <Tab title="Java">
     ```groovy Gradle
-    implementation("com.anthropic:anthropic-java:2.72.0")
+    implementation("com.anthropic:anthropic-java:2.73.0")
     ```
   </Tab>
 
