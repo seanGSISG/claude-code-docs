@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-16T10:41:03.288625Z",
-    "total_paths": 1009,
+    "generated_at": "2026-10-16T16:03:52.280657Z",
+    "total_paths": 1010,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-16T10:41:03.288631Z"
+    "last_regenerated": "2026-10-16T16:03:52.280667Z"
   },
   "categories": {
     "core_documentation": [
@@ -217,6 +217,7 @@
       "/docs/en/manage-claude/cmek",
       "/docs/en/manage-claude/cmek-aws-kms",
       "/docs/en/manage-claude/cmek-azure-key-vault",
+      "/docs/en/manage-claude/cmek-claude-platform-on-aws",
       "/docs/en/manage-claude/cmek-google-cloud-kms",
       "/docs/en/manage-claude/compliance-activity-feed",
       "/docs/en/manage-claude/compliance-api",
