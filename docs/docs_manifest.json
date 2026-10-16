@@ -93,8 +93,8 @@
     "docs__en__agents-and-tools__agent-skills__claude-api-skill.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill",
       "original_md_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/claude-api-skill.md",
-      "hash": "4344f20b49957989b143a27345ab4fcb5fd6369bc30bce9589b2f67018b8eaab",
-      "last_updated": "2026-10-16T03:07:03.755578"
+      "hash": "652e0d0fee8928ce066ef208fb58c1ba94a1fcb9bc15ae02e308f3345e861cb7",
+      "last_updated": "2026-10-16T10:41:53.057428"
     },
     "docs__en__agents-and-tools__agent-skills__enterprise.md": {
       "original_url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/enterprise",
@@ -2841,8 +2841,8 @@
     "docs__en__api__opentelemetry__spans.md": {
       "original_url": "https://platform.claude.com/docs/en/api/opentelemetry/spans",
       "original_md_url": "https://platform.claude.com/docs/en/api/opentelemetry/spans.md",
-      "hash": "a4b7ed16bf4a0acc05b33c620076ebf1bbfca16a86b92676eff187a45d2e2ef9",
-      "last_updated": "2026-10-14T21:22:45.410502"
+      "hash": "2be70cad118b673be529867672e3bfb4529a6485023a14b12ab8944e0a23c964",
+      "last_updated": "2026-10-16T10:47:22.883733"
     },
     "docs__en__api__organization.md": {
       "original_url": "https://platform.claude.com/docs/en/api/organization",
@@ -4119,14 +4119,14 @@
     "docs__en__manage-claude__opentelemetry__api.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry/api",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry/api.md",
-      "hash": "eda24aa81f139a3dce8bb16f7d43e542e130cc01acaf133b00b27322aa5c512a",
-      "last_updated": "2026-10-15T21:09:09.099901"
+      "hash": "2dd7a7448f9e4aa40794e3a04d0bc2bd3fd03ff16621fccf50a96abacd1e3690",
+      "last_updated": "2026-10-16T10:54:51.136687"
     },
     "docs__en__manage-claude__opentelemetry__sdk.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry/sdk",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry/sdk.md",
-      "hash": "d50211c0b400bb726bb5db247002a6761cd89d5bd266f8be891432c1d8aaf6d5",
-      "last_updated": "2026-10-16T03:19:59.101705"
+      "hash": "48f9d2cfa96747bdfd7518ac87d747be70d7757bbc86c5c28375df9093c05c82",
+      "last_updated": "2026-10-16T10:54:51.838478"
     },
     "docs__en__manage-claude__plugins-api.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/plugins-api",
@@ -4167,26 +4167,26 @@
     "docs__en__manage-claude__wif-providers__aws.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/aws",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/aws.md",
-      "hash": "081f8461c4485db0116bd0e4d96ebc17730ba49611018ea27f450f53c500a88d",
-      "last_updated": "2026-10-14T21:29:50.546410"
+      "hash": "493cb5cd155a04c05d61a85bfa60781a091f28f01fa6b6ee80615acb06889995",
+      "last_updated": "2026-10-16T10:54:57.195318"
     },
     "docs__en__manage-claude__wif-providers__azure.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/azure",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/azure.md",
-      "hash": "96f5c6bdf9b48efe7c8225760f38b359dc3d8c8e8958d843de151af7d6fe192d",
-      "last_updated": "2026-10-14T21:29:51.407227"
+      "hash": "b02faf5c7c857f694e0070dde7076ce1903de22edaf31c88a6cc16a4b741f8e8",
+      "last_updated": "2026-10-16T10:54:58.121218"
     },
     "docs__en__manage-claude__wif-providers__gcp.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/gcp",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/gcp.md",
-      "hash": "05486eb6c4d79474014476ae5d0e4b4431e9b071353f99111bb8d4fe77286466",
-      "last_updated": "2026-10-14T21:29:52.189038"
+      "hash": "89e3c2b905b74a271664015b824d9c51cdedb3d737cfe86e158a8e915c92472b",
+      "last_updated": "2026-10-16T10:54:58.814511"
     },
     "docs__en__manage-claude__wif-providers__github-actions.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/github-actions",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/github-actions.md",
-      "hash": "4933fab6a73e634e39194c96a667a718644cea9615fa15bf1a409820118ecb47",
-      "last_updated": "2026-10-14T21:29:52.894189"
+      "hash": "3da34c9eabdee4509ae4315efcc36ba6c3c895dcb17d6daa7e068fcb15385d9e",
+      "last_updated": "2026-10-16T10:54:59.586113"
     },
     "docs__en__manage-claude__wif-providers__kubernetes.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/kubernetes",
@@ -4197,20 +4197,20 @@
     "docs__en__manage-claude__wif-providers__okta.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/okta",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/okta.md",
-      "hash": "b18a6d97107068a1d817731591579f91b0011246ec849e48f4f46bbbd11dbd6d",
-      "last_updated": "2026-10-14T21:29:54.355102"
+      "hash": "b491ec2861e56ac953153a67983b3376ecbf8d835b004350f73e0129b4fb7ad8",
+      "last_updated": "2026-10-16T10:55:01.125368"
     },
     "docs__en__manage-claude__wif-providers__spiffe.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/spiffe",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-providers/spiffe.md",
-      "hash": "a727c3a01a70c0dbcc92dce78ad1c66b1cfb631783df7e651f666ac292848022",
-      "last_updated": "2026-10-14T21:29:55.130786"
+      "hash": "ccdb145d469a6184b129c56b72cc5881e82ed0aee47b12a738a6089f1a8997cc",
+      "last_updated": "2026-10-16T10:55:01.935727"
     },
     "docs__en__manage-claude__wif-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/wif-reference",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/wif-reference.md",
-      "hash": "23a976fa22070b8ba2dc1d5c723fcc0ac033cf33c9ea63109e4704aa7b9047a7",
-      "last_updated": "2026-10-14T21:29:55.846516"
+      "hash": "aba756d214e0a9b9c393c3bb94148e7aabd5c18a7fd4180d5cbdd875a7803b5b",
+      "last_updated": "2026-10-16T10:55:02.746728"
     },
     "docs__en__manage-claude__workload-identity-federation.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/workload-identity-federation",
@@ -4935,8 +4935,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-16T03:28:58.254768",
-    "fetch_duration_seconds": 1364.261956,
+    "last_fetch_completed": "2026-10-16T11:04:08.887034",
+    "fetch_duration_seconds": 1386.765955,
     "total_pages_discovered": 1009,
     "pages_fetched_successfully": 822,
     "pages_failed": 188,
@@ -5135,7 +5135,7 @@
     "total_files": 822,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-16T03:28:58.254789",
+  "last_updated": "2026-10-16T11:04:08.887061",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
