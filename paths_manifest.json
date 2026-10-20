@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-20T16:20:11.553692Z",
-    "total_paths": 1012,
+    "generated_at": "2026-10-20T21:13:54.386076Z",
+    "total_paths": 1014,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-20T16:20:11.553698Z"
+    "last_regenerated": "2026-10-20T21:13:54.386083Z"
   },
   "categories": {
     "core_documentation": [
@@ -240,6 +240,8 @@
       "/docs/en/manage-claude/spend-limits-api",
       "/docs/en/manage-claude/usage-cost-api",
       "/docs/en/manage-claude/user-management",
+      "/docs/en/manage-claude/user-profiles",
+      "/docs/en/manage-claude/user-profiles-verification-portal",
       "/docs/en/manage-claude/wif-admin-api",
       "/docs/en/manage-claude/wif-providers/aws",
       "/docs/en/manage-claude/wif-providers/azure",
