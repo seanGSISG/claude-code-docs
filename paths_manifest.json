@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-19T21:58:56.620703Z",
-    "total_paths": 1010,
+    "generated_at": "2026-10-20T03:22:47.451476Z",
+    "total_paths": 1012,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-19T21:58:56.620708Z"
+    "last_regenerated": "2026-10-20T03:22:47.451485Z"
   },
   "categories": {
     "core_documentation": [
@@ -808,6 +808,8 @@
       "/docs/en/api/compliance/organizations/roles/retrieve",
       "/docs/en/api/compliance/organizations/settings",
       "/docs/en/api/compliance/organizations/settings/retrieve",
+      "/docs/en/api/compliance/organizations/user_preferences",
+      "/docs/en/api/compliance/organizations/user_preferences/list",
       "/docs/en/api/compliance/organizations/users",
       "/docs/en/api/compliance/organizations/users/list",
       "/docs/en/api/errors",
