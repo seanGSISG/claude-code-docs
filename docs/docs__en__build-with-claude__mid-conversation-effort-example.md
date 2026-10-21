@@ -18,7 +18,7 @@ The mode is not an API parameter. It is built entirely from documented pieces:
 
 ## Set up the loop
 
-The example is a single file. The constants control the effort level, the fan-out shape, and how often the mode refresher is re-sent. `MAX_CONCURRENT` caps how many subagents run at the same time (the PHP port is sequential and ignores it); `MAX_TOTAL_SUBTASKS` caps how many the model may queue in a single Workflow call. Splitting the two lets the model plan a large backlog without launching it all at once. The `DOC_TEST_MODE` check caps the loops to a single turn when that environment variable is set, so the automated docs harness can validate that the file compiles and finishes quickly without running the full orchestration; leave it unset when running the example yourself.
+The example is a single file. The constants control the effort level, the fan-out shape, and how often the mode refresher is re-sent. `MAX_CONCURRENT` caps how many subagents run at the same time (the PHP port is sequential and ignores it); `MAX_TOTAL_SUBTASKS` caps how many the model may queue in a single Workflow call. Splitting the two lets the model plan a large backlog without launching it all at once. The `DOC_TEST_MODE` check caps the loops to a single turn when that environment variable is set, so the automated docs harness can validate that the file compiles and completes quickly without running the full orchestration; leave it unset when running the example yourself.
 
 <CodeGroup exclude="shell:cURL, shell:CLI">
   ```python Python
@@ -1948,7 +1948,7 @@ Each workflow subtask becomes its own small agent loop with the bash tool, runni
 
 ## Journal results so reruns resume
 
-A fan-out that spawns dozens of subagents is expensive to restart from scratch. A small content-addressed journal makes it idempotent: before dispatching a subagent, look up the SHA-256 of its prompt in a local JSON file, and return the recorded result if one exists. Interrupt the run, rerun it, and only the subtasks that never finished are recomputed. The journal deduplicates across runs, not within a single fan-out wave; delete the journal file to start fresh.
+A fan-out that spawns dozens of subagents is expensive to restart from the beginning. A small content-addressed journal makes it idempotent: before dispatching a subagent, look up the SHA-256 of its prompt in a local JSON file, and return the recorded result if one exists. Interrupt the run, rerun it, and only the subtasks that never completed are recomputed. The journal deduplicates across runs, not within a single fan-out wave; delete the journal file to start fresh.
 
 <CodeGroup exclude="shell:cURL, shell:CLI">
   ```python Python
@@ -2239,7 +2239,7 @@ A fan-out that spawns dozens of subagents is expensive to restart from scratch. 
 
 ## Fan out, then verify
 
-The fan-out accepts up to `MAX_TOTAL_SUBTASKS` prompts, runs them through the journal with at most `MAX_CONCURRENT` in flight (sequential in the PHP port), and isolates failures so one broken subagent degrades to an error string instead of ending the run. Once the first wave finishes, a second wave reuses the same subagent path to try to refute each result: every verifier re-derives the claims from the source, defaulting to refuted when uncertain. Both the original result and its verdict are returned to the orchestrator so it can weigh them together.
+The fan-out accepts up to `MAX_TOTAL_SUBTASKS` prompts, runs them through the journal with at most `MAX_CONCURRENT` in flight (sequential in the PHP port), and isolates failures so one broken subagent degrades to an error string instead of ending the run. Once the first wave completes, a second wave reuses the same subagent path to attempt to refute each result: every verifier re-derives the claims from the source, defaulting to refuted when uncertain. Both the original result and its verdict are returned to the orchestrator so it can weigh them together.
 
 <CodeGroup exclude="shell:cURL, shell:CLI">
   ```python Python
@@ -3892,7 +3892,7 @@ This example is deliberately small. A harness meant for real workloads would typ
 
 * **Sandboxed orchestration scripts:** let the model emit a short orchestration program (branching, loops, and reduce steps) and run it inside an isolated interpreter, rather than accepting only a flat list of subtask strings.
 * **Durable journaling:** replace the local JSON file with a store that survives process restarts and is safe under concurrent writers across machines.
-* **Budget enforcement:** track total subagents launched across the whole session, not just per Workflow call, and refuse to exceed a hard cap so a runaway plan cannot exhaust your quota.
+* **Budget enforcement:** track total subagents launched across the whole session, not just for each Workflow call, and refuse to exceed a hard cap so a runaway plan cannot exhaust your quota.
 
 The patterns in this example (the mode reminders, standing consent in the tool description, journaling, and a verification wave) carry over unchanged; only the execution substrate around them gets more robust.
 
@@ -3912,6 +3912,6 @@ The patterns in this example (the mode reminders, standing consent in the tool d
   </Card>
 
   <Card title="Bash tool" icon="terminal" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool">
-    The Anthropic-defined bash tool this example executes locally.
+    The Anthropic-defined bash tool this example runs locally.
   </Card>
 </CardGroup>

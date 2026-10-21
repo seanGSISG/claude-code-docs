@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-21T16:35:50.390168Z",
-    "total_paths": 1035,
+    "generated_at": "2026-10-21T21:14:22.411491Z",
+    "total_paths": 1036,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-21T16:35:50.390177Z"
+    "last_regenerated": "2026-10-21T21:14:22.411498Z"
   },
   "categories": {
     "core_documentation": [
@@ -844,6 +844,7 @@
       "/docs/en/api/messages/batches/retrieve",
       "/docs/en/api/messages/count_tokens",
       "/docs/en/api/messages/create",
+      "/docs/en/api/migration-2026-10-21",
       "/docs/en/api/models",
       "/docs/en/api/models/list",
       "/docs/en/api/models/retrieve",

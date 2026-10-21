@@ -54,11 +54,13 @@ Anthropic provides three kinds of official tooling for building with the Claude 
   </Card>
 </CardGroup>
 
+Each major version of a client SDK sends one [API version](https://platform.claude.com/docs/en/api/versioning) by default, and a new major version comes with each new API version. To move to `2026-10-21`, see [Upgrade to 2026-10-21](https://platform.claude.com/docs/en/api/migration-2026-10-21#upgrade).
+
 ## Latest versions
 
 | Tool       | Latest version | Package                                                                                               |
 | ---------- | -------------- | ----------------------------------------------------------------------------------------------------- |
-| ant CLI    | `1.44.0`       | [`github.com/anthropics/anthropic-cli`](https://github.com/anthropics/anthropic-cli/releases)         |
+| ant CLI    | `2.0.0`        | [`github.com/anthropics/anthropic-cli`](https://github.com/anthropics/anthropic-cli/releases)         |
 | Python     | `2.0.0`        | [`anthropic`](https://pypi.org/project/anthropic/)                                                    |
 | TypeScript | `1.0.0`        | [`@anthropic-ai/sdk`](https://www.npmjs.com/package/@anthropic-ai/sdk)                                |
 | C#         | `13.0.0`       | [`Anthropic`](https://www.nuget.org/packages/Anthropic)                                               |

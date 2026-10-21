@@ -15,7 +15,7 @@ description: Make your first API call to Claude and build a simple web search as
   <Tab title="cURL">
     <Steps>
       <Step title="Set your API key">
-        Export your API key as an environment variable. The cURL command below reads it from `$ANTHROPIC_API_KEY`.
+        Export your API key as an environment variable. The cURL command in the following step reads it from `$ANTHROPIC_API_KEY`.
 
         ```bash
         export ANTHROPIC_API_KEY="your-api-key-here"

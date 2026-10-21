@@ -1,7 +1,7 @@
 ---
 title: Start a session
 url: https://platform.claude.com/docs/en/managed-agents/sessions
-description: Create a session to run your agent and begin executing tasks.
+description: Create a session to run your agent and start running tasks.
 featureMetadata:
   topic:
     title: Managed Agents
@@ -756,9 +756,9 @@ The following example starts a session from an agent whose model has no geo pin,
 
 ### Set a session budget
 
-To cap what a session can spend, pass the optional `budget` (csharp, go: `Budget`) object when you create it. A budget is a hard ceiling on the session's list cost: the platform prices everything the session consumes at public list rates, and the session stops issuing new model requests once that running total reaches `max_list_cost` (java, php: `maxListCost`; csharp, go: `MaxListCost`). The budget's `type` (csharp, go: `Type`) is always `limit`. Give `max_list_cost` (java, php: `maxListCost`; csharp, go: `MaxListCost`) an `amount` (csharp, go: `Amount`) and a `currency` (csharp, go: `Currency`). `amount` (csharp, go: `Amount`) is a whole number of US cents written as a string, such as `"125"` for $1.25. The API takes a string rather than a number so no floating-point rounding is ever applied. `USD` is the only currency currently supported. When the session reaches the cap, it pauses and goes idle with the stop reason `budget_reached`. The cap is enforced between model requests, so the request that crosses it finishes first and the session's final list cost can land [a fraction past the cap](https://platform.claude.com/docs/en/managed-agents/budgets#when-a-session-reaches-its-budget). A budget can only be attached at creation: you can [change or remove](https://platform.claude.com/docs/en/managed-agents/session-operations#updating-the-session-budget) it later, but you can't add one to a session created without it.
+To cap what a session can spend, pass the optional `budget` (csharp, go: `Budget`) object when you create it. A budget is a hard ceiling on the session's list cost: the platform prices everything the session consumes at public list rates, and the session stops issuing new model requests once that running total reaches `max_list_cost` (java, php: `maxListCost`; csharp, go: `MaxListCost`). The budget's `type` (csharp, go: `Type`) is always `limit`. Give `max_list_cost` (java, php: `maxListCost`; csharp, go: `MaxListCost`) an `amount` (csharp, go: `Amount`) and a `currency` (csharp, go: `Currency`). `amount` (csharp, go: `Amount`) is a whole number of US cents written as a string, such as `"125"` for $1.25 USD. The API takes a string rather than a number so no floating-point rounding is ever applied. `USD` is the only currency currently supported. When the session reaches the cap, it pauses and goes idle with the stop reason `budget_reached`. The cap is enforced between model requests, so the request that crosses it completes first and the session's final list cost can land [a fraction past the cap](https://platform.claude.com/docs/en/managed-agents/budgets#when-a-session-reaches-its-budget). A budget can only be attached at creation: you can [change or remove](https://platform.claude.com/docs/en/managed-agents/session-operations#updating-the-session-budget) it later, but you can't add one to a session created without it.
 
-The following example creates a session with a $1.25 budget:
+The following example creates a session with a $1.25 USD budget:
 
 <CodeGroup>
   ```bash cURL
@@ -1114,7 +1114,7 @@ See [Session statuses](https://platform.claude.com/docs/en/managed-agents/sessio
   </Card>
 
   <Card title="Session event stream" icon="lightning" href="https://platform.claude.com/docs/en/managed-agents/events-and-streaming">
-    Send events, stream responses, and interrupt or redirect your session mid-execution.
+    Send events, stream responses, and interrupt or redirect your session while it runs.
   </Card>
 
   <Card title="Scheduled deployments" icon="arrows-clockwise" href="https://platform.claude.com/docs/en/managed-agents/scheduled-deployments">

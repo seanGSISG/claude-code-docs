@@ -265,7 +265,7 @@ The example defines a `get_weather` tool, lets Claude think and request a tool c
       }
 
       message = client.messages.create(
-        model: "claude-opus-5-5",
+        model: Anthropic::Model::CLAUDE_OPUS_5_5,
         max_tokens: 16000,
         thinking: {
           type: "adaptive"
@@ -281,7 +281,7 @@ The example defines a `get_weather` tool, lets Claude think and request a tool c
   </Step>
 
   <Step title="Capture the content array to echo back">
-    You should see `thinking` and `tool_use` blocks in the response content on a run where Claude chose to think (on simpler requests, adaptive mode may skip the thinking block). A note Claude writes before the tool call comes back as a `text` block or, on models that write [progress updates](https://platform.claude.com/docs/en/build-with-claude/thinking#progress-updates), as another `thinking` block. Keep this content array intact: the next step sends it back verbatim.
+    You should see `thinking` and `tool_use` blocks in the response content on a run that includes thinking (on simpler requests, adaptive mode may skip the thinking block). A note Claude writes before the tool call comes back as a `text` block or, on models that write [progress updates](https://platform.claude.com/docs/en/build-with-claude/thinking#progress-updates), as another `thinking` block. Keep this content array intact: the next step sends it back verbatim.
 
     <Note>
       To see thinking text like this output, add `display: "summarized"` to the request. On models where display defaults to omitted, including Claude Opus 5.5, the `thinking` field otherwise comes back as an empty string with only the `signature` populated. Either way, echo the content array back unchanged; see [Controlling thinking display](https://platform.claude.com/docs/en/build-with-claude/thinking#controlling-thinking-display).
@@ -344,8 +344,8 @@ The example defines a `get_weather` tool, lets Claude think and request a tool c
       # Extract the tool use block to get its ID for the tool result
       tool_use_block = next(block for block in response.content if block.type == "tool_use")
 
-      # Call your actual weather API, here is where your actual API call would go
-      # Let's pretend this is what we get back
+      # This is where your actual weather API call would go
+      # Pretend this is what the weather API returns
       weather_data = {"temperature": 88}
 
       # Second request - Include the assistant turn and the tool result
@@ -402,8 +402,8 @@ The example defines a `get_weather` tool, lets Claude think and request a tool c
       // Extract the tool use block to get its ID for the tool result
       const toolUseBlock = response.content.find((block) => block.type === "tool_use");
 
-      // Call your actual weather API, here is where your actual API call would go
-      // Let's pretend this is what we get back
+      // This is where your actual weather API call would go
+      // Pretend this is what the weather API returns
       const weatherData = { temperature: 88 };
 
       if (toolUseBlock) {
@@ -705,7 +705,7 @@ The example defines a `get_weather` tool, lets Claude think and request a tool c
       }
 
       response = client.messages.create(
-        model: "claude-opus-5-5",
+        model: Anthropic::Model::CLAUDE_OPUS_5_5,
         max_tokens: 16000,
         thinking: {
           type: "adaptive"
@@ -723,7 +723,7 @@ The example defines a `get_weather` tool, lets Claude think and request a tool c
       weather_data = { temperature: 88 }
 
       continuation = client.messages.create(
-        model: "claude-opus-5-5",
+        model: Anthropic::Model::CLAUDE_OPUS_5_5,
         max_tokens: 16000,
         thinking: {
           type: "adaptive"

@@ -311,7 +311,7 @@ The following example shows how to enable citations on a plain text document wit
 
   Compared to prompting Claude to cite sources, the citations feature offers the following advantages:
 
-  * **Cost savings:** If your prompt-based approach asks Claude to output direct quotes, you may see cost savings because `cited_text` does not count toward your output tokens.
+  * **Cost savings:** If your prompt-based approach asks Claude to output direct quotes, you might see cost savings because `cited_text` does not count toward your output tokens.
   * **Better citation reliability:** Because the API parses citations into the response formats described in the following sections and extracts `cited_text` directly, citations are guaranteed to contain valid pointers to the provided documents.
   * **Improved citation quality:** In Anthropic's evaluations, the citations feature is significantly more likely to cite the most relevant quotes from documents than purely prompt-based approaches.
 </Tip>
@@ -338,7 +338,7 @@ Integrate citations with Claude in these steps:
   </Step>
 
   <Step title="Claude provides cited response">
-    * Responses may now include multiple text blocks where each text block can contain a claim that Claude is making and a list of citations that support the claim.
+    * Responses might now include multiple text blocks where each text block can contain a claim that Claude is making and a list of citations that support the claim.
 
     * Citations reference specific locations in source documents. The format of these citations is dependent on the type of document being cited from.
 
@@ -988,7 +988,7 @@ Plain text documents are automatically chunked into sentences. You can provide t
 
 ### PDF documents
 
-PDF documents can be provided as base64-encoded data, a URL, or by `file_id`. PDF text is extracted and chunked into sentences. As image citations are not yet supported, PDFs that are scans of documents and do not contain extractable text are not citable.
+PDF documents can be provided as base64-encoded data, as a URL, or by `file_id`. PDF text is extracted and chunked into sentences. As image citations are not yet supported, PDFs that are scans of documents and do not contain extractable text are not citable.
 
 <Tabs>
   <Tab title="Base64">

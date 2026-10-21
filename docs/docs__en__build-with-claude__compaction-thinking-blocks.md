@@ -51,7 +51,7 @@ Compactions from before a thinking block was produced don't count against it. Th
 
 ## Change the system prompt or tools
 
-A later request can use a different `system`, different `tools`, or a different model than the compaction request, and the API still accepts the block. Such a change can invalidate the thinking in the kept turns, but it has no other effect.
+A later request can use a different `system`, different `tools`, or a different model from the compaction request, and the API still accepts the block. Such a change can invalidate the thinking in the kept turns, but it has no other effect.
 
 To change `system` or `tools` without invalidating any kept thinking, compact the whole conversation first, so no turns are kept. Then change them on the next request.
 
@@ -68,7 +68,7 @@ The compaction response doesn't say whether the kept thinking holds. The first r
 3. Send the next request, with the block first, then the kept turn, then a new `user` message, and with `thinking.block_binding.prefix_mismatch_behavior` set to `"error"`.
 4. Read the result. A 200 response whose `input_transformations` array is empty means no thinking block failed the check or was dropped. A 400 error that says the block is bound to a different conversation means one did. The message starts with the path of the first block that failed, and [What the API does with an invalid block](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#mismatch-behavior) shows it in full.
 
-The `prefix_mismatch_behavior` field needs the `thinking-binding-controls-2026-08-01` beta header in addition to [the `compact-2026-09-04` beta header](https://platform.claude.com/docs/en/build-with-claude/compaction-on-demand#request-a-summary). Setting the field also opts the request into the check on accounts where the check isn't on by default.
+The `prefix_mismatch_behavior` field needs the `thinking-binding-controls-2026-08-01` beta header in addition to the [`compact-2026-09-04` beta header](https://platform.claude.com/docs/en/build-with-claude/compaction-on-demand#request-a-summary). Setting the field also opts the request into the check on accounts where the check isn't on by default.
 
 The following program runs the four steps. It prints how many thinking blocks the kept turn holds and how many entries `input_transformations` has; no entries means the kept thinking held:
 

@@ -27,7 +27,7 @@ Pre-built Agent Skills extend Claude's capabilities with specialized expertise f
 
 ## Step 1: List available Skills
 
-First, check what Skills are available. Use the Skills API to list all Anthropic-managed Skills. Each language tab is an excerpt from one continuous script, with any imports and client setup at the top:
+First, check what Skills are available. Use the Skills API to list all Anthropic-managed Skills. The example is an excerpt from one continuous script, with any imports and client setup at the top:
 
 <CodeGroup>
   ```bash cURL

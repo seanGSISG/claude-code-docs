@@ -34,7 +34,7 @@ You can also override `model` (csharp, go: `Model`), `system` (csharp, go: `Syst
 
 The following example defines a coding agent that uses the newest Claude Opus model with access to the pre-built agent toolset. The toolset lets the agent write code, read files, search the web, and more. See the [agent tools reference](https://platform.claude.com/docs/en/managed-agents/tools) for the full list of supported tools.
 
-The examples use curl, the `ant` CLI, or one of the SDKs. If you haven't set one up, the [quickstart](https://platform.claude.com/docs/en/managed-agents/quickstart#install-the-cli) covers installation and client setup.
+The examples use curl, the `ant` CLI, or the SDK. If you haven't set one up, the [quickstart](https://platform.claude.com/docs/en/managed-agents/quickstart#install-the-cli) covers installation and client setup.
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL
@@ -832,7 +832,7 @@ Archiving makes the agent read-only and cannot be undone. Existing sessions cont
   </Card>
 
   <Card title="Start a session" icon="play" href="https://platform.claude.com/docs/en/managed-agents/sessions">
-    Create a session to run your agent and begin executing tasks.
+    Create a session to run your agent and start running tasks.
   </Card>
 
   <Card title="Reference" icon="book" href="https://platform.claude.com/docs/en/managed-agents/reference">

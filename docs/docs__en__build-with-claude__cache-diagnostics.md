@@ -702,13 +702,13 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
 <Tabs>
   <Tab title="cURL">
     <Info>
-      This workflow doesn't translate well to a one-off shell command. See the SDK tabs for the loop pattern; the per-turn HTTP request is identical to [Basic usage](https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics#basic-usage).
+      This workflow doesn't translate well to a one-off shell command. Use the Claude SDK to run the loop; the per-turn HTTP request is identical to [Basic usage](https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics#basic-usage).
     </Info>
   </Tab>
 
   <Tab title="CLI">
     <Info>
-      This workflow doesn't translate well to a one-off shell command. See the SDK tabs for the loop pattern; the per-turn CLI invocation is identical to [Basic usage](https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics#basic-usage).
+      This workflow doesn't translate well to a one-off shell command. Use the Claude SDK to run the loop; the per-turn CLI command is identical to [Basic usage](https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics#basic-usage).
     </Info>
   </Tab>
 
@@ -968,7 +968,7 @@ The `diagnostics` field on the response `Message` has three possible values:
 | Value                          | Meaning                                                                                                                                                                                         |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `null`                         | The request did not include the `diagnostics` object, `previous_message_id` was `null` (first turn, nothing to compare), or a comparison ran and found no divergence.                           |
-| `{"cache_miss_reason": null}`  | The comparison was still running when the response was serialized. This can happen when the response starts very quickly. Treat it as inconclusive and check the next turn.                     |
+| `{"cache_miss_reason": null}`  | The comparison was still running when the response was serialized. This can occur when the response starts very quickly. Treat it as inconclusive and check the next turn.                      |
 | `{"cache_miss_reason": {...}}` | A `cache_miss_reason` is attached. For `*_changed` types this identifies the first divergence point; `previous_message_not_found` and `unavailable` are cases where no comparison was produced. |
 
 When `cache_miss_reason` is non-null, it looks like this:
@@ -996,7 +996,7 @@ When `cache_miss_reason` is non-null, it looks like this:
 
 ## Cache miss reason types
 
-`cache_miss_reason` is a discriminated union on `type`. The response reports the earliest divergence only, so fix it first; later ones may be hidden behind it.
+`cache_miss_reason` is a discriminated union on `type`. The response reports the earliest divergence only, so fix it first; later ones might be hidden behind it.
 
 | Type                         | What it means                                                                                                                                                                                                                                                                                                                                                                                                                                   | What to change                                                                                                                                                                                                                                                                                                |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1013,7 +1013,7 @@ When `cache_miss_reason` is non-null, it looks like this:
 
 ## Reading diagnostics alongside usage
 
-`diagnostics` answers "did my request change?" while `usage.cache_read_input_tokens` answers "did the cache hit?". Combining them tells you where to look.
+`diagnostics` answers "did my request change?" whereas `usage.cache_read_input_tokens` answers "did the cache hit?" Combining them tells you where to look.
 
 This matrix applies to turns where you passed a real `previous_message_id`. On the first turn (`previous_message_id: null`), `diagnostics` is always `null` and `cache_read_input_tokens` is normally zero because the cache is being written, not read; no troubleshooting is needed. The matrix also does not apply when `cache_miss_reason` is `null` (the comparison is still pending; check the next turn) or when its `type` is `previous_message_not_found` or `unavailable` (no comparison was produced).
 
@@ -1021,7 +1021,7 @@ This matrix applies to turns where you passed a real `previous_message_id`. On t
 | ----------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `null`                                    | high              | Working as expected. Your prefix is stable and the cache hit.                                                                                                                                                                        |
 | `null`                                    | low or zero       | Your requests match but the cache entry was no longer available. Consider shortening gaps between turns or using the [1-hour cache TTL](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration). |
-| `cache_miss_reason` is a `*_changed` type | low or zero       | Your bug. The request changed; fix the cause indicated by `type`.                                                                                                                                                                    |
+| `cache_miss_reason` is a `*_changed` type | low or zero       | The request changed; fix the cause indicated by `type`.                                                                                                                                                                              |
 | `cache_miss_reason` is a `*_changed` type | high              | Rare. A change occurred late in the prompt but an earlier `cache_control` breakpoint still hit. Worth fixing, but low impact.                                                                                                        |
 
 ## Limitations
@@ -1029,7 +1029,7 @@ This matrix applies to turns where you passed a real `previous_message_id`. On t
 * **Claude API only:** Not available on Amazon Bedrock or Google Cloud.
 * **Limited retention:** Fingerprints for `previous_message_id` lookup expire after a short period. Run diagnostic comparisons between closely spaced requests.
 * **Same workspace:** The previous request must have run in the same organization and workspace. To check, compare the `anthropic-workspace-id` [response header](https://platform.claude.com/docs/en/api/overview#response-headers) on the two responses.
-* **Comparison horizon:** For very long conversations where the only change is deep in the message list, the response may be `unavailable` rather than a precise location.
+* **Comparison horizon:** For very long conversations where the only change is deep in the message list, the response might be `unavailable` rather than a precise location.
 * **Best-effort:** Diagnostics never blocks or fails your request. If diagnostic information is not available, the response returns `unavailable`, or `cache_miss_reason: null` when the comparison was still running.
 
 ## Data retention

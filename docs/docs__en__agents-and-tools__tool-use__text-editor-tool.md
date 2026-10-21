@@ -225,35 +225,35 @@ Use the text editor tool in the following way:
 
 <Steps>
   <Step title="Provide Claude with the text editor tool and a user prompt">
-    * Include the text editor tool in your API request
-    * Provide a user prompt that may require examining or modifying files, such as "Can you fix the syntax error in my code?"
+    * Include the text editor tool in your API request.
+    * Provide a user prompt that might require examining or modifying files, such as "Can you fix the syntax error in my code?"
   </Step>
 
   <Step title="Claude uses the tool to examine files or directories">
-    * Claude assesses what it needs to look at and uses the `view` command to examine file contents or list directory contents
-    * The API response will contain a `tool_use` content block with the `view` command
+    * Claude assesses what it needs to look at and uses the `view` command to examine file contents or list directory contents.
+    * The API response contains a `tool_use` content block with the `view` command.
   </Step>
 
-  <Step title="Execute the view command and return results">
-    * Extract the file or directory path from Claude's tool use request
-    * Read the file's contents or list the directory contents
-    * If a `max_characters` parameter was specified in the tool configuration, truncate the file contents to that length
-    * Return the results to Claude by continuing the conversation with a new `user` message containing a `tool_result` content block
+  <Step title="Run the view command and return results">
+    * Extract the file or directory path from Claude's tool use request.
+    * Read the file's contents or list the directory contents.
+    * If you specified a `max_characters` parameter in the tool configuration, truncate the file contents to that length.
+    * Return the results to Claude by continuing the conversation with a new `user` message containing a `tool_result` content block.
   </Step>
 
   <Step title="Claude uses the tool to modify files">
-    * After examining the file or directory, Claude may use a command such as `str_replace` to make changes or `insert` to add text at a specific line number.
-    * If Claude uses the `str_replace` command, Claude constructs a properly formatted tool use request with the old text and new text to replace it with
+    * After examining the file or directory, Claude might use a command such as `str_replace` to make changes or `insert` to add text at a specific line number.
+    * If Claude uses the `str_replace` command, Claude constructs a properly formatted tool use request with the old text and new text to replace it with.
   </Step>
 
-  <Step title="Execute the edit and return results">
-    * Extract the file path, old text, and new text from Claude's tool use request
-    * Perform the text replacement in the file
-    * Return the results to Claude
+  <Step title="Make the edit and return results">
+    * Extract the file path, old text, and new text from Claude's tool use request.
+    * Perform the text replacement in the file.
+    * Return the results to Claude.
   </Step>
 
   <Step title="Claude provides its analysis and explanation">
-    * After examining and possibly editing the files, Claude provides a complete explanation of what it found and what changes it made
+    * After examining and possibly editing the files, Claude provides a complete explanation of what it found and what changes it made.
   </Step>
 </Steps>
 
@@ -1484,7 +1484,7 @@ The tool type is `type: "text_editor_20250728"` for Claude 4 and later models.
 
 <Steps>
   <Step title="Initialize your editor implementation">
-    Create helper functions to handle file operations like reading, writing, and modifying files. Consider implementing backup functionality to recover from mistakes.
+    Create helper functions to handle file operations such as reading, writing, and modifying files. Consider implementing backup functionality to recover from mistakes.
   </Step>
 
   <Step title="Handle editor tool calls">
@@ -1773,11 +1773,11 @@ The tool type is `type: "text_editor_20250728"` for Claude 4 and later models.
 
 ### Handle errors
 
-When using the text editor tool, various errors may occur. Here is guidance on how to handle them:
+When using the text editor tool, various errors might occur. Here is guidance on how to handle them:
 
 <AccordionGroup>
   <Accordion title="File not found">
-    If Claude tries to view or modify a file that doesn't exist, return an appropriate error message in the `tool_result`:
+    If Claude attempts to view or modify a file that doesn't exist, return an appropriate error message in the `tool_result`:
 
     ```json
     {
@@ -1853,7 +1853,7 @@ When using the text editor tool, various errors may occur. Here is guidance on h
 
 <AccordionGroup>
   <Accordion title="Provide clear context">
-    When asking Claude to fix or modify code, be specific about what files need to be examined or what issues need to be addressed. Clear context helps Claude identify the right files and make appropriate changes.
+    When asking Claude to fix or modify code, be specific about what files to examine or what issues to address. Clear context helps Claude identify the right files and make appropriate changes.
 
     **Less helpful prompt:** "Can you fix my code?"
 
@@ -2250,7 +2250,7 @@ You can use the text editor tool alongside other Claude tools. When combining to
 | Date             | Version                | Changes                                                                                                                                                                                                                                                                                                                  |
 | ---------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | July 28, 2025    | `text_editor_20250728` | Release of an updated text editor tool that fixes some issues and adds an optional `max_characters` parameter. It is otherwise identical to `text_editor_20250429`.                                                                                                                                                      |
-| April 29, 2025   | `text_editor_20250429` | Release of the text editor tool for Claude 4. This version removes the `undo_edit` command but maintains all other capabilities. The tool name has been updated to reflect its str\_replace-based architecture.                                                                                                          |
+| April 29, 2025   | `text_editor_20250429` | Release of the text editor tool for Claude 4. This version removes the `undo_edit` command but maintains all other capabilities. The tool name has been updated to reflect its `str_replace`-based architecture.                                                                                                         |
 | March 13, 2025   | `text_editor_20250124` | Introduction of standalone text editor tool documentation. This version is optimized for Claude Sonnet 3.7 but has identical capabilities to the previous version.                                                                                                                                                       |
 | October 22, 2024 | `text_editor_20241022` | Initial release of the text editor tool with Claude Sonnet 3.5 (retired; see [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)). Provides capabilities for viewing, creating, and editing files through the `view`, `create`, `str_replace`, `insert`, and `undo_edit` commands. |
 
@@ -2258,13 +2258,13 @@ You can use the text editor tool alongside other Claude tools. When combining to
 
 Here are some ideas for how to use the text editor tool in more convenient and powerful ways:
 
-* **Integrate with your development workflow**: Build the text editor tool into your development tools or IDE
-* **Create a code review system**: Have Claude review your code and make improvements
-* **Build a debugging assistant**: Create a system where Claude can help you diagnose and fix issues in your code
-* **Implement file format conversion**: Let Claude help you convert files from one format to another
-* **Automate documentation**: Set up workflows for Claude to automatically document your code
+* **Integrate with your development workflow:** Build the text editor tool into your development tools or IDE
+* **Create a code review system:** Have Claude review your code and make improvements
+* **Build a debugging assistant:** Create a system where Claude can help you diagnose and fix issues in your code
+* **Implement file format conversion:** Let Claude help you convert files from one format to another
+* **Automate documentation:** Set up workflows for Claude to automatically document your code
 
-The text editor tool enables Claude to work directly with your code base, supporting workflows from debugging to automated documentation.
+The text editor tool allows Claude to work directly with your code base, supporting workflows from debugging to automated documentation.
 
 <CardGroup cols={3}>
   <Card title="Tool use overview" icon="wrench" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">
@@ -2272,6 +2272,6 @@ The text editor tool enables Claude to work directly with your code base, suppor
   </Card>
 
   <Card title="Bash tool" icon="terminal" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool">
-    Execute shell commands with Claude.
+    Run shell commands with Claude.
   </Card>
 </CardGroup>

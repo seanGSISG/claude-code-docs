@@ -263,7 +263,7 @@ Enable compaction by adding the `compact_20260112` strategy to `context_manageme
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -483,7 +483,7 @@ Configure when compaction triggers using the `trigger` parameter:
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -704,7 +704,7 @@ You can provide custom instructions through the `instructions` parameter. Custom
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: [
       { role: "user", content: "Help me build a Python web scraper" },
@@ -1037,7 +1037,7 @@ When enabled, the API returns a message with the `compaction` stop reason after 
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -1055,7 +1055,7 @@ When enabled, the API returns a message with the `compaction` stop reason after 
 
     response = client.beta.messages.create(
       betas: ["compact-2026-01-12"],
-      model: "claude-opus-5-5",
+      model: Anthropic::Model::CLAUDE_OPUS_5_5,
       max_tokens: 4096,
       messages: messages,
       context_management: {
@@ -1070,7 +1070,7 @@ When enabled, the API returns a message with the `compaction` stop reason after 
 
 #### Enforcing a total token budget
 
-When a model works on long tasks with many tool-use iterations, total token consumption can grow significantly. You can combine `pause_after_compaction` with a compaction counter to estimate cumulative usage and gracefully wrap up the task once a budget is reached.
+When a model works on long tasks with many tool-use iterations, total token consumption can grow significantly. You can combine `pause_after_compaction` with a compaction counter to estimate cumulative usage and gracefully end the task once a budget is reached.
 
 This example appears in the SDK languages only: its value is the budget-tracking logic around the request. The raw request combines the `trigger` from [Trigger configuration](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold#trigger-configuration) with `pause_after_compaction` from [Pausing after compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold#pausing-after-compaction).
 
@@ -1330,7 +1330,7 @@ This example appears in the SDK languages only: its value is the budget-tracking
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -1617,7 +1617,7 @@ You must pass the `compaction` block back to the API on subsequent requests to c
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -1631,7 +1631,7 @@ You must pass the `compaction` block back to the API on subsequent requests to c
 
   next_response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -1648,7 +1648,7 @@ In Python, use `client.beta.messages`, as the samples on this page do. If you ca
 When the API receives a `compaction` block, all content blocks before it are ignored. You can either:
 
 * Keep the original messages in your list and let the API handle removing the compacted content
-* Manually drop the compacted messages and only include the compaction block onwards
+* Manually drop the compacted messages and only include the compaction block onward
 
 On Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5, thinking blocks from before a `compaction` block aren't carried forward, so the summary is all the model has of that earlier work. If you write your own `instructions`, tell the model what the summary must retain; see [Tell the model what to preserve in compaction summaries](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1#tell-the-model-what-to-preserve-in-compaction-summaries).
 
@@ -1959,7 +1959,7 @@ The compaction block streams differently from text blocks. You receive a `conten
 
   stream = client.beta.messages.stream(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: messages,
     context_management: {
@@ -2229,7 +2229,7 @@ To maximize cache hit rates, add a `cache_control` breakpoint at the end of your
 
   response = client.beta.messages.create(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     system: [
       {
@@ -2454,7 +2454,7 @@ The token counting endpoint (`/v1/messages/count_tokens`) applies existing `comp
 
   count_response = client.beta.messages.count_tokens(
     betas: ["compact-2026-01-12"],
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     messages: messages,
     context_management: {
       edits: [{ type: "compact_20260112" }]
@@ -2740,7 +2740,7 @@ Here's a complete example of a long-running conversation with compaction:
 
     response = client.beta.messages.create(
       betas: ["compact-2026-01-12"],
-      model: "claude-opus-5-5",
+      model: Anthropic::Model::CLAUDE_OPUS_5_5,
       max_tokens: 4096,
       messages: messages,
       context_management: {
@@ -3300,7 +3300,7 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
 
     response = client.beta.messages.create(
       betas: ["compact-2026-01-12"],
-      model: "claude-opus-5-5",
+      model: Anthropic::Model::CLAUDE_OPUS_5_5,
       max_tokens: 4096,
       messages: messages,
       context_management: {
@@ -3331,7 +3331,7 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
 
       response = client.beta.messages.create(
         betas: ["compact-2026-01-12"],
-        model: "claude-opus-5-5",
+        model: Anthropic::Model::CLAUDE_OPUS_5_5,
         max_tokens: 4096,
         messages: messages_after_compaction,
         context_management: {
@@ -3375,7 +3375,7 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
     Learn about context window sizes and management strategies.
   </Card>
 
-  <Card title="Session memory compaction cookbook" icon="book" href="https://platform.claude.com/cookbook/misc-session-memory-compaction">
+  <Card title="Session memory compaction recipe" icon="book" href="https://platform.claude.com/cookbook/misc-session-memory-compaction">
     Explore a practical implementation that manages long-running conversations with instant session memory compaction using background threading and prompt caching.
   </Card>
 </CardGroup>

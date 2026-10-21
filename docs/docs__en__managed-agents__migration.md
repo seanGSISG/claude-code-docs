@@ -20,7 +20,7 @@ If you built an agent by calling `client.messages.create()` (csharp: `client.Mes
 
 | Before                                                                                           | After                                                                                                                      |
 | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| You maintain the conversation history array and pass it back on every turn.                      | The session stores history server-side. Send events, receive events.                                                       |
+| You maintain the conversation history array and pass it back on every turn.                      | The session stores history server-side. You send events and receive events.                                                |
 | You iterate `tool_use` content blocks, run each tool, and loop back with `tool_result` messages. | Pre-built tools run inside the sandbox automatically. You only handle custom tools through `agent.custom_tool_use` events. |
 | You provision your own sandbox for running agent-generated code.                                 | The session sandbox handles code execution, file operations, and bash.                                                     |
 | You decide when the loop is done.                                                                | The session emits `session.status_idle` when the agent has nothing more to do.                                             |
@@ -509,7 +509,7 @@ If you built an agent by calling `client.messages.create()` (csharp: `client.Mes
 
 ## From the Claude Agent SDK
 
-If you built with the [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview), you're already working with agents, tools, and sessions as concepts. The difference is where they run: the SDK runs in a process you operate, while Managed Agents runs in Anthropic's infrastructure. Most of the migration is mapping SDK configuration objects to their API-side equivalents.
+If you built with the [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview), you're already working with agents, tools, and sessions as concepts. The difference is where they run: the SDK runs in a process you operate, whereas Managed Agents runs in Anthropic's infrastructure. Most of the migration is mapping SDK configuration objects to their API-side equivalents.
 
 ### What changes
 
@@ -1241,7 +1241,7 @@ The tradeoff for Anthropic running the agent loop is that a few things the SDK h
 
 ## Migrating between model versions
 
-When a new Claude model is released, migrating a Claude Managed Agents integration is typically a one-field change: update `model` (csharp, go: `Model`) on your [agent definition](https://platform.claude.com/docs/en/managed-agents/agent-setup) and the change takes effect on the next session you create.
+When a new Claude model is released, migrating a Claude Managed Agents integration is typically a one-field change: update `model` (csharp, go: `Model`) on your [agent definition](https://platform.claude.com/docs/en/managed-agents/agent-setup), and the change takes effect on the next session you create.
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL

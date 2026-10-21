@@ -12,22 +12,22 @@ featureMetadata:
 
 Claude Managed Agents provides a set of built-in tools that Claude can use autonomously within a [session](https://platform.claude.com/docs/en/managed-agents/sessions). You control which tools are available by specifying them in the agent configuration.
 
-Claude Managed Agents also supports custom, user-defined tools. Your application executes these tools separately and returns the results to Claude, which uses them to continue the task. To give the agent tools from an MCP server, use the [MCP connector](https://platform.claude.com/docs/en/managed-agents/mcp-connector) instead.
+Claude Managed Agents also supports custom, user-defined tools. Your application runs these tools separately and returns the results to Claude, which uses them to continue the task. To give the agent tools from an MCP server, use the [MCP connector](https://platform.claude.com/docs/en/managed-agents/mcp-connector) instead.
 
 ## Available tools
 
 The agent toolset includes the following tools. All are enabled by default when you include the toolset in the agent configuration.
 
-| Tool       | Name         | Description                                    |
-| ---------- | ------------ | ---------------------------------------------- |
-| Bash       | `bash`       | Execute bash commands in a shell session       |
-| Read       | `read`       | Read a file from the sandbox filesystem        |
-| Write      | `write`      | Write a file to the sandbox filesystem         |
-| Edit       | `edit`       | Perform string replacement in a file           |
-| Glob       | `glob`       | Fast file pattern matching using glob patterns |
-| Grep       | `grep`       | Text search using regex patterns               |
-| Web fetch  | `web_fetch`  | Fetch content from a URL                       |
-| Web search | `web_search` | Search the web for information                 |
+| Tool       | Name         | Description                                            |
+| ---------- | ------------ | ------------------------------------------------------ |
+| Bash       | `bash`       | Run bash commands in a shell session                   |
+| Read       | `read`       | Read a file from the sandbox filesystem                |
+| Write      | `write`      | Write a file to the sandbox filesystem                 |
+| Edit       | `edit`       | Perform string replacement in a file                   |
+| Glob       | `glob`       | Perform fast file pattern matching using glob patterns |
+| Grep       | `grep`       | Search text using regex patterns                       |
+| Web fetch  | `web_fetch`  | Fetch content from a URL                               |
+| Web search | `web_search` | Search the web for information                         |
 
 When a tool output exceeds 100,000 characters (about 25,000 tokens), it is automatically written to a file in the [sandbox](https://platform.claude.com/docs/en/managed-agents/environments). The model receives a truncated preview with the file path and can read the full content from there.
 
@@ -234,7 +234,7 @@ The `web_search` and `web_fetch` entries also accept domain lists, a cap on fetc
 
 ### Config entry types in the SDKs
 
-The Python, TypeScript, Go, Java, C#, Ruby, and PHP SDKs type each `configs` (csharp, go: `Configs`) entry per tool. The type is a union with one member per built-in tool, discriminated by `type` (csharp, go: `Type`).
+The SDK types each `configs` (csharp, go: `Configs`) entry by tool. The type is a union with one member for each built-in tool, discriminated by `type` (csharp, go: `Type`).
 
 In Go, Java, C#, and PHP, you construct entries from typed values rather than plain dictionaries or hashes. In those SDKs, the element type of `configs` (csharp, go: `Configs`) is the union itself, so build each entry from its per-tool member type.
 
@@ -512,10 +512,10 @@ For sessions that run in a self-hosted sandbox, the environment worker can [serv
   </Card>
 
   <Card title="Permission policies" icon="lock" href="https://platform.claude.com/docs/en/managed-agents/permission-policies">
-    Control when agent and MCP tools execute.
+    Control when agent and MCP tools run.
   </Card>
 
   <Card title="Session event stream" icon="lightning" href="https://platform.claude.com/docs/en/managed-agents/events-and-streaming">
-    Send events, stream responses, and interrupt or redirect your session mid-execution.
+    Send events, stream responses, and interrupt or redirect your session while it runs.
   </Card>
 </CardGroup>
