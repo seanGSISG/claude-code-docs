@@ -164,8 +164,7 @@ Here's how to handle the `pause_turn` stop reason:
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Messages = [
-          new() {
-              Role = Role.User,
+          new UserMessageParam {
               Content = "Search for comprehensive information about quantum computing breakthroughs in 2025"
           }
       ],
@@ -182,12 +181,10 @@ Here's how to handle the `pause_turn` stop reason:
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
           Messages = [
-              new() {
-                  Role = Role.User,
+              new UserMessageParam {
                   Content = "Search for comprehensive information about quantum computing breakthroughs in 2025"
               },
-              new() {
-                  Role = Role.Assistant,
+              new AssistantMessageParam {
                   Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList()
               }
           ],
@@ -703,9 +700,8 @@ The following example enables web fetch together with a user-defined `run_comman
           },
       }),
   ];
-  MessageParam userMessage = new()
+  MessageParam userMessage = new UserMessageParam
   {
-      Role = Role.User,
       Content = "Summarize https://example.com/article and run uname -a to tell me what system this is on."
   };
 
@@ -743,12 +739,11 @@ The following example enables web fetch together with a user-defined `run_comman
           Messages =
           [
               userMessage,
-              new()
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
                   Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList()
               },
-              new() { Role = Role.User, Content = new MessageParamContent(toolResults) }
+              new UserMessageParam { Content = toolResults }
           ]
       });
       // If a web_fetch was deferred, it runs on this request and its
@@ -875,7 +870,7 @@ The following example enables web fetch together with a user-defined `run_comman
               .addTool(runCommandTool)
               .addUserMessage(prompt)
               .addMessage(response)
-              .addUserMessageOfBlockParams(toolResults)
+              .addUserMessageOfContentBlockParams(toolResults)
               .build());
           // If a web_fetch was deferred, it runs on this request and its
           // web_fetch_tool_result is the first block of continuation.content().
@@ -1064,7 +1059,7 @@ When using domain filters:
 Invalid domain formats are rejected at request time with a 400 `invalid_request_error`.
 
 <Note>
-  Request-level domain restrictions work together with any organization-level domain restrictions configured in Claude Console. Request-level `allowed_domains` must be a subset of the organization-level allowed list; entries outside it cause the API to return a validation error. A request-level allowed list that includes a domain your organization blocks is rejected with a `400` error that names the conflicting entries.
+  In a Messages API request, request-level domain restrictions work together with any organization-level domain restrictions configured in Claude Console. Request-level `allowed_domains` must be a subset of the organization-level allowed list; entries outside it cause the API to return a validation error. A request-level allowed list that includes a domain your organization blocks is rejected with a `400` error that names the conflicting entries.
 </Note>
 
 <Warning>
@@ -1073,7 +1068,7 @@ Invalid domain formats are rejected at request time with a 400 `invalid_request_
 
 [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) uses the same `allowed_domains` and `blocked_domains` fields on the `web_search` and `web_fetch` entries of the agent toolset. On Managed Agents, each list holds at most 64 entries, domains listed for `web_fetch` cannot include a path, and fields specific to the Messages API tools, such as `max_uses`, `citations`, and `cache_control`, are not available. See [Domain list rules](https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions#domain-list-rules) for the full rules.
 
-Organization-level web search and web fetch settings in the Claude Console apply to Messages API requests only. They do not apply to Managed Agents sessions, which use the per-tool lists on the agent toolset instead. For a session in a cloud environment with `limited` networking, the environment's `allowed_hosts` also applies to `web_search` and `web_fetch`; see [Networking](https://platform.claude.com/docs/en/managed-agents/environments#networking). The per-tool lists restrict these tools further, within the hosts that `allowed_hosts` allows.
+Your organization's web search settings on the [**Capabilities**](https://platform.claude.com/settings/capabilities) page of the Claude Console apply to Messages API requests and to Managed Agents sessions. In a session, the agent receives only the search results that both the organization's domain restrictions and the agent's per-tool lists allow. For a session in a cloud environment with `limited` networking, the environment's `allowed_hosts` also applies to `web_search` and `web_fetch`; see [Networking](https://platform.claude.com/docs/en/managed-agents/environments#networking). The per-tool lists restrict these tools further, within the hosts that `allowed_hosts` allows.
 
 ## Dynamic filtering with code execution
 

@@ -221,9 +221,8 @@ The simplest approach is to reference a PDF directly from a URL:
       MaxTokens = 1024,
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = new List<ContentBlockParam>
               {
                   documentParam,
@@ -276,7 +275,7 @@ The simplest approach is to reference a PDF directly from a URL:
   MessageCreateParams params = MessageCreateParams.builder()
     .model(Model.CLAUDE_OPUS_5_5)
     .maxTokens(1024)
-    .addUserMessageOfBlockParams(
+    .addUserMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofDocument(documentParam),
         ContentBlockParam.ofText(
@@ -533,9 +532,8 @@ If you need to send PDFs from your local system or when a URL isn't available:
       MaxTokens = 1024,
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = new List<ContentBlockParam>
               {
                   documentParam,
@@ -615,7 +613,7 @@ If you need to send PDFs from your local system or when a URL isn't available:
   MessageCreateParams params = MessageCreateParams.builder()
     .model(Model.CLAUDE_OPUS_5_5)
     .maxTokens(1024)
-    .addUserMessageOfBlockParams(
+    .addUserMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofDocument(documentParam),
         ContentBlockParam.ofText(
@@ -854,9 +852,8 @@ For PDFs you'll use repeatedly, or when you want to avoid encoding overhead, use
       MaxTokens = 1024,
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = new List<ContentBlockParam>
               {
                   new DocumentBlockParam
@@ -921,7 +918,7 @@ For PDFs you'll use repeatedly, or when you want to avoid encoding overhead, use
   MessageCreateParams params = MessageCreateParams.builder()
     .model(Model.CLAUDE_OPUS_5_5)
     .maxTokens(1024)
-    .addUserMessageOfBlockParams(
+    .addUserMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofDocument(
           DocumentBlockParam.builder().fileSource(file.id()).build()
@@ -1200,9 +1197,8 @@ Cache PDFs with [prompt caching](https://platform.claude.com/docs/en/build-with-
       MaxTokens = 1024,
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = new List<ContentBlockParam>
               {
                   new DocumentBlockParam
@@ -1279,7 +1275,7 @@ Cache PDFs with [prompt caching](https://platform.claude.com/docs/en/build-with-
   MessageCreateParams params = MessageCreateParams.builder()
     .model(Model.CLAUDE_OPUS_5_5)
     .maxTokens(1024)
-    .addUserMessageOfBlockParams(
+    .addUserMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofDocument(
           DocumentBlockParam.builder()
@@ -1639,9 +1635,8 @@ Use the [Message Batches API](https://platform.claude.com/docs/en/build-with-cla
                   MaxTokens = 1024,
                   Messages =
                   [
-                      new()
+                      new UserMessageParam
                       {
-                          Role = Role.User,
                           Content = new List<ContentBlockParam>
                           {
                               new DocumentBlockParam
@@ -1663,9 +1658,8 @@ Use the [Message Batches API](https://platform.claude.com/docs/en/build-with-cla
                   MaxTokens = 1024,
                   Messages =
                   [
-                      new()
+                      new UserMessageParam
                       {
-                          Role = Role.User,
                           Content = new List<ContentBlockParam>
                           {
                               new DocumentBlockParam
@@ -1764,7 +1758,7 @@ Use the [Message Batches API](https://platform.claude.com/docs/en/build-with-cla
           BatchCreateParams.Request.Params.builder()
             .model(Model.CLAUDE_OPUS_5_5)
             .maxTokens(1024)
-            .addUserMessageOfBlockParams(
+            .addUserMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofDocument(
                   DocumentBlockParam.builder()
@@ -1791,7 +1785,7 @@ Use the [Message Batches API](https://platform.claude.com/docs/en/build-with-cla
           BatchCreateParams.Request.Params.builder()
             .model(Model.CLAUDE_OPUS_5_5)
             .maxTokens(1024)
-            .addUserMessageOfBlockParams(
+            .addUserMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofDocument(
                   DocumentBlockParam.builder()

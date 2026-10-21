@@ -75,7 +75,7 @@ The simplest setup, in beta on the Claude API: set `fallbacks` to `"default"`, a
       {
           Model = Messages::Model.ClaudeFable5,
           MaxTokens = 1024,
-          Messages = [new() { Content = "Hello, Claude", Role = Role.User }],
+          Messages = [new BetaUserMessageParam { Content = "Hello, Claude" }],
           Fallbacks = new Default(),
           Betas = [AnthropicBeta.ServerSideFallback2026_07_01],
       }
@@ -330,10 +330,7 @@ Default routing never draws the up-front [oversized-image rejection](https://pla
       {
           Model = Messages::Model.ClaudeFable5,
           MaxTokens = 1024,
-          Messages =
-          [
-              new() { Content = "Hello, Claude", Role = Role.User },
-          ],
+          Messages = [new BetaUserMessageParam { Content = "Hello, Claude" }],
           Fallbacks = new Default(),
           Betas = [AnthropicBeta.ServerSideFallback2026_07_01],
       }
@@ -549,7 +546,7 @@ The highlighted lines are the only difference from the default-routing request.
       {
           Model = Messages::Model.ClaudeFable5,
           MaxTokens = 1024,
-          Messages = [new() { Content = "Hello, Claude", Role = Role.User }],
+          Messages = [new BetaUserMessageParam { Content = "Hello, Claude" }],
           Fallbacks = new([new(Messages::Model.ClaudeOpus4_8)]),
           Betas = [AnthropicBeta.ServerSideFallback2026_07_01],
       }
@@ -870,7 +867,7 @@ Pass `BetaRefusalFallbackMiddleware` (typescript: `betaRefusalFallbackMiddleware
   {
       Model = Messages::Model.ClaudeFable5,
       MaxTokens = 1024,
-      Messages = [new() { Content = "Hello, Claude", Role = Role.User }],
+      Messages = [new BetaUserMessageParam { Content = "Hello, Claude" }],
   };
 
   // Streaming: if the stream ends in a refusal, the handler splices the fallback

@@ -346,7 +346,7 @@ Inside your Google Cloud workload, fetch the identity token from the metadata se
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello from Cloud Run" }],
+      Messages = [new UserMessageParam { Content = "Hello from Cloud Run" }],
   });
   foreach (var block in message.Content)
   {

@@ -102,9 +102,8 @@ For speed-critical applications, **Claude Haiku 5.5** offers the fastest respons
       MaxTokens = 1024,
       OutputConfig = new() { Effort = Effort.Low },
       Messages = [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = "Summarize this customer feedback in 2 sentences: [feedback text]"
           }
       ]

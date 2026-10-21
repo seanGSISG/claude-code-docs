@@ -172,7 +172,7 @@ For example, suppose a booking system needs `passengers: int`. Without strict mo
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "What's the weather like in San Francisco?" }],
+      Messages = [new UserMessageParam { Content = "What's the weather like in San Francisco?" }],
       Tools = [
           new ToolUnion(new Tool()
           {
@@ -517,7 +517,7 @@ The [computer use](https://platform.claude.com/docs/en/agents-and-tools/tool-use
       {
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
-          Messages = [new() { Role = Role.User, Content = "Search for flights to Tokyo departing June 1, 2026" }],
+          Messages = [new UserMessageParam { Content = "Search for flights to Tokyo departing June 1, 2026" }],
           Tools = [
               new ToolUnion(new Tool()
               {
@@ -878,7 +878,7 @@ The [computer use](https://platform.claude.com/docs/en/agents-and-tools/tool-use
       {
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
-          Messages = [new() { Role = Role.User, Content = "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026" }],
+          Messages = [new UserMessageParam { Content = "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026" }],
           Tools = [
               new ToolUnion(new Tool()
               {

@@ -239,7 +239,7 @@ The URL's host is `<subdomain>.<your-tunnel-domain>`. The path depends on your u
       MaxTokens = 1000,
       Messages = new List<BetaMessageParam>
       {
-          new() { Role = Role.User, Content = "Use the hello tool to greet tunnel." }
+          new BetaUserMessageParam { Content = "Use the hello tool to greet tunnel." }
       },
       McpServers = new List<BetaRequestMcpServerUrlDefinition>
       {

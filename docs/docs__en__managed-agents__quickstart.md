@@ -100,7 +100,7 @@ ant --version
 
   <Tab title="Java">
     ```groovy Gradle
-    implementation("com.anthropic:anthropic-java:2.75.0")
+    implementation("com.anthropic:anthropic-java:3.0.0")
     ```
   </Tab>
 
@@ -238,13 +238,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
             Name = "Coding Assistant",
             Model = BetaManagedAgentsModel.ClaudeOpus5_5,
             System = "You are a helpful coding assistant. Write clean, well-documented code.",
-            Tools =
-            [
-                new BetaManagedAgentsAgentToolset20260401Params
-                {
-                    Type = "agent_toolset_20260401",
-                },
-            ],
+            Tools = [new BetaManagedAgentsAgentToolset20260401Params()],
         });
 
         Console.WriteLine($"Agent ID: {agent.ID}, version: {agent.Version}");
@@ -311,9 +305,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
                 .name("Coding Assistant")
                 .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
                 .system("You are a helpful coding assistant. Write clean, well-documented code.")
-                .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
-                    .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
-                    .build())
+                .addTool(BetaManagedAgentsAgentToolset20260401Params.builder().build())
                 .build());
 
             IO.println("Agent ID: " + agent.id() + ", version: " + agent.version());
@@ -734,12 +726,10 @@ export ANTHROPIC_API_KEY="your-api-key-here"
           [
               new BetaManagedAgentsUserMessageEventParams
               {
-                  Type = "user.message",
                   Content =
                   [
                       new BetaManagedAgentsTextBlock
                       {
-                          Type = "text",
                           Text = "Create a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt",
                       },
                   ],
@@ -821,7 +811,6 @@ export ANTHROPIC_API_KEY="your-api-key-here"
           // Send the user message after the stream opens
           client.beta().sessions().events().send(session.id(), EventSendParams.builder()
               .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
-                  .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
                   .addTextContent("Create a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt")
                   .build())
               .build());

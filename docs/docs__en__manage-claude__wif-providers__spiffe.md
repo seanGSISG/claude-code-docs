@@ -256,7 +256,7 @@ The Claude SDK can read the JWT-SVID from the file that spiffe-helper maintains 
       {
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
-          Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
+          Messages = [new UserMessageParam { Content = "Hello, Claude" }],
       });
       foreach (var block in message.Content)
       {

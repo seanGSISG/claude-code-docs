@@ -119,11 +119,7 @@ The browser use tool is available on the Claude API and [Google Cloud](https://p
       Tools = [new BrowserToolset20260801()],
       Messages =
       [
-          new MessageParam
-          {
-              Role = Role.User,
-              Content = "Open example.com/docs and tell me how to get started.",
-          },
+          new UserMessageParam { Content = "Open example.com/docs and tell me how to get started." },
       ],
   };
 

@@ -546,7 +546,7 @@ To use Claude for content moderation, Claude must understand the moderation requ
           {
               Model = Model.ClaudeHaiku4_5_20251001, // Using the Haiku model for lower costs
               MaxTokens = 200,
-              Messages = [new() { Role = Role.User, Content = assessmentPrompt }],
+              Messages = [new UserMessageParam { Content = assessmentPrompt }],
           }
       );
 
@@ -1077,7 +1077,7 @@ One additional consideration is that instead of treating content moderation as a
           {
               Model = Model.ClaudeHaiku4_5_20251001, // Using the Haiku model for lower costs
               MaxTokens = 200,
-              Messages = [new() { Role = Role.User, Content = assessmentPrompt }],
+              Messages = [new UserMessageParam { Content = assessmentPrompt }],
           }
       );
 
@@ -1726,7 +1726,7 @@ In addition to listing the unsafe categories in the prompt, further improvements
           {
               Model = Model.ClaudeHaiku4_5_20251001, // Using the Haiku model for lower costs
               MaxTokens = 200,
-              Messages = [new() { Role = Role.User, Content = assessmentPrompt }],
+              Messages = [new UserMessageParam { Content = assessmentPrompt }],
           }
       );
 
@@ -2384,7 +2384,7 @@ To reduce costs in situations where real-time moderation isn't necessary, consid
           {
               Model = Model.ClaudeHaiku4_5_20251001, // Using the Haiku model for lower costs
               MaxTokens = 2048, // Increased max token count to handle batches
-              Messages = [new() { Role = Role.User, Content = assessmentPrompt }],
+              Messages = [new UserMessageParam { Content = assessmentPrompt }],
           }
       );
 

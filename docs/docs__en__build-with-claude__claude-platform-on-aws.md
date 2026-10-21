@@ -305,20 +305,20 @@ Anthropic's [client SDKs](https://platform.claude.com/docs/en/cli-sdks-libraries
 
   <Tab title="Java">
     ```kotlin Gradle
-    implementation("com.anthropic:anthropic-java:2.75.0")
-    implementation("com.anthropic:anthropic-java-aws:2.75.0")
+    implementation("com.anthropic:anthropic-java:3.0.0")
+    implementation("com.anthropic:anthropic-java-aws:3.0.0")
     ```
 
     ```xml Maven
     <dependency>
       <groupId>com.anthropic</groupId>
       <artifactId>anthropic-java</artifactId>
-      <version>2.75.0</version>
+      <version>3.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.anthropic</groupId>
       <artifactId>anthropic-java-aws</artifactId>
-      <version>2.75.0</version>
+      <version>3.0.0</version>
     </dependency>
     ```
   </Tab>
@@ -453,7 +453,7 @@ Before running these examples, complete the steps in [Before making API calls](h
   {
       Model = Model.ClaudeSonnet5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello!" }]
+      Messages = [new UserMessageParam { Content = "Hello!" }]
   });
 
   Console.WriteLine(message);
@@ -678,7 +678,7 @@ Set the inference geography per request with the `inference_geo` parameter:
       Model = Model.ClaudeSonnet5_5,
       MaxTokens = 1024,
       InferenceGeo = "us",
-      Messages = [new() { Role = Role.User, Content = "Hello!" }]
+      Messages = [new UserMessageParam { Content = "Hello!" }]
   });
 
   Console.WriteLine(message);
@@ -963,7 +963,7 @@ Each response includes two request IDs in the response headers:
   {
       Model = Model.ClaudeSonnet5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello!" }]
+      Messages = [new UserMessageParam { Content = "Hello!" }]
   });
 
   Console.WriteLine(response.Headers.GetValues("x-amzn-requestid").First()); // AWS request ID

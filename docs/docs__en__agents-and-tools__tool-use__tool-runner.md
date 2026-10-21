@@ -171,7 +171,6 @@ Depending on the SDK's tool signature, a tool returns its result as a string or 
     using Anthropic.Models.Beta.Messages;
     using MessageCreateParams = Anthropic.Models.Beta.Messages.MessageCreateParams;
     using InputSchema = Anthropic.Models.Beta.Messages.InputSchema;
-    using Role = Anthropic.Models.Beta.Messages.Role;
     using Model = Anthropic.Models.Messages.Model;
 
     var client = new AnthropicClient();
@@ -235,9 +234,8 @@ Depending on the SDK's tool signature, a tool returns its result as a string or 
             MaxTokens = 1024,
             Messages =
             [
-                new()
+                new BetaUserMessageParam
                 {
-                    Role = Role.User,
                     Content = "What's the weather like in Paris? Also, what's 15 + 27?",
                 },
             ],
@@ -651,14 +649,7 @@ If you don't need intermediate messages, you can get the final message directly:
         {
             Model = Model.ClaudeOpus5_5,
             MaxTokens = 1024,
-            Messages =
-            [
-                new()
-                {
-                    Role = Role.User,
-                    Content = "What's the weather like in Paris?",
-                },
-            ],
+            Messages = [new BetaUserMessageParam { Content = "What's the weather like in Paris?" }],
         },
         [getWeatherTool]
     );
@@ -909,7 +900,7 @@ When you take over for an iteration, the runner does not append the assistant me
         {
             Model = Model.ClaudeOpus5_5,
             MaxTokens = 1024,
-            Messages = [new() { Role = Role.User, Content = "What's the weather in San Francisco?" }],
+            Messages = [new BetaUserMessageParam { Content = "What's the weather in San Francisco?" }],
         },
         [getWeatherTool],
         maxIterations: 10
@@ -936,21 +927,16 @@ When you take over for an iteration, the runner does not append the assistant me
         // PushMessages() flags state as modified; the runner skips its auto-append.
         // Supply the assistant turn and the tool result yourself, then add a follow-up.
         runner.PushMessages(
-            new()
+            new BetaAssistantMessageParam
             {
-                Role = Role.Assistant,
-                Content = new BetaMessageParamContent(
+                Content = new BetaMessageContentParam(
                     JsonSerializer.SerializeToElement(
                         message.Content.Select(block => block.Json).ToArray()
                     )
                 ),
             },
-            new()
-            {
-                Role = Role.User,
-                Content = new List<BetaContentBlockParam> { toolResult },
-            },
-            new() { Role = Role.User, Content = "Please be concise in your response." }
+            new BetaUserMessageParam { Content = new List<BetaContentBlockParam> { toolResult } },
+            new BetaUserMessageParam { Content = "Please be concise in your response." }
         );
     }
     ```
@@ -1254,10 +1240,7 @@ By default, tool errors are passed back to Claude, which can then respond approp
         {
             Model = Model.ClaudeOpus5_5,
             MaxTokens = 1024,
-            Messages =
-            [
-                new() { Role = Role.User, Content = "What's the weather in San Francisco?" },
-            ],
+            Messages = [new BetaUserMessageParam { Content = "What's the weather in San Francisco?" }],
         },
         [getWeatherTool]
     );
@@ -1655,10 +1638,7 @@ Enable streaming to process each turn's response incrementally. Each iteration y
         {
             Model = Model.ClaudeOpus5_5,
             MaxTokens = 1024,
-            Messages =
-            [
-                new() { Role = Role.User, Content = "What is 15 + 27?" },
-            ],
+            Messages = [new BetaUserMessageParam { Content = "What is 15 + 27?" }],
         },
         [calculateSumTool]
     );

@@ -106,8 +106,7 @@ This request works on Claude Sonnet 5.5 as written. It sets an effort level, and
       Model = Model.ClaudeSonnet5_5,
       MaxTokens = 4096,
       Messages = [
-          new() {
-              Role = Role.User,
+          new UserMessageParam {
               Content = "Analyze the trade-offs between microservices and monolithic architectures"
           }
       ],
@@ -302,7 +301,7 @@ Before (Claude Sonnet 5):
       MaxTokens = 16000,
       Thinking = new ThinkingConfigDisabled(),
       OutputConfig = new() { Effort = Effort.Xhigh },
-      Messages = [new() { Role = Role.User, Content = "..." }],
+      Messages = [new UserMessageParam { Content = "..." }],
   });
   ```
 
@@ -410,7 +409,7 @@ After (Claude Sonnet 5.5):
       MaxTokens = 16000,
       Thinking = new ThinkingConfigBetweenTools(),
       OutputConfig = new() { Effort = Effort.High },
-      Messages = [new() { Role = Role.User, Content = "..." }],
+      Messages = [new UserMessageParam { Content = "..." }],
   });
   ```
 
@@ -610,7 +609,7 @@ Before (Claude Sonnet 5):
       MaxTokens = 1024,
       Tools = [.. tools],
       ToolChoice = new ToolChoiceTool { Name = "get_weather" },
-      Messages = [new() { Role = Role.User, Content = "What's the weather in Paris?" }],
+      Messages = [new UserMessageParam { Content = "What's the weather in Paris?" }],
   });
   ```
 
@@ -762,9 +761,8 @@ After (Claude Sonnet 5.5):
       ToolChoice = new ToolChoiceAuto(),
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = "What's the weather in Paris? Use the get_weather tool.",
           },
       ],
@@ -976,7 +974,7 @@ Before (Claude Sonnet 4.6):
       Model = Model.ClaudeSonnet4_6,
       MaxTokens = 16000,
       Thinking = new ThinkingConfigEnabled(budgetTokens: 10000),
-      Messages = [new() { Role = Role.User, Content = "..." }]
+      Messages = [new UserMessageParam { Content = "..." }]
   };
 
   var response = await client.Messages.Create(parameters);
@@ -1114,7 +1112,7 @@ After (Claude Sonnet 5.5):
       MaxTokens = 16000,
       Thinking = new ThinkingConfigAdaptive(),
       OutputConfig = new OutputConfig { Effort = Effort.High }, // or Max, Xhigh, Medium, Low
-      Messages = [new() { Role = Role.User, Content = "..." }]
+      Messages = [new UserMessageParam { Content = "..." }]
   };
 
   var response = await client.Messages.Create(parameters);

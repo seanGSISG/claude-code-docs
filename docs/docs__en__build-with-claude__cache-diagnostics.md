@@ -185,10 +185,7 @@ Include the `diagnostics` object on every turn. The object is the opt-in: the AP
           MaxTokens = 1024,
           CacheControl = new(),
           System = system,
-          Messages =
-          [
-              new() { Role = Role.User, Content = "Summarize section 1." },
-          ],
+          Messages = [new BetaUserMessageParam { Content = "Summarize section 1." }],
           Diagnostics = new() { PreviousMessageID = null },
       }
   );
@@ -202,13 +199,12 @@ Include the `diagnostics` object on every turn. The object is the opt-in: the AP
           System = system,
           Messages =
           [
-              new() { Role = Role.User, Content = "Summarize section 1." },
-              new()
+              new BetaUserMessageParam { Content = "Summarize section 1." },
+              new BetaAssistantMessageParam
               {
-                  Role = Role.Assistant,
                   Content = r1.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList(),
               },
-              new() { Role = Role.User, Content = "Now summarize section 2." },
+              new BetaUserMessageParam { Content = "Now summarize section 2." },
           ],
           Diagnostics = new() { PreviousMessageID = r1.ID },
       }
@@ -218,7 +214,7 @@ Include the `diagnostics` object on every turn. The object is the opt-in: the AP
   {
       null => "No divergence detected.",
       { CacheMissReason: null } => "Comparison still pending.",
-      { CacheMissReason.Type: var type } => $"cache_miss_reason: {type.GetString()}",
+      { CacheMissReason.Type: var type } => $"cache_miss_reason: {type.Raw()}",
   });
   ```
 
@@ -515,13 +511,12 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
           System = system,
           Messages =
           [
-              new() { Role = Role.User, Content = "Summarize section 1." },
-              new()
+              new BetaUserMessageParam { Content = "Summarize section 1." },
+              new BetaAssistantMessageParam
               {
-                  Role = Role.Assistant,
                   Content = r1.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList(),
               },
-              new() { Role = Role.User, Content = "Now summarize section 2." },
+              new BetaUserMessageParam { Content = "Now summarize section 2." },
           ],
           Diagnostics = new() { PreviousMessageID = r1.ID },
       }
@@ -545,7 +540,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   {
       null => "No divergence detected.",
       { CacheMissReason: null } => "Comparison still pending.",
-      { CacheMissReason.Type: var type } => $"cache_miss_reason: {type.GetString()}",
+      { CacheMissReason.Type: var type } => $"cache_miss_reason: {type.Raw()}",
   });
   ```
 
@@ -793,7 +788,7 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
 
     for (int i = 0; i < prompts.Length; i++)
     {
-        messages.Add(new() { Role = Role.User, Content = prompts[i] });
+        messages.Add(new BetaUserMessageParam { Content = prompts[i] });
 
         var r = await client.Beta.Messages.Create(
             new()
@@ -809,13 +804,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
 
         if (r.Diagnostics?.CacheMissReason is { Type: var type })
         {
-            Console.WriteLine($"Turn {i + 1} cache_miss_reason: {type.GetString()}");
+            Console.WriteLine($"Turn {i + 1} cache_miss_reason: {type.Raw()}");
         }
 
         messages.Add(
-            new()
+            new BetaAssistantMessageParam
             {
-                Role = Role.Assistant,
                 Content = r.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList(),
             }
         );
@@ -876,12 +870,7 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
     String prevId = null;
 
     for (var turn = 0; turn < prompts.size(); turn++) {
-        messages.add(
-            BetaMessageParam.builder()
-                .role(BetaMessageParam.Role.USER)
-                .content(prompts.get(turn))
-                .build()
-        );
+        messages.add(BetaMessageParam.ofUser(prompts.get(turn)));
 
         var r = client.beta().messages().create(
             MessageCreateParams.builder()

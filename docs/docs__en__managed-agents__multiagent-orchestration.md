@@ -234,13 +234,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
       Name = "Engineering Lead",
       Model = BetaManagedAgentsModel.ClaudeOpus5_5,
       System = "You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.",
-      Tools =
-      [
-          new BetaManagedAgentsAgentToolset20260401Params
-          {
-              Type = BetaManagedAgentsAgentToolset20260401ParamsType.AgentToolset20260401,
-          },
-      ],
+      Tools = [new BetaManagedAgentsAgentToolset20260401Params()],
       Multiagent = new BetaManagedAgentsMultiagent20261001Params
       {
           Subagents = new BetaManagedAgentsMultiagentSubagentsEnabledParams
@@ -285,19 +279,13 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
           .name("Engineering Lead")
           .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
           .system("You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.")
-          .addTool(
-              BetaManagedAgentsAgentToolset20260401Params.builder()
-                  .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
-                  .build()
-          )
+          .addTool(BetaManagedAgentsAgentToolset20260401Params.builder().build())
           .multiagent(BetaManagedAgentsMultiagent20261001Params.builder()
               .subagents(BetaManagedAgentsMultiagentSubagentsEnabledParams.builder()
                   .addPredefinedAgent(BetaManagedAgentsAgentParams.builder()
-                      .type(BetaManagedAgentsAgentParams.Type.AGENT)
                       .id(reviewerAgent.id())
                       .build())
                   .addPredefinedAgent(BetaManagedAgentsAgentParams.builder()
-                      .type(BetaManagedAgentsAgentParams.Type.AGENT)
                       .id(testWriterAgent.id())
                       .build())
                   .build())
@@ -583,44 +571,23 @@ Create the researcher, which declares the GitHub MCP server, and the agent that 
       [
           new()
           {
-              Type = BetaManagedAgentsUrlMcpServerParamsType.Url,
               Name = "github",
               Url = "https://api.githubcopilot.com/mcp/",
           },
       ],
-      Tools =
-      [
-          new BetaManagedAgentsMcpToolsetParams
-          {
-              Type = BetaManagedAgentsMcpToolsetParamsType.McpToolset,
-              McpServerName = "github",
-          },
-      ],
+      Tools = [new BetaManagedAgentsMcpToolsetParams { McpServerName = "github" }],
   });
 
   var leadAgent = await client.Beta.Agents.Create(new()
   {
       Name = "lead",
       Model = BetaManagedAgentsModel.ClaudeOpus5_5,
-      Tools =
-      [
-          new BetaManagedAgentsAgentToolset20260401Params
-          {
-              Type = BetaManagedAgentsAgentToolset20260401ParamsType.AgentToolset20260401,
-          },
-      ],
+      Tools = [new BetaManagedAgentsAgentToolset20260401Params()],
       Multiagent = new BetaManagedAgentsMultiagent20261001Params
       {
           Subagents = new BetaManagedAgentsMultiagentSubagentsEnabledParams
           {
-              PredefinedAgents =
-              [
-                  new BetaManagedAgentsAgentParams
-                  {
-                      Type = BetaManagedAgentsAgentParamsType.Agent,
-                      ID = researchAgent.ID,
-                  },
-              ],
+              PredefinedAgents = [new BetaManagedAgentsAgentParams { ID = researchAgent.ID }],
           },
       },
   });
@@ -681,11 +648,9 @@ Create the researcher, which declares the GitHub MCP server, and the agent that 
           .model(BetaManagedAgentsModel.CLAUDE_HAIKU_5_5)
           .addMcpServer(BetaManagedAgentsUrlMcpServerParams.builder()
               .name("github")
-              .type(BetaManagedAgentsUrlMcpServerParams.Type.URL)
               .url("https://api.githubcopilot.com/mcp/")
               .build())
           .addTool(BetaManagedAgentsMcpToolsetParams.builder()
-              .type(BetaManagedAgentsMcpToolsetParams.Type.MCP_TOOLSET)
               .mcpServerName("github")
               .build())
           .build()
@@ -695,13 +660,10 @@ Create the researcher, which declares the GitHub MCP server, and the agent that 
       AgentCreateParams.builder()
           .name("lead")
           .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
-          .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
-              .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
-              .build())
+          .addTool(BetaManagedAgentsAgentToolset20260401Params.builder().build())
           .multiagent(BetaManagedAgentsMultiagent20261001Params.builder()
               .subagents(BetaManagedAgentsMultiagentSubagentsEnabledParams.builder()
                   .addPredefinedAgent(BetaManagedAgentsAgentParams.builder()
-                      .type(BetaManagedAgentsAgentParams.Type.AGENT)
                       .id(researcher.id())
                       .build())
                   .build())
@@ -954,14 +916,7 @@ Before you change an existing agent's `multiagent.type`, see [how to move an age
       Name = "Contract Reviewer",
       Model = BetaManagedAgentsModel.ClaudeOpus5_5,
       System = "You review contracts. When you're asked to review more than a few contracts, start a workflow run that reads them in parallel and combines the findings. Review one or two contracts yourself, without a run.",
-      Tools =
-      [
-          new BetaManagedAgentsAgentToolset20260401Params
-          {
-              Type = BetaManagedAgentsAgentToolset20260401ParamsType.AgentToolset20260401,
-          },
-      ],
-      // The configuration class sets the type for you.
+      Tools = [new BetaManagedAgentsAgentToolset20260401Params()],
       Multiagent = new BetaManagedAgentsMultiagent20261001Params
       {
           Workflows = new BetaManagedAgentsMultiagentWorkflowsEnabledParams(),
@@ -998,12 +953,7 @@ Before you change an existing agent's `multiagent.type`, see [how to move an age
           .name("Contract Reviewer")
           .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
           .system("You review contracts. When you're asked to review more than a few contracts, start a workflow run that reads them in parallel and combines the findings. Review one or two contracts yourself, without a run.")
-          .addTool(
-              BetaManagedAgentsAgentToolset20260401Params.builder()
-                  .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
-                  .build()
-          )
-          // The configuration class sets the type for you.
+          .addTool(BetaManagedAgentsAgentToolset20260401Params.builder().build())
           .multiagent(BetaManagedAgentsMultiagent20261001Params.builder()
               .workflows(BetaManagedAgentsMultiagentWorkflowsEnabledParams.builder().build())
               .build())

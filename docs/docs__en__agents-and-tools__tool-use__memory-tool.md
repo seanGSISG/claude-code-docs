@@ -192,11 +192,7 @@ Using the memory tool takes two steps:
           MaxTokens = 2048,
           Messages =
           [
-              new()
-              {
-                  Role = Role.User,
-                  Content = "Help me respond to this customer service ticket.",
-              },
+              new UserMessageParam { Content = "Help me respond to this customer service ticket." },
           ],
           Tools = [new MemoryTool20250818()],
       }
@@ -356,9 +352,8 @@ Four SDKs provide memory tool helpers that handle the tool interface and the loo
           MaxTokens = 1024,
           Messages =
           [
-              new()
+              new BetaUserMessageParam
               {
-                  Role = Role.User,
                   Content = "Remember that customer Acme Corp prefers email follow-ups.",
               },
           ],

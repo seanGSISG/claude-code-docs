@@ -123,9 +123,8 @@ You can optionally specify a `max_characters` parameter to control truncation wh
           Tools = [new ToolTextEditor20250728 { MaxCharacters = 10000 }],
           Messages =
           [
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
                   Content = "There's a syntax error in my primes.py file. Can you help me fix it?",
               },
           ],
@@ -471,9 +470,8 @@ First, your application provides Claude with the text editor tool and a prompt t
           Tools = [new ToolTextEditor20250728()],
           Messages =
           [
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
                   Content = "There's a syntax error in my primes.py file. Can you help me fix it?",
               },
           ],
@@ -807,15 +805,13 @@ Your application should then read the file and return its contents to Claude:
           Tools = [new ToolTextEditor20250728()],
           Messages =
           [
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
                   Content = "There's a syntax error in my primes.py file. Can you help me fix it?",
               },
-              new()
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new TextBlockParam()
                       {
@@ -831,19 +827,18 @@ Your application should then read the file and return its contents to Claude:
                               ["path"] = JsonSerializer.SerializeToElement("primes.py"),
                           },
                       }),
-                  }),
+                  },
               },
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new ToolResultBlockParam()
                       {
                           ToolUseID = "toolu_01AbCdEfGhIjKlMnOpQrStU",
                           Content = "1: def is_prime(n):\n2:     \"\"\"Check if a number is prime.\"\"\"\n3:     if n <= 1:\n4:         return False\n5:     if n <= 3:\n6:         return True\n7:     if n % 2 == 0 or n % 3 == 0:\n8:         return False\n9:     i = 5\n10:     while i * i <= n:\n11:         if n % i == 0 or n % (i + 2) == 0:\n12:             return False\n13:         i += 6\n14:     return True\n15: \n16: def get_primes(limit):\n17:     \"\"\"Generate a list of prime numbers up to the given limit.\"\"\"\n18:     primes = []\n19:     for num in range(2, limit + 1)\n20:         if is_prime(num):\n21:             primes.append(num)\n22:     return primes\n23: \n24: def main():\n25:     \"\"\"Main function to demonstrate prime number generation.\"\"\"\n26:     limit = 100\n27:     prime_list = get_primes(limit)\n28:     print(f\"Prime numbers up to {limit}:\")\n29:     print(prime_list)\n30:     print(f\"Found {len(prime_list)} prime numbers.\")\n31: \n32: if __name__ == \"__main__\":\n33:     main()",
                       }),
-                  }),
+                  },
               },
           ],
       }
@@ -894,7 +889,7 @@ Your application should then read the file and return its contents to Claude:
     .maxTokens(1024)
     .addTool(ToolTextEditor20250728.builder().build())
     .addUserMessage("There's a syntax error in my primes.py file. Can you help me fix it?")
-    .addAssistantMessageOfBlockParams(
+    .addAssistantMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofText(
           TextBlockParam.builder()
@@ -915,7 +910,7 @@ Your application should then read the file and return its contents to Claude:
         )
       )
     )
-    .addUserMessageOfBlockParams(
+    .addUserMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofToolResult(
           ToolResultBlockParam.builder()
@@ -1239,10 +1234,9 @@ Your application should then make the edit and return the result:
           Messages =
           [
               // Previous messages...
-              new()
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new TextBlockParam()
                       {
@@ -1260,19 +1254,18 @@ Your application should then make the edit and return the result:
                               ["new_str"] = JsonSerializer.SerializeToElement("    for num in range(2, limit + 1):"),
                           },
                       }),
-                  }),
+                  },
               },
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new ToolResultBlockParam()
                       {
                           ToolUseID = "toolu_01PqRsTuVwXyZAbCdEfGh",
                           Content = "Successfully replaced text at exactly one location.",
                       }),
-                  }),
+                  },
               },
           ],
       }
@@ -1328,7 +1321,7 @@ Your application should then make the edit and return the result:
     .maxTokens(1024)
     .addTool(ToolTextEditor20250728.builder().build())
     // Previous messages would go here
-    .addAssistantMessageOfBlockParams(
+    .addAssistantMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofText(
           TextBlockParam.builder()
@@ -1359,7 +1352,7 @@ Your application should then make the edit and return the result:
         )
       )
     )
-    .addUserMessageOfBlockParams(
+    .addUserMessageOfContentBlockParams(
       List.of(
         ContentBlockParam.ofToolResult(
           ToolResultBlockParam.builder()

@@ -104,7 +104,7 @@ The `inference_geo` parameter controls where model inference runs for a specific
           InferenceGeo = "us",
           Messages =
           [
-              new() { Role = Role.User, Content = "Summarize the key points of this document." },
+              new UserMessageParam { Content = "Summarize the key points of this document." },
           ],
       }
   );

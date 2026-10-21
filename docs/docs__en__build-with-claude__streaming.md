@@ -51,7 +51,7 @@ The [Python SDK](https://github.com/anthropics/anthropic-sdk-python) and [TypeSc
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello" }]
+      Messages = [new UserMessageParam { Content = "Hello" }]
   };
 
   await foreach (var msg in client.Messages.CreateStreaming(parameters))
@@ -191,7 +191,7 @@ If you don't need to process text as it arrives, the SDK provides a way to use s
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 128000,
-      Messages = [new() { Role = Role.User, Content = "Write a detailed analysis..." }]
+      Messages = [new UserMessageParam { Content = "Write a detailed analysis..." }]
   };
 
   // To handle events as they arrive as well, pass a MessageContentAggregator to CollectAsync() instead.
@@ -446,7 +446,7 @@ There may be `ping` events dispersed throughout the response as well. See [Event
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 256,
-      Messages = [new() { Role = Role.User, Content = "Hello" }]
+      Messages = [new UserMessageParam { Content = "Hello" }]
   };
 
   await foreach (var msg in client.Messages.CreateStreaming(parameters))
@@ -720,9 +720,7 @@ This request asks Claude to use a tool to report the weather.
           }),
       ],
       ToolChoice = new ToolChoiceAny(),
-      Messages = [
-          new() { Role = Role.User, Content = "What is the weather like in San Francisco?" }
-      ]
+      Messages = [new UserMessageParam { Content = "What is the weather like in San Francisco?" }]
   };
 
   await foreach (var msg in client.Messages.CreateStreaming(parameters))
@@ -1056,7 +1054,7 @@ This request enables thinking with streaming. The `display: "summarized"` settin
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 20000,
       Thinking = new ThinkingConfigAdaptive { Display = Display.Summarized },
-      Messages = [new() { Role = Role.User, Content = "What is the greatest common divisor of 1071 and 462?" }]
+      Messages = [new UserMessageParam { Content = "What is the greatest common divisor of 1071 and 462?" }]
   };
 
   await foreach (var msg in client.Messages.CreateStreaming(parameters))
@@ -1289,7 +1287,7 @@ This request asks Claude to search the web for current weather information.
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Tools = [new ToolUnion(new WebSearchTool20250305() { MaxUses = 5 })],
-      Messages = [new() { Role = Role.User, Content = "What is the weather like in New York City today?" }]
+      Messages = [new UserMessageParam { Content = "What is the weather like in New York City today?" }]
   };
 
   await foreach (var msg in client.Messages.CreateStreaming(parameters))

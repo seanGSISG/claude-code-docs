@@ -182,16 +182,15 @@ On Claude Fable 5.1 you can change the [effort](https://platform.claude.com/docs
       OutputConfig = new() { Effort = Effort.High },
       Messages =
       [
-          new() { Role = Role.User, Content = "Plan a migration from SQLite to PostgreSQL in three short steps." },
-          new() { Role = Role.Assistant, Content = "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts." },
+          new BetaUserMessageParam { Content = "Plan a migration from SQLite to PostgreSQL in three short steps." },
+          new BetaAssistantMessageParam { Content = "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts." },
           // Effort-only system message: the new level takes effect from the next user turn.
-          new()
+          new BetaSystemMessageParam
           {
-              Role = Role.System,
               Content = new([]),
               OutputConfig = new() { Effort = BetaSystemMessageOutputConfigEffort.Low },
           },
-          new() { Role = Role.User, Content = "Summarize the plan in one sentence." },
+          new BetaUserMessageParam { Content = "Summarize the plan in one sentence." },
       ],
       Betas = [AnthropicBeta.MidConversationOutputConfig2026_07_01],
   });
@@ -242,9 +241,9 @@ On Claude Fable 5.1 you can change the [effort](https://platform.claude.com/docs
   ```java Java
   import com.anthropic.models.beta.AnthropicBeta;
   import com.anthropic.models.beta.messages.BetaMessage;
-  import com.anthropic.models.beta.messages.BetaMessageParam;
   import com.anthropic.models.beta.messages.BetaOutputConfig;
   import com.anthropic.models.beta.messages.BetaSystemMessageOutputConfig;
+  import com.anthropic.models.beta.messages.BetaSystemMessageParam;
   import com.anthropic.models.beta.messages.MessageCreateParams;
   import com.anthropic.models.messages.Model;
 
@@ -261,9 +260,8 @@ On Claude Fable 5.1 you can change the [effort](https://platform.claude.com/docs
           .addUserMessage("Plan a migration from SQLite to PostgreSQL in three short steps.")
           .addAssistantMessage("1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts.")
           // Effort-only system message: the new level takes effect from the next user turn.
-          .addMessage(BetaMessageParam.builder()
-              .role(BetaMessageParam.Role.SYSTEM)
-              .contentOfBetaContentBlockParams(List.of())
+          .addMessage(BetaSystemMessageParam.builder()
+              .contentOfBlocks(List.of())
               .outputConfig(BetaSystemMessageOutputConfig.builder()
                   .effort(BetaSystemMessageOutputConfig.Effort.LOW)
                   .build())

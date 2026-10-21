@@ -99,11 +99,7 @@ The current version of the tool is `bash_20250124`. For model support, beta head
           Tools = [new ToolBash20250124()],
           Messages =
           [
-              new()
-              {
-                  Role = Role.User,
-                  Content = "List all Python files in the current directory.",
-              },
+              new UserMessageParam { Content = "List all Python files in the current directory." },
           ],
       }
   );
@@ -994,15 +990,10 @@ Claude determines which command to run. Your application owns everything else: t
               Tools = [new ToolBash20250124()],
               Messages =
               [
-                  new()
+                  new UserMessageParam { Content = "List all Python files in the current directory." },
+                  new AssistantMessageParam
                   {
-                      Role = Role.User,
-                      Content = "List all Python files in the current directory.",
-                  },
-                  new()
-                  {
-                      Role = Role.Assistant,
-                      Content = new MessageParamContent(new List<ContentBlockParam>
+                      Content = new List<ContentBlockParam>
                       {
                           new ContentBlockParam(new ToolUseBlockParam()
                           {
@@ -1013,19 +1004,18 @@ Claude determines which command to run. Your application owns everything else: t
                                   ["command"] = JsonSerializer.SerializeToElement("ls *.py"),
                               },
                           }),
-                      }),
+                      },
                   },
-                  new()
+                  new UserMessageParam
                   {
-                      Role = Role.User,
-                      Content = new MessageParamContent(new List<ContentBlockParam>
+                      Content = new List<ContentBlockParam>
                       {
                           new ContentBlockParam(new ToolResultBlockParam()
                           {
                               ToolUseID = "toolu_01A09q90qw90lq917835lq9",
                               Content = "analysis.py\nprocess_data.py\n",
                           }),
-                      }),
+                      },
                   },
               ],
           }
@@ -1083,7 +1073,7 @@ Claude determines which command to run. Your application owns everything else: t
               .maxTokens(1024)
               .addTool(ToolBash20250124.builder().build())
               .addUserMessage("List all Python files in the current directory.")
-              .addAssistantMessageOfBlockParams(
+              .addAssistantMessageOfContentBlockParams(
                   List.of(
                       ContentBlockParam.ofToolUse(
                           ToolUseBlockParam.builder()
@@ -1098,7 +1088,7 @@ Claude determines which command to run. Your application owns everything else: t
                       )
                   )
               )
-              .addUserMessageOfBlockParams(
+              .addUserMessageOfContentBlockParams(
                   List.of(
                       ContentBlockParam.ofToolResult(
                           ToolResultBlockParam.builder()

@@ -73,7 +73,7 @@ This guide covers common patterns for working with the Messages API, including b
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello, Claude" }]
+      Messages = [new UserMessageParam { Content = "Hello, Claude" }]
   };
   var message = await client.Messages.Create(parameters);
   Console.WriteLine(message);
@@ -225,9 +225,9 @@ The Messages API is stateless, which means that you always send the full convers
       MaxTokens = 1024,
       Messages =
       [
-          new() { Role = Role.User, Content = "Hello, Claude" },
-          new() { Role = Role.Assistant, Content = "Hello!" },
-          new() { Role = Role.User, Content = "Can you describe LLMs to me?" }
+          new UserMessageParam { Content = "Hello, Claude" },
+          new AssistantMessageParam { Content = "Hello!" },
+          new UserMessageParam { Content = "Can you describe LLMs to me?" }
       ]
   };
 
@@ -406,8 +406,8 @@ You can pre-fill part of Claude's response in the last position of the input mes
       Model = Model.ClaudeSonnet4_5,
       MaxTokens = 1,
       Messages = [
-          new() { Role = Role.User, Content = "What is latin for Ant? (A) Apoidea, (B) Rhopalocera, (C) Formicidae" },
-          new() { Role = Role.Assistant, Content = "The answer is (" }
+          new UserMessageParam { Content = "What is latin for Ant? (A) Apoidea, (B) Rhopalocera, (C) Formicidae" },
+          new AssistantMessageParam { Content = "The answer is (" }
       ]
   };
 
@@ -721,10 +721,9 @@ Claude can read both text and images in requests. You can supply images using th
       MaxTokens = 1024,
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
-              Content = new MessageParamContent(new List<ContentBlockParam>
+              Content = new List<ContentBlockParam>
               {
                   new ContentBlockParam(new ImageBlockParam(
                       new ImageBlockParamSource(new Base64ImageSource()
@@ -734,7 +733,7 @@ Claude can read both text and images in requests. You can supply images using th
                       })
                   )),
                   new ContentBlockParam(new TextBlockParam("What is in the above image?")),
-              }),
+              },
           }
       ]
   };
@@ -749,10 +748,9 @@ Claude can read both text and images in requests. You can supply images using th
       MaxTokens = 1024,
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
-              Content = new MessageParamContent(new List<ContentBlockParam>
+              Content = new List<ContentBlockParam>
               {
                   new ContentBlockParam(new ImageBlockParam(
                       new ImageBlockParamSource(new UrlImageSource()
@@ -761,7 +759,7 @@ Claude can read both text and images in requests. You can supply images using th
                       })
                   )),
                   new ContentBlockParam(new TextBlockParam("What is in the above image?")),
-              }),
+              },
           }
       ]
   };
@@ -857,7 +855,7 @@ Claude can read both text and images in requests. You can supply images using th
       MessageCreateParams.builder()
           .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(1024L)
-          .addUserMessageOfBlockParams(base64Content)
+          .addUserMessageOfContentBlockParams(base64Content)
           .build());
   System.out.println(message);
 
@@ -879,7 +877,7 @@ Claude can read both text and images in requests. You can supply images using th
       MessageCreateParams.builder()
           .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(1024L)
-          .addUserMessageOfBlockParams(urlContent)
+          .addUserMessageOfContentBlockParams(urlContent)
           .build());
   System.out.println(messageFromUrl);
   ```

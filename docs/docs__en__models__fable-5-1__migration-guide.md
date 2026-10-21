@@ -182,9 +182,7 @@ model = "claude-mythos-5-1"  # After
              }),
          ],
          ToolChoice = new ToolChoiceTool { Name = "record_summary" },
-         Messages = [
-             new() { Role = Role.User, Content = "Summarize: The meeting moved to Thursday." }
-         ]
+         Messages = [new UserMessageParam { Content = "Summarize: The meeting moved to Thursday." }]
      };
 
      var message = await client.Messages.Create(parameters);
@@ -443,7 +441,7 @@ model = "claude-mythos-5-1"  # After
          ],
          ToolChoice = new ToolChoiceAuto(),
          Messages = [
-             new() { Role = Role.User, Content = "Summarize: The meeting moved to Thursday. Call the record_summary tool with your result." }
+             new UserMessageParam { Content = "Summarize: The meeting moved to Thursday. Call the record_summary tool with your result." }
          ]
      };
 
@@ -746,15 +744,14 @@ model = "claude-mythos-5-1"  # After
              }),
          ],
          Messages = [
-             new() { Role = Role.User, Content = "My headphones from order A1234 arrived yesterday." },
-             new() { Role = Role.Assistant, Content = "Thanks for confirming. How can I help with order A1234?" },
-             new() { Role = Role.User, Content = "I opened the box. Can I still return them?" },
+             new UserMessageParam { Content = "My headphones from order A1234 arrived yesterday." },
+             new AssistantMessageParam { Content = "Thanks for confirming. How can I help with order A1234?" },
+             new UserMessageParam { Content = "I opened the box. Can I still return them?" },
              // The application requires a help center lookup before any policy
              // answer. Appending the requirement as a system message leaves the
              // earlier turns unchanged.
-             new()
+             new SystemMessageParam
              {
-                 Role = Role.System,
                  Content = "Tool-use requirement for the current turn: the application requires a call to the search_help_center tool in your response to the user's latest message. Begin your response with the search_help_center tool call. Do not reply with text only."
              }
          ]
@@ -835,10 +832,7 @@ model = "claude-mythos-5-1"  # After
              // The application requires a help center lookup before any policy
              // answer. Appending the requirement as a system message leaves the
              // earlier turns unchanged.
-             .addMessage(MessageParam.builder()
-                 .role(MessageParam.Role.SYSTEM)
-                 .content("Tool-use requirement for the current turn: the application requires a call to the search_help_center tool in your response to the user's latest message. Begin your response with the search_help_center tool call. Do not reply with text only.")
-                 .build())
+             .addSystemMessage("Tool-use requirement for the current turn: the application requires a call to the search_help_center tool in your response to the user's latest message. Begin your response with the search_help_center tool call. Do not reply with text only.")
              .build();
 
          Message response = client.messages().create(params);
@@ -1046,9 +1040,8 @@ model = "claude-mythos-5-1"  # After
              },
              Messages =
              [
-                 new()
+                 new BetaUserMessageParam
                  {
-                     Role = Role.User,
                      Content = "What is the greatest common divisor of 1071 and 462?",
                  },
              ],
@@ -1345,16 +1338,15 @@ These changes aren't required, but each one lowers cost or latency or removes a 
          OutputConfig = new() { Effort = Effort.High },
          Messages =
          [
-             new() { Role = Role.User, Content = "Plan a migration from SQLite to PostgreSQL in three short steps." },
-             new() { Role = Role.Assistant, Content = "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts." },
+             new BetaUserMessageParam { Content = "Plan a migration from SQLite to PostgreSQL in three short steps." },
+             new BetaAssistantMessageParam { Content = "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts." },
              // Effort-only system message: the new level takes effect from the next user turn.
-             new()
+             new BetaSystemMessageParam
              {
-                 Role = Role.System,
                  Content = new([]),
                  OutputConfig = new() { Effort = BetaSystemMessageOutputConfigEffort.Low },
              },
-             new() { Role = Role.User, Content = "Summarize the plan in one sentence." },
+             new BetaUserMessageParam { Content = "Summarize the plan in one sentence." },
          ],
          Betas = [AnthropicBeta.MidConversationOutputConfig2026_07_01],
      });
@@ -1405,9 +1397,9 @@ These changes aren't required, but each one lowers cost or latency or removes a 
      ```java Java
      import com.anthropic.models.beta.AnthropicBeta;
      import com.anthropic.models.beta.messages.BetaMessage;
-     import com.anthropic.models.beta.messages.BetaMessageParam;
      import com.anthropic.models.beta.messages.BetaOutputConfig;
      import com.anthropic.models.beta.messages.BetaSystemMessageOutputConfig;
+     import com.anthropic.models.beta.messages.BetaSystemMessageParam;
      import com.anthropic.models.beta.messages.MessageCreateParams;
      import com.anthropic.models.messages.Model;
 
@@ -1424,9 +1416,8 @@ These changes aren't required, but each one lowers cost or latency or removes a 
              .addUserMessage("Plan a migration from SQLite to PostgreSQL in three short steps.")
              .addAssistantMessage("1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts.")
              // Effort-only system message: the new level takes effect from the next user turn.
-             .addMessage(BetaMessageParam.builder()
-                 .role(BetaMessageParam.Role.SYSTEM)
-                 .contentOfBetaContentBlockParams(List.of())
+             .addMessage(BetaSystemMessageParam.builder()
+                 .contentOfBlocks(List.of())
                  .outputConfig(BetaSystemMessageOutputConfig.builder()
                      .effort(BetaSystemMessageOutputConfig.Effort.LOW)
                      .build())

@@ -338,9 +338,7 @@ Add an optional `input_examples` field to your tool definition with an array of 
               ],
           }),
       ],
-      Messages = [
-          new() { Role = Role.User, Content = "What's the weather like in San Francisco?" }
-      ]
+      Messages = [new UserMessageParam { Content = "What's the weather like in San Francisco?" }]
   };
 
   var message = await client.Messages.Create(parameters);
@@ -701,9 +699,7 @@ On models that support it, the highlighted lines are the only difference from a 
           }),
       ],
       ToolChoice = new ToolChoiceTool { Name = "get_weather" },
-      Messages = [
-          new() { Role = Role.User, Content = "What's the weather like in San Francisco?" }
-      ]
+      Messages = [new UserMessageParam { Content = "What's the weather like in San Francisco?" }]
   };
 
   var message = await client.Messages.Create(parameters);

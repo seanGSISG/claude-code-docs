@@ -284,7 +284,7 @@ Send the profile ID in the `anthropic-user-profile-id` header on every request y
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
+      Messages = [new UserMessageParam { Content = "Hello, Claude" }],
       UserProfileID = profileId
   };
   var message = await client.Messages.Create(parameters);

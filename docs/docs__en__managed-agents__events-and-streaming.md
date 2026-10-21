@@ -109,15 +109,7 @@ Stream events from the session to receive real-time updates as the agent works. 
       [
           new BetaManagedAgentsUserMessageEventParams
           {
-              Type = BetaManagedAgentsUserMessageEventParamsType.UserMessage,
-              Content =
-              [
-                  new BetaManagedAgentsTextBlock
-                  {
-                      Type = BetaManagedAgentsTextBlockType.Text,
-                      Text = "Summarize the repo README",
-                  },
-              ],
+              Content = [new BetaManagedAgentsTextBlock { Text = "Summarize the repo README" }],
           },
       ],
   });
@@ -194,7 +186,6 @@ Stream events from the session to receive real-time updates as the agent works. 
           session.id(),
           EventSendParams.builder()
               .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
-                  .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
                   .addTextContent("Summarize the repo README")
                   .build())
               .build()
@@ -581,12 +572,10 @@ Send a `user.message` event to start or continue the agent's work:
       [
           new BetaManagedAgentsUserMessageEventParams
           {
-              Type = BetaManagedAgentsUserMessageEventParamsType.UserMessage,
               Content =
               [
                   new BetaManagedAgentsTextBlock
                   {
-                      Type = BetaManagedAgentsTextBlockType.Text,
                       Text = "Analyze the performance of the sort function in utils.py",
                   },
               ],
@@ -618,7 +607,6 @@ Send a `user.message` event to start or continue the agent's work:
       session.id(),
       EventSendParams.builder()
           .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
-              .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
               .addTextContent("Analyze the performance of the sort function in utils.py")
               .build())
           .build());
@@ -772,16 +760,8 @@ The following example answers each call as it arrives:
               [
                   new BetaManagedAgentsUserCustomToolResultEventParams
                   {
-                      Type = BetaManagedAgentsUserCustomToolResultEventParamsType.UserCustomToolResult,
                       CustomToolUseID = toolUse.ID,
-                      Content =
-                      [
-                          new BetaManagedAgentsTextBlock
-                          {
-                              Type = BetaManagedAgentsTextBlockType.Text,
-                              Text = result,
-                          },
-                      ],
+                      Content = [new BetaManagedAgentsTextBlock { Text = result }],
                   },
               ],
           });
@@ -847,7 +827,6 @@ The following example answers each call as it arrives:
                       session.id(),
                       EventSendParams.builder()
                           .addEvent(BetaManagedAgentsUserCustomToolResultEventParams.builder()
-                              .type(BetaManagedAgentsUserCustomToolResultEventParams.Type.USER_CUSTOM_TOOL_RESULT)
                               .customToolUseId(toolUse.id())
                               .addTextContent(result)
                               .build())
@@ -1001,7 +980,6 @@ The following example approves every pending call:
                   [
                       new BetaManagedAgentsUserToolConfirmationEventParams
                       {
-                          Type = BetaManagedAgentsUserToolConfirmationEventParamsType.UserToolConfirmation,
                           ToolUseID = eventId,
                           Result = BetaManagedAgentsUserToolConfirmationEventParamsResult.Allow,
                       },
@@ -1064,7 +1042,6 @@ The following example approves every pending call:
               session.id(),
               EventSendParams.builder()
                   .addEvent(BetaManagedAgentsUserToolConfirmationEventParams.builder()
-                      .type(BetaManagedAgentsUserToolConfirmationEventParams.Type.USER_TOOL_CONFIRMATION)
                       .toolUseId(toolUseId)
                       .result(BetaManagedAgentsUserToolConfirmationEventParams.Result.ALLOW)
                       .build())
@@ -1207,12 +1184,10 @@ Sessions persist between interactions. To resume a session, send a `user.message
       [
           new BetaManagedAgentsUserMessageEventParams
           {
-              Type = BetaManagedAgentsUserMessageEventParamsType.UserMessage,
               Content =
               [
                   new BetaManagedAgentsTextBlock
                   {
-                      Type = BetaManagedAgentsTextBlockType.Text,
                       Text = "Now run the tests against the changes you made earlier.",
                   },
               ],
@@ -1248,7 +1223,6 @@ Sessions persist between interactions. To resume a session, send a `user.message
       session.id(),
       EventSendParams.builder()
           .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
-              .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
               .addTextContent("Now run the tests against the changes you made earlier.")
               .build())
           .build());
@@ -1381,18 +1355,13 @@ Send a `user.interrupt` event to stop the agent mid-execution, then follow up wi
   {
       Events =
       [
-          new BetaManagedAgentsUserInterruptEventParams
-          {
-              Type = BetaManagedAgentsUserInterruptEventParamsType.UserInterrupt,
-          },
+          new BetaManagedAgentsUserInterruptEventParams(),
           new BetaManagedAgentsUserMessageEventParams
           {
-              Type = BetaManagedAgentsUserMessageEventParamsType.UserMessage,
               Content =
               [
                   new BetaManagedAgentsTextBlock
                   {
-                      Type = BetaManagedAgentsTextBlockType.Text,
                       Text = "Instead, focus on fixing the bug in line 42.",
                   },
               ],
@@ -1434,11 +1403,8 @@ Send a `user.interrupt` event to stop the agent mid-execution, then follow up wi
   client.beta().sessions().events().send(
       session.id(),
       EventSendParams.builder()
-          .addEvent(BetaManagedAgentsUserInterruptEventParams.builder()
-              .type(BetaManagedAgentsUserInterruptEventParams.Type.USER_INTERRUPT)
-              .build())
+          .addEvent(BetaManagedAgentsUserInterruptEventParams.builder().build())
           .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
-              .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
               .addTextContent("Instead, focus on fixing the bug in line 42.")
               .build())
           .build());
@@ -1631,9 +1597,9 @@ Pass a `types` (curl: `types[]`; cli: `--type`; csharp, go: `Types`) filter to r
           .build());
   for (var event : events.data()) {
       event.agentToolUse().ifPresent(toolUse ->
-          IO.println("[" + toolUse.type() + "] " + toolUse.processedAt()));
+          IO.println("[" + toolUse._type() + "] " + toolUse.processedAt()));
       event.agentToolResult().ifPresent(toolResult ->
-          IO.println("[" + toolResult.type() + "] " + toolResult.processedAt()));
+          IO.println("[" + toolResult._type() + "] " + toolResult.processedAt()));
   }
   ```
 
@@ -1732,12 +1698,10 @@ The event's `content` (csharp, go: `Content`) accepts 1–1000 text items. The c
       [
           new BetaManagedAgentsSystemMessageEventParams
           {
-              Type = BetaManagedAgentsSystemMessageEventParamsType.SystemMessage,
               Content =
               [
                   new BetaManagedAgentsSystemContentBlock
                   {
-                      Type = BetaManagedAgentsSystemContentBlockType.Text,
                       Text = "The user's current timezone is America/New_York.",
                   },
               ],
@@ -1767,7 +1731,6 @@ The event's `content` (csharp, go: `Content`) accepts 1–1000 text items. The c
       session.id(),
       EventSendParams.builder()
           .addEvent(BetaManagedAgentsSystemMessageEventParams.builder()
-              .type(BetaManagedAgentsSystemMessageEventParams.Type.SYSTEM_MESSAGE)
               .addTextContent("The user's current timezone is America/New_York.")
               .build())
           .build());

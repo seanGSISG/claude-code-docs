@@ -173,14 +173,7 @@ Add the computer use toolset to the `tools` array of a [Messages API](https://pl
           new ToolTextEditor20250728(),
           new ToolBash20250124(),
       ],
-      Messages =
-      [
-          new MessageParam
-          {
-              Role = Role.User,
-              Content = "Save a picture of a cat to my desktop.",
-          },
-      ],
+      Messages = [new UserMessageParam { Content = "Save a picture of a cat to my desktop." }],
   };
 
   var response = await client.Messages.Create(parameters);
@@ -562,9 +555,8 @@ The core of computer use is the "agent loop": a cycle where Claude requests tool
 
           // Add Claude's response to the conversation history
           messages.Add(
-              new()
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
                   Content = response
                       .Content.Select(block => new ContentBlockParam(block.Json))
                       .ToList(),
@@ -579,7 +571,7 @@ The core of computer use is the "agent loop": a cycle where Claude requests tool
           }
 
           // Send tool results back to Claude for the next iteration
-          messages.Add(new() { Role = Role.User, Content = toolResults });
+          messages.Add(new UserMessageParam { Content = toolResults });
       }
 
       return messages;
@@ -632,10 +624,7 @@ The core of computer use is the "agent loop": a cycle where Claude requests tool
                   .build());
 
           // Add Claude's response to the conversation history
-          messages.add(MessageParam.builder()
-                  .role(MessageParam.Role.ASSISTANT)
-                  .contentOfBlockParams(response.content().stream().map(ContentBlock::toParam).toList())
-                  .build());
+          messages.add(response.toParam());
 
           // Run any tools Claude requested and collect results
           List<ContentBlockParam> toolResults = processToolCalls(response);
@@ -644,10 +633,7 @@ The core of computer use is the "agent loop": a cycle where Claude requests tool
           }
 
           // Send tool results back to Claude for the next iteration
-          messages.add(MessageParam.builder()
-                  .role(MessageParam.Role.USER)
-                  .contentOfBlockParams(toolResults)
-                  .build());
+          messages.add(MessageParam.ofUserOfContentBlockParams(toolResults));
       }
       return messages;
   }

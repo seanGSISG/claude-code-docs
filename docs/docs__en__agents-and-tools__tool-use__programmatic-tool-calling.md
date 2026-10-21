@@ -194,8 +194,7 @@ Here's an example where Claude programmatically queries a database multiple time
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
-          new() {
-              Role = Role.User,
+          new UserMessageParam {
               Content = "Query sales data for the West, East, and Central regions, then tell me which region had the highest revenue"
           }
       ],
@@ -804,14 +803,12 @@ Send the full conversation history plus your tool result. Three details matter o
       Container = "container_xyz789",
       Messages =
       [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = "Query customer purchase history from the last quarter and identify our top 5 customers by revenue"
           },
-          new()
+          new AssistantMessageParam
           {
-              Role = Role.Assistant,
               Content = new ContentBlock[]
               {
                   new TextBlock { Text = "I'll query the purchase history and analyze the results." },
@@ -834,9 +831,8 @@ Send the full conversation history plus your tool result. Three details matter o
                   }
               }
           },
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = new ContentBlockParam[]
               {
                   new ToolResultBlockParam
@@ -954,7 +950,7 @@ Send the full conversation history plus your tool result. Three details matter o
           .maxTokens(4096L)
           .container("container_xyz789")
           .addUserMessage("Query customer purchase history from the last quarter and identify our top 5 customers by revenue")
-          .addAssistantMessageOfBlockParams(List.of(
+          .addAssistantMessageOfContentBlockParams(List.of(
               ContentBlockParam.ofText(
                   TextBlockParam.builder()
                       .text("I'll query the purchase history and analyze the results.")
@@ -962,7 +958,7 @@ Send the full conversation history plus your tool result. Three details matter o
               ContentBlockParam.ofServerToolUse(
                   ServerToolUseBlockParam.builder()
                       .id("srvtoolu_abc123")
-                      .name("code_execution")
+                      .name(ServerToolUseBlockParam.Name.CODE_EXECUTION)
                       .input(JsonValue.from(Map.of("code", "...")))
                       .build()),
               ContentBlockParam.ofToolUse(
@@ -973,7 +969,7 @@ Send the full conversation history plus your tool result. Three details matter o
                       .codeExecution20260120Caller("srvtoolu_abc123")
                       .build())
           ))
-          .addUserMessageOfBlockParams(List.of(
+          .addUserMessageOfContentBlockParams(List.of(
               ContentBlockParam.ofToolResult(
                   ToolResultBlockParam.builder()
                       .toolUseId("toolu_def456")

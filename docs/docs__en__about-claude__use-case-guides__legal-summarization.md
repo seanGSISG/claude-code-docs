@@ -618,7 +618,7 @@ Here’s an example of how to create a prompt that ensures the generated summari
               Model = model,
               MaxTokens = maxTokens,
               System = "You are a legal analyst specializing in real estate law, known for highly accurate and detailed summaries of sublease agreements.",
-              Messages = [new() { Role = Role.User, Content = prompt }],
+              Messages = [new UserMessageParam { Content = prompt }],
           }
       );
 
@@ -1066,7 +1066,7 @@ Here's an example of how to perform meta-summarization:
               Model = model,
               MaxTokens = maxTokens,
               System = "You are a legal expert that summarizes notes on one document.",
-              Messages = [new() { Role = Role.User, Content = finalSummaryPrompt }],
+              Messages = [new UserMessageParam { Content = finalSummaryPrompt }],
           }
       );
 

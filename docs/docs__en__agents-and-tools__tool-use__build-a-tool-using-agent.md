@@ -304,7 +304,7 @@ The request sends a `tools` array alongside the user message. When Claude determ
       MaxTokens = 1024,
       Tools = tools,
       ToolChoice = toolChoice,
-      Messages = [new() { Role = Role.User, Content = userPrompt }],
+      Messages = [new UserMessageParam { Content = userPrompt }],
   });
 
   // When Claude calls a tool, the response has stop_reason "tool_use"
@@ -349,9 +349,9 @@ The request sends a `tools` array alongside the user message. When Claude determ
       ToolChoice = toolChoice,
       Messages =
       [
-          new() { Role = Role.User, Content = userPrompt },
-          new() { Role = Role.Assistant, Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList() },
-          new() { Role = Role.User, Content = new MessageParamContent(toolResults) },
+          new UserMessageParam { Content = userPrompt },
+          new AssistantMessageParam { Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList() },
+          new UserMessageParam { Content = toolResults },
       ],
   });
 
@@ -588,7 +588,7 @@ The request sends a `tools` array alongside the user message. When Claude determ
           .toolChoice(toolChoice)
           .addUserMessage(userPrompt)
           .addMessage(response)
-          .addUserMessageOfBlockParams(List.of(ContentBlockParam.ofToolResult(
+          .addUserMessageOfContentBlockParams(List.of(ContentBlockParam.ofToolResult(
               ToolResultBlockParam.builder()
                   .toolUseId(toolUse.id())
                   .content(result)
@@ -1100,9 +1100,8 @@ The other change is conversation history. Instead of rebuilding the `messages` a
   // Keep the full conversation history in a list so each turn sees prior context.
   List<MessageParam> messages =
   [
-      new()
+      new UserMessageParam
       {
-          Role = Role.User,
           Content = "Schedule a weekly team standup every Monday at 9am for the next 4 weeks, starting Monday, March 30, 2026. Invite the whole team: alice@example.com, bob@example.com, carol@example.com.",
       },
   ];
@@ -1131,15 +1130,13 @@ The other change is conversation history. Instead of rebuilding the `messages` a
       }
       var result = RunTool(toolUse!);
 
-      messages.Add(new()
+      messages.Add(new AssistantMessageParam
       {
-          Role = Role.Assistant,
           Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList(),
       });
-      messages.Add(new()
+      messages.Add(new UserMessageParam
       {
-          Role = Role.User,
-          Content = new MessageParamContent(
+          Content = new MessageContentParam(
           [
               new ContentBlockParam(new ToolResultBlockParam() { ToolUseID = toolUse!.ID, Content = result }),
           ]),
@@ -1348,10 +1345,8 @@ The other change is conversation history. Instead of rebuilding the `messages` a
 
       // Keep the full conversation history in a list so each turn sees prior context.
       List<MessageParam> messages = new ArrayList<>();
-      messages.add(MessageParam.builder()
-          .role(MessageParam.Role.USER)
-          .content("Schedule a weekly team standup every Monday at 9am for the next 4 weeks, starting Monday, March 30, 2026. Invite the whole team: alice@example.com, bob@example.com, carol@example.com.")
-          .build());
+      messages.add(MessageParam.ofUser(
+          "Schedule a weekly team standup every Monday at 9am for the next 4 weeks, starting Monday, March 30, 2026. Invite the whole team: alice@example.com, bob@example.com, carol@example.com."));
 
       Message response = client.messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_OPUS_5_5)
@@ -1372,14 +1367,11 @@ The other change is conversation history. Instead of rebuilding the `messages` a
           String result = runTool(toolUse);
 
           messages.add(response.toParam());
-          messages.add(MessageParam.builder()
-              .role(MessageParam.Role.USER)
-              .contentOfBlockParams(List.of(ContentBlockParam.ofToolResult(
-                  ToolResultBlockParam.builder()
-                      .toolUseId(toolUse.id())
-                      .content(result)
-                      .build())))
-              .build());
+          messages.add(MessageParam.ofUserOfContentBlockParams(List.of(ContentBlockParam.ofToolResult(
+              ToolResultBlockParam.builder()
+                  .toolUseId(toolUse.id())
+                  .content(result)
+                  .build()))));
 
           response = client.messages().create(MessageCreateParams.builder()
               .model(Model.CLAUDE_OPUS_5_5)
@@ -1907,9 +1899,8 @@ When Claude has multiple independent tool calls to make, it might return several
 
   List<MessageParam> messages =
   [
-      new()
+      new UserMessageParam
       {
-          Role = Role.User,
           Content = "Check what I have on Monday, March 30, 2026, then schedule a one-hour planning session that day that avoids any conflicts.",
       },
   ];
@@ -1939,12 +1930,11 @@ When Claude has multiple independent tool calls to make, it might return several
           }
       }
 
-      messages.Add(new()
+      messages.Add(new AssistantMessageParam
       {
-          Role = Role.Assistant,
           Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList(),
       });
-      messages.Add(new() { Role = Role.User, Content = new MessageParamContent(toolResults) });
+      messages.Add(new UserMessageParam { Content = toolResults });
 
       response = await client.Messages.Create(new MessageCreateParams
       {
@@ -2159,10 +2149,8 @@ When Claude has multiple independent tool calls to make, it might return several
           .build();
 
       List<MessageParam> messages = new ArrayList<>();
-      messages.add(MessageParam.builder()
-          .role(MessageParam.Role.USER)
-          .content("Check what I have on Monday, March 30, 2026, then schedule a one-hour planning session that day that avoids any conflicts.")
-          .build());
+      messages.add(MessageParam.ofUser(
+          "Check what I have on Monday, March 30, 2026, then schedule a one-hour planning session that day that avoids any conflicts."));
 
       Message response = client.messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_OPUS_5_5)
@@ -2189,10 +2177,7 @@ When Claude has multiple independent tool calls to make, it might return several
           }
 
           messages.add(response.toParam());
-          messages.add(MessageParam.builder()
-              .role(MessageParam.Role.USER)
-              .contentOfBlockParams(toolResults)
-              .build());
+          messages.add(MessageParam.ofUserOfContentBlockParams(toolResults));
 
           response = client.messages().create(MessageCreateParams.builder()
               .model(Model.CLAUDE_OPUS_5_5)
@@ -2755,7 +2740,7 @@ Tools fail. A calendar API might reject an event with too many attendees, or a d
 
   List<MessageParam> messages =
   [
-      new() { Role = Role.User, Content = $"Schedule a one-hour all-hands on Monday, March 30, 2026 at 10am with everyone: {emails}" },
+      new UserMessageParam { Content = $"Schedule a one-hour all-hands on Monday, March 30, 2026 at 10am with everyone: {emails}" },
   ];
 
   var response = await client.Messages.Create(new MessageCreateParams
@@ -2792,12 +2777,11 @@ Tools fail. A calendar API might reject an event with too many attendees, or a d
           }
       }
 
-      messages.Add(new()
+      messages.Add(new AssistantMessageParam
       {
-          Role = Role.Assistant,
           Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList(),
       });
-      messages.Add(new() { Role = Role.User, Content = new MessageParamContent(toolResults) });
+      messages.Add(new UserMessageParam { Content = toolResults });
 
       response = await client.Messages.Create(new MessageCreateParams
       {
@@ -3037,10 +3021,8 @@ Tools fail. A calendar API might reject an event with too many attendees, or a d
           .collect(Collectors.joining(", "));
 
       List<MessageParam> messages = new ArrayList<>();
-      messages.add(MessageParam.builder()
-          .role(MessageParam.Role.USER)
-          .content("Schedule a one-hour all-hands on Monday, March 30, 2026 at 10am with everyone: " + emails)
-          .build());
+      messages.add(MessageParam.ofUser(
+          "Schedule a one-hour all-hands on Monday, March 30, 2026 at 10am with everyone: " + emails));
 
       Message response = client.messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_OPUS_5_5)
@@ -3069,10 +3051,7 @@ Tools fail. A calendar API might reject an event with too many attendees, or a d
           }
 
           messages.add(response.toParam());
-          messages.add(MessageParam.builder()
-              .role(MessageParam.Role.USER)
-              .contentOfBlockParams(toolResults)
-              .build());
+          messages.add(MessageParam.ofUserOfContentBlockParams(toolResults));
 
           response = client.messages().create(MessageCreateParams.builder()
               .model(Model.CLAUDE_OPUS_5_5)
@@ -3490,7 +3469,6 @@ Each SDK provides a helper that turns an ordinary function into a runnable tool 
   using Anthropic.Models.Beta.Messages;
   using MessageCreateParams = Anthropic.Models.Beta.Messages.MessageCreateParams;
   using InputSchema = Anthropic.Models.Beta.Messages.InputSchema;
-  using Role = Anthropic.Models.Beta.Messages.Role;
   using Model = Anthropic.Models.Messages.Model;
 
   AnthropicClient client = new();
@@ -3574,9 +3552,8 @@ Each SDK provides a helper that turns an ordinary function into a runnable tool 
           MaxTokens = 1024,
           Messages =
           [
-              new()
+              new BetaUserMessageParam
               {
-                  Role = Role.User,
                   Content = "Check what I have on Monday, March 30, 2026, then schedule a one-hour planning session that day that avoids any conflicts.",
               },
           ],

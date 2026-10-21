@@ -184,7 +184,7 @@ The structure is identical for both Anthropic and custom Skills. Specify the req
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Create a presentation about renewable energy" }],
+      Messages = [new UserMessageParam { Content = "Create a presentation about renewable energy" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -432,7 +432,7 @@ To provide input files for Skills to work on, [upload them with the Files API](h
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Create an Excel file with a simple budget spreadsheet" }],
+      Messages = [new UserMessageParam { Content = "Create an Excel file with a simple budget spreadsheet" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -977,7 +977,7 @@ The response's `container` object carries the container's `id` and `expires_at` 
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Create a sample sales dataset and analyze it" }],
+      Messages = [new UserMessageParam { Content = "Create a sample sales dataset and analyze it" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -1009,9 +1009,9 @@ The response's `container` object carries the container's `id` and `expires_at` 
       },
       Messages =
       [
-          new() { Role = Role.User, Content = "Create a sample sales dataset and analyze it" },
-          new() { Role = Role.Assistant, Content = assistantText },
-          new() { Role = Role.User, Content = "What was the total revenue?" },
+          new UserMessageParam { Content = "Create a sample sales dataset and analyze it" },
+          new AssistantMessageParam { Content = assistantText },
+          new UserMessageParam { Content = "What was the total revenue?" },
       ],
       Tools = [new CodeExecutionTool20250825()],
   };
@@ -1343,7 +1343,7 @@ Skills may perform operations that require multiple turns. Handle `pause_turn` s
 
   List<MessageParam> messages =
   [
-      new() { Role = Role.User, Content = "Generate and process a large sample dataset" },
+      new UserMessageParam { Content = "Generate and process a large sample dataset" },
   ];
 
   var maxRetries = 10;
@@ -1398,7 +1398,7 @@ Skills may perform operations that require multiple turns. Handle `pause_turn` s
       var assistantContent = JsonSerializer.SerializeToElement(
           response.Content.Select(block => block.Json).ToArray()
       );
-      messages.Add(new() { Role = Role.Assistant, Content = new MessageParamContent(assistantContent) });
+      messages.Add(new AssistantMessageParam { Content = new MessageContentParam(assistantContent) });
   }
   ```
 
@@ -1478,12 +1478,7 @@ Skills may perform operations that require multiple turns. Handle `pause_turn` s
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       List<MessageParam> messages = new ArrayList<>();
-      messages.add(
-          MessageParam.builder()
-              .role(MessageParam.Role.USER)
-              .content("Generate and process a large sample dataset")
-              .build()
-      );
+      messages.add(MessageParam.ofUser("Generate and process a large sample dataset"));
       int maxRetries = 10;
 
       Message response = client.messages().create(
@@ -1793,7 +1788,7 @@ Combine multiple Skills in a single request to handle complex workflows:
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Analyze sales data and create a presentation" }],
+      Messages = [new UserMessageParam { Content = "Analyze sales data and create a presentation" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -2822,7 +2817,7 @@ A new version is a complete snapshot, not a delta: upload the Skill's full file 
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Use updated Skill" }],
+      Messages = [new UserMessageParam { Content = "Use updated Skill" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -2846,7 +2841,7 @@ A new version is a complete snapshot, not a delta: upload the Skill's full file 
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Use latest Skill version" }],
+      Messages = [new UserMessageParam { Content = "Use latest Skill version" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -3406,7 +3401,7 @@ Then use it with the Excel Skill to create a financial model. Pass the ID of the
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Build a DCF valuation model for a SaaS company" }],
+      Messages = [new UserMessageParam { Content = "Build a DCF valuation model for a SaaS company" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -4034,7 +4029,7 @@ If you use [Prompt caching](https://platform.claude.com/docs/en/build-with-claud
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Analyze sales data" }],
+      Messages = [new UserMessageParam { Content = "Analyze sales data" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -4064,7 +4059,7 @@ If you use [Prompt caching](https://platform.claude.com/docs/en/build-with-claud
               },
           ],
       },
-      Messages = [new() { Role = Role.User, Content = "Create a presentation" }],
+      Messages = [new UserMessageParam { Content = "Create a presentation" }],
       Tools = [new CodeExecutionTool20250825()],
   };
 
@@ -4354,7 +4349,7 @@ Handle Skill-related errors gracefully:
                   },
               ],
           },
-          Messages = [new() { Role = Role.User, Content = "Process data" }],
+          Messages = [new UserMessageParam { Content = "Process data" }],
           Tools = [new CodeExecutionTool20250825()],
       };
 

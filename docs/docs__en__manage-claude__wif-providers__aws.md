@@ -335,7 +335,7 @@ Call `GetWebIdentityToken` with `https://api.anthropic.com` as the audience, the
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello from AWS" }],
+      Messages = [new UserMessageParam { Content = "Hello from AWS" }],
   });
   foreach (var block in message.Content)
   {
@@ -756,7 +756,7 @@ Inside the pod, the projected token is at `/var/run/secrets/anthropic.com/token`
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello from EKS" }],
+      Messages = [new UserMessageParam { Content = "Hello from EKS" }],
   });
   foreach (var block in message.Content)
   {

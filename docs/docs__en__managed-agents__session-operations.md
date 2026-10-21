@@ -101,21 +101,13 @@ The session must be `idle` to update the agent. To update the agent while the se
       {
           Tools =
           [
-              new BetaManagedAgentsAgentToolset20260401Params
-              {
-                  Type = BetaManagedAgentsAgentToolset20260401ParamsType.AgentToolset20260401,
-              },
-              new BetaManagedAgentsMcpToolsetParams
-              {
-                  Type = BetaManagedAgentsMcpToolsetParamsType.McpToolset,
-                  McpServerName = "linear",
-              },
+              new BetaManagedAgentsAgentToolset20260401Params(),
+              new BetaManagedAgentsMcpToolsetParams { McpServerName = "linear" },
           ],
           McpServers =
           [
               new()
               {
-                  Type = BetaManagedAgentsUrlMcpServerParamsType.Url,
                   Name = "linear",
                   Url = "https://mcp.linear.app/sse",
               },
@@ -159,15 +151,11 @@ The session must be `idle` to update the agent. To update the agent while the se
       session.id(),
       SessionUpdateParams.builder()
           .agent(BetaManagedAgentsSessionAgentUpdate.builder()
-              .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
-                  .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
-                  .build())
+              .addTool(BetaManagedAgentsAgentToolset20260401Params.builder().build())
               .addTool(BetaManagedAgentsMcpToolsetParams.builder()
-                  .type(BetaManagedAgentsMcpToolsetParams.Type.MCP_TOOLSET)
                   .mcpServerName("linear")
                   .build())
               .addMcpServer(BetaManagedAgentsUrlMcpServerParams.builder()
-                  .type(BetaManagedAgentsUrlMcpServerParams.Type.URL)
                   .name("linear")
                   .url("https://mcp.linear.app/sse")
                   .build())
@@ -181,13 +169,12 @@ The session must be `idle` to update the agent. To update the agent while the se
       $session->id,
       agent: BetaManagedAgentsSessionAgentUpdate::with(
           tools: [
-              BetaManagedAgentsAgentToolset20260401Params::with(type: 'agent_toolset_20260401'),
-              BetaManagedAgentsMCPToolsetParams::with(mcpServerName: 'linear', type: 'mcp_toolset'),
+              BetaManagedAgentsAgentToolset20260401Params::with(),
+              BetaManagedAgentsMCPToolsetParams::with(mcpServerName: 'linear'),
           ],
           mcpServers: [
               BetaManagedAgentsURLMCPServerParams::with(
                   name: 'linear',
-                  type: 'url',
                   url: 'https://mcp.linear.app/sse',
               ),
           ],

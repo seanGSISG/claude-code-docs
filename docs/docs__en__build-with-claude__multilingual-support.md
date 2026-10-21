@@ -102,10 +102,7 @@ Claude infers the response language from the conversation, but for production ap
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       System = "Always respond in French, regardless of the language the user writes in.",
-      Messages =
-      [
-          new() { Role = Role.User, Content = "How do I reset my password?" }
-      ]
+      Messages = [new UserMessageParam { Content = "How do I reset my password?" }]
   };
 
   var message = await client.Messages.Create(parameters);

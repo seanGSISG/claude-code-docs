@@ -289,7 +289,6 @@ You can configure `access` (csharp, go: `Access`) as well. It defaults to `read_
       [
           new BetaManagedAgentsMemoryStoreResourceParam
           {
-              Type = "memory_store",
               MemoryStoreID = store.ID,
               Access = "read_write",
               Instructions = "User preferences and project context. Check before starting any task.",
@@ -325,7 +324,6 @@ You can configure `access` (csharp, go: `Access`) as well. It defaults to `read_
           .environmentId(environment.id())
           .addResource(
               BetaManagedAgentsMemoryStoreResourceParam.builder()
-                  .type(BetaManagedAgentsMemoryStoreResourceParam.Type.MEMORY_STORE)
                   .memoryStoreId(store.id())
                   .access(BetaManagedAgentsMemoryStoreResourceParam.Access.READ_WRITE)
                   .instructions("User preferences and project context. Check before starting any task.")
@@ -781,11 +779,7 @@ To avoid clobbering a concurrent write, pass a `content_sha256` precondition. Th
   {
       MemoryStoreID = store.ID,
       Content = "CORRECTED: Always use 2-space indentation.",
-      Precondition = new BetaManagedAgentsPrecondition
-      {
-          Type = "content_sha256",
-          ContentSha256 = mem.ContentSha256,
-      },
+      Precondition = new BetaManagedAgentsPrecondition { ContentSha256 = mem.ContentSha256 },
   });
   ```
 
@@ -811,7 +805,6 @@ To avoid clobbering a concurrent write, pass a `content_sha256` precondition. Th
           .content("CORRECTED: Always use 2-space indentation.")
           .precondition(
               BetaManagedAgentsPrecondition.builder()
-                  .type(BetaManagedAgentsPrecondition.Type.CONTENT_SHA256)
                   .contentSha256(mem.contentSha256())
                   .build()
           )

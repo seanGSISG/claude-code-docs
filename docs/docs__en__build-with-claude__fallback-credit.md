@@ -189,10 +189,7 @@ The following example makes a request that may be refused and redeems the credit
   var client = new AnthropicClient();
   const string beta = "fallback-credit-2026-07-01";
 
-  List<BetaMessageParam> requestMessages =
-  [
-      new() { Role = Role.User, Content = "Hello, Claude" },
-  ];
+  List<BetaMessageParam> requestMessages = [new BetaUserMessageParam { Content = "Hello, Claude" }];
   MessageCreateParams Request(Model model) => new()
   {
       Model = model,
@@ -226,10 +223,9 @@ The following example makes a request that may be refused and redeems the credit
               Messages =
               [
                   .. requestMessages,
-                  new()
+                  new BetaAssistantMessageParam
                   {
-                      Role = Role.Assistant,
-                      Content = new BetaMessageParamContent(
+                      Content = new BetaMessageContentParam(
                           JsonSerializer.SerializeToElement(echoed)
                       ),
                   },
@@ -370,7 +366,7 @@ The following example makes a request that may be refused and redeems the credit
                   echoed.addLast(BetaContentBlockParam.ofText(
                       lastText.toBuilder().text(lastText.text().stripTrailing()).build()));
               }
-              attempt.addAssistantMessageOfBetaContentBlockParams(echoed);
+              attempt.addAssistantMessageOfContentBlockParams(echoed);
           }
           try {
               response = send(Model.CLAUDE_OPUS_4_8, attempt);

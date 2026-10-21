@@ -135,7 +135,7 @@ The Python and TypeScript SDKs expose the request ID as a `_request_id` property
   {
       Model = Model.ClaudeSonnet5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello, Claude" }]
+      Messages = [new UserMessageParam { Content = "Hello, Claude" }]
   });
   Console.WriteLine($"Request ID: {response.RequestID}");
   ```
@@ -321,7 +321,7 @@ If you don't need to process events incrementally, the SDK can consume the strea
   {
       Model = Model.ClaudeSonnet5,
       MaxTokens = 128000,
-      Messages = [new() { Role = Role.User, Content = "Write a detailed analysis..." }]
+      Messages = [new UserMessageParam { Content = "Write a detailed analysis..." }]
   };
 
   var message = await client.Messages.CreateStreaming(parameters).Aggregate();

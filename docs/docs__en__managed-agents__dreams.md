@@ -87,16 +87,8 @@ The dream produces another **output memory store**, separate from the input. The
   {
       Inputs =
       [
-          new BetaDreamMemoryStoreInput
-          {
-              Type = BetaDreamMemoryStoreInputType.MemoryStore,
-              MemoryStoreID = storeID,
-          },
-          new BetaDreamSessionsInput
-          {
-              Type = BetaDreamSessionsInputType.Sessions,
-              SessionIds = [sessionA, sessionB],
-          },
+          new BetaDreamMemoryStoreInput { MemoryStoreID = storeID },
+          new BetaDreamSessionsInput { SessionIds = [sessionA, sessionB] },
       ],
       Model = "claude-opus-5-5",
       Instructions = "Focus on coding-style preferences; ignore one-off debugging notes.",
@@ -352,7 +344,7 @@ When `status` (csharp, go: `Status`) reaches `completed`, the `memory_store` ent
   ```
 
   ```csharp C#
-  var output = dream.Outputs.FirstOrDefault(entry => entry.Type == "memory_store");
+  var output = dream.Outputs.FirstOrDefault(entry => entry.Type.GetString() == "memory_store");
   if (output is { MemoryStoreID: var outputStoreID })
   {
       await client.Beta.Sessions.Create(new()
@@ -361,11 +353,7 @@ When `status` (csharp, go: `Status`) reaches `completed`, the `memory_store` ent
           EnvironmentID = environmentID,
           Resources =
           [
-              new BetaManagedAgentsMemoryStoreResourceParam
-              {
-                  Type = BetaManagedAgentsMemoryStoreResourceParamType.MemoryStore,
-                  MemoryStoreID = outputStoreID,
-              },
+              new BetaManagedAgentsMemoryStoreResourceParam { MemoryStoreID = outputStoreID },
           ],
       });
   }
@@ -400,7 +388,7 @@ When `status` (csharp, go: `Status`) reaches `completed`, the `memory_store` ent
 
   ```java Java
   var output = dream.outputs().stream()
-      .filter(entry -> entry.type().equals(BetaDreamOutput.Type.MEMORY_STORE))
+      .filter(entry -> entry._type().equals(JsonValue.from("memory_store")))
       .findFirst();
   if (output.isPresent()) {
       var outputStoreId = output.get().memoryStoreId();

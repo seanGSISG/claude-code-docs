@@ -298,7 +298,7 @@ The following script sends a request that should trigger parallel tool calls, ve
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "What's the weather in SF and NYC, and what time is it there?" }],
+      Messages = [new UserMessageParam { Content = "What's the weather in SF and NYC, and what time is it there?" }],
       Tools = tools
   };
 
@@ -357,9 +357,9 @@ The following script sends a request that should trigger parallel tool calls, ve
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Messages = [
-          new() { Role = Role.User, Content = "What's the weather in SF and NYC, and what time is it there?" },
-          new() { Role = Role.Assistant, Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList() },
-          new() { Role = Role.User, Content = new MessageParamContent(toolResults) }
+          new UserMessageParam { Content = "What's the weather in SF and NYC, and what time is it there?" },
+          new AssistantMessageParam { Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList() },
+          new UserMessageParam { Content = toolResults }
       ],
       Tools = tools
   };
@@ -592,7 +592,7 @@ The following script sends a request that should trigger parallel tool calls, ve
       .addTool(timeTool)
       .addUserMessage("What's the weather in SF and NYC, and what time is it there?")
       .addMessage(response)
-      .addUserMessageOfBlockParams(toolResults)
+      .addUserMessageOfContentBlockParams(toolResults)
       .build();
 
   Message finalResponse = client.messages().create(finalParams);
@@ -986,7 +986,7 @@ When `tool_choice` type is `auto` (the default), setting `disable_parallel_tool_
           }),
       ],
       ToolChoice = new ToolChoiceAuto { DisableParallelToolUse = true },
-      Messages = [new() { Role = Role.User, Content = "What is the weather in San Francisco and New York?" }]
+      Messages = [new UserMessageParam { Content = "What is the weather in San Francisco and New York?" }]
   };
 
   var response = await client.Messages.Create(parameters);
@@ -1267,7 +1267,7 @@ When `tool_choice` type is `any` or `tool`, setting `disable_parallel_tool_use: 
           }),
       ],
       ToolChoice = new ToolChoiceAny { DisableParallelToolUse = true },
-      Messages = [new() { Role = Role.User, Content = "What is the weather in San Francisco and New York?" }]
+      Messages = [new UserMessageParam { Content = "What is the weather in San Francisco and New York?" }]
   };
 
   var response = await client.Messages.Create(parameters);

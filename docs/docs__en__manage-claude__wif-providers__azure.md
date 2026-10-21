@@ -455,7 +455,7 @@ The samples fetch the managed identity token from the platform's token endpoint:
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello from Azure" }],
+      Messages = [new UserMessageParam { Content = "Hello from Azure" }],
   });
   foreach (var block in message.Content)
   {
@@ -1093,7 +1093,7 @@ Two different client IDs appear in the samples. `<APP_ID>` is the audience app r
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello from Azure" }],
+      Messages = [new UserMessageParam { Content = "Hello from Azure" }],
   });
   foreach (var block in message.Content)
   {

@@ -117,8 +117,7 @@ Set `output_config.effort` on the request. The following example runs one reques
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
-          new() {
-              Role = Role.User,
+          new UserMessageParam {
               Content = "Analyze the trade-offs between microservices and monolithic architectures"
           }
       ],
@@ -496,16 +495,15 @@ The following example starts at `high`, then drops to `low` for a routine follow
       OutputConfig = new() { Effort = Effort.High },
       Messages =
       [
-          new() { Role = Role.User, Content = "Plan a migration from SQLite to PostgreSQL in three short steps." },
-          new() { Role = Role.Assistant, Content = "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts." },
+          new BetaUserMessageParam { Content = "Plan a migration from SQLite to PostgreSQL in three short steps." },
+          new BetaAssistantMessageParam { Content = "1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts." },
           // Effort-only system message: the new level takes effect from the next user turn.
-          new()
+          new BetaSystemMessageParam
           {
-              Role = Role.System,
               Content = new([]),
               OutputConfig = new() { Effort = BetaSystemMessageOutputConfigEffort.Low },
           },
-          new() { Role = Role.User, Content = "Summarize the plan in one sentence." },
+          new BetaUserMessageParam { Content = "Summarize the plan in one sentence." },
       ],
       Betas = [AnthropicBeta.MidConversationOutputConfig2026_07_01],
   });
@@ -556,9 +554,9 @@ The following example starts at `high`, then drops to `low` for a routine follow
   ```java Java
   import com.anthropic.models.beta.AnthropicBeta;
   import com.anthropic.models.beta.messages.BetaMessage;
-  import com.anthropic.models.beta.messages.BetaMessageParam;
   import com.anthropic.models.beta.messages.BetaOutputConfig;
   import com.anthropic.models.beta.messages.BetaSystemMessageOutputConfig;
+  import com.anthropic.models.beta.messages.BetaSystemMessageParam;
   import com.anthropic.models.beta.messages.MessageCreateParams;
   import com.anthropic.models.messages.Model;
 
@@ -575,9 +573,8 @@ The following example starts at `high`, then drops to `low` for a routine follow
           .addUserMessage("Plan a migration from SQLite to PostgreSQL in three short steps.")
           .addAssistantMessage("1. Export the SQLite data. 2. Create the PostgreSQL schema. 3. Import the data and verify row counts.")
           // Effort-only system message: the new level takes effect from the next user turn.
-          .addMessage(BetaMessageParam.builder()
-              .role(BetaMessageParam.Role.SYSTEM)
-              .contentOfBetaContentBlockParams(List.of())
+          .addMessage(BetaSystemMessageParam.builder()
+              .contentOfBlocks(List.of())
               .outputConfig(BetaSystemMessageOutputConfig.builder()
                   .effort(BetaSystemMessageOutputConfig.Effort.LOW)
                   .build())

@@ -100,11 +100,7 @@ The simplest way to start is with automatic caching:
       System = "You are an AI assistant tasked with analyzing literary works. Your goal is to provide insightful commentary on themes, characters, and writing style.",
       Messages =
       [
-          new()
-          {
-              Role = Role.User,
-              Content = "Analyze the major themes in 'Pride and Prejudice'."
-          }
+          new UserMessageParam { Content = "Analyze the major themes in 'Pride and Prejudice'." }
       ]
   };
 
@@ -370,21 +366,12 @@ Automatic caching is the simplest way to enable prompt caching. Instead of placi
       System = "You are a helpful assistant that remembers our conversation.",
       Messages =
       [
-          new()
+          new UserMessageParam { Content = "My name is Alex. I work on machine learning." },
+          new AssistantMessageParam
           {
-              Role = Role.User,
-              Content = "My name is Alex. I work on machine learning."
-          },
-          new()
-          {
-              Role = Role.Assistant,
               Content = "Nice to meet you, Alex! How can I help with your ML work today?"
           },
-          new()
-          {
-              Role = Role.User,
-              Content = "What did I say I work on?"
-          }
+          new UserMessageParam { Content = "What did I say I work on?" }
       ]
   };
 
@@ -1004,7 +991,7 @@ Place the `cache_control` breakpoint on the last block that is shared with the f
                   },
               ]
           ),
-          Messages = [new() { Role = Role.User, Content = "warmup" }],
+          Messages = [new UserMessageParam { Content = "warmup" }],
       }
   );
 
@@ -1317,7 +1304,7 @@ Fire a pre-warm request when your application starts (or on a scheduled interval
               Model = Model.ClaudeOpus5_5,
               MaxTokens = 0,
               System = new(systemPrompt),
-              Messages = [new() { Role = Role.User, Content = "warmup" }],
+              Messages = [new UserMessageParam { Content = "warmup" }],
           }
       );
 
@@ -1329,7 +1316,7 @@ Fire a pre-warm request when your application starts (or on a scheduled interval
               Model = Model.ClaudeOpus5_5,
               MaxTokens = 1024,
               System = new(systemPrompt),
-              Messages = [new() { Role = Role.User, Content = userMessage }],
+              Messages = [new UserMessageParam { Content = userMessage }],
           }
       );
 
@@ -1675,9 +1662,8 @@ The following code snippets showcase various prompt caching patterns. These exam
           }),
           Messages =
           [
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
                   Content = "What are the key terms and conditions in this agreement?"
               }
           ]
@@ -2045,23 +2031,20 @@ The following code snippets showcase various prompt caching patterns. These exam
           }),
           Messages =
           [
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new TextBlockParam("Hello, can you tell me more about the solar system?")),
-                  }),
+                  },
               },
-              new()
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
                   Content = "Certainly! The solar system is the collection of celestial bodies that orbit our Sun. It consists of eight planets, numerous moons, asteroids, comets, and other objects. The planets, in order from closest to farthest from the Sun, are: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. Each planet has its own unique characteristics and features. Is there a specific aspect of the solar system you would like to know more about?"
               },
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new TextBlockParam("Good to know.")),
                       new ContentBlockParam(new TextBlockParam()
@@ -2069,7 +2052,7 @@ The following code snippets showcase various prompt caching patterns. These exam
                           Text = "Tell me more about Mars.",
                           CacheControl = new CacheControlEphemeral(),
                       }),
-                  })
+                  }
               }
           ]
       };
@@ -2137,7 +2120,7 @@ The following code snippets showcase various prompt caching patterns. These exam
               "Certainly! The solar system is the collection of celestial bodies that orbit our Sun. It consists of eight planets, numerous moons, asteroids, comets, and other objects. The planets, in order from closest to farthest from the Sun, are: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. Each planet has its own unique characteristics and features. Is there a specific aspect of the solar system you would like to know more about?"
             )
             // Second user message (with cache control)
-            .addUserMessageOfBlockParams(
+            .addUserMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofText(TextBlockParam.builder().text("Good to know.").build()),
                 ContentBlockParam.ofText(
@@ -2697,11 +2680,10 @@ The following code snippets showcase various prompt caching patterns. These exam
           }),
           Messages =
           [
-              new() { Role = Role.User, Content = "Can you search for information about Mars rovers?" },
-              new()
+              new UserMessageParam { Content = "Can you search for information about Mars rovers?" },
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new ToolUseBlockParam()
                       {
@@ -2712,36 +2694,33 @@ The following code snippets showcase various prompt caching patterns. These exam
                               ["query"] = JsonSerializer.SerializeToElement("Mars rovers"),
                           },
                       }),
-                  }),
+                  },
               },
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new ToolResultBlockParam()
                       {
                           ToolUseID = "tool_1",
                           Content = "Found 3 relevant documents: Document 3 (Mars Exploration), Document 7 (Rover Technology), Document 9 (Mission History)",
                       }),
-                  }),
+                  },
               },
-              new()
+              new AssistantMessageParam
               {
-                  Role = Role.Assistant,
                   Content = "I found 3 relevant documents about Mars rovers. Let me get more details from the Mars Exploration document.",
               },
-              new()
+              new UserMessageParam
               {
-                  Role = Role.User,
-                  Content = new MessageParamContent(new List<ContentBlockParam>
+                  Content = new List<ContentBlockParam>
                   {
                       new ContentBlockParam(new TextBlockParam()
                       {
                           Text = "Yes, please tell me about the Perseverance rover specifically.",
                           CacheControl = new CacheControlEphemeral(),
                       }),
-                  }),
+                  },
               },
           ]
       };
@@ -2891,7 +2870,7 @@ The following code snippets showcase various prompt caching patterns. These exam
             )
             // Conversation history
             .addUserMessage("Can you search for information about Mars rovers?")
-            .addAssistantMessageOfBlockParams(
+            .addAssistantMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofToolUse(
                   ToolUseBlockParam.builder()
@@ -2902,7 +2881,7 @@ The following code snippets showcase various prompt caching patterns. These exam
                 )
               )
             )
-            .addUserMessageOfBlockParams(
+            .addUserMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofToolResult(
                   ToolResultBlockParam.builder()
@@ -2914,7 +2893,7 @@ The following code snippets showcase various prompt caching patterns. These exam
                 )
               )
             )
-            .addAssistantMessageOfBlockParams(
+            .addAssistantMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofText(
                   TextBlockParam.builder()
@@ -2925,7 +2904,7 @@ The following code snippets showcase various prompt caching patterns. These exam
                 )
               )
             )
-            .addUserMessageOfBlockParams(
+            .addUserMessageOfContentBlockParams(
               List.of(
                 ContentBlockParam.ofText(
                   TextBlockParam.builder()

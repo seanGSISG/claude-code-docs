@@ -204,7 +204,7 @@ You can find a workspace's ID in the **ID** column on the [Workspaces](https://p
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
+      Messages = [new UserMessageParam { Content = "Hello, Claude" }],
   };
 
   // Required on every request for a multi-workspace key.

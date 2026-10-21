@@ -108,7 +108,7 @@ Fast mode works only on supported models. See [Model availability](https://platf
       MaxTokens = 4096,
       Speed = Speed.Fast,
       Messages = [
-          new() { Role = Role.User, Content = "Refactor this module to use dependency injection" }
+          new UserMessageParam { Content = "Refactor this module to use dependency injection" }
       ],
   });
 
@@ -309,7 +309,7 @@ The response `usage` object includes a `speed` field that indicates which speed 
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Speed = Speed.Fast,
-      Messages = [new() { Role = Role.User, Content = "Hello" }],
+      Messages = [new UserMessageParam { Content = "Hello" }],
   });
 
   Console.WriteLine(response.Usage.Speed);  // "fast" or "standard"
@@ -518,7 +518,7 @@ Because setting `max_retries` (typescript, java, php: `maxRetries`; csharp: `Max
       {
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
-          Messages = [new() { Role = Role.User, Content = "Hello" }],
+          Messages = [new UserMessageParam { Content = "Hello" }],
           Speed = Speed.Fast,
       },
       maxRetries: 0);

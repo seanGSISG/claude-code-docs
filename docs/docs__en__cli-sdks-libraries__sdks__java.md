@@ -15,7 +15,7 @@ The Anthropic Java SDK provides convenient access to the Claude API from applica
 <Tabs>
   <Tab title="Gradle">
     ```kotlin
-    implementation("com.anthropic:anthropic-java:2.75.0")
+    implementation("com.anthropic:anthropic-java:3.0.0")
     ```
   </Tab>
 
@@ -24,7 +24,7 @@ The Anthropic Java SDK provides convenient access to the Claude API from applica
     <dependency>
         <groupId>com.anthropic</groupId>
         <artifactId>anthropic-java</artifactId>
-        <version>2.75.0</version>
+        <version>3.0.0</version>
     </dependency>
     ```
   </Tab>
@@ -403,14 +403,14 @@ client.beta().messages().create(createParamsBuilder.build()).content().stream()
         .flatMap(contentBlock -> contentBlock.toolUse().stream())
         .forEach(toolUseBlock -> createParamsBuilder
               // Add a message indicating that the tool use was requested.
-              .addAssistantMessageOfBetaContentBlockParams(
+              .addAssistantMessageOfContentBlockParams(
                       List.of(BetaContentBlockParam.ofToolUse(BetaToolUseBlockParam.builder()
                               .name(toolUseBlock.name())
                               .id(toolUseBlock.id())
                               .input(toolUseBlock._input())
                               .build())))
               // Add a message with the result of the requested tool use.
-              .addUserMessageOfBetaContentBlockParams(
+              .addUserMessageOfContentBlockParams(
                       List.of(BetaContentBlockParam.ofToolResult(BetaToolResultBlockParam.builder()
                               .toolUseId(toolUseBlock.id())
                               .contentAsJson(callTool(toolUseBlock))

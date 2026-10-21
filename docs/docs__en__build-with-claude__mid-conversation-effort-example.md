@@ -1548,7 +1548,7 @@ Each workflow subtask becomes its own small agent loop with the bash tool, runni
           "You are one agent in a larger parallel fan-out, assigned a single subtask. "
           + "Investigate it directly, using bash to check facts rather than guessing, and finish "
           + "by calling report_findings exactly once. Return findings, not narration.";
-      List<MessageParam> messages = [new() { Role = Role.User, Content = prompt }];
+      List<MessageParam> messages = [new UserMessageParam { Content = prompt }];
       for (var turn = 0; turn < maxSubagentTurns; turn++)
       {
           using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(requestTimeoutSeconds));
@@ -1561,9 +1561,8 @@ Each workflow subtask becomes its own small agent loop with the bash tool, runni
               Tools = [bashTool, reportTool],
               Messages = messages,
           }, cancellationToken: deadline.Token).Aggregate();
-          messages.Add(new()
+          messages.Add(new AssistantMessageParam
           {
-              Role = Role.Assistant,
               Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList(),
           });
           if (response.StopReason == StopReason.PauseTurn)
@@ -1604,7 +1603,7 @@ Each workflow subtask becomes its own small agent loop with the bash tool, runni
           {
               return report;
           }
-          messages.Add(new() { Role = Role.User, Content = toolResults });
+          messages.Add(new UserMessageParam { Content = toolResults });
       }
       return "(subagent hit the turn limit before finishing)";
   }
@@ -1714,7 +1713,7 @@ Each workflow subtask becomes its own small agent loop with the bash tool, runni
   // Subagents inherit the main loop's effort level.
   String runSubagent(Model model, String prompt) throws InterruptedException {
       List<MessageParam> messages = new ArrayList<>();
-      messages.add(MessageParam.builder().role(MessageParam.Role.USER).content(prompt).build());
+      messages.add(MessageParam.ofUser(prompt));
       for (int turn = 0; turn < MAX_SUBAGENT_TURNS; turn++) {
           MessageCreateParams params = MessageCreateParams.builder()
                   .model(model)
@@ -1768,10 +1767,7 @@ Each workflow subtask becomes its own small agent loop with the bash tool, runni
           if (report != null) {
               return report;
           }
-          messages.add(MessageParam.builder()
-                  .role(MessageParam.Role.USER)
-                  .contentOfBlockParams(toolResults)
-                  .build());
+          messages.add(MessageParam.ofUserOfContentBlockParams(toolResults));
       }
       return "(subagent hit the turn limit before finishing)";
   }
@@ -3205,7 +3201,7 @@ The agent appends the user's message first, then any system messages that are du
       modeOn = nextModeOn;
   }
 
-  MessageParam SystemMessage(string content) => new() { Role = Role.System, Content = content };
+  MessageParam SystemMessage(string content) => new SystemMessageParam { Content = content };
 
   // System messages owed on this turn: an exit notice, the full mode text on entry,
   // or a one-line refresher every turnsBetweenRefreshers user turns.
@@ -3240,7 +3236,7 @@ The agent appends the user's message first, then any system messages that are du
   {
       // Mid-conversation system messages follow the user turn they apply to, which keeps
       // the cached prefix ahead of them untouched.
-      messages.Add(new() { Role = Role.User, Content = userInput });
+      messages.Add(new UserMessageParam { Content = userInput });
       messages.AddRange(DueSystemMessages());
       turnsSinceReminder++;
 
@@ -3256,9 +3252,8 @@ The agent appends the user's message first, then any system messages that are du
               Tools = [workflowTool, bashTool],
               Messages = messages,
           }, cancellationToken: deadline.Token).Aggregate();
-          messages.Add(new()
+          messages.Add(new AssistantMessageParam
           {
-              Role = Role.Assistant,
               Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList(),
           });
 
@@ -3294,7 +3289,7 @@ The agent appends the user's message first, then any system messages that are du
               };
               toolResults.Add(new ToolResultBlockParam(toolUse.ID) { Content = output, IsError = isError });
           }
-          messages.Add(new() { Role = Role.User, Content = toolResults });
+          messages.Add(new UserMessageParam { Content = toolResults });
       }
       return "(hit the main loop turn limit before finishing)";
   }
@@ -3476,17 +3471,14 @@ The agent appends the user's message first, then any system messages that are du
       }
 
       private MessageParam systemMessage(String content) {
-          return MessageParam.builder()
-                  .role(MessageParam.Role.SYSTEM)
-                  .content(content)
-                  .build();
+          return MessageParam.ofSystem(content);
       }
 
       // Send one user turn through the loop, executing tool calls until the model stops.
       String turn(String userInput) throws InterruptedException {
           // Mid-conversation system messages follow the user turn they apply to, which keeps
           // the cached prefix ahead of them untouched.
-          messages.add(MessageParam.builder().role(MessageParam.Role.USER).content(userInput).build());
+          messages.add(MessageParam.ofUser(userInput));
           messages.addAll(dueSystemMessages());
           turnsSinceReminder++;
 
@@ -3541,10 +3533,7 @@ The agent appends the user's message first, then any system messages that are du
                           .isError(result.isError())
                           .build()));
               }
-              messages.add(MessageParam.builder()
-                      .role(MessageParam.Role.USER)
-                      .contentOfBlockParams(toolResults)
-                      .build());
+              messages.add(MessageParam.ofUserOfContentBlockParams(toolResults));
           }
           return "(hit the main loop turn limit before finishing)";
       }

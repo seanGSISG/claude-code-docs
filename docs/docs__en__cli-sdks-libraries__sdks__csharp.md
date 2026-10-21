@@ -38,14 +38,7 @@ AnthropicClient client = new();
 MessageCreateParams parameters = new()
 {
     MaxTokens = 1024,
-    Messages =
-    [
-        new()
-        {
-            Role = Role.User,
-            Content = "Hello, Claude",
-        },
-    ],
+    Messages = [new UserMessageParam { Content = "Hello, Claude" }],
     Model = Model.ClaudeOpus5_5,
 };
 
@@ -130,14 +123,7 @@ using Anthropic.Models.Messages;
 MessageCreateParams parameters = new()
 {
     MaxTokens = 1024,
-    Messages =
-    [
-        new()
-        {
-            Role = Role.User,
-            Content = "Hello, Claude",
-        },
-    ],
+    Messages = [new UserMessageParam { Content = "Hello, Claude" }],
     Model = Model.ClaudeOpus5_5,
 };
 

@@ -147,7 +147,7 @@ Here's an example that asks Claude to perform a calculation:
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
-      Messages = [new() { Role = Role.User, Content = "Use the code execution tool to calculate the mean and standard deviation of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" }],
+      Messages = [new UserMessageParam { Content = "Use the code execution tool to calculate the mean and standard deviation of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" }],
       Tools = [new CodeExecutionTool20250825()]
   });
 
@@ -412,9 +412,8 @@ The Python environment can process various file types uploaded through the Files
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
-          new()
+          new UserMessageParam
           {
-              Role = Role.User,
               Content = new([
                   new TextBlockParam { Text = "Analyze this CSV data" },
                   new ContainerUploadBlockParam { FileID = fileObject.ID }
@@ -482,7 +481,7 @@ The Python environment can process various file types uploaded through the Files
       MessageCreateParams.builder()
           .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
-          .addUserMessageOfBlockParams(List.of(
+          .addUserMessageOfContentBlockParams(List.of(
               ContentBlockParam.ofText(TextBlockParam.builder()
                   .text("Analyze this CSV data")
                   .build()),
@@ -652,7 +651,7 @@ When Claude saves files to its output directory during code execution (see [How 
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
-      Messages = [new() { Role = Role.User, Content = "Create a matplotlib visualization and save it as output.png" }],
+      Messages = [new UserMessageParam { Content = "Create a matplotlib visualization and save it as output.png" }],
       Tools = [new CodeExecutionTool20250825()]
   };
 
@@ -1272,7 +1271,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
-      Messages = [new() { Role = Role.User, Content = "Write a file with a random number and save it to '/tmp/number.txt'" }],
+      Messages = [new UserMessageParam { Content = "Write a file with a random number and save it to '/tmp/number.txt'" }],
       Tools = [new CodeExecutionTool20250825()]
   });
 
@@ -1282,7 +1281,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
       Container = response1.Container!.ID,
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
-      Messages = [new() { Role = Role.User, Content = "Read the number from '/tmp/number.txt' and calculate its square" }],
+      Messages = [new UserMessageParam { Content = "Read the number from '/tmp/number.txt' and calculate its square" }],
       Tools = [new CodeExecutionTool20250825()]
   });
 

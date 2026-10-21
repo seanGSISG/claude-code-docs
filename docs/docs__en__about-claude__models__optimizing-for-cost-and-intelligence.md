@@ -728,7 +728,7 @@ The following example computes one request's cost at Claude Opus 5.5's list pric
       {
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
-          Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
+          Messages = [new UserMessageParam { Content = "Hello, Claude" }],
       }
   );
   var usage = response.Usage;

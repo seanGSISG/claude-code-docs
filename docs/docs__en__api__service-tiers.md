@@ -116,7 +116,7 @@ You can control which service tiers can be used for a request by setting the `se
   {
       Model = Model.ClaudeOpus4_8,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello, Claude!" }],
+      Messages = [new UserMessageParam { Content = "Hello, Claude!" }],
       ServiceTier = ServiceTier.Auto, // Automatically use Priority Tier when available, fallback to standard
   });
   Console.WriteLine(message.Usage.ServiceTier);

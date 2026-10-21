@@ -153,9 +153,8 @@ The advisor is a weaker fit for single-turn Q\&A (nothing to plan), pure pass-th
       },
       Messages =
       [
-          new BetaMessageParam
+          new BetaUserMessageParam
           {
-              Role = Role.User,
               Content = "Build a concurrent worker pool in Go with graceful shutdown."
           }
       ],
@@ -511,7 +510,7 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
   var messages = new List<BetaMessageParam>
   {
-      new() { Role = Role.User, Content = "Build a concurrent worker pool in Go with graceful shutdown." }
+      new BetaUserMessageParam { Content = "Build a concurrent worker pool in Go with graceful shutdown." }
   };
 
   var response = await client.Beta.Messages.Create(new MessageCreateParams
@@ -524,14 +523,13 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
   });
 
   // Append the full response content, including any advisor_tool_result blocks
-  messages.Add(new BetaMessageParam
+  messages.Add(new BetaAssistantMessageParam
   {
-      Role = Role.Assistant,
       Content = response.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList()
   });
 
   // Continue the conversation
-  messages.Add(new BetaMessageParam { Role = Role.User, Content = "Now add a max-in-flight limit of 10." });
+  messages.Add(new BetaUserMessageParam { Content = "Now add a max-in-flight limit of 10." });
 
   var followUp = await client.Beta.Messages.Create(new MessageCreateParams
   {
@@ -591,7 +589,6 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
 
   ```java Java
   import com.anthropic.models.beta.messages.BetaAdvisorTool20260301;
-  import com.anthropic.models.beta.messages.BetaContentBlock;
   import com.anthropic.models.beta.messages.BetaMessage;
   import com.anthropic.models.beta.messages.BetaMessageParam;
   import com.anthropic.models.beta.messages.BetaToolUnion;
@@ -606,10 +603,8 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
               BetaAdvisorTool20260301.builder().model(Model.CLAUDE_OPUS_5_5).build()));
 
       List<BetaMessageParam> messages = new ArrayList<>();
-      messages.add(BetaMessageParam.builder()
-          .role(BetaMessageParam.Role.USER)
-          .content("Build a concurrent worker pool in Go with graceful shutdown.")
-          .build());
+      messages.add(BetaMessageParam.ofUser(
+          "Build a concurrent worker pool in Go with graceful shutdown."));
 
       BetaMessage response = client.beta().messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_SONNET_5)
@@ -620,17 +615,10 @@ Pass the full assistant content, including `advisor_tool_result` blocks, back to
           .build());
 
       // Append the full response content, including any advisor_tool_result blocks
-      messages.add(BetaMessageParam.builder()
-          .role(BetaMessageParam.Role.ASSISTANT)
-          .contentOfBetaContentBlockParams(
-              response.content().stream().map(BetaContentBlock::toParam).toList())
-          .build());
+      messages.add(response.toParam());
 
       // Continue the conversation
-      messages.add(BetaMessageParam.builder()
-          .role(BetaMessageParam.Role.USER)
-          .content("Now add a max-in-flight limit of 10.")
-          .build());
+      messages.add(BetaMessageParam.ofUser("Now add a max-in-flight limit of 10."));
 
       BetaMessage followUp = client.beta().messages().create(MessageCreateParams.builder()
           .model(Model.CLAUDE_SONNET_5)
@@ -905,7 +893,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
       // ... your other tools
   };
   var task = "Build a concurrent worker pool in Go with graceful shutdown.";
-  var messages = new List<BetaMessageParam> { new() { Role = Role.User, Content = task } };
+  var messages = new List<BetaMessageParam> { new BetaUserMessageParam { Content = task } };
   var advisorCalled = false;
 
   for (var turn = 1; turn <= MaxTurns; turn++)
@@ -918,9 +906,8 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
           Messages = messages,
           Betas = ["advisor-tool-2026-03-01"]
       });
-      messages.Add(new BetaMessageParam
+      messages.Add(new BetaAssistantMessageParam
       {
-          Role = Role.Assistant,
           Content = response.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList()
       });
       advisorCalled =
@@ -941,12 +928,12 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
       var results = RunYourTools(response.Content); // list of tool_result blocks
       if (results.Count > 0)
       {
-          messages.Add(new BetaMessageParam { Role = Role.User, Content = results });
+          messages.Add(new BetaUserMessageParam { Content = results });
       }
       // Skip this if your system prompt already tells the model to call sparingly.
       if (turn == NudgeTurn - 1 && !advisorCalled)
       {
-          messages.Add(new BetaMessageParam { Role = Role.User, Content = NudgeText });
+          messages.Add(new BetaUserMessageParam { Content = NudgeText });
       }
   }
   ```
@@ -1074,10 +1061,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
       );
       String task = "Build a concurrent worker pool in Go with graceful shutdown.";
       List<BetaMessageParam> messages = new ArrayList<>();
-      messages.add(BetaMessageParam.builder()
-          .role(BetaMessageParam.Role.USER)
-          .content(task)
-          .build());
+      messages.add(BetaMessageParam.ofUser(task));
       boolean advisorCalled = false;
 
       for (int turn = 1; turn <= MAX_TURNS; turn++) {
@@ -1088,11 +1072,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
               .messages(messages)
               .addBeta("advisor-tool-2026-03-01")
               .build());
-          messages.add(BetaMessageParam.builder()
-              .role(BetaMessageParam.Role.ASSISTANT)
-              .contentOfBetaContentBlockParams(
-                  response.content().stream().map(BetaContentBlock::toParam).toList())
-              .build());
+          messages.add(response.toParam());
           advisorCalled = advisorCalled
               || response.content().stream().anyMatch(block ->
                   block.isServerToolUse()
@@ -1107,17 +1087,11 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
 
           List<BetaContentBlockParam> results = runYourTools(response.content()); // list of tool_result blocks
           if (!results.isEmpty()) {
-              messages.add(BetaMessageParam.builder()
-                  .role(BetaMessageParam.Role.USER)
-                  .contentOfBetaContentBlockParams(results)
-                  .build());
+              messages.add(BetaMessageParam.ofUserOfContentBlockParams(results));
           }
           // Skip this if your system prompt already tells the model to call sparingly.
           if (turn == NUDGE_TURN - 1 && !advisorCalled) {
-              messages.add(BetaMessageParam.builder()
-                  .role(BetaMessageParam.Role.USER)
-                  .content(NUDGE_TEXT)
-                  .build());
+              messages.add(BetaMessageParam.ofUser(NUDGE_TEXT));
           }
       }
   }

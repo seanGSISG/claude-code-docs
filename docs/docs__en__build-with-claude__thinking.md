@@ -166,10 +166,7 @@ On Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6, thi
       MaxTokens = 16000,
       Thinking = new ThinkingConfigAdaptive { Display = Display.Summarized },
       Messages = [
-          new() {
-              Role = Role.User,
-              Content = "What is the greatest common divisor of 1071 and 462?"
-          }
+          new UserMessageParam { Content = "What is the greatest common divisor of 1071 and 462?" }
       ]
   };
 
@@ -384,12 +381,7 @@ On Claude Sonnet 5, where thinking is on by default, you can turn it off:
       Model = Model.ClaudeSonnet5,
       MaxTokens = 4096,
       Thinking = new ThinkingConfigDisabled(),
-      Messages = [
-          new() {
-              Role = Role.User,
-              Content = "Summarize this article in one sentence."
-          }
-      ]
+      Messages = [new UserMessageParam { Content = "Summarize this article in one sentence." }]
   };
 
   var message = await client.Messages.Create(parameters);
@@ -642,14 +634,14 @@ The following examples stream a response with adaptive thinking, printing thinki
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 16000,
       Thinking = new ThinkingConfigAdaptive { Display = Display.Summarized },
-      Messages = [new() { Role = Role.User, Content = "What is the greatest common divisor of 1071 and 462?" }]
+      Messages = [new UserMessageParam { Content = "What is the greatest common divisor of 1071 and 462?" }]
   };
 
   await foreach (var rawEvent in client.Messages.CreateStreaming(parameters))
   {
       if (rawEvent.TryPickContentBlockStart(out var start))
       {
-          Console.WriteLine($"\nStarting {start.ContentBlock.Type} block...");
+          Console.WriteLine($"\nStarting {start.ContentBlock.Type.Raw()} block...");
       }
       else if (rawEvent.TryPickContentBlockDelta(out var delta))
       {

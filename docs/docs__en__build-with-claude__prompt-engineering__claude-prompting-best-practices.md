@@ -165,10 +165,7 @@ Setting a role in the system prompt focuses Claude's behavior and tone for your 
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       System = "You are a helpful coding assistant specializing in Python.",
-      Messages =
-      [
-          new() { Role = Role.User, Content = "How do I sort a list of dictionaries by key?" }
-      ]
+      Messages = [new UserMessageParam { Content = "How do I sort a list of dictionaries by key?" }]
   };
 
   var message = await client.Messages.Create(parameters);
@@ -671,7 +668,7 @@ If you are migrating from [extended thinking](https://platform.claude.com/docs/e
       Model = Model.ClaudeSonnet4_5_20250929,
       MaxTokens = 16000,
       Thinking = new ThinkingConfigEnabled(budgetTokens: 10000),
-      Messages = [new() { Role = Role.User, Content = "..." }]
+      Messages = [new UserMessageParam { Content = "..." }]
   });
 
   // After: adaptive thinking with effort
@@ -681,7 +678,7 @@ If you are migrating from [extended thinking](https://platform.claude.com/docs/e
       MaxTokens = 16000,
       Thinking = new ThinkingConfigAdaptive(),
       OutputConfig = new OutputConfig { Effort = Effort.High },
-      Messages = [new() { Role = Role.User, Content = "..." }]
+      Messages = [new UserMessageParam { Content = "..." }]
   });
   ```
 

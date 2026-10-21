@@ -124,20 +124,11 @@ When creating a deployment, you pass the [session configurations](https://platfo
       [
           new BetaManagedAgentsUserMessageEventParams
           {
-              Type = BetaManagedAgentsUserMessageEventParamsType.UserMessage,
-              Content =
-              [
-                  new BetaManagedAgentsTextBlock
-                  {
-                      Type = BetaManagedAgentsTextBlockType.Text,
-                      Text = "Run the weekly compliance scan.",
-                  },
-              ],
+              Content = [new BetaManagedAgentsTextBlock { Text = "Run the weekly compliance scan." }],
           },
       ],
       Schedule = new BetaManagedAgentsScheduleParams
       {
-          Type = BetaManagedAgentsScheduleParamsType.Cron,
           Expression = "0 20 * * 5",
           Timezone = "America/New_York",
       },
@@ -179,13 +170,11 @@ When creating a deployment, you pass the [session configurations](https://platfo
           .environmentId(environment.id())
           .addInitialEvent(
               BetaManagedAgentsUserMessageEventParams.builder()
-                  .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
                   .addTextContent("Run the weekly compliance scan.")
                   .build()
           )
           .schedule(
               BetaManagedAgentsScheduleParams.builder()
-                  .type(BetaManagedAgentsScheduleParams.Type.CRON)
                   .expression("0 20 * * 5")
                   .timezone("America/New_York")
                   .build()
@@ -346,7 +335,6 @@ The following example sets a budget on an existing deployment:
   {
       Budget = new()
       {
-          Type = BetaManagedAgentsBudgetLimitType.Limit,
           MaxListCost = new() { Amount = "2000", Currency = BetaCurrency.Usd },
       },
   });
@@ -374,7 +362,6 @@ The following example sets a budget on an existing deployment:
       deployment.id(),
       DeploymentUpdateParams.builder()
           .budget(BetaManagedAgentsBudgetLimit.builder()
-              .type(BetaManagedAgentsBudgetLimit.Type.LIMIT)
               .maxListCost(BetaMonetaryAmount.builder()
                   .amount("2000")
                   .currency(BetaCurrency.USD)

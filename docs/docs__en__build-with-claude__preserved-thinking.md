@@ -250,9 +250,8 @@ The following request opts into dropping rather than rejecting. On a first turn 
           },
           Messages =
           [
-              new()
+              new BetaUserMessageParam
               {
-                  Role = Role.User,
                   Content = "What is the greatest common divisor of 1071 and 462?",
               },
           ],
@@ -536,7 +535,7 @@ Then confirm against the API. Add the `thinking-binding-controls-2026-08-01` bet
   List<BetaMessageParam> messages = [];
   foreach (var userTurn in userTurns)
   {
-      messages.Add(new() { Role = Role.User, Content = userTurn });
+      messages.Add(new BetaUserMessageParam { Content = userTurn });
       var response = await client.Beta.Messages.Create(
           new()
           {
@@ -553,9 +552,8 @@ Then confirm against the API. Add the `thinking-binding-controls-2026-08-01` bet
               Betas = [AnthropicBeta.ThinkingBindingControls2026_08_01],
           }
       );
-      messages.Add(new()
+      messages.Add(new BetaAssistantMessageParam
       {
-          Role = Role.Assistant,
           Content = response.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList(),
       });
       var thinkingBlocks = response.Content.Count(block => block.TryPickThinking(out _));
@@ -848,7 +846,7 @@ Run the following example from an [older account](https://platform.claude.com/do
   List<BetaMessageParam> messages = [];
   for (var turnIndex = 0; turnIndex < userTurns.Length; turnIndex++)
   {
-      messages.Add(new() { Role = Role.User, Content = userTurns[turnIndex] });
+      messages.Add(new BetaUserMessageParam { Content = userTurns[turnIndex] });
       var response = await client.Beta.Messages.Create(
           new()
           {
@@ -861,9 +859,8 @@ Run the following example from an [older account](https://platform.claude.com/do
               Betas = [AnthropicBeta.ThinkingBindingControls2026_08_01],
           }
       );
-      messages.Add(new()
+      messages.Add(new BetaAssistantMessageParam
       {
-          Role = Role.Assistant,
           Content = response.Content.Select(block => new BetaContentBlockParam(block.Json)).ToList(),
       });
       var thinkingBlocks = response.Content.Count(block => block.TryPickThinking(out _));

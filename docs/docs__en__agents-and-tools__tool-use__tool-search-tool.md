@@ -278,12 +278,7 @@ The following example includes the tool search tool and two deferred tools:
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 2048,
-      Messages = [
-          new() {
-              Role = Role.User,
-              Content = "What is the weather in San Francisco?"
-          }
-      ],
+      Messages = [new UserMessageParam { Content = "What is the weather in San Francisco?" }],
       Tools = [
           new ToolUnion(new ToolSearchToolRegex20251119
           {

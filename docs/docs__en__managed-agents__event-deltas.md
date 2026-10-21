@@ -248,14 +248,9 @@ The following examples opt in to `agent.message` previews and reconcile them wit
       [
           new BetaManagedAgentsUserMessageEventParams
           {
-              Type = BetaManagedAgentsUserMessageEventParamsType.UserMessage,
               Content =
               [
-                  new BetaManagedAgentsTextBlock
-                  {
-                      Type = BetaManagedAgentsTextBlockType.Text,
-                      Text = "Write a haiku about event streams.",
-                  },
+                  new BetaManagedAgentsTextBlock { Text = "Write a haiku about event streams." },
               ],
           },
       ],
@@ -275,7 +270,7 @@ The following examples opt in to `agent.message` previews and reconcile them wit
           // so other preview types (including ones added later) are skipped.
           if (start.Event.TryPickAgentMessage(out var preview))
           {
-              Console.WriteLine($"event_start             {preview.Type.Raw()} {preview.ID}");
+              Console.WriteLine($"event_start             {preview.Type.GetString()} {preview.ID}");
           }
       }
       else if (streamEvent.TryPickDeltaEvent(out var delta))
@@ -385,7 +380,6 @@ The following examples opt in to `agent.message` previews and reconcile them wit
           session.id(),
           EventSendParams.builder()
               .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
-                  .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
                   .addTextContent("Describe the repo in one sentence.")
                   .build())
               .build()
@@ -398,7 +392,7 @@ The following examples opt in to `agent.message` previews and reconcile them wit
               case EVENT_START -> {
                   if (event.asEventStart().event().isAgentMessage()) {
                       var preview = event.asEventStart().event().asAgentMessage();
-                      IO.println("event_start             " + preview.type().asString() + " " + preview.id());
+                      IO.println("event_start             " + preview._type() + " " + preview.id());
                   }
               }
               case EVENT_DELTA -> {

@@ -84,7 +84,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
       {
           Model = Model.ClaudeOpus5_5,
           MaxTokens = 1024,
-          Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
+          Messages = [new BetaUserMessageParam { Content = "Hello, Claude" }],
           Betas = ["context-management-2025-06-27"],
       }
   );

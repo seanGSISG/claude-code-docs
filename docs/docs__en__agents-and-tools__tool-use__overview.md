@@ -60,7 +60,7 @@ Here's a minimal example using a server tool, the [Web search tool](https://plat
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
       Tools = [new ToolUnion(new WebSearchTool20260209())],
-      Messages = [new() { Role = Role.User, Content = "What's the latest on the Mars rover?" }]
+      Messages = [new UserMessageParam { Content = "What's the latest on the Mars rover?" }]
   };
 
   var message = await client.Messages.Create(parameters);
@@ -298,7 +298,7 @@ Here's that round trip in full for a client tool. The first request defines a `g
       MaxTokens = 1024,
       Tools = tools,
       ToolChoice = toolChoice,
-      Messages = [new() { Role = Role.User, Content = userPrompt }],
+      Messages = [new UserMessageParam { Content = userPrompt }],
   });
   ToolUseBlock? toolUse = null;
   foreach (var block in response.Content)
@@ -329,9 +329,9 @@ Here's that round trip in full for a client tool. The first request defines a `g
       ToolChoice = toolChoice,
       Messages =
       [
-          new() { Role = Role.User, Content = userPrompt },
-          new() { Role = Role.Assistant, Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList() },
-          new() { Role = Role.User, Content = new MessageParamContent(toolResults) },
+          new UserMessageParam { Content = userPrompt },
+          new AssistantMessageParam { Content = response.Content.Select(block => new ContentBlockParam(block.Json)).ToList() },
+          new UserMessageParam { Content = toolResults },
       ],
   });
 
@@ -479,7 +479,7 @@ Here's that round trip in full for a client tool. The first request defines a `g
           .toolChoice(toolChoice)
           .addUserMessage(userPrompt)
           .addMessage(response)
-          .addUserMessageOfBlockParams(List.of(ContentBlockParam.ofToolResult(
+          .addUserMessageOfContentBlockParams(List.of(ContentBlockParam.ofToolResult(
               ToolResultBlockParam.builder()
                   .toolUseId(toolUse.id())
                   .content(weather)

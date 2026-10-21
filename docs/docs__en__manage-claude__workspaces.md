@@ -914,7 +914,7 @@ The following examples send a Messages API request and read the workspace ID fro
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 1024,
-      Messages = [new() { Role = Role.User, Content = "Hello, Claude" }]
+      Messages = [new UserMessageParam { Content = "Hello, Claude" }]
   });
   var workspaceId = response.GetHeaderValues("anthropic-workspace-id").First();
   Console.WriteLine($"Workspace ID: {workspaceId}");

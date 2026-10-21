@@ -119,7 +119,7 @@ Add `task_budget` to `output_config` and include the beta header:
   {
       Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 128000,
-      Messages = [new() { Role = Role.User, Content = "Review the codebase and propose a refactor plan." }],
+      Messages = [new BetaUserMessageParam { Content = "Review the codebase and propose a refactor plan." }],
       OutputConfig = new BetaOutputConfig
       {
           Effort = Effort.High,
@@ -576,7 +576,7 @@ Run a representative sample of tasks **without** `task_budget` set and record th
   {
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
-      Messages = [new() { Role = Role.User, Content = "Review the codebase and propose a refactor plan." }],
+      Messages = [new UserMessageParam { Content = "Review the codebase and propose a refactor plan." }],
   });
 
   // Sum OutputTokens (text + thinking + tool calls) across every request in your loop.

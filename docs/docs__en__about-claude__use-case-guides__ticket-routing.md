@@ -802,7 +802,7 @@ Build the deployment structure. Start by defining the method signature for wrapp
           Model = DefaultModel,
           MaxTokens = 2048,
           OutputConfig = new OutputConfig { Effort = Effort.Low },
-          Messages = [new() { Role = Role.User, Content = classificationPrompt }],
+          Messages = [new UserMessageParam { Content = classificationPrompt }],
       });
       var reasoningAndIntent = "";
       foreach (var block in message.Content)
@@ -1159,7 +1159,7 @@ To assess this, first modify the script to add a function that compares the pred
           Model = DefaultModel,
           MaxTokens = 2048,
           OutputConfig = new OutputConfig { Effort = Effort.Low },
-          Messages = [new() { Role = Role.User, Content = classificationPrompt }],
+          Messages = [new UserMessageParam { Content = classificationPrompt }],
       });
       // Get the usage statistics for the API call for how many input and output tokens were used.
       var usage = message.Usage;
