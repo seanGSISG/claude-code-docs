@@ -212,7 +212,7 @@ The SDK's Foundry client requires an API key and either a resource name or base 
   ```
 
   ```bash CLI
-  # ant reads ANTHROPIC_API_KEY and sends it as x-api-key, which Foundry accepts
+  # ant reads ANTHROPIC_API_KEY
   export ANTHROPIC_API_KEY="YOUR_AZURE_API_KEY"
 
   ant messages create \
