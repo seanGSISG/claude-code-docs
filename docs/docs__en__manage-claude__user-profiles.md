@@ -211,7 +211,7 @@ There's no cap on the number of profiles in an organization, but profile creatio
 
 ### What to tell Anthropic about an end customer
 
-Every field is optional. You can send `name`, `metadata`, and these fields in `external_user_details`: `entity_type`, `country`, `reference_id`, `onboarded_at`, `account_status`, `name_hash`, and `email_hash`. The [Create a profile](https://platform.claude.com/docs/en/api/beta/user_profiles/create) reference describes each field, with its type, format, and length limit.
+Every field is optional. You can send `name`, `metadata`, and these fields in `external_user_details`: `entity_type`, `country`, `reference_id`, `onboarded_at`, `account_status`, `name_hash`, and `email_hash`. The [Create a profile](https://platform.claude.com/docs/en/api/user_profiles/create) reference describes each field, with its type, format, and length limit.
 
 Follow these rules when you set the fields:
 
@@ -404,7 +404,7 @@ Update a profile when the end customer's details or account status change, and d
 
 ### Update a profile
 
-[`POST /v1/user_profiles/{id}`](https://platform.claude.com/docs/en/api/beta/user_profiles/update) changes only the fields you send. For example, use it when a company rebrands or you suspend an account.
+[`POST /v1/user_profiles/{id}`](https://platform.claude.com/docs/en/api/user_profiles/update) changes only the fields you send. For example, use it when a company rebrands or you suspend an account.
 
 * `name` and `access_type` replace the stored value.
 * Each field you send in `external_user_details` replaces the stored value. You can't clear a value. The API rejects `null` with a `400`.
@@ -627,9 +627,11 @@ After a delete, the profile endpoints return a `404` for that ID. For up to abou
 
 ## Next steps
 
-The API reference has each endpoint's fields, types, and limits: [Create a profile](https://platform.claude.com/docs/en/api/beta/user_profiles/create), [Retrieve a profile](https://platform.claude.com/docs/en/api/beta/user_profiles/retrieve), [Update a profile](https://platform.claude.com/docs/en/api/beta/user_profiles/update), and [List profiles](https://platform.claude.com/docs/en/api/beta/user_profiles/list).
+The API reference has each endpoint's fields, types, and limits: [Create a profile](https://platform.claude.com/docs/en/api/user_profiles/create), [Retrieve a profile](https://platform.claude.com/docs/en/api/user_profiles/retrieve), [Update a profile](https://platform.claude.com/docs/en/api/user_profiles/update), and [List profiles](https://platform.claude.com/docs/en/api/user_profiles/list).
 
 If an end customer's program approvals should apply when they use Claude through your platform, see [Send an end customer a link to the Verification Portal](https://platform.claude.com/docs/en/manage-claude/user-profiles-verification-portal).
+
+To get an event when Anthropic restricts or bans one of your end customers, or when the restriction or ban ends, see [Organization webhooks](https://platform.claude.com/docs/en/manage-claude/organization-webhooks).
 
 <CardGroup cols={2}>
   <Card title="Authentication" href="https://platform.claude.com/docs/en/manage-claude/authentication">

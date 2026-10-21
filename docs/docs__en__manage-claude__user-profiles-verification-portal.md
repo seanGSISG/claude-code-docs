@@ -185,7 +185,7 @@ The portal doesn't send the end customer back to your product, and Anthropic doe
 
 Linking doesn't approve anything by itself. It connects the profile to the end customer's organization, so that programs the organization is approved for apply to requests that carry the profile's ID. The profile has no field that says it is linked.
 
-To see which programs apply to a profile, [retrieve the profile](https://platform.claude.com/docs/en/api/beta/user_profiles/retrieve) and read `programs`. It has a key for each program, such as `cyber` and `efs`, and every profile has every key. Each key is one of the following:
+To see which programs apply to a profile, [retrieve the profile](https://platform.claude.com/docs/en/api/user_profiles/retrieve) and read `programs`. It has a key for each program, such as `cyber` and `efs`, and every profile has every key. Each key is one of the following:
 
 * `null`: Anthropic has no status to report for that program. Every key is `null` if Anthropic hasn't enabled programs for your organization.
 * An object: Its `status` is `active` when Anthropic has approved the end customer for the program, otherwise `pending` or `rejected`.
@@ -196,6 +196,6 @@ If your inference runs on Claude in Amazon Bedrock or Google Cloud, you have to 
 
 ## Next steps
 
-For each field that a retrieved profile contains, see the [Retrieve a profile](https://platform.claude.com/docs/en/api/beta/user_profiles/retrieve) reference.
+For each field that a retrieved profile contains, see the [Retrieve a profile](https://platform.claude.com/docs/en/api/user_profiles/retrieve) reference.
 
 To create profiles, send their IDs on your requests, and keep them current, see [User profiles for end-customer attribution](https://platform.claude.com/docs/en/manage-claude/user-profiles).

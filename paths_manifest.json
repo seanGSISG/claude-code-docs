@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-20T21:13:54.386076Z",
-    "total_paths": 1014,
+    "generated_at": "2026-10-21T03:17:45.181709Z",
+    "total_paths": 1035,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-20T21:13:54.386083Z"
+    "last_regenerated": "2026-10-21T03:17:45.181718Z"
   },
   "categories": {
     "core_documentation": [
@@ -235,6 +235,7 @@
       "/docs/en/manage-claude/opentelemetry",
       "/docs/en/manage-claude/opentelemetry/api",
       "/docs/en/manage-claude/opentelemetry/sdk",
+      "/docs/en/manage-claude/organization-webhooks",
       "/docs/en/manage-claude/plugins-api",
       "/docs/en/manage-claude/rate-limits-api",
       "/docs/en/manage-claude/spend-limits-api",
@@ -656,6 +657,13 @@
       "/docs/en/api/beta/organization/users/remove",
       "/docs/en/api/beta/organization/users/retrieve",
       "/docs/en/api/beta/organization/users/update",
+      "/docs/en/api/beta/organization/webhooks",
+      "/docs/en/api/beta/organization/webhooks/create",
+      "/docs/en/api/beta/organization/webhooks/delete",
+      "/docs/en/api/beta/organization/webhooks/list",
+      "/docs/en/api/beta/organization/webhooks/regenerate_signing_secret",
+      "/docs/en/api/beta/organization/webhooks/retrieve",
+      "/docs/en/api/beta/organization/webhooks/update",
       "/docs/en/api/beta/organization/workspaces",
       "/docs/en/api/beta/organization/workspaces/archive",
       "/docs/en/api/beta/organization/workspaces/create",
@@ -668,6 +676,7 @@
       "/docs/en/api/beta/organization/workspaces/members/update",
       "/docs/en/api/beta/organization/workspaces/rate_limits",
       "/docs/en/api/beta/organization/workspaces/rate_limits/list",
+      "/docs/en/api/beta/organization/workspaces/rate_limits/update",
       "/docs/en/api/beta/organization/workspaces/retrieve",
       "/docs/en/api/beta/organization/workspaces/service_accounts",
       "/docs/en/api/beta/organization/workspaces/service_accounts/add",
@@ -724,8 +733,11 @@
       "/docs/en/api/beta/tunnels/reveal_token",
       "/docs/en/api/beta/tunnels/rotate_token",
       "/docs/en/api/beta/user_profiles",
+      "/docs/en/api/beta/user_profiles/action_urls",
+      "/docs/en/api/beta/user_profiles/action_urls/create",
       "/docs/en/api/beta/user_profiles/create",
       "/docs/en/api/beta/user_profiles/create_enrollment_url",
+      "/docs/en/api/beta/user_profiles/delete",
       "/docs/en/api/beta/user_profiles/list",
       "/docs/en/api/beta/user_profiles/retrieve",
       "/docs/en/api/beta/user_profiles/update",
@@ -903,6 +915,7 @@
       "/docs/en/api/organization/workspaces/members/update",
       "/docs/en/api/organization/workspaces/rate_limits",
       "/docs/en/api/organization/workspaces/rate_limits/list",
+      "/docs/en/api/organization/workspaces/rate_limits/update",
       "/docs/en/api/organization/workspaces/retrieve",
       "/docs/en/api/organization/workspaces/service_accounts",
       "/docs/en/api/organization/workspaces/service_accounts/add",
@@ -925,6 +938,14 @@
       "/docs/en/api/skills/versions/list",
       "/docs/en/api/skills/versions/retrieve",
       "/docs/en/api/supported-regions",
+      "/docs/en/api/user_profiles",
+      "/docs/en/api/user_profiles/action_urls",
+      "/docs/en/api/user_profiles/action_urls/create",
+      "/docs/en/api/user_profiles/create",
+      "/docs/en/api/user_profiles/delete",
+      "/docs/en/api/user_profiles/list",
+      "/docs/en/api/user_profiles/retrieve",
+      "/docs/en/api/user_profiles/update",
       "/docs/en/api/versioning"
     ],
     "claude_code": [
