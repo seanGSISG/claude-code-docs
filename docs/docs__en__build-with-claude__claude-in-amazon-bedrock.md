@@ -94,7 +94,7 @@ Anthropic's [client SDKs](https://platform.claude.com/docs/en/cli-sdks-libraries
 
   <Tab title="Go">
     ```bash
-    go get github.com/anthropics/anthropic-sdk-go/bedrock
+    go get github.com/anthropics/anthropic-sdk-go/v2/bedrock
     ```
   </Tab>
 

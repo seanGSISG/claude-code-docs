@@ -878,40 +878,28 @@ Send the full conversation history plus your tool result. Three details matter o
   	},
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Query customer purchase history from the last quarter and identify our top 5 customers by revenue")),
-  		{
-  			Role: anthropic.MessageParamRoleAssistant,
-  			Content: []anthropic.ContentBlockParamUnion{
-  				anthropic.NewTextBlock("I'll query the purchase history and analyze the results."),
-  				{OfServerToolUse: &anthropic.ServerToolUseBlockParam{
-  					ID:    "srvtoolu_abc123",
-  					Name:  anthropic.ServerToolUseBlockParamNameCodeExecution,
-  					Input: map[string]any{"code": "..."},
-  				}},
-  				{OfToolUse: &anthropic.ToolUseBlockParam{
-  					ID:    "toolu_def456",
-  					Name:  "query_database",
-  					Input: map[string]any{"sql": "<sql>"},
-  					Caller: anthropic.ServerToolUseBlockParamCallerUnion{
-  						OfCodeExecution20260120: &anthropic.ServerToolCaller20260120Param{
-  							ToolID: "srvtoolu_abc123",
-  						},
+  		anthropic.NewAssistantMessage(
+  			anthropic.NewTextBlock("I'll query the purchase history and analyze the results."),
+  			anthropic.NewServerToolUseBlock("srvtoolu_abc123", map[string]any{"code": "..."}, anthropic.ServerToolUseBlockParamNameCodeExecution),
+  			anthropic.ContentBlockParamUnion{OfToolUse: &anthropic.ToolUseBlockParam{
+  				ID:    "toolu_def456",
+  				Name:  "query_database",
+  				Input: map[string]any{"sql": "<sql>"},
+  				Caller: anthropic.ToolUseBlockParamCallerUnion{
+  					OfCodeExecution20260120: &anthropic.ServerToolCaller20260120Param{
+  						ToolID: "srvtoolu_abc123",
   					},
+  				},
+  			}},
+  		),
+  		anthropic.NewUserMessage(anthropic.ContentBlockParamUnion{OfToolResult: &anthropic.ToolResultBlockParam{
+  			ToolUseID: "toolu_def456",
+  			Content: []anthropic.ToolResultBlockParamContentUnion{
+  				{OfText: &anthropic.TextBlockParam{
+  					Text: `[{"customer_id": "C1", "revenue": 45000}, {"customer_id": "C2", "revenue": 38000}, ...]`,
   				}},
   			},
-  		},
-  		{
-  			Role: anthropic.MessageParamRoleUser,
-  			Content: []anthropic.ContentBlockParamUnion{
-  				{OfToolResult: &anthropic.ToolResultBlockParam{
-  					ToolUseID: "toolu_def456",
-  					Content: []anthropic.ToolResultBlockParamContentUnion{
-  						{OfText: &anthropic.TextBlockParam{
-  							Text: `[{"customer_id": "C1", "revenue": 45000}, {"customer_id": "C2", "revenue": 38000}, ...]`,
-  						}},
-  					},
-  				}},
-  			},
-  		},
+  		}}),
   	},
   	// Same tools array as the original request
   	Tools: []anthropic.ToolUnionParam{

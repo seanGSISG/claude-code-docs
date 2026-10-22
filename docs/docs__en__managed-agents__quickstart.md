@@ -106,7 +106,7 @@ ant --version
 
   <Tab title="Go">
     ```bash
-    go get github.com/anthropics/anthropic-sdk-go
+    go get github.com/anthropics/anthropic-sdk-go/v2
     ```
   </Tab>
 
@@ -255,7 +255,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
         	"context"
         	"fmt"
 
-        	"github.com/anthropics/anthropic-sdk-go"
+        	"github.com/anthropics/anthropic-sdk-go/v2"
         )
 
         func main() {
@@ -269,9 +269,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
         		},
         		System: anthropic.String("You are a helpful coding assistant. Write clean, well-documented code."),
         		Tools: []anthropic.BetaAgentNewParamsToolUnion{{
-        			OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-        				Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
-        			},
+        			OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{},
         		}},
         	})
         	if err != nil {
@@ -770,10 +768,8 @@ export ANTHROPIC_API_KEY="your-api-key-here"
       	_, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
       		Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
       			OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
-      				Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
       				Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{{
       					OfText: &anthropic.BetaManagedAgentsTextBlockParam{
-      						Type: anthropic.BetaManagedAgentsTextBlockTypeText,
       						Text: "Create a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt",
       					},
       				}},

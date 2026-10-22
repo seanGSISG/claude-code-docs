@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-22T16:37:05.580721Z",
-    "total_paths": 1036,
+    "generated_at": "2026-10-22T21:11:08.860304Z",
+    "total_paths": 1040,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-22T16:37:05.580727Z"
+    "last_regenerated": "2026-10-22T21:11:08.860314Z"
   },
   "categories": {
     "core_documentation": [
@@ -81,6 +81,9 @@
       "/docs/en/build-with-claude/citations",
       "/docs/en/build-with-claude/claude-in-amazon-bedrock",
       "/docs/en/build-with-claude/claude-in-microsoft-foundry",
+      "/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed",
+      "/docs/en/build-with-claude/claude-models-on-google-cloud/google-managed",
+      "/docs/en/build-with-claude/claude-models-on-google-cloud/overview",
       "/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy",
       "/docs/en/build-with-claude/claude-on-vertex-ai",
       "/docs/en/build-with-claude/claude-platform-on-aws",
@@ -758,6 +761,7 @@
       "/docs/en/api/beta/vaults/update",
       "/docs/en/api/beta/webhooks",
       "/docs/en/api/claude-code/routines-fire",
+      "/docs/en/api/claude-models-on-google-cloud-anthropic-managed-iam-permissions",
       "/docs/en/api/claude-platform-on-aws-iam-actions",
       "/docs/en/api/completions",
       "/docs/en/api/completions/create",

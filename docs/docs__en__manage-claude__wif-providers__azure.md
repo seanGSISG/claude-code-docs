@@ -326,8 +326,8 @@ The samples fetch the managed identity token from the platform's token endpoint:
   	"net/http"
   	"os"
 
-  	"github.com/anthropics/anthropic-sdk-go"
-  	"github.com/anthropics/anthropic-sdk-go/option"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
+  	"github.com/anthropics/anthropic-sdk-go/v2/option"
   )
 
   // The audience app registration's identifier URI (see Register the token audience).
@@ -963,8 +963,8 @@ Two different client IDs appear in the samples. `<APP_ID>` is the audience app r
   	"os"
   	"strings"
 
-  	"github.com/anthropics/anthropic-sdk-go"
-  	"github.com/anthropics/anthropic-sdk-go/option"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
+  	"github.com/anthropics/anthropic-sdk-go/v2/option"
   )
 
   func fetchEntraTokenViaFederation(ctx context.Context) (string, error) {

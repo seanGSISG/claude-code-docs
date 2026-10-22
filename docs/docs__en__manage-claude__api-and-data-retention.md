@@ -4,7 +4,7 @@ url: https://platform.claude.com/docs/en/manage-claude/api-and-data-retention
 description: Learn about how Anthropic's APIs and associated features retain data, including information about zero data retention (ZDR) and HIPAA-ready API access.
 ---
 
-This page covers the Claude API (`api.anthropic.com`), Claude Platform on AWS, and [Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), where Anthropic is the data processor. On Amazon Bedrock and Google Cloud's Agent Platform, the cloud provider is the data processor; refer to those platforms' data retention and compliance documentation for their equivalent controls.
+This page covers the Claude API (`api.anthropic.com`), Claude Platform on AWS, [Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), and [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed), where Anthropic is the data processor. On Amazon Bedrock and Claude Models on Google Cloud (Google managed), the cloud provider is the data processor; refer to those platforms' data retention and compliance documentation for their equivalent controls.
 
 Anthropic offers two data handling arrangements for the Claude API: [zero data retention (ZDR)](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#zero-data-retention-zdr-scope) and [HIPAA readiness](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#hipaa-readiness). The [feature eligibility table](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#feature-eligibility) lists which API features each arrangement covers. For Anthropic's standard retention policies outside these arrangements, see the [commercial data retention policy](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data) and the [consumer data retention policy](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data).
 
@@ -27,6 +27,8 @@ Under a ZDR arrangement, Anthropic does not store customer prompts or responses 
 * **Claude Messages and Token Counting APIs:** ZDR applies to these endpoints for eligible features listed in the [feature eligibility table](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#feature-eligibility). Features that use `/v1/messages` but are marked "No" in the table (such as code execution) are not covered.
 * **Claude Code with API keys:** ZDR applies when Claude Code is used with API keys from a Commercial organization (an organization under Anthropic's Commercial Terms of Service, as distinct from a consumer Claude account). If metrics logging is enabled in Claude Code, productivity data such as usage statistics is exempted from ZDR and may be retained. Claude Code on Claude Enterprise is not covered by this arrangement and has a separate ZDR offering; see [What ZDR does not cover](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#what-zdr-does-not-cover).
 * **Claude Platform on AWS:** [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws) follows the same data retention policy as the first-party Claude API. ZDR is available on request; contact your Anthropic account representative to enable it.
+
+- **Claude Models on Google Cloud (Anthropic managed):** [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed) follows the same data retention policy as the first-party Claude API. ZDR is available on request; contact your Anthropic account representative to enable it.
 
 ### What ZDR does not cover
 
@@ -249,7 +251,7 @@ Even with ZDR or HIPAA arrangements in place, Anthropic may retain data where re
   </Accordion>
 
   <Accordion title="Does this apply to Amazon Bedrock or Google Cloud?">
-    No. The ZDR and HIPAA arrangements described on this page apply to the Claude API, where Anthropic is the data processor. On Bedrock and Google Cloud, the cloud provider is the data processor; refer to those platforms' data retention and compliance policies for their equivalent controls.
+    [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed) follows the same data retention policy as the first-party Claude API, and Anthropic is the data processor. ZDR is available there on request. On Amazon Bedrock and Claude Models on Google Cloud (Google managed), the cloud provider is the data processor; refer to those platforms' data retention and compliance policies for their equivalent controls.
   </Accordion>
 
   <Accordion title="Is Claude Platform on AWS eligible for ZDR or HIPAA readiness?">

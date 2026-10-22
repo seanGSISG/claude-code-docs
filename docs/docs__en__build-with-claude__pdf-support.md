@@ -99,7 +99,7 @@ Start with a simple example using the Messages API. You can provide PDFs to Clau
 3. By a `file_id` from the [Files API](https://platform.claude.com/docs/en/build-with-claude/files)
 
 <Note>
-  On Amazon Bedrock and Google Cloud, only base64-encoded sources are currently available. On Microsoft Foundry, the Files API is not supported for deployments hosted on Azure.
+  On Amazon Bedrock and Claude Models on Google Cloud (Google managed), only base64-encoded sources are currently available. On Microsoft Foundry, the Files API is not supported for deployments hosted on Azure.
 </Note>
 
 #### Option 1: URL-based PDF document

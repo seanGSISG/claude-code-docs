@@ -138,12 +138,9 @@ Add `task_budget` to `output_config` and include the beta header:
   	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 128000,
   	Betas:     []anthropic.AnthropicBeta{"task-budgets-2026-03-13"},
-  	Messages: []anthropic.BetaMessageParam{{
-  		Role: anthropic.BetaMessageParamRoleUser,
-  		Content: []anthropic.BetaContentBlockParamUnion{{
-  			OfText: &anthropic.BetaTextBlockParam{Text: "Review the codebase and propose a refactor plan."},
-  		}},
-  	}},
+  	Messages: []anthropic.BetaMessageParam{
+  		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Review the codebase and propose a refactor plan.")),
+  	},
   	OutputConfig: anthropic.BetaOutputConfigParam{
   		Effort: anthropic.BetaOutputConfigEffortHigh,
   		TaskBudget: anthropic.BetaTokenTaskBudgetParam{

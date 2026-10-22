@@ -69,7 +69,7 @@ Install or upgrade to the latest version of the Claude SDK:
 
   <Tab title="Go">
     ```bash
-    go get github.com/anthropics/anthropic-sdk-go@latest
+    go get github.com/anthropics/anthropic-sdk-go/v2@latest
     ```
 
     If your application doesn't use the OpenTelemetry SDK yet, install it with a console exporter, which you use in the next step to print spans:
@@ -215,7 +215,7 @@ The following example registers a tracer provider that prints each span to the c
   	"context"
   	"fmt"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   	"go.opentelemetry.io/otel"
   	"go.opentelemetry.io/otel/exporters/stdout/stdouttrace"
   	"go.opentelemetry.io/otel/propagation"

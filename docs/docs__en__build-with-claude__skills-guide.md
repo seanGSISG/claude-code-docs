@@ -1073,10 +1073,7 @@ The response's `container` object carries the container's `id` and `expires_at` 
   	},
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Create a sample sales dataset and analyze it")),
-  		{
-  			Role:    anthropic.MessageParamRoleAssistant,
-  			Content: []anthropic.ContentBlockParamUnion{anthropic.NewTextBlock(assistantText)},
-  		},
+  		anthropic.NewAssistantMessage(anthropic.NewTextBlock(assistantText)),
   		anthropic.NewUserMessage(anthropic.NewTextBlock("What was the total revenue?")),
   	},
   	Tools: []anthropic.ToolUnionParam{

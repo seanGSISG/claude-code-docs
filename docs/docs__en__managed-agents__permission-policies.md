@@ -131,12 +131,9 @@ When creating an agent, you can apply a policy to every tool in `agent_toolset_2
   	},
   	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
   		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  			Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
   			DefaultConfig: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParams{
   				PermissionPolicy: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnion{
-  					OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{
-  						Type: anthropic.BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk,
-  					},
+  					OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{},
   				},
   			},
   		},
@@ -339,25 +336,19 @@ This example connects a GitHub MCP server and allows its tools to run without co
   		ID: anthropic.BetaManagedAgentsModelClaudeOpus5_5,
   	},
   	MCPServers: []anthropic.BetaManagedAgentsURLMCPServerParams{{
-  		Type: anthropic.BetaManagedAgentsURLMCPServerParamsTypeURL,
   		Name: "github",
   		URL:  "https://mcp.example.com/github",
   	}},
   	Tools: []anthropic.BetaAgentNewParamsToolUnion{
   		{
-  			OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  				Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
-  			},
+  			OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{},
   		},
   		{
   			OfMCPToolset: &anthropic.BetaManagedAgentsMCPToolsetParams{
-  				Type:          anthropic.BetaManagedAgentsMCPToolsetParamsTypeMCPToolset,
   				MCPServerName: "github",
   				DefaultConfig: anthropic.BetaManagedAgentsMCPToolsetDefaultConfigParams{
   					PermissionPolicy: anthropic.BetaManagedAgentsMCPToolsetDefaultConfigParamsPermissionPolicyUnion{
-  						OfAlwaysAllow: &anthropic.BetaManagedAgentsAlwaysAllowPolicyParam{
-  							Type: anthropic.BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow,
-  						},
+  						OfAlwaysAllow: &anthropic.BetaManagedAgentsAlwaysAllowPolicyParam{},
   					},
   				},
   			},
@@ -562,20 +553,15 @@ Use the `configs` (csharp, go: `Configs`) array to override the default for indi
   ```go Go
   tools := []anthropic.BetaAgentNewParamsToolUnion{{
   	OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  		Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
   		DefaultConfig: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParams{
   			PermissionPolicy: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnion{
-  				OfAlwaysAllow: &anthropic.BetaManagedAgentsAlwaysAllowPolicyParam{
-  					Type: anthropic.BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow,
-  				},
+  				OfAlwaysAllow: &anthropic.BetaManagedAgentsAlwaysAllowPolicyParam{},
   			},
   		},
   		Configs: []anthropic.BetaManagedAgentsAgentToolConfigParamsUnion{{
   			OfBash: &anthropic.BetaManagedAgentsBashToolConfigParams{
   				PermissionPolicy: anthropic.BetaManagedAgentsBashToolConfigParamsPermissionPolicyUnion{
-  					OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{
-  						Type: anthropic.BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk,
-  					},
+  					OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{},
   				},
   			},
   		}},
@@ -828,14 +814,12 @@ The following example sets `auto` as the default for the agent toolset and for t
   		ID: anthropic.BetaManagedAgentsModelClaudeOpus5_5,
   	},
   	MCPServers: []anthropic.BetaManagedAgentsURLMCPServerParams{{
-  		Type: anthropic.BetaManagedAgentsURLMCPServerParamsTypeURL,
   		Name: "github",
   		URL:  "https://mcp.example.com/github",
   	}},
   	Tools: []anthropic.BetaAgentNewParamsToolUnion{
   		{
   			OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  				Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
   				DefaultConfig: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParams{
   					PermissionPolicy: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnion{
   						OfAuto: &anthropic.BetaManagedAgentsAutoPolicyParam{},
@@ -844,9 +828,7 @@ The following example sets `auto` as the default for the agent toolset and for t
   				Configs: []anthropic.BetaManagedAgentsAgentToolConfigParamsUnion{{
   					OfBash: &anthropic.BetaManagedAgentsBashToolConfigParams{
   						PermissionPolicy: anthropic.BetaManagedAgentsBashToolConfigParamsPermissionPolicyUnion{
-  							OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{
-  								Type: anthropic.BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk,
-  							},
+  							OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{},
   						},
   					},
   				}},
@@ -854,7 +836,6 @@ The following example sets `auto` as the default for the agent toolset and for t
   		},
   		{
   			OfMCPToolset: &anthropic.BetaManagedAgentsMCPToolsetParams{
-  				Type:          anthropic.BetaManagedAgentsMCPToolsetParamsTypeMCPToolset,
   				MCPServerName: "github",
   				DefaultConfig: anthropic.BetaManagedAgentsMCPToolsetDefaultConfigParams{
   					PermissionPolicy: anthropic.BetaManagedAgentsMCPToolsetDefaultConfigParamsPermissionPolicyUnion{
@@ -1197,7 +1178,6 @@ In the following examples, the tool-use event IDs come from the `stop_reason.eve
   _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfUserToolConfirmation: &anthropic.BetaManagedAgentsUserToolConfirmationEventParams{
-  			Type:      anthropic.BetaManagedAgentsUserToolConfirmationEventParamsTypeUserToolConfirmation,
   			ToolUseID: agentToolUseEvent.ID,
   			Result:    anthropic.BetaManagedAgentsUserToolConfirmationEventParamsResultAllow,
   		},
@@ -1211,7 +1191,6 @@ In the following examples, the tool-use event IDs come from the `stop_reason.eve
   _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfUserToolConfirmation: &anthropic.BetaManagedAgentsUserToolConfirmationEventParams{
-  			Type:        anthropic.BetaManagedAgentsUserToolConfirmationEventParamsTypeUserToolConfirmation,
   			ToolUseID:   mcpToolUseEvent.ID,
   			Result:      anthropic.BetaManagedAgentsUserToolConfirmationEventParamsResultDeny,
   			DenyMessage: anthropic.String("Don't create issues in the production project. Use the staging project."),

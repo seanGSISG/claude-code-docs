@@ -218,8 +218,10 @@ $response = $client->request(
   * [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock)
   * [Amazon Bedrock (Opus 4.6 and earlier)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy)
   * [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws)
-  * [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai)
+  * [Claude Models on Google Cloud (Google managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/google-managed)
   * [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
+
+  See also [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed).
 </Note>
 
 The PHP SDK supports the following platforms:
@@ -232,9 +234,11 @@ The PHP SDK supports the following platforms:
 
 Use `MantleClient` for new projects; `Anthropic\Bedrock\Client` remains for existing applications using the Bedrock `InvokeModel` API.
 
+The PHP SDK also supports Claude Models on Google Cloud (Anthropic managed) through `Anthropic\GoogleCloud\Client`. This client is in beta. `Anthropic\GoogleCloud\Client` requires `google/auth` as a soft dependency. Use `new Anthropic\GoogleCloud\Client(workspaceId: ...)` or set the `ANTHROPIC_GOOGLE_CLOUD_WORKSPACE_ID` environment variable. See [Project, location, and workspace resolution](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#project-location-and-workspace-resolution).
+
 ## Semantic versioning
 
-Each major version of this SDK sends one API version in the `anthropic-version` header by default, and a new major version comes with each new API version. The first major version that sends `2026-10-21` is 1.0.0; see [Upgrade to 2026-10-21](https://platform.claude.com/docs/en/api/migration-2026-10-21#upgrade).
+Each major version of this SDK sends one API version by default, and a new major version comes with each new API version. The first major version that sends `2026-10-21` is 1.0.0; see [Switch to 2026-10-21](https://platform.claude.com/docs/en/api/migration-2026-10-21#upgrade).
 
 This package follows [SemVer](https://semver.org/spec/v2.0.0.html) conventions.
 

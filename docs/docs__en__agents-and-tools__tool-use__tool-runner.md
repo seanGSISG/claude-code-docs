@@ -261,8 +261,8 @@ Depending on the SDK's tool signature, a tool returns its result as a string or 
     	"fmt"
     	"log"
 
-    	"github.com/anthropics/anthropic-sdk-go"
-    	"github.com/anthropics/anthropic-sdk-go/toolrunner"
+    	"github.com/anthropics/anthropic-sdk-go/v2"
+    	"github.com/anthropics/anthropic-sdk-go/v2/toolrunner"
     )
 
     type GetWeatherInput struct {

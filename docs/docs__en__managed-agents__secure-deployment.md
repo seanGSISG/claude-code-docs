@@ -568,22 +568,17 @@ The following sample limits `web_fetch` to `help.example.com` with `allowed_doma
   ```go Go
   tools := []anthropic.BetaAgentNewParamsToolUnion{{
   	OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  		Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
   		DefaultConfig: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParams{
   			Enabled: anthropic.Bool(false),
   			PermissionPolicy: anthropic.BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnion{
-  				OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{
-  					Type: anthropic.BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk,
-  				},
+  				OfAlwaysAsk: &anthropic.BetaManagedAgentsAlwaysAskPolicyParam{},
   			},
   		},
   		Configs: []anthropic.BetaManagedAgentsAgentToolConfigParamsUnion{
   			{OfRead: &anthropic.BetaManagedAgentsReadToolConfigParams{
   				Enabled: anthropic.Bool(true),
   				PermissionPolicy: anthropic.BetaManagedAgentsReadToolConfigParamsPermissionPolicyUnion{
-  					OfAlwaysAllow: &anthropic.BetaManagedAgentsAlwaysAllowPolicyParam{
-  						Type: anthropic.BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow,
-  					},
+  					OfAlwaysAllow: &anthropic.BetaManagedAgentsAlwaysAllowPolicyParam{},
   				},
   			}},
   			{OfWrite: &anthropic.BetaManagedAgentsWriteToolConfigParams{
@@ -603,7 +598,6 @@ The following sample limits `web_fetch` to `help.example.com` with `allowed_doma
   	},
   }, {
   	OfCustom: &anthropic.BetaManagedAgentsCustomToolParams{
-  		Type:        anthropic.BetaManagedAgentsCustomToolParamsTypeCustom,
   		Name:        "lookup_order",
   		Description: "Look up one order by its ID. Returns the status, the items, and the delivery date.",
   		InputSchema: anthropic.BetaManagedAgentsCustomToolInputSchemaParam{

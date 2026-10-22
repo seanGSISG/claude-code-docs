@@ -146,10 +146,8 @@ Stream events from the session to receive real-time updates as the agent works. 
   	if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   		Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   			OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
-  				Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
   				Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{{
   					OfText: &anthropic.BetaManagedAgentsTextBlockParam{
-  						Type: anthropic.BetaManagedAgentsTextBlockTypeText,
   						Text: "Summarize the repo README",
   					},
   				}},
@@ -588,10 +586,8 @@ Send a `user.message` event to start or continue the agent's work:
   if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
-  			Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
   			Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{{
   				OfText: &anthropic.BetaManagedAgentsTextBlockParam{
-  					Type: anthropic.BetaManagedAgentsTextBlockTypeText,
   					Text: "Analyze the performance of the sort function in utils.py",
   				},
   			}},
@@ -788,11 +784,9 @@ The following example answers each call as it arrives:
   			if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   				Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   					OfUserCustomToolResult: &anthropic.BetaManagedAgentsUserCustomToolResultEventParams{
-  						Type:            anthropic.BetaManagedAgentsUserCustomToolResultEventParamsTypeUserCustomToolResult,
   						CustomToolUseID: event.ID,
   						Content: []anthropic.BetaManagedAgentsUserCustomToolResultEventParamsContentUnion{{
   							OfText: &anthropic.BetaManagedAgentsTextBlockParam{
-  								Type: anthropic.BetaManagedAgentsTextBlockTypeText,
   								Text: result,
   							},
   						}},
@@ -1011,7 +1005,6 @@ The following example approves every pending call:
   				if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   					Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   						OfUserToolConfirmation: &anthropic.BetaManagedAgentsUserToolConfirmationEventParams{
-  							Type:      anthropic.BetaManagedAgentsUserToolConfirmationEventParamsTypeUserToolConfirmation,
   							ToolUseID: eventID,
   							Result:    anthropic.BetaManagedAgentsUserToolConfirmationEventParamsResultAllow,
   						},
@@ -1202,10 +1195,8 @@ Sessions persist between interactions. To resume a session, send a `user.message
   if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
-  			Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
   			Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{{
   				OfText: &anthropic.BetaManagedAgentsTextBlockParam{
-  					Type: anthropic.BetaManagedAgentsTextBlockTypeText,
   					Text: "Now run the tests against the changes you made earlier.",
   				},
   			}},
@@ -1376,16 +1367,12 @@ Send a `user.interrupt` event to stop the agent while it runs, then follow up wi
   if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{
   		{
-  			OfUserInterrupt: &anthropic.BetaManagedAgentsUserInterruptEventParams{
-  				Type: anthropic.BetaManagedAgentsUserInterruptEventParamsTypeUserInterrupt,
-  			},
+  			OfUserInterrupt: &anthropic.BetaManagedAgentsUserInterruptEventParams{},
   		},
   		{
   			OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
-  				Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
   				Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{{
   					OfText: &anthropic.BetaManagedAgentsTextBlockParam{
-  						Type: anthropic.BetaManagedAgentsTextBlockTypeText,
   						Text: "Instead, focus on fixing the bug in line 42.",
   					},
   				}},
@@ -1714,9 +1701,7 @@ The event's `content` (csharp, go: `Content`) accepts 1–1,000 text items. The 
   if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfSystemMessage: &anthropic.BetaManagedAgentsSystemMessageEventParams{
-  			Type: anthropic.BetaManagedAgentsSystemMessageEventParamsTypeSystemMessage,
   			Content: []anthropic.BetaManagedAgentsSystemContentBlockParam{{
-  				Type: anthropic.BetaManagedAgentsSystemContentBlockTypeText,
   				Text: "The user's current timezone is America/New_York.",
   			}},
   		},

@@ -174,7 +174,6 @@ Mount uploaded files into the sandbox by adding them to the `resources` (csharp,
   	EnvironmentID: environment.ID,
   	Resources: []anthropic.BetaSessionNewParamsResourceUnion{{
   		OfFile: &anthropic.BetaManagedAgentsFileResourceParams{
-  			Type:      anthropic.BetaManagedAgentsFileResourceParamsTypeFile,
   			FileID:    file.ID,
   			MountPath: anthropic.String("/data.csv"),
   		},
@@ -406,7 +405,6 @@ You can add or remove files from a session after creation using the session reso
   ```go Go
   resource, err := client.Beta.Sessions.Resources.Add(ctx, session.ID, anthropic.BetaSessionResourceAddParams{
   	BetaManagedAgentsFileResourceParams: anthropic.BetaManagedAgentsFileResourceParams{
-  		Type:   anthropic.BetaManagedAgentsFileResourceParamsTypeFile,
   		FileID: file.ID,
   	},
   })

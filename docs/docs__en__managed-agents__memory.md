@@ -305,7 +305,6 @@ You can configure `access` (csharp, go: `Access`) as well. It defaults to `read_
   	EnvironmentID: environment.ID,
   	Resources: []anthropic.BetaSessionNewParamsResourceUnion{{
   		OfMemoryStore: &anthropic.BetaManagedAgentsMemoryStoreResourceParam{
-  			Type:          anthropic.BetaManagedAgentsMemoryStoreResourceParamTypeMemoryStore,
   			MemoryStoreID: store.ID,
   			Access:        anthropic.BetaManagedAgentsMemoryStoreResourceParamAccessReadWrite,
   			Instructions:  anthropic.String("User preferences and project context. Check before starting any task."),
@@ -788,7 +787,6 @@ To avoid overwriting a concurrent write, pass a `content_sha256` precondition. T
   	MemoryStoreID: store.ID,
   	Content:       anthropic.String("CORRECTED: Always use 2-space indentation."),
   	Precondition: anthropic.BetaManagedAgentsPreconditionParam{
-  		Type:          anthropic.BetaManagedAgentsPreconditionTypeContentSha256,
   		ContentSha256: anthropic.String(mem.ContentSha256),
   	},
   })

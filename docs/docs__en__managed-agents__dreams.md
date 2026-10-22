@@ -373,7 +373,6 @@ When `status` (csharp, go: `Status`) reaches `completed`, the `memory_store` ent
   		EnvironmentID: environmentID,
   		Resources: []anthropic.BetaSessionNewParamsResourceUnion{{
   			OfMemoryStore: &anthropic.BetaManagedAgentsMemoryStoreResourceParam{
-  				Type:          anthropic.BetaManagedAgentsMemoryStoreResourceParamTypeMemoryStore,
   				MemoryStoreID: outputStoreID,
   			},
   		}},

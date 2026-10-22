@@ -386,8 +386,8 @@ The Claude SDK can read the JWT-SVID from the file that spiffe-helper maintains 
       	"fmt"
       	"os"
 
-      	"github.com/anthropics/anthropic-sdk-go"
-      	"github.com/anthropics/anthropic-sdk-go/option"
+      	"github.com/anthropics/anthropic-sdk-go/v2"
+      	"github.com/anthropics/anthropic-sdk-go/v2/option"
       	"github.com/spiffe/go-spiffe/v2/svid/jwtsvid"
       	"github.com/spiffe/go-spiffe/v2/workloadapi"
       )

@@ -221,7 +221,6 @@ The following example creates an agent that limits `web_search` to two sites and
   	},
   	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
   		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  			Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
   			Configs: []anthropic.BetaManagedAgentsAgentToolConfigParamsUnion{
   				{OfWebSearch: &anthropic.BetaManagedAgentsWebSearchToolConfigParams{
   					AllowedDomains: []string{"docs.example.com", "arxiv.org"},

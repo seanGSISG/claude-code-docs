@@ -1266,7 +1266,7 @@ Install both the Anthropic SDK and the MCP SDK:
     The helpers live in the `mcp` subpackage of the Go SDK, which builds on the [MCP Go SDK](https://github.com/modelcontextprotocol/go-sdk):
 
     ```bash
-    go get github.com/anthropics/anthropic-sdk-go/mcp
+    go get github.com/anthropics/anthropic-sdk-go/v2/mcp
     ```
   </Tab>
 
@@ -1345,7 +1345,7 @@ Import the helpers for your language:
 
   ```go Go
   import (
-  	"github.com/anthropics/anthropic-sdk-go/mcp"
+  	"github.com/anthropics/anthropic-sdk-go/v2/mcp"
   )
   ```
 
@@ -1480,7 +1480,7 @@ Convert MCP tools for use with the SDK's [tool runner](https://platform.claude.c
   // ...
 
   // ...
-  	"github.com/anthropics/anthropic-sdk-go/mcp"
+  	"github.com/anthropics/anthropic-sdk-go/v2/mcp"
   	mcpsdk "github.com/modelcontextprotocol/go-sdk/mcp"
   )
 

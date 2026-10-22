@@ -377,7 +377,7 @@ The request sends a `tools` array alongside the user message. When Claude determ
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   func main() {
@@ -1172,7 +1172,7 @@ The other change is conversation history. Instead of rebuilding the `messages` a
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   func runTool(name string, input map[string]any) string {
@@ -1965,7 +1965,7 @@ When Claude has multiple independent tool calls to make, it might return several
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   func runTool(name string, input map[string]any) string {
@@ -2813,7 +2813,7 @@ Tools fail. A calendar API might reject an event with too many attendees, or a d
   	"log"
   	"strings"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   func runTool(name string, input map[string]any) (string, error) {
@@ -3586,8 +3586,8 @@ The SDK provides a helper that turns an ordinary function into a runnable tool a
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
-  	"github.com/anthropics/anthropic-sdk-go/toolrunner"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
+  	"github.com/anthropics/anthropic-sdk-go/v2/toolrunner"
   )
 
   // The input structs define each tool's schema. The tool runner generates the

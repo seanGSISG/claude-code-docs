@@ -132,7 +132,7 @@ The example is a single file. The constants control the effort level, the fan-ou
   	"sync"
   	"time"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   var client = anthropic.NewClient()
@@ -3330,10 +3330,9 @@ The agent appends the user's message first, then any system messages that are du
   // full mode text on entry, or a one-line refresher every turnsBetweenRefreshers user turns.
   func (agent *modeAgent) dueSystemMessages() []anthropic.MessageParam {
   	systemMessage := func(content string) anthropic.MessageParam {
-  		return anthropic.MessageParam{
-  			Role:    anthropic.MessageParamRoleSystem,
-  			Content: []anthropic.ContentBlockParamUnion{anthropic.NewTextBlock(content)},
-  		}
+  		return anthropic.MessageParam{OfSystem: &anthropic.SystemMessageParam{
+  			Content: []anthropic.TextBlockParam{{Text: content}},
+  		}}
   	}
   	var due []anthropic.MessageParam
   	if agent.exitPending {

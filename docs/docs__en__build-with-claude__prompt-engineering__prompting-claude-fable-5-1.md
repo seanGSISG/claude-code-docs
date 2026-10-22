@@ -385,7 +385,7 @@ The following loop shows this placement. Each assistant turn goes back exactly a
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   const batchNudge = "First privately list what you need next; then request every item " +
@@ -465,11 +465,10 @@ The following loop shows this placement. Each assistant turn goes back exactly a
   		// turn-scoped system message. Leave earlier copies in place: the API clears them,
   		// so the model sees only the newest one.
   		messages = append(messages, anthropic.NewBetaUserMessage(toolResults...))
-  		messages = append(messages, anthropic.BetaMessageParam{
-  			Role:    anthropic.BetaMessageParamRoleSystem,
-  			Content: []anthropic.BetaContentBlockParamUnion{anthropic.NewBetaTextBlock(batchNudge)},
-  			ClearAt: anthropic.BetaMessageParamClearAtNextUserMessage,
-  		})
+  		messages = append(messages, anthropic.BetaMessageParam{OfSystem: &anthropic.BetaSystemMessageParam{
+  			Content: []anthropic.BetaSystemMessageParamContentUnion{{OfText: &anthropic.BetaTextBlockParam{Text: batchNudge}}},
+  			ClearAt: anthropic.BetaSystemMessageParamClearAtNextUserMessage,
+  		}})
   	}
 
   	for _, block := range response.Content {

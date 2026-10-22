@@ -733,7 +733,7 @@ The class should have two main methods: one that calls the API to generate a mes
   	"encoding/json"
   	"fmt"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   // ChatBot wraps the Anthropic client and the conversation history. The

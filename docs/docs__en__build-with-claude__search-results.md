@@ -2116,7 +2116,7 @@ When `citations.enabled` is set to `true`, Claude attaches citation references t
 
 ## Limitations
 
-* Search result content blocks are available on Claude API, Amazon Bedrock, and Google Cloud.
+* Search result content blocks are available on Claude API, Amazon Bedrock, and Claude Models on Google Cloud (Google managed).
 * Only text content is supported within search results (no images or other media).
 * `search_result` blocks can only appear in user messages (including inside tool results). Assistant messages with search results are rejected.
 * When the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) is enabled in the same request, citations must be enabled on all `search_result` blocks.

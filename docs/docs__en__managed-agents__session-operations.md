@@ -121,20 +121,16 @@ The session must be `idle` to update the agent. To update the agent while the se
   	Agent: anthropic.BetaManagedAgentsSessionAgentUpdateParam{
   		Tools: []anthropic.BetaManagedAgentsSessionAgentUpdateToolUnionParam{
   			{
-  				OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
-  					Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
-  				},
+  				OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{},
   			},
   			{
   				OfMCPToolset: &anthropic.BetaManagedAgentsMCPToolsetParams{
-  					Type:          anthropic.BetaManagedAgentsMCPToolsetParamsTypeMCPToolset,
   					MCPServerName: "linear",
   				},
   			},
   		},
   		MCPServers: []anthropic.BetaManagedAgentsURLMCPServerParams{
   			{
-  				Type: anthropic.BetaManagedAgentsURLMCPServerParamsTypeURL,
   				Name: "linear",
   				URL:  "https://mcp.linear.app/sse",
   			},

@@ -175,10 +175,9 @@ Send the conversation as it stands with `"compaction": {"type": "summarize"}`. T
 
   history := []anthropic.BetaMessageParam{
   	anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("I am building a recipe app. Help me name the main entities in the data model.")),
-  	{
-  		Role:    anthropic.BetaMessageParamRoleAssistant,
+  	{OfAssistant: &anthropic.BetaAssistantMessageParam{
   		Content: []anthropic.BetaContentBlockParamUnion{anthropic.NewBetaTextBlock("Start with Recipe, Ingredient, and Step. Add a RecipeIngredient entry that holds the quantity and unit for each ingredient in a recipe.")},
-  	},
+  	}},
   	anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Good. Now suggest field names for Recipe.")),
   }
 

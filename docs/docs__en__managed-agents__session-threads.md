@@ -154,7 +154,6 @@ Send `user.interrupt` with `session_thread_id` (java: `sessionThreadId`; php: `s
   if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfUserInterrupt: &anthropic.BetaManagedAgentsUserInterruptEventParams{
-  			Type:            anthropic.BetaManagedAgentsUserInterruptEventParamsTypeUserInterrupt,
   			SessionThreadID: anthropic.String(thread.ID),
   		},
   	}},
@@ -321,7 +320,6 @@ Archive only succeeds if the thread is `idle`. A thread parked on `requires_acti
   if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
   	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
   		OfUserInterrupt: &anthropic.BetaManagedAgentsUserInterruptEventParams{
-  			Type:            anthropic.BetaManagedAgentsUserInterruptEventParamsTypeUserInterrupt,
   			SessionThreadID: anthropic.String(thread.ID),
   		},
   	}},
@@ -731,7 +729,6 @@ The following example goes inside the event loop of the [tool confirmation handl
   ```go Go
   for _, eventID := range stopReason.EventIDs {
   	params := anthropic.BetaManagedAgentsUserToolConfirmationEventParams{
-  		Type:      anthropic.BetaManagedAgentsUserToolConfirmationEventParamsTypeUserToolConfirmation,
   		ToolUseID: eventID,
   		Result:    anthropic.BetaManagedAgentsUserToolConfirmationEventParamsResultAllow,
   	}

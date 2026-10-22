@@ -1003,10 +1003,7 @@ With the default `NUDGE_TURN` of 2, the reminder typically arrives after the mod
 
   		results := runYourTools(response.Content) // list of tool_result blocks
   		if len(results) > 0 {
-  			messages = append(messages, anthropic.BetaMessageParam{
-  				Role:    anthropic.BetaMessageParamRoleUser,
-  				Content: results,
-  			})
+  			messages = append(messages, anthropic.NewBetaUserMessage(results...))
   		}
   		// Skip this if your system prompt already tells the model to call sparingly.
   		if turn == nudgeTurn-1 && !advisorCalled {
@@ -1812,7 +1809,7 @@ If you request an invalid pair, the API returns a `400 invalid_request_error` na
 
 ### Platform availability
 
-The advisor tool is available in beta on the Claude API and on [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws). It is not currently available on Amazon Bedrock, Google Cloud, or Microsoft Foundry.
+The advisor tool is available in beta on the Claude API, on [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), and on [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed). It is not currently available on Amazon Bedrock, Claude Models on Google Cloud (Google managed), or Microsoft Foundry.
 
 ## Advisor on Claude Managed Agents
 

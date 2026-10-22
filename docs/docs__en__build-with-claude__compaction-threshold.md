@@ -632,7 +632,7 @@ You can provide custom instructions through the `instructions` parameter. Custom
   	MaxTokens: 4096,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Help me build a Python web scraper")),
-  		{Role: anthropic.BetaMessageParamRoleAssistant, Content: []anthropic.BetaContentBlockParamUnion{anthropic.NewBetaTextBlock("I'll help you build a web scraper...")}},
+  		{OfAssistant: &anthropic.BetaAssistantMessageParam{Content: []anthropic.BetaContentBlockParamUnion{anthropic.NewBetaTextBlock("I'll help you build a web scraper...")}}},
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Add support for JavaScript-rendered pages")),
   	},
   	ContextManagement: anthropic.BetaContextManagementConfigParam{
@@ -2604,7 +2604,7 @@ Here's a complete example of a long-running conversation with compaction:
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   var (
@@ -3040,7 +3040,7 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
   	"fmt"
   	"log"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   var (
@@ -3078,8 +3078,12 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
   		// without thinking blocks; an assistant turn left empty is dropped
   		var preserved []anthropic.BetaMessageParam
   		for _, message := range messages[max(0, len(messages)-3):] {
+  			if message.OfAssistant == nil {
+  				preserved = append(preserved, message)
+  				continue
+  			}
   			var content []anthropic.BetaContentBlockParamUnion
-  			for _, block := range message.Content {
+  			for _, block := range message.OfAssistant.Content {
   				if block.OfThinking == nil && block.OfRedactedThinking == nil {
   					content = append(content, block)
   				}
@@ -3087,12 +3091,11 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
   			if len(content) == 0 {
   				continue
   			}
-  			message.Content = content
-  			preserved = append(preserved, message)
+  			preserved = append(preserved, anthropic.BetaMessageParam{OfAssistant: &anthropic.BetaAssistantMessageParam{Content: content}})
   		}
 
   		messagesAfterCompaction := []anthropic.BetaMessageParam{
-  			{Role: anthropic.BetaMessageParamRoleAssistant, Content: []anthropic.BetaContentBlockParamUnion{compactionParam}},
+  			{OfAssistant: &anthropic.BetaAssistantMessageParam{Content: []anthropic.BetaContentBlockParamUnion{compactionParam}}},
   		}
   		messagesAfterCompaction = append(messagesAfterCompaction, preserved...)
 

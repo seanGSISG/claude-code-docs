@@ -378,7 +378,7 @@ Four SDKs provide memory tool helpers that handle the tool interface and the loo
   	"sort"
   	"strings"
 
-  	"github.com/anthropics/anthropic-sdk-go"
+  	"github.com/anthropics/anthropic-sdk-go/v2"
   )
 
   // An in-memory store that maps memory file paths to their contents.
