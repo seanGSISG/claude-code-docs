@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-23T16:26:58.340849Z",
-    "total_paths": 1047,
+    "generated_at": "2026-10-23T20:58:22.859687Z",
+    "total_paths": 1048,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-23T16:26:58.340857Z"
+    "last_regenerated": "2026-10-23T20:58:22.859694Z"
   },
   "categories": {
     "core_documentation": [
@@ -216,6 +216,7 @@
       "/docs/en/manage-claude/app-attest",
       "/docs/en/manage-claude/authentication",
       "/docs/en/manage-claude/claude-code-analytics-api",
+      "/docs/en/manage-claude/claude-tag-api",
       "/docs/en/manage-claude/cmek",
       "/docs/en/manage-claude/cmek-admin-api",
       "/docs/en/manage-claude/cmek-aws-kms",
