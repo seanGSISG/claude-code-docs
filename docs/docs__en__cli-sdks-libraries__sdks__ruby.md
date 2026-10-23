@@ -236,13 +236,13 @@ Request parameters that correspond to file uploads can be passed as raw contents
 anthropic = Anthropic::Client.new
 require "pathname"
 
-# Use `Pathname` to send the filename, avoid paging a large file into memory, or both:
+# Use `Pathname` to send the file name, avoid paging a large file into memory, or both:
 file_metadata = anthropic.files.upload(file: Pathname("/path/to/file"))
 
 # Alternatively, pass file contents or a `StringIO` directly:
 file_metadata = anthropic.files.upload(file: File.read("/path/to/file"))
 
-# Or, to control the filename, the content type, or both:
+# Or, to control the file name, the content type, or both:
 file = Anthropic::FilePart.new(File.read("/path/to/file"), filename: "/path/to/file", content_type: "...")
 file_metadata = anthropic.files.upload(file: file)
 
@@ -402,7 +402,7 @@ response = anthropic.request(
 
 The Ruby SDK supports the following platforms:
 
-* **Agent Platform:** `Anthropic::VertexClient`. Requires the `googleauth` gem.
+* **Claude Models on Google Cloud (Google managed):** `Anthropic::VertexClient`. Requires the `googleauth` gem.
 * **Bedrock:** `Anthropic::BedrockMantleClient`, or `Anthropic::BedrockClient` for the `bedrock-runtime` path. `Anthropic::BedrockMantleClient` requires the `aws-sdk-core` gem; `Anthropic::BedrockClient` requires the `aws-sdk-bedrockruntime` gem.
 * **Claude Platform on AWS:** Part of the main `anthropic` gem (requires the `aws-sdk-core` gem). Provides `Anthropic::AWSClient`. Pass `workspace_id:` to the constructor or set the `ANTHROPIC_AWS_WORKSPACE_ID` environment variable (see [Workspaces](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws#workspaces)). Available in beta.
 * **Foundry:** Not currently supported in the Ruby SDK. See [Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry) for supported SDKs.

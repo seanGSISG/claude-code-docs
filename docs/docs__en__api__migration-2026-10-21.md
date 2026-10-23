@@ -385,7 +385,7 @@ In earlier versions, `MessageParam` was one type for all roles. Each role now ha
     function send(UserMessageParam|AssistantMessageParam|SystemMessageParam $message): void {}
     ```
 
-    * `MessageParam::fromArray()` and `(new MessageParam)->withContent()` throw "Call to undefined method". Call them on the role's class, which sets `role` itself.
+    * `MessageParam::fromArray()` and `(new MessageParam())->withContent()` throw "Call to undefined method". Call them on the role's class, which sets `role` itself.
     * `withRole()` takes only the string now: PHP throws a `TypeError` for a `Role` case. To give a message another role, build that role's class.
     * `clearAt` and `outputConfig` exist only on `BetaSystemMessageParam`, and `BetaMessageParam::with()` drops them for the other two roles. The `BetaMessageParam\ClearAt` enum is now `BetaSystemMessageParam\ClearAt`.
     * `MessageParam\Content` is now `MessageContentParam`, and `BetaMessageParam\Content` is now `BetaMessageContentParam`. Their PHPStan types take the new name too: `ContentShape` is now `MessageContentParamShape`.
@@ -1059,7 +1059,7 @@ An API key and an authentication token now share a header, so an SDK client hold
     // Before: sent the API key and ignored `credentials`
     const client = new Anthropic({ apiKey, credentials });
 
-    // After: the line above throws a TypeError
+    // After: the previous line throws a TypeError
     const client = new Anthropic({ credentials });
     ```
 
@@ -1080,7 +1080,7 @@ An API key and an authentication token now share a header, so an SDK client hold
     // Before: sent both, each in its own header
     AnthropicClient client = new() { ApiKey = apiKey, AuthToken = token };
 
-    // After: the line above throws an ArgumentException
+    // After: the previous line throws an ArgumentException
     AnthropicClient client = new() { AuthToken = token };
     ```
 
@@ -1106,7 +1106,7 @@ An API key and an authentication token now share a header, so an SDK client hold
     	option.WithProfile("work"),
     )
 
-    // After: every request of the client above fails, so pass the one you want
+    // After: every request the previous client makes fails, so pass the one you want
     client := anthropic.NewClient(option.WithAPIKey(apiKey))
     ```
 

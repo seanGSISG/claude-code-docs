@@ -27,7 +27,7 @@ featureMetadata:
     Claude API: ga
     Claude Platform on AWS: ga
     Amazon Bedrock: ga
-    Google Cloud: ga
+    Claude Models on Google Cloud (Google managed): ga
     Microsoft Foundry: ga
 ---
 
@@ -117,7 +117,8 @@ Set `output_config.effort` on the request. The following example runs one reques
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
-          new UserMessageParam {
+          new UserMessageParam
+          {
               Content = "Analyze the trade-offs between microservices and monolithic architectures"
           }
       ],
@@ -338,7 +339,7 @@ Claude Haiku 5.5 supports all five effort levels, and `medium` is the default. E
 
 To get less thinking, lower the effort level. You can also send `thinking: {"type": "disabled"}` at `high` effort or below. At `xhigh` or `max`, it returns a 400 error, so use adaptive thinking there: omit the `thinking` field or send `thinking: {"type": "adaptive"}`.
 
-On the Claude API and Claude Models on Google Cloud (Google managed), Claude Haiku 5.5 also supports [changing effort mid-conversation](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta) with a per-message `output_config`, which preserves the prompt cache. With `thinking: {"type": "disabled"}`, effort can't change mid-conversation: a per-message `output_config.effort` that differs from the level in effect returns a 400 error. To vary effort per turn, use adaptive thinking.
+On the Claude API and Claude Models on Google Cloud (Google managed), Claude Haiku 5.5 also supports [changing effort mid-conversation](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta) with a per-message `output_config`, which preserves the prompt cache. With `thinking: {"type": "disabled"}`, effort can't change mid-conversation: a per-message `output_config.effort` that differs from the level in effect returns a 400 error. To vary effort for each turn, use adaptive thinking.
 
 ## Effort with tool use
 

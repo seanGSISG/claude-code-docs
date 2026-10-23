@@ -245,8 +245,10 @@ To enable dynamic filtering, use `web_fetch_20260209` or any later version. The 
 ## How to use web fetch
 
 <Note>
-  An organization admin can turn off web fetch for your organization on the [**Capabilities**](https://platform.claude.com/settings/capabilities) page of the Claude Console. With web fetch off, a Messages API request that includes the tool fails with a 400 `invalid_request_error` that says web fetch is not enabled, and `web_fetch` calls in a [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) session return an error result to the agent while the session continues. With web fetch on, the admin can also set allowed or blocked domains for web fetch on the same page. For how the organization's domain lists apply, see [Domain filtering](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools#domain-filtering) for Messages API requests and [Restrict web search and web fetch domains](https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions) for Managed Agents sessions.
+  An organization admin can turn off web fetch for your organization on the [**Capabilities**](https://platform.claude.com/settings/capabilities) page of the Claude Console. With web fetch off, a Messages API request that includes the tool fails with a 400 `invalid_request_error` that says web fetch is not enabled. With web fetch on, the admin can also set allowed or blocked domains for web fetch on the same page. For how those lists apply to a request, see [Domain filtering](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools#domain-filtering).
 </Note>
+
+For how your organization's web fetch settings apply in Claude Managed Agents sessions, see [Restrict web search and web fetch domains](https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions).
 
 Provide the web fetch tool in your API request:
 
@@ -458,7 +460,7 @@ The `max_uses` parameter limits the number of web fetches performed. Failed fetc
 
 For domain filtering with `allowed_domains` and `blocked_domains`, see [Server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools#domain-filtering).
 
-On [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview), set these fields on the `web_fetch` entry of the agent toolset, where each listed domain must be a plain hostname with no path; see [Restrict web search and web fetch domains](https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions).
+On [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview), set these fields on the `web_fetch` entry of the agent toolset; see [Restrict web search and web fetch domains](https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions).
 
 ### Content limits
 
@@ -881,7 +883,9 @@ When both the web search and web fetch tools are enabled, and the user names a s
               .build())
           .addTool(WebFetchTool20250910.builder()
               .maxUses(5L)
-              .citations(CitationsConfigParam.builder().enabled(true).build())
+              .citations(CitationsConfigParam.builder()
+                  .enabled(true)
+                  .build())
               .build())
           .build();
 

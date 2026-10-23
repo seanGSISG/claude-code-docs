@@ -172,7 +172,9 @@ Add `task_budget` to `output_config` and include the beta header:
       .addUserMessage("Review the codebase and propose a refactor plan.")
       .outputConfig(BetaOutputConfig.builder()
           .effort(BetaOutputConfig.Effort.HIGH)
-          .taskBudget(BetaTokenTaskBudget.builder().total(64000L).build())
+          .taskBudget(BetaTokenTaskBudget.builder()
+              .total(64000L)
+              .build())
           .build())
       .addBeta("task-budgets-2026-03-13")
       .build();
@@ -189,11 +191,12 @@ Add `task_budget` to `output_config` and include the beta header:
 
   ```php PHP
   use Anthropic\Beta\Messages\BetaRawMessageDeltaEvent;
+  use Anthropic\Messages\Model;
 
   $client = new Client();
 
   $stream = $client->beta->messages->createStream(
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 128000,
       messages: [
           ['role' => 'user', 'content' => 'Review the codebase and propose a refactor plan.'],
@@ -615,7 +618,7 @@ Run a representative sample of tasks **without** `task_budget` set and record th
   $client = new Client();
 
   $response = $client->messages->create(
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 4096,
       messages: [
           ['role' => 'user', 'content' => 'Review the codebase and propose a refactor plan.'],

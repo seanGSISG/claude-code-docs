@@ -115,7 +115,8 @@ The following request satisfies every item in the list: effort is set, and there
       Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
-          new UserMessageParam {
+          new UserMessageParam
+          {
               Content = "Analyze the trade-offs between microservices and monolithic architectures"
           }
       ],
@@ -836,7 +837,9 @@ After:
       // strict tool use: every call matches the tool's input_schema
       .tools(tools.stream()
           .map(tool -> tool.tool()
-              .map(customTool -> customTool.toBuilder().strict(true).build())
+              .map(customTool -> customTool.toBuilder()
+                  .strict(true)
+                  .build())
               .map(ToolUnion::ofTool)
               .orElse(tool))
           .toList())
@@ -1469,7 +1472,7 @@ This section adds what changed in Claude Opus 4.7, with `claude-opus-4-6` as the
      $message = $client->messages->create(
          maxTokens: 16000,
          messages: [['role' => 'user', 'content' => '...']],
-         model: 'claude-opus-5-5',
+         model: Model::CLAUDE_OPUS_5_5,
          thinking: ['type' => 'adaptive'],
          outputConfig: ['effort' => 'high'], // or 'max', 'xhigh', 'medium', 'low'
      );
@@ -1520,7 +1523,7 @@ Claude Opus 4.7 introduced behavioral differences from Claude Opus 4.6 that are 
 
    High-resolution support is automatic and requires no beta header or client-side opt-in. Two things to plan for:
 
-   * Full-resolution images can use up to approximately 3x more image tokens than on prior models (up to 4,784 tokens per image, compared to the previous cap of roughly 1,600 tokens per image). Re-budget `max_tokens` and cost expectations for image-heavy workloads, or downsample before sending if you do not need the additional fidelity.
+   * Full-resolution images can use up to approximately 3x more image tokens than on prior models (up to 4,784 tokens for each image, compared to the previous cap of roughly 1,600 tokens). Re-budget `max_tokens` and cost expectations for image-heavy workloads, or downsample before sending if you do not need the additional fidelity.
    * Pointing and bounding-box coordinates returned by the model are 1:1 with actual image pixels on Claude Opus 4.7, so no scale-factor conversion is required.
 
    See [High-resolution image support on Claude Opus 4.7](https://platform.claude.com/docs/en/build-with-claude/vision#high-resolution-image-support-on-claude-opus-4-7) for details.
@@ -1535,7 +1538,7 @@ If you are migrating from Claude Opus 4.5, Claude Opus 4.1, or an earlier model 
 
 1. **Prefill removal** is covered in the [breaking changes for migrating from Claude Opus 4.6](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#opus-46-breaking-changes).
 
-2. **Tool parameter quoting:** Claude Opus 4.6 and later models might produce slightly different JSON string escaping in tool call arguments (for example, different handling of Unicode escapes or forward slash escaping). If you parse tool call `input` as a raw string rather than using a JSON parser, verify your parsing logic. Standard JSON parsers (such as `json.loads()` or `JSON.parse()`) handle these differences automatically.
+2. **Tool parameter quoting:** Claude Opus 4.6 and later models might produce slightly different JSON string escaping in tool call arguments (for example, different handling of Unicode escapes or forward slash escaping). If you parse tool call `input` as a raw string rather than using a JSON parser, check your parsing logic. Standard JSON parsers (such as `json.loads()` or `JSON.parse()`) handle these differences automatically.
 
 #### Recommended changes
 
@@ -1632,8 +1635,8 @@ If you're migrating from Claude Opus 4.1 or earlier models directly to Claude Op
      ```
    </CodeGroup>
 
-   * **Text editor:** Use `text_editor_20250728` and `str_replace_based_edit_tool`. See [Text editor tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/text-editor-tool) documentation for details.
-   * **Code execution:** Upgrade to `code_execution_20260521`. See [Code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool#upgrade-to-latest-tool-version) documentation for migration instructions.
+   * **Text editor:** Use `text_editor_20250728` and `str_replace_based_edit_tool`. See the [Text editor tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/text-editor-tool) documentation for details.
+   * **Code execution:** Upgrade to `code_execution_20260521`. See the [Code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool#upgrade-to-latest-tool-version) documentation for migration instructions.
    * **Computer use:** On the Claude API and Claude Models on Google Cloud (Google managed), Claude Opus 5.5 accepts computer use only as the `computer_toolset_20260801` toolset: the earlier `computer_20250124` and `computer_20251124` tools are rejected there. See the [computer use breaking change](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#computer-use-toolset).
 
 3. **Handle the `refusal` stop reason**

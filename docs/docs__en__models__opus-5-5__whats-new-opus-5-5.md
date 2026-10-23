@@ -60,7 +60,7 @@ To move an existing integration on the Claude API or Claude Models on Google Clo
 
 ## Feature support
 
-Claude Opus 5.5 supports [per-message effort](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta) (beta), [mid-conversation system messages](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages), [task budgets](https://platform.claude.com/docs/en/build-with-claude/task-budgets), [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) with a 512-token minimum cacheable prompt, [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing), the [Files API](https://platform.claude.com/docs/en/build-with-claude/files), [PDF support](https://platform.claude.com/docs/en/build-with-claude/pdf-support), [vision](https://platform.claude.com/docs/en/build-with-claude/vision), and server-side and client-side [tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview). On the Claude API and Claude Models on Google Cloud (Google managed), computer use requires the `computer_toolset_20260801` toolset (see the [breaking change](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5#computer-20251124-is-not-supported)). See each feature's page for model availability.
+Claude Opus 5.5 supports [per-message effort](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta) (beta), [mid-conversation system messages](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages), [task budgets](https://platform.claude.com/docs/en/build-with-claude/task-budgets), [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) with a 512-token minimum cacheable prompt, [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing), the [Files API](https://platform.claude.com/docs/en/build-with-claude/files), [PDF support](https://platform.claude.com/docs/en/build-with-claude/pdf-support), [vision](https://platform.claude.com/docs/en/build-with-claude/vision), and server-side and client-side [tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview). On the Claude API and Claude Models on Google Cloud (Google managed), computer use requires the `computer_toolset_20260801` toolset (see the [computer use breaking change](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5#computer-20251124-is-not-supported)). See each feature's page for model availability.
 
 ### Fast mode
 
@@ -98,10 +98,10 @@ Claude Opus 5.5 costs $4 USD per million input tokens and $20 USD per million ou
 
 Claude Opus 5.5 is available on:
 
-* **Claude API:** all customers, as `claude-opus-5-5`.
-* **AWS:** [Claude in Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock), as `anthropic.claude-opus-5-5`, and [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), as `claude-opus-5-5`.
-* **Google Cloud:** [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed), as `claude-opus-5-5`, and [Claude Models on Google Cloud (Google managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/google-managed), as `claude-opus-5-5`.
-* **Microsoft Foundry:** [Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), as `claude-opus-5-5`.
+* **Claude API:** all customers, as `claude-opus-5-5`
+* **AWS:** [Claude in Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock), as `anthropic.claude-opus-5-5`, and [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), as `claude-opus-5-5`
+* **Google Cloud:** [Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed), as `claude-opus-5-5`, and [Claude Models on Google Cloud (Google managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/google-managed), as `claude-opus-5-5`
+* **Microsoft Foundry:** [Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), as `claude-opus-5-5`
 
 ## Migrate from Claude Opus 5
 

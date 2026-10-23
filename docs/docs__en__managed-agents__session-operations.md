@@ -416,11 +416,15 @@ A `page` cursor is opaque and encodes the `order` of the request that produced i
 
   // Advance by passing next_page as the page cursor.
   var nextCursor = firstPage.response().nextPage().orElseThrow();
-  var secondPage = client.beta().sessions().list(params.toBuilder().page(nextCursor).build());
+  var secondPage = client.beta().sessions().list(params.toBuilder()
+      .page(nextCursor)
+      .build());
 
   // Go back by passing prev_page as the same page cursor.
   var prevCursor = secondPage.response().prevPage().orElseThrow();
-  var previousPage = client.beta().sessions().list(params.toBuilder().page(prevCursor).build());
+  var previousPage = client.beta().sessions().list(params.toBuilder()
+      .page(prevCursor)
+      .build());
   // Back on the first page, so prev_page is empty again.
   IO.println("prev_page: " + previousPage.response().prevPage());
   // For forward-only iteration, page.autoPager() returns an Iterable that auto-follows next_page.

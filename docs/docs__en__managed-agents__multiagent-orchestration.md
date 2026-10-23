@@ -955,7 +955,7 @@ Before you change an existing agent's `multiagent.type`, see [how to move an age
   ```php PHP
   $agent = $client->beta->agents->create(
       name: 'Contract Reviewer',
-      model: 'claude-opus-5-5',
+      model: BetaManagedAgentsModel::CLAUDE_OPUS_5_5,
       system: "You review contracts. When you're asked to review more than a few contracts, start a workflow run that reads them in parallel and combines the findings. Review one or two contracts yourself, without a run.",
       tools: [
           ['type' => 'agent_toolset_20260401'],
@@ -1175,7 +1175,7 @@ An enabled `advisor` (csharp, go: `Advisor`) setting in the agent's `multiagent`
   ```php PHP
   $agent = $client->beta->agents->create(
       name: 'Backend engineer',
-      model: 'claude-sonnet-5',
+      model: BetaManagedAgentsModel::CLAUDE_SONNET_5,
       system: 'You implement backend features end to end. Consult the advisor before major backend design decisions.',
       multiagent: [
           'type' => 'multiagent_20261001',

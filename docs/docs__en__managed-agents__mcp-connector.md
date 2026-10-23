@@ -175,7 +175,7 @@ Each declared server also needs a matching `mcp_toolset` entry in the `tools` (c
   ```php PHP
   $agent = $client->beta->agents->create(
       name: 'GitHub Assistant',
-      model: 'claude-opus-5-5',
+      model: BetaManagedAgentsModel::CLAUDE_OPUS_5_5,
       mcpServers: [
           BetaManagedAgentsURLMCPServerParams::with(
               name: 'github',

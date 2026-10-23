@@ -22,7 +22,7 @@ featureMetadata:
     Claude API: ga
     Claude Platform on AWS: beta
     Amazon Bedrock: beta
-    Google Cloud: ga
+    Claude Models on Google Cloud (Google managed): ga
     Microsoft Foundry: beta
   details:
     - On the Claude API and Claude Models on Google Cloud (Google managed), Claude 5.5 and later models support computer use only through the `computer_toolset_20260801` toolset and return an error for the earlier `computer_20251124` and `computer_20250124` tool versions. To move an existing integration, see [Migrate from `computer_20251124`](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool#migrate-from-computer-20251124). To move from `computer_20250124`, see [Move computer use to the toolset](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide#computer-use-toolset) in the Claude Haiku 5.5 migration guide.
@@ -232,7 +232,7 @@ Add the computer use toolset to the `tools` array of a [Messages API](https://pl
       messages: [
           ['role' => 'user', 'content' => 'Save a picture of a cat to my desktop.'],
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [
           ['type' => 'computer_toolset_20260801'],
           [
@@ -617,11 +617,11 @@ The core of computer use is the "agent loop": a cycle where Claude requests tool
   List<MessageParam> samplingLoop(Model model, List<MessageParam> messages, int maxIterations) {
       for (int i = 0; i < maxIterations; i++) {
           Message response = client.messages().create(MessageCreateParams.builder()
-                  .model(model)
-                  .maxTokens(4096)
-                  .messages(messages)
-                  .addTool(COMPUTER_TOOLSET)
-                  .build());
+              .model(model)
+              .maxTokens(4096)
+              .messages(messages)
+              .addTool(COMPUTER_TOOLSET)
+              .build());
 
           // Add Claude's response to the conversation history
           messages.add(response.toParam());
@@ -891,7 +891,7 @@ For tasks that stay inside webpages, you can also [declare the browser use tool 
 
 ### Build a custom computer use environment
 
-The [reference implementation](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo) is meant to help you get started with computer use. It includes all of the components needed to have Claude use a computer. However, you can build your own environment for computer use to suit your needs. You'll need:
+The [reference implementation](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo) is meant to help you get started with computer use. It includes all of the components needed to have Claude use a computer. However, you can build your own environment for computer use to suit your needs. You need:
 
 * A virtualized or containerized environment suitable for computer use with Claude
 * An implementation of the computer use tool's actions
@@ -1122,13 +1122,13 @@ The computer use tool is implemented as a schema-less tool. When using this tool
 
       ToolResultBlockParam.Content captureScreenshot() {
           ImageBlockParam image = ImageBlockParam.builder()
-                  .source(Base64ImageSource.builder()
-                          .mediaType(Base64ImageSource.MediaType.IMAGE_PNG)
-                          .data(PLACEHOLDER_PNG)
-                          .build())
-                  .build();
+              .source(Base64ImageSource.builder()
+                  .mediaType(Base64ImageSource.MediaType.IMAGE_PNG)
+                  .data(PLACEHOLDER_PNG)
+                  .build())
+              .build();
           return ToolResultBlockParam.Content.ofBlocks(
-                  List.of(ToolResultBlockParam.Content.Block.ofImage(image)));
+              List.of(ToolResultBlockParam.Content.Block.ofImage(image)));
       }
 
       String clickAt(long x, long y) {
@@ -1419,7 +1419,7 @@ The computer use tool is implemented as a schema-less tool. When using this tool
       }
 
       // processToolCalls runs the computer actions in Claude's response in order and
-      // builds one tool_result per tool_use block. After the first failure it skips
+      // builds one tool_result for each tool_use block. After the first failure it skips
       // the rest: Claude planned them assuming the earlier actions succeeded.
       func processToolCalls(response *anthropic.Message) []anthropic.ContentBlockParamUnion {
       	var toolResults []anthropic.ContentBlockParamUnion
@@ -1460,13 +1460,13 @@ The computer use tool is implemented as a schema-less tool. When using this tool
       /** Every result answering a computer toolset member echoes toolset_name. */
       ToolResultBlockParam.Builder computerResult(ToolUseBlock toolUse) {
           return ToolResultBlockParam.builder()
-                  .toolUseId(toolUse.id())
-                  .toolsetName("computer");
+              .toolUseId(toolUse.id())
+              .toolsetName("computer");
       }
 
       /**
        * Run the computer actions in Claude's response in order and build one
-       * tool_result per tool_use block. After the first failure, skip the rest:
+       * tool_result for each tool_use block. After the first failure, skip the rest:
        * Claude planned them assuming the earlier actions succeeded.
        */
       List<ContentBlockParam> processToolCalls(Message response) {
@@ -1480,17 +1480,25 @@ The computer use tool is implemented as a schema-less tool. When using this tool
               ToolUseBlock toolUse = block.asToolUse();
               ToolResultBlockParam result;
               if (failed) {
-                  result = computerResult(toolUse).content(HALT_TEXT).isError(true).build();
+                  result = computerResult(toolUse)
+                      .content(HALT_TEXT)
+                      .isError(true)
+                      .build();
               } else {
                   try {
                       Map<String, JsonValue> input =
-                              (Map<String, JsonValue>) toolUse._input().asObject().get();
+                          (Map<String, JsonValue>) toolUse._input().asObject().get();
                       // A string, or the image block that screenshot returns
                       ToolResultBlockParam.Content output = handleComputerAction(toolUse.name(), input);
-                      result = computerResult(toolUse).content(output).build();
+                      result = computerResult(toolUse)
+                          .content(output)
+                          .build();
                   } catch (RuntimeException e) {
                       failed = true;
-                      result = computerResult(toolUse).content("Error: " + e.getMessage()).isError(true).build();
+                      result = computerResult(toolUse)
+                          .content("Error: " + e.getMessage())
+                          .isError(true)
+                          .build();
                   }
               }
               toolResults.add(ContentBlockParam.ofToolResult(result));
@@ -1534,7 +1542,7 @@ The computer use tool is implemented as a schema-less tool. When using this tool
       NOT_EXECUTED = "Not executed: an earlier computer action in this turn failed."
 
       # Run the computer actions in Claude's response in order and build one
-      # tool_result per tool_use block. After the first failure, skip the rest:
+      # tool_result for each tool_use block. After the first failure, skip the rest:
       # Claude planned them assuming the earlier actions succeeded.
       def process_tool_calls(response)
         tool_results = []
@@ -1816,7 +1824,7 @@ Long agent loops accumulate screenshots quickly (roughly 1,000–1,800 input tok
 
 To keep [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) effective while bounding context:
 
-* Place one `cache_control` breakpoint after the system prompt and tool definitions, and up to three more on the last `tool_result` block of each of the most recent turns, advancing them each turn. Within a [batch action](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool#batch-actions), markers on several blocks act as a single breakpoint but each still counts toward the limit of four, so use one for each turn.
+* Place one `cache_control` breakpoint after the system prompt and tool definitions, and up to three more on the last `tool_result` block of each of the most recent turns, advancing them each turn. Within a [batch action](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool#batch-actions), markers on several blocks act as a single breakpoint, but each still counts toward the limit of four, so use at most one in any turn.
 * Prune old screenshots in *batches*, not one each turn. Dropping a screenshot every turn changes the prefix every turn and invalidates the cache. A reasonable default is to keep the last three screenshots and prune every 25 turns, so the prefix stays byte-identical between prune events; if your screenshots exceed 2000 px on either side, choose an interval that keeps each request at 20 or fewer images.
 * On Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5, avoid pruning on the client: removing an earlier screenshot [invalidates every later thinking block](https://platform.claude.com/docs/en/build-with-claude/thinking#preserved-in-conversation) in every request that still carries those turns. Resize screenshots to 2000 px or less per side instead, and use server-side [tool result clearing](https://platform.claude.com/docs/en/build-with-claude/context-editing#tool-result-clearing) to drop old ones from the context. If you must prune, keep [`prefix_mismatch_behavior: "drop_block"`](https://platform.claude.com/docs/en/build-with-claude/thinking#preserved-thinking-controls) set from then on; after each prune, Claude continues without the thinking produced since the pruned screenshot, on that request and every later one. On Claude Sonnet 5.5, `block_binding` works only with `thinking: {"type": "adaptive"}`. With `between_tools`, keep the history append-only, or strip the thinking blocks from the edited turn on. On Claude Haiku 5.5, `block_binding` works only with `thinking: {"type": "adaptive"}`; with `thinking: {"type": "disabled"}`, keep the history append-only, or strip the thinking blocks from the edited turn on.
 

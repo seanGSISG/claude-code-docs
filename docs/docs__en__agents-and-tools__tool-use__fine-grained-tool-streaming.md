@@ -474,7 +474,7 @@ Each input fragment arrives the moment Claude writes it, and the fragments join 
 Complete tool input: {"filename": "poem.txt", "lines_of_text": ["The Wanderer's Journey", ...]}
 ```
 
-Without `eager_input_streaming`, the API buffers and validates each parameter value before streaming it back, so nothing prints for a large parameter until Claude has finished generating it. With it, fragments start arriving as soon as Claude begins the parameter, and they are typically longer, with fewer mid-word breaks.
+Without `eager_input_streaming`, the API buffers and validates each parameter value before streaming it back, so nothing prints for a large parameter until Claude has finished generating it. With it, fragments arrive from the moment Claude starts the parameter, and they are typically longer, with fewer mid-word breaks.
 
 ## Accumulating tool input deltas
 
@@ -490,7 +490,7 @@ The accumulation contract:
 2. For each `content_block_delta` with `type: "input_json_delta"`, append: `input_json += event.delta.partial_json`.
 3. On `content_block_stop`, parse the accumulated string.
 
-Guard the parse, as the following example does. A response can also stop at `max_tokens` midway through a parameter. Check the [stop reason](https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons) and decide whether to retry the request with a higher `max_tokens` or repair the partial input.
+Guard the parse, as the following SDK example does. A response can also stop at `max_tokens` midway through a parameter. Check the [stop reason](https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons) and decide whether to retry the request with a higher `max_tokens` or repair the partial input.
 
 The type mismatch between the initial `input: {}` (object) and `partial_json` (string) is by design. The empty object marks the slot in the content array. The delta strings build the real value.
 
@@ -724,23 +724,23 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
   ObjectMapper objectMapper = new ObjectMapper();
 
   Tool weatherTool = Tool.builder()
-          .name("get_weather")
-          .description("Get current weather for a city")
-          .eagerInputStreaming(true)
-          .inputSchema(Tool.InputSchema.builder()
-                  .properties(Tool.InputSchema.Properties.builder()
-                          .putAdditionalProperty("city", JsonValue.from(Map.of("type", "string")))
-                          .build())
-                  .addRequired("city")
-                  .build())
-          .build();
+      .name("get_weather")
+      .description("Get current weather for a city")
+      .eagerInputStreaming(true)
+      .inputSchema(Tool.InputSchema.builder()
+          .properties(Tool.InputSchema.Properties.builder()
+              .putAdditionalProperty("city", JsonValue.from(Map.of("type", "string")))
+              .build())
+          .addRequired("city")
+          .build())
+      .build();
 
   MessageCreateParams createParams = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5_5)
-          .maxTokens(1024)
-          .addTool(weatherTool)
-          .addUserMessage("Weather in Paris?")
-          .build();
+      .model(Model.CLAUDE_OPUS_5_5)
+      .maxTokens(1024)
+      .addTool(weatherTool)
+      .addUserMessage("Weather in Paris?")
+      .build();
 
   // Content block index -> accumulated tool input JSON
   Map<Long, StringBuilder> toolInputs = new HashMap<>();
@@ -830,7 +830,7 @@ The type mismatch between the initial `input: {}` (object) and `partial_json` (s
                   $accumulated = $toolInputs[$event->index];
                   try {
                       $parsed = json_decode($accumulated, associative: true, flags: JSON_THROW_ON_ERROR);
-                      echo "Tool input: " . json_encode($parsed) . "\n";
+                      echo 'Tool input: ' . json_encode($parsed) . "\n";
                   } catch (\JsonException $e) {
                       // The accumulated string is not guaranteed to be valid JSON.
                       // See "Handling invalid JSON in tool responses" on this page.

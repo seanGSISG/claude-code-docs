@@ -243,6 +243,7 @@ On Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6, thi
   ```
 
   ```php PHP
+  use Anthropic\Messages\Model;
   use Anthropic\Messages\TextBlock;
   use Anthropic\Messages\ThinkingBlock;
 
@@ -256,7 +257,7 @@ On Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6, thi
               'content' => 'What is the greatest common divisor of 1071 and 462?'
           ]
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
       thinking: ['type' => 'adaptive', 'display' => 'summarized'],
   );
 
@@ -433,7 +434,7 @@ On Claude Sonnet 5, where thinking is on by default, you can turn it off:
               'content' => 'Summarize this article in one sentence.'
           ]
       ],
-      model: 'claude-sonnet-5',
+      model: Model::CLAUDE_SONNET_5,
       thinking: ['type' => 'disabled'],
   );
   ```
@@ -532,7 +533,7 @@ To see the model's reasoning, read the `thinking` blocks rather than prompting f
 Thinking works with [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming). Thinking blocks stream as `thinking_delta` events inside `content_block_delta` events, followed by a single `signature_delta` event just before the block's `content_block_stop`. Text blocks stream afterward as usual.
 
 <Frame>
-  ![Streaming with thinking: thinking deltas (text only if the display setting returns it), a signature delta, then text deltas](https://platform.claude.com/docs/images/how-thinking-streams.svg)
+  ![Thinking stream: the block opens, deltas carry text only if display returns text, one signature delta closes it, then text](https://platform.claude.com/docs/images/how-thinking-streams.svg)
 </Frame>
 
 The following examples stream a response with adaptive thinking, printing thinking and text deltas as they arrive:
@@ -720,11 +721,11 @@ The following examples stream a response with adaptive thinking, printing thinki
                   }
                   case CONTENT_BLOCK_DELTA -> {
                       var deltaEvent = event.asContentBlockDelta();
-                      deltaEvent.delta().thinking().ifPresent(td ->
-                          IO.print(td.thinking())
+                      deltaEvent.delta().thinking().ifPresent(thinkingDelta ->
+                          IO.print(thinkingDelta.thinking())
                       );
-                      deltaEvent.delta().text().ifPresent(td ->
-                          IO.print(td.text())
+                      deltaEvent.delta().text().ifPresent(textDelta ->
+                          IO.print(textDelta.text())
                       );
                   }
               }
@@ -734,6 +735,7 @@ The following examples stream a response with adaptive thinking, printing thinki
   ```
 
   ```php PHP
+  use Anthropic\Messages\Model;
   use Anthropic\Messages\RawContentBlockDeltaEvent;
   use Anthropic\Messages\RawContentBlockStartEvent;
   use Anthropic\Messages\TextDelta;
@@ -746,7 +748,7 @@ The following examples stream a response with adaptive thinking, printing thinki
       messages: [
           ['role' => 'user', 'content' => 'What is the greatest common divisor of 1071 and 462?']
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
       thinking: ['type' => 'adaptive', 'display' => 'summarized'],
   );
 
@@ -906,7 +908,7 @@ Thinking works alongside [tool use](https://platform.claude.com/docs/en/agents-a
 1. **Tool choice limitation (manual mode):** tool use with manual extended thinking (`thinking: {type: "enabled"}`) only supports `tool_choice: {"type": "auto"}` (the default) or `tool_choice: {"type": "none"}`. Using `tool_choice: {"type": "any"}` or `tool_choice: {"type": "tool", "name": "..."}` results in an error because these options force tool use, which is incompatible with manual extended thinking. Adaptive thinking, including on models where thinking is on by default, supports forced tool use, except on Claude Opus 5.5, Claude Sonnet 5.5, Claude Fable 5.1, and Claude Mythos 5.1 (see [Response prefill and forced tool use](https://platform.claude.com/docs/en/build-with-claude/thinking#limits-and-feature-compatibility)). Where forced tool use is accepted, the response starts with the tool call and has no `thinking` block.
 2. **Preserving thinking blocks:** when you return tool results, you must pass the thinking blocks from the assistant message back to the API, complete and unmodified. See [Preserving thinking blocks](https://platform.claude.com/docs/en/build-with-claude/thinking#preserving-thinking-blocks).
 
-**A tool-use loop is one assistant turn.** From the model's perspective, an assistant turn doesn't complete until Claude finishes its full response, which might include multiple tool calls and results. This whole sequence is a single assistant turn:
+**A tool-use loop is one assistant turn.** From the model's perspective, an assistant turn ends only when Claude completes its full response, which might include multiple tool calls and results. This whole sequence is a single assistant turn:
 
 ```text wrap
 User: "What's the weather in Paris?"

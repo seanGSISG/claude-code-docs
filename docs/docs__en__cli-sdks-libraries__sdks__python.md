@@ -22,7 +22,7 @@ For platform-specific integrations or improved async performance, install with e
 # For Amazon Bedrock support
 pip install "anthropic[bedrock]"
 
-# For Google Cloud support
+# For Claude Models on Google Cloud (Google managed) support
 pip install "anthropic[vertex]"
 
 # For Claude Platform on AWS support
@@ -751,7 +751,7 @@ All six client classes are included in the base `anthropic` package:
 
 | Provider                                          | Client                                         | Extra dependencies                      |
 | ------------------------------------------------- | ---------------------------------------------- | --------------------------------------- |
-| Agent Platform                                    | `from anthropic import AnthropicVertex`        | `pip install "anthropic[vertex]"`       |
+| Claude Models on Google Cloud (Google managed)    | `from anthropic import AnthropicVertex`        | `pip install "anthropic[vertex]"`       |
 | Bedrock                                           | `from anthropic import AnthropicBedrockMantle` | `pip install "anthropic[bedrock]"`      |
 | Bedrock (`bedrock-runtime` path)                  | `from anthropic import AnthropicBedrock`       | `pip install "anthropic[bedrock]"`      |
 | Claude Platform on AWS                            | `from anthropic import AnthropicAWS`           | `pip install "anthropic[aws]"`          |

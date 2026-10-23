@@ -314,13 +314,14 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       <CodeGroupItem>
         ```php PHP
+        use Anthropic\Beta\Agents\BetaManagedAgentsModel;
         use Anthropic\Client;
 
         $client = new Client();
 
         $agent = $client->beta->agents->create(
             name: 'Coding Assistant',
-            model: 'claude-opus-5-5',
+            model: BetaManagedAgentsModel::CLAUDE_OPUS_5_5,
             system: 'You are a helpful coding assistant. Write clean, well-documented code.',
             tools: [
                 ['type' => 'agent_toolset_20260401'],
@@ -736,9 +737,9 @@ export ANTHROPIC_API_KEY="your-api-key-here"
       });
 
       // Process streaming events
-      await foreach (var ev in stream)
+      await foreach (var streamEvent in stream)
       {
-          if (ev.Value is BetaManagedAgentsAgentMessageEvent message)
+          if (streamEvent.Value is BetaManagedAgentsAgentMessageEvent message)
           {
               foreach (var block in message.Content)
               {
@@ -748,11 +749,11 @@ export ANTHROPIC_API_KEY="your-api-key-here"
                   }
               }
           }
-          else if (ev.Value is BetaManagedAgentsAgentToolUseEvent toolUse)
+          else if (streamEvent.Value is BetaManagedAgentsAgentToolUseEvent toolUse)
           {
               Console.WriteLine($"\n[Using tool: {toolUse.Name}]");
           }
-          else if (ev.Value is BetaManagedAgentsSessionStatusIdleEvent)
+          else if (streamEvent.Value is BetaManagedAgentsSessionStatusIdleEvent)
           {
               Console.WriteLine("\n\nAgent finished.");
               break;

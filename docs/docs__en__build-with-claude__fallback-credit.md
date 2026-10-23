@@ -364,7 +364,9 @@ The following example makes a request that might be refused and redeems the cred
               if (!echoed.isEmpty() && echoed.getLast().isText()) {
                   var lastText = echoed.removeLast().asText();
                   echoed.addLast(BetaContentBlockParam.ofText(
-                      lastText.toBuilder().text(lastText.text().stripTrailing()).build()));
+                      lastText.toBuilder()
+                          .text(lastText.text().stripTrailing())
+                          .build()));
               }
               attempt.addAssistantMessageOfContentBlockParams(echoed);
           }

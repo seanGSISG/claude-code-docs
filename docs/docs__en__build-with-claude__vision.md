@@ -128,7 +128,7 @@ On the API, provide images to Claude as `image` content blocks using one of thre
             source: {
               type: "base64",
               media_type: "image/jpeg",
-              data: imageData // Base64-encoded image data as string
+              data: imageData // base64-encoded image data as string
             }
           },
           {
@@ -203,30 +203,32 @@ On the API, provide images to Claude as `image` content blocks using one of thre
   ```java Java
   AnthropicClient client = AnthropicOkHttpClient.fromEnv();
   String imageData =
-    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP4z8AAAAMBAQDJ/pLvAAAAAElFTkSuQmCC";
+      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP4z8AAAAMBAQDJ/pLvAAAAAElFTkSuQmCC";
 
   List<ContentBlockParam> contentBlockParams = List.of(
-    ContentBlockParam.ofImage(
-      ImageBlockParam.builder()
-        .source(
-          Base64ImageSource.builder()
-            .mediaType(Base64ImageSource.MediaType.IMAGE_PNG)
-            .data(imageData)
-            .build()
-        )
-        .build()
-    ),
-    ContentBlockParam.ofText(TextBlockParam.builder().text("Describe this image.").build())
+      ContentBlockParam.ofImage(
+          ImageBlockParam.builder()
+              .source(
+                  Base64ImageSource.builder()
+                      .mediaType(Base64ImageSource.MediaType.IMAGE_PNG)
+                      .data(imageData)
+                      .build()
+              )
+              .build()
+      ),
+      ContentBlockParam.ofText(TextBlockParam.builder()
+          .text("Describe this image.")
+          .build())
   );
   Message message = client
-    .messages()
-    .create(
-      MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_5_5)
-        .maxTokens(1024)
-        .addUserMessageOfContentBlockParams(contentBlockParams)
-        .build()
-    );
+      .messages()
+      .create(
+          MessageCreateParams.builder()
+              .model(Model.CLAUDE_OPUS_5_5)
+              .maxTokens(1024)
+              .addUserMessageOfContentBlockParams(contentBlockParams)
+              .build()
+      );
 
   IO.println(message);
   ```
@@ -234,7 +236,7 @@ On the API, provide images to Claude as `image` content blocks using one of thre
   ```php PHP
   $client = new Client();
 
-  $imageData = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP4z8AAAAMBAQDJ/pLvAAAAAElFTkSuQmCC";
+  $imageData = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP4z8AAAAMBAQDJ/pLvAAAAAElFTkSuQmCC';
 
   $message = $client->messages->create(
       maxTokens: 1024,
@@ -254,7 +256,7 @@ On the API, provide images to Claude as `image` content blocks using one of thre
               ],
           ],
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
   );
 
   echo json_encode($message, JSON_PRETTY_PRINT), PHP_EOL;
@@ -449,26 +451,28 @@ On the API, provide images to Claude as `image` content blocks using one of thre
   AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
   List<ContentBlockParam> contentBlockParams = List.of(
-    ContentBlockParam.ofImage(
-      ImageBlockParam.builder()
-        .source(
-          UrlImageSource.builder()
-            .url("https://platform.claude.com/docs/images/vision-example.jpg")
-            .build()
-        )
-        .build()
-    ),
-    ContentBlockParam.ofText(TextBlockParam.builder().text("Describe this image.").build())
+      ContentBlockParam.ofImage(
+          ImageBlockParam.builder()
+              .source(
+                  UrlImageSource.builder()
+                      .url("https://platform.claude.com/docs/images/vision-example.jpg")
+                      .build()
+              )
+              .build()
+      ),
+      ContentBlockParam.ofText(TextBlockParam.builder()
+          .text("Describe this image.")
+          .build())
   );
   Message message = client
-    .messages()
-    .create(
-      MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_5_5)
-        .maxTokens(1024)
-        .addUserMessageOfContentBlockParams(contentBlockParams)
-        .build()
-    );
+      .messages()
+      .create(
+          MessageCreateParams.builder()
+              .model(Model.CLAUDE_OPUS_5_5)
+              .maxTokens(1024)
+              .addUserMessageOfContentBlockParams(contentBlockParams)
+              .build()
+      );
   System.out.println(message);
   ```
 
@@ -748,39 +752,43 @@ For images you'll use repeatedly or when you want to avoid encoding overhead, us
   import com.anthropic.models.files.FileMetadata;
   import com.anthropic.models.files.FileUploadParams;
   // ...
-      AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+          AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-      // Upload the image file
-      FileMetadata file = client.files().upload(
-        FileUploadParams.builder()
-          .file(
-            MultipartField.<InputStream>builder()
-              .value(Files.newInputStream(Path.of("vision-example.jpg")))
-              .filename("vision-example.jpg")
-              .contentType("image/jpeg")
-              .build()
-          )
-          .build()
-      );
+          // Upload the image file
+          FileMetadata file = client.files().upload(
+              FileUploadParams.builder()
+                  .file(
+                      MultipartField.<InputStream>builder()
+                          .value(Files.newInputStream(Path.of("vision-example.jpg")))
+                          .filename("vision-example.jpg")
+                          .contentType("image/jpeg")
+                          .build()
+                  )
+                  .build()
+          );
 
-      // Use the uploaded file in a message
-      ImageBlockParam imageParam = ImageBlockParam.builder().fileSource(file.id()).build();
+          // Use the uploaded file in a message
+          ImageBlockParam imageParam = ImageBlockParam.builder()
+              .fileSource(file.id())
+              .build();
 
-      MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_5_5)
-        .maxTokens(1024)
-        .addUserMessageOfContentBlockParams(
-          List.of(
-            ContentBlockParam.ofImage(imageParam),
-            ContentBlockParam.ofText(
-              TextBlockParam.builder().text("Describe this image.").build()
-            )
-          )
-        )
-        .build();
+          MessageCreateParams params = MessageCreateParams.builder()
+              .model(Model.CLAUDE_OPUS_5_5)
+              .maxTokens(1024)
+              .addUserMessageOfContentBlockParams(
+                  List.of(
+                      ContentBlockParam.ofImage(imageParam),
+                      ContentBlockParam.ofText(
+                          TextBlockParam.builder()
+                              .text("Describe this image.")
+                              .build()
+                      )
+                  )
+              )
+              .build();
 
-      Message message = client.messages().create(params);
-      System.out.println(message.content());
+          Message message = client.messages().create(params);
+          System.out.println(message.content());
   ```
 
   ```php PHP
@@ -1089,7 +1097,9 @@ You can include multiple images in a single request, and Claude analyzes them jo
   String image2Data = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYPgPAAEDAQAIicLsAAAAAElFTkSuQmCC";
 
   List<ContentBlockParam> contentBlockParams = List.of(
-      ContentBlockParam.ofText(TextBlockParam.builder().text("Image 1:").build()),
+      ContentBlockParam.ofText(TextBlockParam.builder()
+          .text("Image 1:")
+          .build()),
       ContentBlockParam.ofImage(
           ImageBlockParam.builder()
               .source(
@@ -1100,7 +1110,9 @@ You can include multiple images in a single request, and Claude analyzes them jo
               )
               .build()
       ),
-      ContentBlockParam.ofText(TextBlockParam.builder().text("Image 2:").build()),
+      ContentBlockParam.ofText(TextBlockParam.builder()
+          .text("Image 2:")
+          .build()),
       ContentBlockParam.ofImage(
           ImageBlockParam.builder()
               .source(
@@ -1112,7 +1124,9 @@ You can include multiple images in a single request, and Claude analyzes them jo
               .build()
       ),
       ContentBlockParam.ofText(
-          TextBlockParam.builder().text("How are these images different?").build()
+          TextBlockParam.builder()
+              .text("How are these images different?")
+              .build()
       )
   );
 
@@ -1163,7 +1177,7 @@ You can include multiple images in a single request, and Claude analyzes them jo
               ],
           ],
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
   );
 
   echo $message;
@@ -1230,12 +1244,12 @@ If a single API request contains more than 20 images, a stricter per-image dimen
 
 The maximum size per image is:
 
-* 10 MB (base64-encoded) when using the Claude API directly.
-* 5 MB (base64-encoded) on Amazon Bedrock and Claude Models on Google Cloud (Google managed).
+* 10 MB (base64-encoded) on the Claude API and Claude Models on Google Cloud (Google managed).
+* 5 MB (base64-encoded) on Amazon Bedrock.
 * 10 MB on [claude.ai](https://claude.ai/).
 
 <Note>
-  Although the API supports up to 600 images per request, [request size limits](https://platform.claude.com/docs/en/api/overview#request-size-limits) can be reached first: 32 MB for standard endpoints, and lower on some partner-operated platforms, such as Amazon Bedrock and Claude Models on Google Cloud (Google managed). For many images, consider uploading with the [Files API](https://platform.claude.com/docs/en/build-with-claude/vision#files-api-image-example) and referencing by `file_id` to keep request payloads small.
+  Although the API supports up to 600 images for each request, [request size limits](https://platform.claude.com/docs/en/api/overview#request-size-limits) can be reached first: 32 MB for standard endpoints, and lower on some partner-operated platforms, such as Amazon Bedrock and Claude Models on Google Cloud (Google managed). For many images, consider [uploading with the Files API](https://platform.claude.com/docs/en/build-with-claude/vision#files-api-image-example) and referencing by `file_id` to keep request payloads small.
 
   Even when using the Files API, requests with many large images can fail before reaching the 600-image count. Reduce image dimensions or file sizes (for example, by downsampling) before uploading (see [Resolution and token cost](https://platform.claude.com/docs/en/build-with-claude/vision#evaluate-image-size)).
 </Note>

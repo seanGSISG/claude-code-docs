@@ -23,7 +23,7 @@ featureMetadata:
   supportedPlatforms:
     Claude API: beta
     Claude Platform on AWS: beta
-    Google Cloud: beta
+    Claude Models on Google Cloud (Google managed): beta
     Microsoft Foundry: beta
 ---
 
@@ -36,7 +36,7 @@ A compaction request is separate from your conversation turns. You send the conv
 From then on the block takes the place of the messages it summarizes. It goes first in `messages`, the summarized messages are removed, and your next turn follows it. Claude receives the summary where those messages were.
 
 <Frame>
-  ![On-demand compaction: a request with four messages returns one compaction block, which replaces them in the next request](https://platform.claude.com/docs/images/compaction-on-demand-swap.svg)
+  ![A compaction request with four messages returns one compaction block, no reply; the next request opens with it in their place](https://platform.claude.com/docs/images/compaction-on-demand-swap.svg)
 </Frame>
 
 ## Request a summary

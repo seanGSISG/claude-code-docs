@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-22T21:11:08.860304Z",
-    "total_paths": 1040,
+    "generated_at": "2026-10-23T03:21:43.515459Z",
+    "total_paths": 1039,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-22T21:11:08.860314Z"
+    "last_regenerated": "2026-10-23T03:21:43.515466Z"
   },
   "categories": {
     "core_documentation": [
@@ -85,7 +85,6 @@
       "/docs/en/build-with-claude/claude-models-on-google-cloud/google-managed",
       "/docs/en/build-with-claude/claude-models-on-google-cloud/overview",
       "/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy",
-      "/docs/en/build-with-claude/claude-on-vertex-ai",
       "/docs/en/build-with-claude/claude-platform-on-aws",
       "/docs/en/build-with-claude/compaction",
       "/docs/en/build-with-claude/compaction-background",

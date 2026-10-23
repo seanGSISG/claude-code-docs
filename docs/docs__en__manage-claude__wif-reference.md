@@ -130,7 +130,7 @@ The `oauth_scope` you set on a federation rule determines which Claude API endpo
 | `workspace:manage_tunnels` | The [MCP tunnels API](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference#tunnels-api): create, list, and get tunnels, register and archive CA certificates, reveal and rotate the tunnel token, and archive tunnels. The Console's create-tunnel modal window locks this scope when you create a rule from it.                                                                                                                                                                                                                                      |
 | `org:admin`                | Full access to the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) (organization members, invites, workspaces, API keys, and the rest). An OAuth `org:admin` token can only create or modify rules scoped to `workspace:developer` or `workspace:inference`, and cannot update an issuer that backs a rule with any other scope; see [Permissions and constraints](https://platform.claude.com/docs/en/manage-claude/wif-admin-api#permissions-and-constraints).                                                                                   |
 
-A request to an endpoint outside the token's scope returns HTTP 403. Finer-grained scopes (per resource, or read versus write) are not currently available.
+A request to an endpoint outside the token's scope returns HTTP 403. Finer-grained scopes (by resource, or read versus write) are not available.
 
 ### Permission boundaries
 

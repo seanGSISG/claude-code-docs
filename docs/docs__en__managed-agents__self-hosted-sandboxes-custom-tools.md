@@ -207,7 +207,7 @@ At runtime the model calls a wrapped tool like any other custom tool:
 
 The SDK's [Client-side MCP helpers](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector#client-side-mcp-helpers) convert the server's tools into the runnable tools the worker accepts. Install an MCP SDK alongside the Anthropic SDK: `pip install "anthropic[mcp]" "mcp>=1.24"` (typescript: `npm install @modelcontextprotocol/sdk`; go: `go get github.com/modelcontextprotocol/go-sdk`; csharp: `dotnet add package ModelContextProtocol`; java: `com.anthropic:anthropic-java-mcp`; php: `composer require mcp/sdk`; ruby: `bundle add mcp faraday event_stream_parser`).
 
-The examples connect without authentication. To send credentials, configure the `http_client` (typescript: `requestInit`; go: `HTTPClient`; csharp: `AdditionalHeaders`; java: `customizeRequest`; php, ruby: `headers`) you hand to the MCP transport.
+The examples connect without authentication. To send credentials, configure the `http_client` (typescript: `requestInit`; go: `HTTPClient`; csharp: `AdditionalHeaders`; java: `.customizeRequest()`; php, ruby: `headers`) you hand to the MCP transport.
 
 ### Declare and serve the tools
 
@@ -465,7 +465,7 @@ The examples connect without authentication. To send credentials, configure the 
 
       // The MCP fields map one to one onto a custom tool declaration. The MCP Java
       // SDK keeps only these top-level keywords of a tool's input schema: type,
-      // properties, required, additionalProperties, $defs and definitions.
+      // properties, required, additionalProperties, $defs, and definitions.
       BetaManagedAgentsCustomToolParams toCustomTool(McpSchema.Tool tool) {
           var description = tool.description();
           if (description == null || description.isEmpty()) {
@@ -586,7 +586,7 @@ The examples connect without authentication. To send credentials, configure the 
   </Step>
 
   <Step title="Serve the tools from the worker">
-    Connect to the same MCP server at startup, convert its tools with `async_mcp_tool` (typescript: `mcpTools`; go: `mcp.NewBetaTools`), and register them alongside `beta_agent_toolset_20260401` (typescript: `betaAgentToolset20260401`; go: `agenttoolset.BetaAgentToolset20260401`). Keep one MCP session open for the life of the worker.
+    Connect to the same MCP server at startup, convert its tools with `async_mcp_tool()` (typescript: `mcpTools()`; go: `mcp.NewBetaTools()`), and register them alongside `beta_agent_toolset_20260401()` (typescript: `betaAgentToolset20260401()`; go: `agenttoolset.BetaAgentToolset20260401()`). Keep one MCP session open for the life of the worker.
 
     <CodeGroup exclude="shell, csharp, java, php, ruby">
       ```python Python

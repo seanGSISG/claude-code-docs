@@ -567,7 +567,7 @@ The following example starts a session that overrides the model and clears the s
       id: $agent->id,
       model: ['id' => 'claude-sonnet-5-5'],
   );
-  // Clear the system prompt for this session. Array access is load-bearing here:
+  // Clear the system prompt for this session. Array access is required here:
   // create() strips nulls from raw arrays and ::with() treats null args as omitted.
   $overrides['system'] = null;
 
@@ -967,7 +967,7 @@ If your agent uses MCP tools that require authentication, pass `vault_ids` (java
 
 ## Starting the session
 
-Creating a session without `initial_events` (java, php: `initialEvents`; csharp, go: `InitialEvents`) registers the session but does not start any work; the environment's sandbox begins provisioning as soon as the session is created, so the first tool call does not wait on it. To delegate a task, send events to the session using a [user event](https://platform.claude.com/docs/en/managed-agents/reference#event-types). To supply the first event in the create request instead, see [Seed the session with initial events](https://platform.claude.com/docs/en/managed-agents/sessions#seed-the-session-with-initial-events). The session acts as a state machine that tracks progress while events drive the actual execution.
+Creating a session without `initial_events` (java, php: `initialEvents`; csharp, go: `InitialEvents`) registers the session but does not start any work; the environment's sandbox starts provisioning as soon as the session is created, so the first tool call does not wait on it. To delegate a task, send events to the session using a [user event](https://platform.claude.com/docs/en/managed-agents/reference#event-types). To supply the first event in the create request instead, see [Seed the session with initial events](https://platform.claude.com/docs/en/managed-agents/sessions#seed-the-session-with-initial-events). The session acts as a state machine that tracks progress while events drive the actual execution.
 
 <CodeGroup>
   ```bash cURL

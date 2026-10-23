@@ -11,7 +11,7 @@ featureMetadata:
     Claude API: beta
     Claude Platform on AWS: beta
     Amazon Bedrock: beta
-    Google Cloud: beta
+    Claude Models on Google Cloud (Google managed): beta
     Microsoft Foundry: beta
   rows:
     - label: Works with
@@ -481,7 +481,10 @@ The following example shows how to use each option:
       .build();
 
   // Turn spans off for one client.
-  var quietClient = AnthropicOkHttpClient.builder().fromEnv().openTelemetry(false).build();
+  var quietClient = AnthropicOkHttpClient.builder()
+      .fromEnv()
+      .openTelemetry(false)
+      .build();
 
   // Set a conversation ID in the request options of one call.
   var params = MessageCreateParams.builder()
@@ -490,7 +493,9 @@ The following example shows how to use each option:
       .addUserMessage("Hello, Claude")
       .build();
   var message = client.messages().create(params, RequestOptions.builder()
-      .openTelemetry(OpenTelemetryRequestOptions.builder().conversationId("conv_42").build())
+      .openTelemetry(OpenTelemetryRequestOptions.builder()
+          .conversationId("conv_42")
+          .build())
       .build());
   ```
 
@@ -625,7 +630,9 @@ To stop the SDK from sending these headers, for example when your HTTP client in
   var envOptions = OpenTelemetryOptions.fromEnv();
   var client = AnthropicOkHttpClient.builder()
       .fromEnv()
-      .openTelemetry(envOptions.toBuilder().propagation(false).build())
+      .openTelemetry(envOptions.toBuilder()
+          .propagation(false)
+          .build())
       .build();
   ```
 

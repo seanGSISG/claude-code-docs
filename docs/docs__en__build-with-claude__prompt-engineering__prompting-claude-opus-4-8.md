@@ -14,7 +14,7 @@ Claude Opus 4.8 has particular strengths in long-horizon agentic work, knowledge
 
 ## Response length and verbosity
 
-Claude Opus 4.8 calibrates response length to the complexity of the task, rather than defaulting to a fixed verbosity. This usually means shorter answers on simple lookups and much longer ones on open-ended analysis.
+Claude Opus 4.8 calibrates response length to its estimate of the task's complexity, rather than defaulting to a fixed verbosity. This usually means shorter answers on simple lookups and much longer ones on open-ended analysis.
 
 If your product depends on a certain style or verbosity of output, you might need to tune your prompts. As an example, to decrease verbosity, you might add:
 

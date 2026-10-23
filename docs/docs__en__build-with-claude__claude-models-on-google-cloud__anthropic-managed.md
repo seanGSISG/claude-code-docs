@@ -21,10 +21,10 @@ If you have an existing discount, contact your Anthropic or Google Cloud account
 <Steps>
   <Step title="Subscribe in Marketplace">
     1. Open [Google Cloud Marketplace](https://console.cloud.google.com/marketplace) and find the **Claude Models on Google Cloud (Anthropic managed)** listing.
-    2. Choose **Subscribe** and complete the purchase flow.
-    3. Return to the listing and choose **Manage on Console**. This opens the Claude page in the Google Cloud console.
+    2. Click **Subscribe** and complete the purchase flow.
+    3. Return to the listing and click **Manage on Console**. This opens the Claude page in the Google Cloud console.
 
-    To return to the Claude page later, select your project in the Google Cloud console. Then go to **Agent Platform > Models > Claude Platform** and choose **Anthropic managed**.
+    To return to the Claude page later, select your project in the Google Cloud console. Then go to **Agent Platform > Models > Claude Platform** and select **Anthropic managed**.
   </Step>
 
   <Step title="Enable the services">
@@ -45,7 +45,7 @@ If you have an existing discount, contact your Anthropic or Google Cloud account
   </Step>
 
   <Step title="Set up your Anthropic organization">
-    1. On the Claude page, choose **Activate**.
+    1. On the Claude page, click **Activate**.
     2. In the Anthropic setup flow, enter a contact email address.
     3. Open the setup link sent to that address.
     4. Fill in the organization's name, entity type, country, and intended use.
@@ -55,7 +55,7 @@ If you have an existing discount, contact your Anthropic or Google Cloud account
   </Step>
 
   <Step title="Open the Claude Console">
-    When your Anthropic organization is active, the button on the Claude page changes to **Open Claude Console**. Choose it. Google Cloud checks your IAM access. Then it redirects your browser to `platform.claude.com`. You're signed in to the new organization.
+    When your Anthropic organization is active, the button on the Claude page changes to **Open Claude Console**. Click it. Google Cloud checks your IAM access. Then it redirects your browser to `platform.claude.com`. You're signed in to the new organization.
 
     While you're in the Claude Console, [find your workspace ID](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#find-your-workspace-id) and copy it. Everyone who calls Claude Models on Google Cloud (Anthropic managed) needs it. Pass it on to your developers.
   </Step>
@@ -69,7 +69,7 @@ If you run into one of the following problems while you set up Claude Models on 
 
 * **`gcloud services enable` can't find `anthropic-managed-claude.cloudpartnerservices.goog`:** Run the command as the account that completed the Marketplace purchase, or contact your Anthropic account representative.
 * **A permission error on your first API call:** Check that `claude.googleapis.com` is enabled on the project you're calling. Check that the caller has `roles/claude.user` or `roles/claude.admin` on that project. For what each role allows, see [IAM roles](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#iam-roles). A new grant or a newly enabled service can take a moment to apply.
-* **"Signed in as a different account" after following the setup link:** Choose **Log out and continue**. Then use the email address you entered in step 3.
+* **"Signed in as a different account" after following the setup link:** Click **Log out and continue**. Then use the email address you entered in step 3.
 * **The button says "Finish Setup" instead of "Open Claude Console":** Your Anthropic organization exists, but its setup isn't complete. An administrator has to finish the organization details form.
 * **The Usage page shows no data after your first API call:** Usage data can take a few minutes to appear in the Claude Console.
 
@@ -99,7 +99,7 @@ Enabling `claude.googleapis.com` creates a service agent for the project. Don't 
 
 ### Using the Claude Console
 
-With Claude Models on Google Cloud (Anthropic managed), you can't use an email address to sign in to your Anthropic organization. Instead, choose **Open Claude Console** on the [Claude page](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#set-up-your-account) in the Google Cloud console. Google Cloud IAM controls who can open the Claude Console. Of the three predefined [IAM roles](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#iam-roles), only `roles/claude.admin` on the project lets you open the Claude Console.
+With Claude Models on Google Cloud (Anthropic managed), you can't use an email address to sign in to your Anthropic organization. Instead, click **Open Claude Console** on the [Claude page](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#set-up-your-account) in the Google Cloud console. Google Cloud IAM controls who can open the Claude Console. Of the three predefined [IAM roles](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#iam-roles), only `roles/claude.admin` on the project lets you open the Claude Console.
 
 ### Workspaces
 
@@ -131,7 +131,7 @@ Replace `my-project-id` with your project ID. Replace `you@example.com` with you
 
 To find your workspace ID for Claude Models on Google Cloud (Anthropic managed), [open the Claude Console](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#using-the-claude-console) and go to **Settings > Workspaces**. The ID starts with `wrkspc_`. If you can't open the Claude Console, ask someone who can open it to send you the ID.
 
-Set the project and workspace as environment variables so that the SDK clients and the [`ant` CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart) pick them up:
+Set the project and workspace as environment variables so that the SDK client and the [`ant` CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart) pick them up:
 
 ```bash CLI
 export ANTHROPIC_GOOGLE_CLOUD_PROJECT="my-project-id"
@@ -140,10 +140,10 @@ export ANTHROPIC_GOOGLE_CLOUD_WORKSPACE_ID="wrkspc_01AbCdEf23GhIj"
 
 ### Install an SDK
 
-The [SDK client](https://platform.claude.com/docs/en/cli-sdks-libraries/overview) for Claude Models on Google Cloud (Anthropic managed) is `AnthropicGoogleCloud` (csharp: `AnthropicGoogleCloudClient`; go: `googlecloud.NewClient`; java: `GoogleCloudBackend`; php: `Anthropic\GoogleCloud\Client`; ruby: `Anthropic::GoogleCloudClient`). The client resolves your Google credentials. It also builds the base URL from your project, location, and workspace ID.
+The [SDK client](https://platform.claude.com/docs/en/cli-sdks-libraries/overview) for Claude Models on Google Cloud (Anthropic managed) is `AnthropicGoogleCloud` (csharp: `AnthropicGoogleCloudClient`; go: `googlecloud.NewClient()`; java: `GoogleCloudBackend`; php: `Anthropic\GoogleCloud\Client`; ruby: `Anthropic::GoogleCloudClient`). The client resolves your Google credentials. It also builds the base URL from your project, location, and workspace ID.
 
 <Note>
-  SDK clients for Claude Models on Google Cloud (Anthropic managed) are in beta.
+  The SDK client for Claude Models on Google Cloud (Anthropic managed) is in beta.
 </Note>
 
 Install the package that provides the client:
@@ -206,7 +206,7 @@ Install the package that provides the client:
   </Tab>
 </Tabs>
 
-To use the `ant` CLI instead, [install or update it](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#installation) to the latest version. A version without support for Claude Models on Google Cloud (Anthropic managed) ignores the `ANTHROPIC_GOOGLE_CLOUD_*` variables. It then does one of the following:
+To use the `ant` CLI instead, [install or update the CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#installation) to the latest version. A version without support for Claude Models on Google Cloud (Anthropic managed) ignores the `ANTHROPIC_GOOGLE_CLOUD_*` variables. It then does one of the following:
 
 * Sends the request to the Claude API with any other credential you've set up
 * Fails with an authentication error
@@ -225,7 +225,7 @@ The [organization-level routes](https://platform.claude.com/docs/en/build-with-c
 https://claude.googleapis.com/v1/projects/{project}/locations/global/claudeOrganization/invoke
 ```
 
-If you don't [set the base URL](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#project-location-and-workspace-resolution), the SDK clients choose between these two for each request.
+If you don't [set the base URL](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#project-location-and-workspace-resolution), the SDK client chooses between these two for each request.
 
 Append the Claude API path to the base URL. For example, the [Messages API](https://platform.claude.com/docs/en/api/messages/create) is at `.../invoke/v1/messages`. Three things differ from a Claude API request:
 
@@ -404,7 +404,7 @@ In Claude Models on Google Cloud (Anthropic managed), a request for a model that
 
 ## Project, location, and workspace resolution
 
-Clients for Claude Models on Google Cloud (Anthropic managed) take the settings in the following table. A value you pass when you create the client wins over the environment variable. To set the project and workspace ID explicitly, pass `project` (go: `Project`; java: `.project()`; csharp: `GoogleCloudClientOptions.Project`; cli: `--google-cloud-project`) and `workspace_id` (typescript, php: `workspaceId`; go: `WorkspaceID`; java: `.workspaceId()`; csharp: `GoogleCloudClientOptions.WorkspaceId`; cli: `--google-cloud-workspace-id`).
+The client for Claude Models on Google Cloud (Anthropic managed) takes the settings in the following table. A value you pass when you create the client wins over the environment variable. To set the project and workspace ID explicitly, pass `project` (go: `Project`; java: `.project()`; csharp: `GoogleCloudClientOptions.Project`; cli: `--google-cloud-project`) and `workspace_id` (typescript, php: `workspaceId`; go: `WorkspaceID`; java: `.workspaceId()`; csharp: `GoogleCloudClientOptions.WorkspaceId`; cli: `--google-cloud-workspace-id`).
 
 | Setting      | Environment variable                                          | If unset                                                                                                                                                                                                                        |
 | ------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -436,7 +436,7 @@ Google Cloud handles access. Its gateway at `claude.googleapis.com` does the fol
 
 To grant permissions, see [IAM roles](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#iam-roles).
 
-The SDK clients get the token from [Application Default Credentials](https://cloud.google.com/docs/authentication/application-default-credentials) (ADC). Any credential source that ADC supports works:
+The SDK client gets the token from [Application Default Credentials](https://cloud.google.com/docs/authentication/application-default-credentials) (ADC). Any credential source that ADC supports works:
 
 * **Local development:** Run `gcloud auth application-default login`.
 * **On Google Cloud:** The client automatically uses the service account attached to the workload, for example on Compute Engine, GKE, or Cloud Run.
@@ -449,7 +449,7 @@ Check that ADC is working:
 gcloud auth application-default print-access-token
 ```
 
-Claude Models on Google Cloud (Anthropic managed) doesn't use API keys. In the Claude Console, you can't create API keys for the Anthropic organization that setup creates. The SDK clients for Claude Models on Google Cloud (Anthropic managed) ignore these environment variables:
+Claude Models on Google Cloud (Anthropic managed) doesn't use API keys. In the Claude Console, you can't create API keys for the Anthropic organization that setup creates. The SDK client for Claude Models on Google Cloud (Anthropic managed) ignores these environment variables:
 
 * `ANTHROPIC_API_KEY`
 * `ANTHROPIC_AUTH_TOKEN`
@@ -472,13 +472,13 @@ The client has no environment variable of its own for the credential. Use ADC's 
 
 If your requests go through a proxy that attaches the token for you, set `skip_auth` (typescript, php: `skipAuth`; go: `SkipAuth`; java: `.skipAuth()`; csharp: `GoogleCloudClientOptions.SkipAuth`). The client then sends no `Authorization` header. You can't combine this setting with the preceding credential options.
 
-When the `ant` CLI uses Claude Models on Google Cloud (Anthropic managed), it always gets the token from Application Default Credentials. It takes no token provider, credentials object, or skip-auth setting.
+When the `ant` CLI uses Claude Models on Google Cloud (Anthropic managed), it always gets the token from Application Default Credentials. It takes no token provider, credentials object, or setting to skip authentication.
 
 Before you use `ant` with Claude Models on Google Cloud (Anthropic managed), make sure none of these is set:
 
 * An API key
 
-* An auth token
+* An authentication token
 
 * `--profile` or `ANTHROPIC_PROFILE`, if it names a [configuration profile](https://platform.claude.com/docs/en/manage-claude/wif-reference#profile-configuration-file) that the CLI can authenticate with
 
@@ -494,7 +494,7 @@ If one is set, the CLI uses that credential instead of the Google Cloud settings
 
 Also leave `ANTHROPIC_WORKSPACE_ID` and the `--workspace-id` flag unset. The CLI still sends that value as an `anthropic-workspace-id` header. Requests to Claude Models on Google Cloud (Anthropic managed) must not carry that header. Set the workspace with `--google-cloud-workspace-id` or `ANTHROPIC_GOOGLE_CLOUD_WORKSPACE_ID` instead.
 
-Like the SDK clients, the CLI doesn't send requests for Claude Models on Google Cloud (Anthropic managed) to `--base-url` or `ANTHROPIC_BASE_URL`.
+Like the SDK client, the CLI doesn't send requests for Claude Models on Google Cloud (Anthropic managed) to `--base-url` or `ANTHROPIC_BASE_URL`.
 
 ## Feature support
 
@@ -572,7 +572,7 @@ Anthropic manages rate limits for Claude Models on Google Cloud (Anthropic manag
 
 ### Billing
 
-Claude Models on Google Cloud (Anthropic managed) bills through Google Cloud Marketplace. Anthropic meters your usage. It reports the usage to Google Cloud in Claude Consumption Units. The charges appear on your Google Cloud bill. Anthropic doesn't send a separate invoice.
+Claude Models on Google Cloud (Anthropic managed) bills through Google Cloud Marketplace. Anthropic meters your usage. It reports the usage to Google Cloud in Claude Consumption Units. One Claude Consumption Unit is $0.01 USD. The charges appear on your Google Cloud bill. Anthropic doesn't send a separate invoice.
 
 View usage and cost data on the **Usage** and **Cost** pages in the [Claude Console](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#using-the-claude-console).
 
@@ -611,7 +611,7 @@ Plan the move as a cutover to a new organization:
 * **Recreate access and configuration.** API keys, workspaces, and Claude Console settings don't carry over. Grant [IAM roles](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#iam-roles) on the project instead of creating API keys. To recreate your workspaces, see [Workspaces](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#workspaces). For ZDR arrangements, see [Data retention](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#data-retention).
 * **Plan for stored resources.** Files, skills, batches, and Claude Managed Agents resources stay in the existing organization.
 * **Update your integration.** For what changes and what stays the same, see [Making requests](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#making-requests). For features that aren't supported, see [Features not supported](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#features-not-supported).
-* **Cut over on your own schedule.** The two organizations are independent and can serve traffic in parallel. You can move workloads gradually. The existing organization keeps its current billing. Before you shift production traffic, check the [rate limits](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#rate-limits).
+* **Cut over on your own schedule.** The two organizations are independent and can serve traffic in parallel. You can move workloads gradually. The existing organization keeps its current billing. Before you shift production traffic, check the [rate limits for Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#rate-limits).
 
 ## Migrating from Claude Models on Google Cloud (Google managed)
 
@@ -631,7 +631,7 @@ To move to Claude Models on Google Cloud (Anthropic managed), complete the follo
   </Step>
 
   <Step title="Replace the import and the client">
-    Change the code that imports and creates your client. Use `AnthropicGoogleCloud` (csharp: `AnthropicGoogleCloudClient`; go: `googlecloud.NewClient`; java: `GoogleCloudBackend`; php: `Anthropic\GoogleCloud\Client`; ruby: `Anthropic::GoogleCloudClient`) in place of `AnthropicVertex` (csharp: `AnthropicVertexClient`; go: `vertex.WithGoogleAuth`; java: `VertexBackend`; php: `Anthropic\Vertex\Client`; ruby: `Anthropic::VertexClient`). In a cURL request, change the URL, the headers, and the body. Your current code creates a client for Claude Models on Google Cloud (Google managed). For example, the following code creates that client with the global endpoint:
+    Change the code that imports and creates your client. Use `AnthropicGoogleCloud` (csharp: `AnthropicGoogleCloudClient`; go: `googlecloud.NewClient()`; java: `GoogleCloudBackend`; php: `Anthropic\GoogleCloud\Client`; ruby: `Anthropic::GoogleCloudClient`) in place of `AnthropicVertex` (csharp: `AnthropicVertexClient`; go: `vertex.WithGoogleAuth()`; java: `VertexBackend`; php: `Anthropic\Vertex\Client`; ruby: `Anthropic::VertexClient`). In a cURL request, change the URL, the headers, and the body. Your current code creates a client for Claude Models on Google Cloud (Google managed). For example, the following code creates that client with the global endpoint:
 
     <CodeGroup exclude="shell:CLI">
       ```bash cURL
@@ -822,7 +822,7 @@ To move to Claude Models on Google Cloud (Anthropic managed), complete the follo
   </Step>
 
   <Step title="Run a test request">
-    Run the request in [Making requests](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#making-requests) to check that your setup works. Then run your own code. If a call fails with a permission error, see [Troubleshooting account setup](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#troubleshooting-account-setup). Before you move production traffic, check the [rate limits](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#rate-limits).
+    Run the request in [Making requests](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#making-requests) to check that your setup works. Then run your own code. If a call fails with a permission error, see [Troubleshooting account setup](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#troubleshooting-account-setup). Before you move production traffic, check the [rate limits for Claude Models on Google Cloud (Anthropic managed)](https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed#rate-limits).
   </Step>
 </Steps>
 

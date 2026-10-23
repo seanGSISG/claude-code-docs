@@ -1254,7 +1254,7 @@ You can still compact on the client. If you write the summary yourself, don't se
 When the conversation grows too long, summarize the whole session into one user message and send only that message plus the next instruction. Nothing earlier is replayed, so there's no thinking left to fail the check, and the model reasons afresh from the summary.
 
 <Frame>
-  ![Simple compaction: request 4 sends the full history with thinking; request 5 sends one summary message, so nothing is checked](https://platform.claude.com/docs/images/preserved-thinking-simple-compaction.svg)
+  ![Simple compaction: request 5 sends one user message (summary plus next instruction), so no old thinking is sent or checked](https://platform.claude.com/docs/images/preserved-thinking-simple-compaction.svg)
 </Frame>
 
 ```json
@@ -1277,7 +1277,7 @@ To keep that thinking, have the API write the summary with on-demand compaction.
 The rest of this section covers a summary you write yourself.
 
 <Frame>
-  ![Keep-tail compaction: thinking on kept turns 3 and 4 fails; with drop\_block, the API drops it and the request succeeds](https://platform.claude.com/docs/images/preserved-thinking-keep-tail-compaction.svg)
+  ![Keep-tail compaction: a summary of turns 1 and 2, then turns 3 to 5 verbatim. Thinking on 3 and 4 fails; drop\_block succeeds](https://platform.claude.com/docs/images/preserved-thinking-keep-tail-compaction.svg)
 </Frame>
 
 Fix: keep the turns exactly as they are and send `prefix_mismatch_behavior: "drop_block"`. The API drops the stale thinking blocks, the model reads the kept turns' `text` and `tool_use` blocks, and the request succeeds.
@@ -1530,7 +1530,7 @@ A library, proxy, or gateway sits between someone else's history and the API, so
   </Accordion>
 
   <Accordion title="Does changing effort or other thinking settings between requests invalidate earlier thinking?">
-    No. `output_config.effort`, `max_tokens`, and the `thinking` configuration aren't part of the checked prefix, which covers only `system`, `tools`, and `messages`. A top-level effort change invalidates most of the prompt cache. Where the model and platform support [per-message effort](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#effort-changes), a per-message effort change keeps the prompt cache and is used as the new effort level until changed again.
+    No. `output_config.effort`, `max_tokens`, and the `thinking` configuration aren't part of the checked prefix, which covers only `system`, `tools`, and `messages`. A top-level effort change invalidates most of the prompt cache. Where the model and platform support per-message effort, a [per-message effort change](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#effort-changes) keeps the prompt cache and is used as the new effort level until changed again.
   </Accordion>
 
   <Accordion title="My tool list changes mid-session. How do I avoid invalidating the conversation?">
