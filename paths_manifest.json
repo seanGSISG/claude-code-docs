@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-23T03:21:43.515459Z",
-    "total_paths": 1039,
+    "generated_at": "2026-10-23T10:59:33.163826Z",
+    "total_paths": 1047,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-23T03:21:43.515466Z"
+    "last_regenerated": "2026-10-23T10:59:33.163831Z"
   },
   "categories": {
     "core_documentation": [
@@ -217,10 +217,18 @@
       "/docs/en/manage-claude/authentication",
       "/docs/en/manage-claude/claude-code-analytics-api",
       "/docs/en/manage-claude/cmek",
+      "/docs/en/manage-claude/cmek-admin-api",
       "/docs/en/manage-claude/cmek-aws-kms",
+      "/docs/en/manage-claude/cmek-aws-kms-workspaces",
       "/docs/en/manage-claude/cmek-azure-key-vault",
       "/docs/en/manage-claude/cmek-claude-platform-on-aws",
+      "/docs/en/manage-claude/cmek-coverage-claude-enterprise",
+      "/docs/en/manage-claude/cmek-coverage-claude-platform",
+      "/docs/en/manage-claude/cmek-data-retention",
       "/docs/en/manage-claude/cmek-google-cloud-kms",
+      "/docs/en/manage-claude/cmek-how-it-works",
+      "/docs/en/manage-claude/cmek-key-lifecycle",
+      "/docs/en/manage-claude/cmek-troubleshooting",
       "/docs/en/manage-claude/compliance-activity-feed",
       "/docs/en/manage-claude/compliance-api",
       "/docs/en/manage-claude/compliance-api-access",
