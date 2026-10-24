@@ -3873,8 +3873,8 @@
     "claude-code__claude-code-on-the-web.md": {
       "original_url": "https://platform.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://platform.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "ba4ec2855030fb9fcde17563affac810656005570827e369aaaf81cdfdbd3779",
-      "last_updated": "2026-10-23T21:08:37.417892"
+      "hash": "048976f7a49faf9e719ef3564f8feb4ad5b917625f4e8b8a7bb1b7fcf7929276",
+      "last_updated": "2026-10-24T20:23:26.445096"
     },
     "docs__en__claude_api_primer.md": {
       "original_url": "https://platform.claude.com/docs/en/claude_api_primer",
@@ -4071,8 +4071,8 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "c56e08215ce4dc8ae123e8bde1fd93c6d31c9336e822c4acf61831c5c00f5696",
-      "last_updated": "2026-10-24T15:35:40.262537"
+      "hash": "f81d3d61cd42f7892bee96084a09be6283bac1be09bc544b17f76545f5bed90c",
+      "last_updated": "2026-10-24T20:26:59.783907"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
@@ -4707,8 +4707,8 @@
     "claude-code__mcp.md": {
       "original_url": "https://platform.claude.com/docs/en/mcp",
       "original_md_url": "https://platform.claude.com/docs/en/mcp.md",
-      "hash": "d48319ae5c571ac90820facca519f38b37796799962851ebd1e2545d5c0532c5",
-      "last_updated": "2026-10-24T15:37:33.510093"
+      "hash": "191eb66024fcd502afcc304747b84a25e0531a3d9fbdb89c71147f713ec76ba6",
+      "last_updated": "2026-10-24T20:29:08.352775"
     },
     "claude-code__memory.md": {
       "original_url": "https://platform.claude.com/docs/en/memory",
@@ -4725,8 +4725,8 @@
     "claude-code__model-config.md": {
       "original_url": "https://platform.claude.com/docs/en/model-config",
       "original_md_url": "https://platform.claude.com/docs/en/model-config.md",
-      "hash": "8588cd62b893b3ac21c956e7cd979f32ba3380185be3714446aa0476df0da804",
-      "last_updated": "2026-10-23T21:14:07.084851"
+      "hash": "f67741ef4d7da190388917e978c5087839f5eebdd3723d19b7569abfdbfbe656",
+      "last_updated": "2026-10-24T20:29:20.337126"
     },
     "docs__en__models__fable-5-1__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide",
@@ -4887,8 +4887,8 @@
     "claude-code__network-config.md": {
       "original_url": "https://platform.claude.com/docs/en/network-config",
       "original_md_url": "https://platform.claude.com/docs/en/network-config.md",
-      "hash": "7644c49bc32233fa798ce796fd0388a8457d553bac6ed2427329a92001f4465d",
-      "last_updated": "2026-10-23T21:14:25.942472"
+      "hash": "b19677a0236f0b0fd755bec414a8fddcd46c3f069b5bce9939bf581d16f8dfcc",
+      "last_updated": "2026-10-24T20:29:42.427503"
     },
     "claude-code__output-styles.md": {
       "original_url": "https://platform.claude.com/docs/en/output-styles",
@@ -5055,8 +5055,8 @@
     "claude-code__sandboxing.md": {
       "original_url": "https://platform.claude.com/docs/en/sandboxing",
       "original_md_url": "https://platform.claude.com/docs/en/sandboxing.md",
-      "hash": "fc1b2dbb7cf8546c9212c9565f0be0827a898f7d03e1ad603a6f5bca183215ac",
-      "last_updated": "2026-10-23T21:18:02.428931"
+      "hash": "589325fa4c7318fcaea12da6f2c4fd0ee26633f2c43898fcebbd248e75f7de11",
+      "last_updated": "2026-10-24T20:33:21.212393"
     },
     "claude-code__security.md": {
       "original_url": "https://platform.claude.com/docs/en/security",
@@ -5169,8 +5169,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-24T15:45:44.950268",
-    "fetch_duration_seconds": 1395.664765,
+    "last_fetch_completed": "2026-10-24T20:37:41.899043",
+    "fetch_duration_seconds": 1544.584163,
     "total_pages_discovered": 1048,
     "pages_fetched_successfully": 861,
     "pages_failed": 188,
@@ -5369,7 +5369,7 @@
     "total_files": 861,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-24T15:45:44.950291",
+  "last_updated": "2026-10-24T20:37:41.899069",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
