@@ -3873,8 +3873,8 @@
     "claude-code__claude-code-on-the-web.md": {
       "original_url": "https://platform.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://platform.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "c10a29de17dfd3b4cffdd5c84d7c39b90b3d584d8e1958b387c026e6cad8dc92",
-      "last_updated": "2026-10-26T22:25:57.771206"
+      "hash": "664327ed2722ef01518a6981325f56a773391875cc51449866eda6e065268019",
+      "last_updated": "2026-10-27T17:37:07.057308"
     },
     "docs__en__claude_api_primer.md": {
       "original_url": "https://platform.claude.com/docs/en/claude_api_primer",
@@ -3945,8 +3945,8 @@
     "docs__en__cli-sdks-libraries__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/overview",
       "original_md_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/overview.md",
-      "hash": "074b5a648d65e09c59f0ba5e21008b9a419b4d7241cec12c64b21b607b758f35",
-      "last_updated": "2026-10-24T03:25:52.585577"
+      "hash": "d0867d574a00d49ce5f6fed48b17032da31dca0a537149c1e79905bb0b175cc4",
+      "last_updated": "2026-10-27T17:37:36.489555"
     },
     "docs__en__cli-sdks-libraries__sdks__csharp.md": {
       "original_url": "https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/csharp",
@@ -4011,8 +4011,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "939b8a6fa08689089e928f29fc7c98f5af5e279eb39b0ce1f9a702463a819eb2",
-      "last_updated": "2026-10-27T03:52:47.742778"
+      "hash": "e919dd7646ef3042968f78de32b53024675a72a67c0142203cf4d8f6be54f07c",
+      "last_updated": "2026-10-27T17:39:04.053373"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -4209,8 +4209,8 @@
     "docs__en__manage-claude__cmek-coverage-claude-enterprise.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/cmek-coverage-claude-enterprise",
       "original_md_url": "https://platform.claude.com/docs/en/manage-claude/cmek-coverage-claude-enterprise.md",
-      "hash": "78c15dabfa4066d794bd62c349800f26a4303b79a3ab90bfbb22bc614fa81489",
-      "last_updated": "2026-10-23T11:13:06.481651"
+      "hash": "6201a72485a713577d79c726d5e56e6690307f5400e5baf56f095b3d6fcc3f24",
+      "last_updated": "2026-10-27T17:41:14.203564"
     },
     "docs__en__manage-claude__cmek-coverage-claude-platform.md": {
       "original_url": "https://platform.claude.com/docs/en/manage-claude/cmek-coverage-claude-platform",
@@ -4893,8 +4893,8 @@
     "claude-code__output-styles.md": {
       "original_url": "https://platform.claude.com/docs/en/output-styles",
       "original_md_url": "https://platform.claude.com/docs/en/output-styles.md",
-      "hash": "c96fd3a3359969b7fdb0d2479527eb712e2192a4b64d96cd956ae45945e523a5",
-      "last_updated": "2026-10-23T21:14:26.588785"
+      "hash": "74bc7dfd0e61dc4a2cd5ffaca349f40702b49c33f9fba7cb4334b1d623a1bda1",
+      "last_updated": "2026-10-27T17:42:53.620912"
     },
     "claude-code__overview.md": {
       "original_url": "https://platform.claude.com/docs/en/overview",
@@ -5067,8 +5067,8 @@
     "claude-code__settings.md": {
       "original_url": "https://platform.claude.com/docs/en/settings",
       "original_md_url": "https://platform.claude.com/docs/en/settings.md",
-      "hash": "0b062367ed54712ecd9e1a3d6b5d67e4eedc860e01962202176ce5e48f1915dc",
-      "last_updated": "2026-10-23T21:19:01.570921"
+      "hash": "70064d76e67c335615d678ee493c16e9315e89a17813c31365ffbca673f89d11",
+      "last_updated": "2026-10-27T17:47:29.729899"
     },
     "claude-code__setup.md": {
       "original_url": "https://platform.claude.com/docs/en/setup",
@@ -5169,8 +5169,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-27T11:58:19.563995",
-    "fetch_duration_seconds": 1391.681103,
+    "last_fetch_completed": "2026-10-27T17:50:44.314772",
+    "fetch_duration_seconds": 1400.312679,
     "total_pages_discovered": 1048,
     "pages_fetched_successfully": 861,
     "pages_failed": 188,
@@ -5369,7 +5369,7 @@
     "total_files": 861,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-27T11:58:19.564019",
+  "last_updated": "2026-10-27T17:50:44.314796",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",

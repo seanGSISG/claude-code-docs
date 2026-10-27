@@ -64,7 +64,7 @@ Each major version of a client SDK sends one [API version](https://platform.clau
 | Python     | `2.3.0`        | [`anthropic` on PyPI](https://pypi.org/project/anthropic/)                                                  |
 | TypeScript | `1.3.0`        | [`@anthropic-ai/sdk`](https://www.npmjs.com/package/@anthropic-ai/sdk)                                      |
 | C#         | `13.3.0`       | [`Anthropic`](https://www.nuget.org/packages/Anthropic)                                                     |
-| Go         | `2.3.0`        | [`github.com/anthropics/anthropic-sdk-go/v2`](https://pkg.go.dev/github.com/anthropics/anthropic-sdk-go/v2) |
+| Go         | `2.4.0`        | [`github.com/anthropics/anthropic-sdk-go/v2`](https://pkg.go.dev/github.com/anthropics/anthropic-sdk-go/v2) |
 | Java       | `3.3.0`        | [`com.anthropic:anthropic-java`](https://central.sonatype.com/artifact/com.anthropic/anthropic-java)        |
 | PHP        | `1.3.0`        | [`anthropic-ai/sdk`](https://packagist.org/packages/anthropic-ai/sdk)                                       |
 | Ruby       | `2.3.0`        | [`anthropic` on RubyGems](https://rubygems.org/gems/anthropic)                                              |
