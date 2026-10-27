@@ -3711,8 +3711,8 @@
     "docs__en__build-with-claude__preserved-thinking.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking",
       "original_md_url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking.md",
-      "hash": "0329bfdeacdec6e74eabd03e5cd9bc84df57439ee505141382967cd3f9043d4f",
-      "last_updated": "2026-10-26T22:24:50.181836"
+      "hash": "b48143b09c2bc52726e054e9991c6a07399fcff0779dc4eb4dfa539905902841",
+      "last_updated": "2026-10-27T03:49:08.107222"
     },
     "docs__en__build-with-claude__prompt-caching.md": {
       "original_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
@@ -4011,8 +4011,8 @@
     "claude-code__desktop.md": {
       "original_url": "https://platform.claude.com/docs/en/desktop",
       "original_md_url": "https://platform.claude.com/docs/en/desktop.md",
-      "hash": "536481a197f2159e79920d1e855c8fb137213c843e29f959925708c78791861a",
-      "last_updated": "2026-10-26T12:27:55.702467"
+      "hash": "939b8a6fa08689089e928f29fc7c98f5af5e279eb39b0ce1f9a702463a819eb2",
+      "last_updated": "2026-10-27T03:52:47.742778"
     },
     "claude-code__devcontainer.md": {
       "original_url": "https://platform.claude.com/docs/en/devcontainer",
@@ -4083,8 +4083,8 @@
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
       "original_md_url": "https://platform.claude.com/docs/en/interactive-mode.md",
-      "hash": "a20529e1f84261b71a776204ce778a1870f94d500fdb29daa73cb9b755af88e5",
-      "last_updated": "2026-10-25T03:24:12.028775"
+      "hash": "c0bc0c713d2e67de9418ea4c6a62d071236bfa0c21f1c69fd5e3523e05b2f5d6",
+      "last_updated": "2026-10-27T03:54:18.718495"
     },
     "docs__en__intro.md": {
       "original_url": "https://platform.claude.com/docs/en/intro",
@@ -4605,8 +4605,8 @@
     "docs__en__managed-agents__self-hosted-sandboxes.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes.md",
-      "hash": "e66354e89d1756a0f4150aa0281416a6e2974bfc62b8644b9b622b5208da896c",
-      "last_updated": "2026-10-24T03:30:24.309319"
+      "hash": "d444cfbffcb25faf633ffa30c36c9382f4ddc7845387cbca57853253443547a9",
+      "last_updated": "2026-10-27T03:55:41.255557"
     },
     "docs__en__managed-agents__self-hosted-sandboxes-custom-tools.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-custom-tools",
@@ -4617,20 +4617,20 @@
     "docs__en__managed-agents__self-hosted-sandboxes-memory.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-memory",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-memory.md",
-      "hash": "1e47205214947c85452bf151884d29122ca273da30a5ce1b1d1927a0cb151fed",
-      "last_updated": "2026-10-22T21:25:59.369302"
+      "hash": "e8e10e2f795a64e667149ef7f2b4c6ce83375de30de256dca5598a034b9adb81",
+      "last_updated": "2026-10-27T03:55:42.572497"
     },
     "docs__en__managed-agents__self-hosted-sandboxes-operations.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-operations",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-operations.md",
-      "hash": "3691edc9577d77ed7f18cc73d7cfec4d16476a86198ed1fa4a5153a2d0dbe256",
-      "last_updated": "2026-10-23T11:13:55.099798"
+      "hash": "8f4ad9fe7fc405464f00b0197585006e26e9700fdec842c771d3eb78b335403b",
+      "last_updated": "2026-10-27T03:55:43.166047"
     },
     "docs__en__managed-agents__self-hosted-sandboxes-reference.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-reference",
       "original_md_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-reference.md",
-      "hash": "0fb919a9dff4224339c6ff49199a3c2b407e133771c00cad524670476f696d9e",
-      "last_updated": "2026-10-21T21:29:25.890427"
+      "hash": "5e907d8cde8dcff498e32a6e78a2333aae3751b20d497f20c73324a3adf14a53",
+      "last_updated": "2026-10-27T03:55:43.783018"
     },
     "docs__en__managed-agents__self-hosted-sandboxes-security.md": {
       "original_url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes-security",
@@ -4725,8 +4725,8 @@
     "claude-code__model-config.md": {
       "original_url": "https://platform.claude.com/docs/en/model-config",
       "original_md_url": "https://platform.claude.com/docs/en/model-config.md",
-      "hash": "f67741ef4d7da190388917e978c5087839f5eebdd3723d19b7569abfdbfbe656",
-      "last_updated": "2026-10-24T20:29:20.337126"
+      "hash": "096af4518ac7af4ab2a4c7055233051c0608ff187a24883ffdd48c4830869a2f",
+      "last_updated": "2026-10-27T03:56:13.109032"
     },
     "docs__en__models__fable-5-1__migration-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/models/fable-5-1/migration-guide",
@@ -5079,8 +5079,8 @@
     "claude-code__skills.md": {
       "original_url": "https://platform.claude.com/docs/en/skills",
       "original_md_url": "https://platform.claude.com/docs/en/skills.md",
-      "hash": "acb1f1388ee96a516f707c42bac1e834b22df90081e5c2eccb90a2f76a5430f6",
-      "last_updated": "2026-10-23T21:19:12.847941"
+      "hash": "ae3a7dbbd9f7b09fd808f764ab3b8105db2c38757150550018c98c852650cd2d",
+      "last_updated": "2026-10-27T04:01:01.637440"
     },
     "claude-code__statusline.md": {
       "original_url": "https://platform.claude.com/docs/en/statusline",
@@ -5169,8 +5169,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-10-26T22:39:17.251598",
-    "fetch_duration_seconds": 1353.329318,
+    "last_fetch_completed": "2026-10-27T04:04:02.352824",
+    "fetch_duration_seconds": 1359.995352,
     "total_pages_discovered": 1048,
     "pages_fetched_successfully": 861,
     "pages_failed": 188,
@@ -5369,7 +5369,7 @@
     "total_files": 861,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-10-26T22:39:17.251619",
+  "last_updated": "2026-10-27T04:04:02.352847",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
