@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-29T12:16:28.595001Z",
-    "total_paths": 1048,
+    "generated_at": "2026-10-29T22:25:16.855158Z",
+    "total_paths": 1053,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-29T12:16:28.595007Z"
+    "last_regenerated": "2026-10-29T22:25:16.855164Z"
   },
   "categories": {
     "core_documentation": [
@@ -250,6 +250,7 @@
       "/docs/en/manage-claude/plugins-api",
       "/docs/en/manage-claude/rate-limits-api",
       "/docs/en/manage-claude/spend-limits-api",
+      "/docs/en/manage-claude/usage-cost-analytics-api",
       "/docs/en/manage-claude/usage-cost-api",
       "/docs/en/manage-claude/user-management",
       "/docs/en/manage-claude/user-profiles",
@@ -521,6 +522,8 @@
       "/docs/en/api/beta/organization/analytics/artifacts/list",
       "/docs/en/api/beta/organization/analytics/connectors",
       "/docs/en/api/beta/organization/analytics/connectors/list",
+      "/docs/en/api/beta/organization/analytics/cost",
+      "/docs/en/api/beta/organization/analytics/cost/list",
       "/docs/en/api/beta/organization/analytics/cost_report",
       "/docs/en/api/beta/organization/analytics/cost_report/list",
       "/docs/en/api/beta/organization/analytics/plugins",
@@ -529,6 +532,8 @@
       "/docs/en/api/beta/organization/analytics/skills/list",
       "/docs/en/api/beta/organization/analytics/summaries",
       "/docs/en/api/beta/organization/analytics/summaries/list",
+      "/docs/en/api/beta/organization/analytics/usage",
+      "/docs/en/api/beta/organization/analytics/usage/list",
       "/docs/en/api/beta/organization/analytics/usage_report",
       "/docs/en/api/beta/organization/analytics/usage_report/list",
       "/docs/en/api/beta/organization/analytics/user_cost_report",

@@ -6,7 +6,7 @@ description: Set a spend limit on each Claude Enterprise member, see where each 
 
 The Spend Limits API lets you set a spend limit on each Claude Enterprise member, see where each member’s spend limit is inherited from, and review or act on members’ requests for a higher limit.
 
-For per-user and time-bucketed usage and cost *reporting*, see [Analytics APIs](https://platform.claude.com/docs/en/manage-claude/analytics-api).
+For per-user and time-bucketed usage and cost *reporting*, see [Analytics APIs](https://platform.claude.com/docs/en/manage-claude/analytics-api) or the [Usage and Cost Analytics API](https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api).
 
 <Check>
   **Scoped Admin API key required**
@@ -1189,6 +1189,8 @@ Some of these workflows combine the Spend Limits API with the [Analytics APIs](h
 
 Spend Limits endpoints require the `spend_limits` scopes and Analytics cost endpoints require `read:analytics`; see [Analytics APIs](https://platform.claude.com/docs/en/manage-claude/analytics-api) for how to provision access. The examples use one Admin API key that has the scopes of every API they call. A primary owner [selects these scopes when creating the key](https://platform.claude.com/docs/en/manage-claude/admin-api-keys#choose-scopes-for-a-claude-enterprise-key). All monetary values on both are decimal strings in minor units (cents). Both APIs paginate with an opaque cursor. Set an explicit `limit` and page through `next_page` until it’s `null` to cover the whole organization.
 
+Two of these workflows read spend from `user_cost_report`, which remains supported. For new integrations, call the cost endpoint of the [Usage and Cost Analytics API](https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api#migrate-from-enterprise-analytics-reports) with `group_by[]=actor&actor_types[]=user_actor` to get cost for each user.
+
 ### Automate the increase-request review flow
 
 Run a scheduled job that fetches pending requests, applies your organization’s approval policy, and resolves each one.
@@ -2291,7 +2293,7 @@ The spend reading can be temporarily unavailable, in which case the field reads 
     Generated request and response schemas for the increase-request endpoints.
   </Card>
 
-  <Card title="Analytics APIs" href="https://platform.claude.com/docs/en/manage-claude/analytics-api">
-    Per-user and time-bucketed usage and cost reporting for Claude Enterprise.
+  <Card title="Usage and Cost Analytics API" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api">
+    Track token usage and costs for your organization.
   </Card>
 </CardGroup>
