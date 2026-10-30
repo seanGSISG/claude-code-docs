@@ -17,8 +17,7 @@ On [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claud
 * The workspace endpoints: create, get, list, update, and archive on `/v1/organizations/workspaces`.
 * The external key endpoints, for [CMEK](https://platform.claude.com/docs/en/manage-claude/cmek-claude-platform-on-aws): register, get, list, update, and delete on `/v1/organizations/external_keys`. There is no validate endpoint, because keys are validated when attached to a workspace.
 * The [telemetry destination endpoints](https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions#telemetry-destinations).
-
-- The [Usage and Cost Analytics API](https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api) endpoints: `/v1/organizations/analytics/usage` and `/v1/organizations/analytics/cost`.
+* The [Usage and Cost Analytics API](https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api) endpoints: `/v1/organizations/analytics/usage` and `/v1/organizations/analytics/cost`.
 
 Organization members, workspace members, invites, API keys, the legacy [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api), and the rate limit reports aren’t available on Claude Platform on AWS.
 

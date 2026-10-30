@@ -324,6 +324,10 @@ Filter or group by `service_tier` in the usage endpoint and look for the `priori
 
 API usage from playground in the Claude Console (and from the legacy Anthropic Workbench before it) is not associated with an API key, so `api_key_id` is `null` even when grouping by that dimension.
 
+### Why does the usage report show a service account that I didn’t create?
+
+Usage from some [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) sessions is reported under an Anthropic-managed service account (`svac_...`). It isn’t listed with the service accounts that you create. See [Find session usage across your organization](https://platform.claude.com/docs/en/managed-agents/session-observability#find-session-usage-across-your-organization).
+
 ### How is the default workspace represented?
 
 Usage and costs attributed to the default workspace have a `null` value for `workspace_id`.

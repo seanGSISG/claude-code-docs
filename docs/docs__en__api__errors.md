@@ -540,7 +540,7 @@ The API returns the same message for any Anthropic-defined tool type that the re
 
 ### Thinking block bound to a different conversation
 
-This 400 `invalid_request_error` usually means a thinking block you sent back failed the prefix check: something before the block changed after the block was produced, such as the `system` prompt, `tools`, or an earlier message. Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5 run this check. For requests that don’t set `prefix_mismatch_behavior`, [When `prefix_mismatch_behavior` is unset](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#enforcement) shows which ones get this error. The message starts with the position of the first failing block:
+This 400 `invalid_request_error` usually means a thinking block you sent back failed the prefix check: something before the block changed after the block was produced, such as the `system` prompt, `tools`, or an earlier message. Claude 5.1 and later models run this check. For requests that don’t set `prefix_mismatch_behavior`, [When `prefix_mismatch_behavior` is unset](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#enforcement) shows which ones get this error. The message starts with the position of the first failing block:
 
 ```text wrap
 messages.{i}.content.{j}: Invalid `signature` in `thinking` block. The block is bound to a different conversation. Remove the block, or set `thinking.block_binding.prefix_mismatch_behavior` to "drop_block".

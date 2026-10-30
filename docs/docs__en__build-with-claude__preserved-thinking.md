@@ -34,7 +34,7 @@ Thinking blocks from Claude Sonnet 5.5 and Claude Haiku 5.5 are also tied to the
 
 ## Who the prefix check affects
 
-The prefix check runs on Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5. Other models don’t run it. You don’t need to do anything if Claude Code, claude.ai, Claude Managed Agents, or the Claude Agent SDK builds your requests, or if your code keeps `system` and `tools` fixed for a session and only ever appends to `messages`. If you never send thinking blocks back, the check has nothing to test, and the model gets none of its earlier reasoning.
+The prefix check runs on Claude 5.1 and later models. Other models don’t run it. You don’t need to do anything if Claude Code, claude.ai, Claude Managed Agents, or the Claude Agent SDK builds your requests, or if your code keeps `system` and `tools` fixed for a session and only ever appends to `messages`. If you never send thinking blocks back, the check has nothing to test, and the model gets none of its earlier reasoning.
 
 Check your integration if, between two requests in one conversation, it does any of the following. Each item links to what to do instead:
 
@@ -64,10 +64,10 @@ Claude Haiku 5.5 reads thinking blocks from Claude Sonnet 5, Claude Opus 4.8, Cl
 * **A conversation that moves to Claude Fable 5.1 from an earlier model, or from Claude Opus 5.5 on the Claude API, keeps its reasoning.** The earlier model’s thinking blocks stay readable, so the model thinks as usual from the first turn after the switch.
 * **A conversation that moves from Claude Fable 5.1 to any model other than Claude Mythos 5.1 loses Claude Fable 5.1’s reasoning for that request.** This occurs when a router sends a turn to a cheaper model, after a [classifier refusal fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback), or during a [server-side fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback). The API removes the unreadable blocks before the prompt reaches the model. They aren’t billed and don’t count toward `input_tokens`.
 
-Keep sending the full history on every request, thinking blocks included, and let the API drop what the current model can’t read. The API never edits your `messages` array, so the dropped blocks stay in your history. When the same history goes back to Claude Fable 5.1, its blocks are readable again, along with the earlier model’s thinking. The reasoning is permanently lost only if your client removes the blocks itself, for example a harness that strips thinking on a model switch or rebuilds the history from what each model used.
+Keep sending the full history on every request, thinking blocks included, and let the API drop what the current model can’t read. The API never edits your `messages` array, so the dropped blocks stay in your history. When the same history goes back to Claude Fable 5.1, its blocks are readable again. The reasoning is permanently lost only if your client removes the blocks itself, for example a harness that strips thinking on a model switch or rebuilds the history from what each model used.
 
 <Frame>
-  ![Animation: switching to Claude Opus skips Claude Fable 5.1's thinking for that turn; switching back, everything is read again](https://platform.claude.com/docs/images/preserved-thinking-model-switch.svg)
+  ![Animation: switching to Claude Opus skips Claude Fable 5.1's thinking for that turn; switching back, it is read again](https://platform.claude.com/docs/images/preserved-thinking-model-switch.svg)
 </Frame>
 
 With the `thinking-binding-controls-2026-08-01` [beta header](https://platform.claude.com/docs/en/api/beta-headers), the response lists each dropped block in a top-level `input_transformations` array with `reason: "model_binding_mismatch"`:
@@ -96,7 +96,7 @@ The API can also leave out a thinking block that another account produced, if th
 
 ## Keeping the prefix unchanged
 
-On Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5, a thinking block stays valid only while everything you sent before it is unchanged on later requests. The checked prefix has three parts:
+On Claude 5.1 and later models, a thinking block stays valid only while everything you sent before it is unchanged on later requests. The checked prefix has three parts:
 
 * The top-level `system` prompt
 * The set of `tools`

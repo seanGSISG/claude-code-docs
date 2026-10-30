@@ -152,7 +152,7 @@ Echo the assistant turn back verbatim, thinking blocks included. See [Preserving
 
 ## A 400 error says a thinking block signature is invalid
 
-A request that replays earlier thinking blocks to Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, or Claude Haiku 5.5 can fail with a 400 `invalid_request_error` whose message reads:
+A request that replays earlier thinking blocks to a Claude 5.1 or later model can fail with a 400 `invalid_request_error` whose message reads:
 
 ```text wrap
 messages.{i}.content.{j}: Invalid `signature` in `thinking` block. The block is bound to a different conversation. Remove the block, or set `thinking.block_binding.prefix_mismatch_behavior` to "drop_block".
