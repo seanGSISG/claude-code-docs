@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-10-30T12:07:05.610930Z",
-    "total_paths": 1053,
+    "generated_at": "2026-10-30T21:55:33.180091Z",
+    "total_paths": 1072,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-10-30T12:07:05.610937Z"
+    "last_regenerated": "2026-10-30T21:55:33.180096Z"
   },
   "categories": {
     "core_documentation": [
@@ -546,6 +546,25 @@
       "/docs/en/api/beta/organization/api_keys/list",
       "/docs/en/api/beta/organization/api_keys/retrieve",
       "/docs/en/api/beta/organization/api_keys/update",
+      "/docs/en/api/beta/organization/claude_tag",
+      "/docs/en/api/beta/organization/claude_tag/bundles",
+      "/docs/en/api/beta/organization/claude_tag/bundles/list",
+      "/docs/en/api/beta/organization/claude_tag/bundles/retrieve",
+      "/docs/en/api/beta/organization/claude_tag/bundles/targets",
+      "/docs/en/api/beta/organization/claude_tag/bundles/targets/create",
+      "/docs/en/api/beta/organization/claude_tag/bundles/targets/delete",
+      "/docs/en/api/beta/organization/claude_tag/bundles/targets/list",
+      "/docs/en/api/beta/organization/claude_tag/bundles/targets/retrieve",
+      "/docs/en/api/beta/organization/claude_tag/slack_channels",
+      "/docs/en/api/beta/organization/claude_tag/slack_channels/create",
+      "/docs/en/api/beta/organization/claude_tag/slack_channels/delete",
+      "/docs/en/api/beta/organization/claude_tag/slack_channels/list",
+      "/docs/en/api/beta/organization/claude_tag/slack_channels/retrieve",
+      "/docs/en/api/beta/organization/claude_tag/slack_channels/update",
+      "/docs/en/api/beta/organization/claude_tag/slack_workspaces",
+      "/docs/en/api/beta/organization/claude_tag/slack_workspaces/list",
+      "/docs/en/api/beta/organization/claude_tag/slack_workspaces/retrieve",
+      "/docs/en/api/beta/organization/claude_tag/slack_workspaces/update",
       "/docs/en/api/beta/organization/compliance_settings",
       "/docs/en/api/beta/organization/compliance_settings/retrieve",
       "/docs/en/api/beta/organization/compliance_settings/update",
