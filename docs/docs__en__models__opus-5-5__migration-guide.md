@@ -37,7 +37,7 @@ The following request satisfies every item in the list: effort is set, and there
   ```bash cURL
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "content-type: application/json" \
     -d '{
       "model": "claude-opus-5-5",
@@ -334,7 +334,7 @@ Work down the groups and stop after the one that names your current model: every
 * Handle the `refusal` stop reason.
 * Handle the `model_context_window_exceeded` stop reason.
 * Verify tool string parameter handling for trailing newlines.
-* Remove legacy beta headers (`token-efficient-tools-2025-02-19`, `output-128k-2025-02-19`).
+* Remove the `token-efficient-tools-2025-02-19` and `output-128k-2025-02-19` beta headers.
 * Review and update prompts following [prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
 
 ### Claude Sonnet 5 only
@@ -369,7 +369,7 @@ Before. Claude Opus 5 accepts this request, and Claude Opus 5.5 rejects it with 
   ```bash cURL
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "content-type: application/json" \
     -d '{
       "model": "claude-opus-5",
@@ -465,7 +465,7 @@ After:
   # thinking is always on; effort is the control
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "content-type: application/json" \
     -d '{
       "model": "claude-opus-5-5",
@@ -570,7 +570,7 @@ Before. Claude Opus 5 accepts this request, and Claude Opus 5.5 rejects it with 
   ```bash cURL
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "content-type: application/json" \
     -d '{
       "model": "claude-opus-5",
@@ -702,7 +702,7 @@ After:
   # strict tool use: every call matches the tool's input_schema
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "content-type: application/json" \
     -d '{
       "model": "claude-opus-5-5",
@@ -890,7 +890,7 @@ Before. Claude Opus 5 accepts this request, and Claude Opus 5.5 rejects it with 
   ```bash cURL
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "anthropic-beta: computer-use-2025-11-24" \
     -H "content-type: application/json" \
     -d '{
@@ -1043,7 +1043,7 @@ After:
   # no beta header; the toolset entry takes no name or display size
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "content-type: application/json" \
     -d '{
       "model": "claude-opus-5-5",
@@ -1178,7 +1178,7 @@ These are not required but will improve your experience:
 
 1. **Consider task budgets (beta):** For agentic workloads, [task budgets](https://platform.claude.com/docs/en/build-with-claude/task-budgets) tell the model how many tokens it has for a full agentic loop. They require the `task-budgets-2026-03-13` beta header.
 
-2. **Consider mid-conversation tool changes (beta):** Mid-conversation tool changes let you add or remove tools between turns of a conversation without invalidating [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) hits on earlier turns. Changing the `tools` array itself invalidates the cached prefix. On the Claude API, Claude Platform on AWS, and Claude Models on Google Cloud (Anthropic managed), send the `inline-tools-2026-09-15` beta header. The older `mid-conversation-tool-changes-2026-07-01` header still works for changes that name a tool by reference, on the Claude API, Amazon Bedrock, Claude Platform on AWS, Claude Models on Google Cloud (Anthropic managed), and Claude Models on Google Cloud (Google managed).
+2. **Consider mid-conversation tool changes (beta):** Mid-conversation tool changes let you add or remove tools between turns of a conversation without invalidating [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) hits on earlier turns. Changing the `tools` array itself invalidates the cached prefix. On the Claude API, Claude Platform on AWS, and Claude Models on Google Cloud (Anthropic managed), send the `inline-tools-2026-09-15` beta header. The `mid-conversation-tool-changes-2026-07-01` header works for changes that name a tool by reference, on the Claude API, Amazon Bedrock, Claude Platform on AWS, Claude Models on Google Cloud (Anthropic managed), and Claude Models on Google Cloud (Google managed).
 
 ## Migrating to Claude Opus 5.5 from Claude Opus 4.7
 
@@ -1218,7 +1218,7 @@ This section adds what changed in Claude Opus 4.7, with `claude-opus-4-6` as the
      ```bash cURL
      curl https://api.anthropic.com/v1/messages \
        -H "x-api-key: $ANTHROPIC_API_KEY" \
-       -H "anthropic-version: 2023-06-01" \
+       -H "anthropic-version: 2026-10-21" \
        -H "content-type: application/json" \
        -d '{
          "model": "claude-opus-4-6",
@@ -1350,7 +1350,7 @@ This section adds what changed in Claude Opus 4.7, with `claude-opus-4-6` as the
      ```bash cURL
      curl https://api.anthropic.com/v1/messages \
        -H "x-api-key: $ANTHROPIC_API_KEY" \
-       -H "anthropic-version: 2023-06-01" \
+       -H "anthropic-version: 2026-10-21" \
        -H "content-type: application/json" \
        -d '{
          "model": "claude-opus-5-5",
@@ -1773,7 +1773,7 @@ If you’re migrating from Claude Opus 4.1 or earlier models directly to Claude 
 
 #### Additional recommended changes
 
-* **Remove legacy beta headers:** Remove `token-efficient-tools-2025-02-19` and `output-128k-2025-02-19`. All Claude 4 and later models have built-in token-efficient tool use and these headers have no effect.
+* **Beta headers:** Remove `token-efficient-tools-2025-02-19` and `output-128k-2025-02-19`. All Claude 4 and later models have built-in token-efficient tool use and these headers have no effect.
 
 ## Migrating to Claude Opus 5.5 from Claude Sonnet 5
 

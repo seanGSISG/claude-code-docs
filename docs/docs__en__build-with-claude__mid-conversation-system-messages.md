@@ -58,7 +58,7 @@ The following request declares `get_weather` in `tools`, then withdraws it after
   curl https://api.anthropic.com/v1/messages \
     -H "content-type: application/json" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "anthropic-beta: inline-tools-2026-09-15" \
     -d '{
       "model": "claude-opus-5-5",
@@ -507,7 +507,7 @@ The following request keeps `get_weather` in `tools` and defines `db_query` afte
   curl https://api.anthropic.com/v1/messages \
     -H "content-type: application/json" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "anthropic-beta: inline-tools-2026-09-15" \
     -d '{
       "model": "claude-opus-5-5",
@@ -1069,7 +1069,7 @@ The following request keeps `get_weather` in `tools`, lists the calendar server 
   curl https://api.anthropic.com/v1/messages \
     -H "content-type: application/json" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "anthropic-beta: inline-tools-2026-09-15,mcp-client-2026-09-15" \
     -d '{
       "model": "claude-opus-5-5",
@@ -1665,7 +1665,7 @@ A `role: "system"` message can also carry `output_config.effort` to change the [
   curl https://api.anthropic.com/v1/messages \
     -H "content-type: application/json" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -d '{
       "model": "claude-opus-5-5",
       "max_tokens": 1024,
@@ -2123,7 +2123,7 @@ Through the SDK, set `clear_at` (csharp, go: `ClearAt`; java: `.clearAt()`; php:
   ```bash cURL
   curl https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-version: 2026-10-21" \
     -H "anthropic-beta: mid-conversation-system-clear-at-2026-08-21" \
     -H "content-type: application/json" \
     -d '{
