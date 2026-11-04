@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-11-03T18:08:09.397555Z",
-    "total_paths": 1073,
+    "generated_at": "2026-11-04T00:17:29.429985Z",
+    "total_paths": 1074,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-11-03T18:08:09.397564Z"
+    "last_regenerated": "2026-11-04T00:17:29.429993Z"
   },
   "categories": {
     "core_documentation": [
@@ -125,6 +125,7 @@
       "/docs/en/build-with-claude/streaming",
       "/docs/en/build-with-claude/structured-outputs",
       "/docs/en/build-with-claude/task-budgets",
+      "/docs/en/build-with-claude/text-watermark",
       "/docs/en/build-with-claude/thinking",
       "/docs/en/build-with-claude/thinking-steering-and-cost",
       "/docs/en/build-with-claude/thinking-tool-workflows",

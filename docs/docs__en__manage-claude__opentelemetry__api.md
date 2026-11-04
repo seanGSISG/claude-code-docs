@@ -674,7 +674,7 @@ The API disables a destination when:
 
 While a destination is disabled, the API drops the spans for it, and they aren’t sent after you enable it again. To resume export, fix the cause and check the fix with **Test** in the destination’s **More actions** menu. Then, on the [OpenTelemetry settings page](https://platform.claude.com/settings/telemetry-destinations) in the Console, click **Enable** in the same menu while the **Workspace** filter shows **All**. Export starts again within about a minute. Until the next delivery, the **Delivery** column can still show **Failing** with the old error.
 
-To change a destination, open its **More actions** menu while the **Workspace** filter shows **All**. Then click **Edit**, **Disable**, **Enable**, or **Delete**. If you change the host of the **OTLP endpoint URL**, enter the header values again. If the destination has an **OTLP traces endpoint URL**, give it the same new host, or clear it.
+To change a destination, open its **More actions** menu while the **Workspace** filter shows **All**. Then click **Edit**, **Disable**, **Enable**, or **Delete**. Deliveries stop within about a minute after you disable or delete a destination. If you change the host of the **OTLP endpoint URL**, enter the header values again. If the destination has an **OTLP traces endpoint URL**, give it the same new host, or clear it.
 
 ## Limits
 

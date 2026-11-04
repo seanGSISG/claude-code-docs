@@ -35,8 +35,8 @@ featureMetadata:
 
 **API support**: Usage differs by product.
 
-* **Messages API**: Always on. Set `output_config.effort` on the request. With no value, the model’s default level applies.
-* **Managed Agents**: Always on. Set `effort` on the agent’s model object, or in a session’s model override. With no value, Managed Agents fills in the model’s default.
+* **Messages API**: Set `output_config.effort` on the request. With no value, the model’s default level applies.
+* **Managed Agents**: Set `effort` on the agent’s model object, or in a session’s model override. With no value, Managed Agents fills in the model’s default.
 
 The effort parameter lets you control how many tokens Claude spends when responding to requests. You can trade off between response thoroughness and token efficiency with a single model. The top-level effort parameter is available on all supported models with no beta header required. [Per-message effort](https://platform.claude.com/docs/en/build-with-claude/effort#change-effort-mid-conversation-beta) is in beta.
 

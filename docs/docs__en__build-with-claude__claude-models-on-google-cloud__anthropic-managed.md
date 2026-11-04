@@ -527,6 +527,7 @@ The following features work on Claude Models on Google Cloud (Anthropic managed)
   * [Streaming](https://platform.claude.com/docs/en/build-with-claude/streaming)
   * [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
   * [Token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+  * [Mid-conversation system messages](https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages)
 
 * **Batches and models:** The [Message Batches API](https://platform.claude.com/docs/en/build-with-claude/batch-processing) and the Models API.
 

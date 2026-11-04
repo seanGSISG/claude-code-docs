@@ -36,12 +36,10 @@ featureMetadata:
 
 **API support**: Usage differs by product.
 
-* **Messages API**: Always on. Send `search_result` blocks in a tool result or directly in a user message.
-* **Managed Agents**: Always on. Accepted only in tool results, such as a `user.custom_tool_result` event, not in `user.message` events.
+* **Messages API**: Send `search_result` blocks in a tool result or directly in a user message.
+* **Managed Agents**: Accepted only in tool results, such as a `user.custom_tool_result` event, not in `user.message` events.
 
 Search result content blocks let Claude cite your own content the same way it cites web search results: each citation carries the source and title you provided. Use them in RAG (Retrieval-Augmented Generation) applications where Claude needs to attribute answers to your documents.
-
-All [active models](https://platform.claude.com/docs/en/models/overview) support search results with citations, with the exception of Claude Haiku 3. No beta header is required: search results are part of the standard Messages API.
 
 ## How it works
 
@@ -2159,7 +2157,6 @@ When `citations.enabled` is set to `true`, Claude attaches citation references t
 
 ## Limitations
 
-* Search result content blocks are available on the Claude API, Amazon Bedrock, and Claude Models on Google Cloud (Google managed).
 * Only text content is supported within search results (no images or other media).
 * `search_result` blocks can only appear in user messages (including inside tool results). Assistant messages with search results are rejected.
 * When the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) is enabled in the same request, citations must be enabled on all `search_result` blocks.
@@ -2196,7 +2193,7 @@ Search results are available on every model and eligible for zero data retention
 
 #### [Messages API](https://platform.claude.com/docs/en/build-with-claude/working-with-messages)
 
-* Availability: Always on
+* Availability: Available
 * Usage: Send `search_result` blocks in a tool result or directly in a user message.
 
 | Status    | Cloud platforms                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -2205,7 +2202,7 @@ Search results are available on every model and eligible for zero data retention
 
 #### [Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview)
 
-* Availability: Always on
+* Availability: Available
 * Usage: Accepted only in tool results, such as a `user.custom_tool_result` event, not in `user.message` events.
 
 | Status    | Cloud platforms                                                                                                    |

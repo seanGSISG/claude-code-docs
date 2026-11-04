@@ -30,7 +30,7 @@ featureMetadata:
     - claude-sonnet-4-5-20250929
 ---
 
-Anthropic secures the control plane across all environments: session and work queue integrity, multitenant isolation, and agent-context minimization. When you self-host, the following responsibilities fall to you.
+Anthropic secures the control plane across all environments: session and work queue integrity, multitenant isolation, and agent-context minimization. When you self-host sandboxes, the following responsibilities fall to you.
 
 ## What you own
 

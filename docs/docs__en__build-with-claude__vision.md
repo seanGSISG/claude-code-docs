@@ -530,7 +530,7 @@ On the API, provide images to Claude as `image` content blocks using one of thre
               ],
           ],
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
   );
 
   echo json_encode($message, JSON_PRETTY_PRINT), PHP_EOL;
@@ -540,7 +540,7 @@ On the API, provide images to Claude as `image` content blocks using one of thre
   client = Anthropic::Client.new
 
   message = client.messages.create(
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 1024,
     messages: [
       {
@@ -827,6 +827,7 @@ For images you’ll use repeatedly or when you want to avoid encoding overhead, 
 
   ```php PHP
   use Anthropic\Core\FileParam;
+  use Anthropic\Messages\Model;
 
   $client = new Client();
 
@@ -850,7 +851,7 @@ For images you’ll use repeatedly or when you want to avoid encoding overhead, 
               ],
           ],
       ],
-      model: 'claude-opus-5-5',
+      model: Model::CLAUDE_OPUS_5_5,
   );
 
   echo json_encode($message, JSON_PRETTY_PRINT), PHP_EOL;
@@ -869,7 +870,7 @@ For images you’ll use repeatedly or when you want to avoid encoding overhead, 
 
   # Use the uploaded file in a message
   message = client.messages.create(
-    model: "claude-opus-5-5",
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 1024,
     messages: [
       {

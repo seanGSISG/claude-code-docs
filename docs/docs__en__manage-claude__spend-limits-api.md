@@ -2007,12 +2007,12 @@ Give an incident responder room to work while an incident is open: raise their s
      ```
 
      ```csharp C#
-     using Anthropic.Models.Beta.Organization.SpendLimits.Effective;
+     using Anthropic.Models.Beta.Organization.SpendLimits;
 
      AnthropicClient client = new();
 
      var page = await client.Beta.Organization.SpendLimits.Effective.List(
-         new() { UserIds = ["user_01AbCdEfGh"], Period = [Period.Monthly] }
+         new() { UserIds = ["user_01AbCdEfGh"], Period = [BetaSpendLimitPeriod.Monthly] }
      );
 
      await foreach (var effectiveLimit in page.Paginate())
@@ -2030,7 +2030,7 @@ Give an incident responder room to work while an incident is open: raise their s
 
      effectiveLimits := client.Beta.Organization.SpendLimits.Effective.ListAutoPaging(context.Background(), anthropic.BetaOrganizationSpendLimitEffectiveListParams{
      	UserIDs: []string{"user_01AbCdEfGh"},
-     	Period:  []string{"monthly"},
+     	Period:  []anthropic.BetaSpendLimitPeriod{anthropic.BetaSpendLimitPeriodMonthly},
      })
 
      for effectiveLimits.Next() {
@@ -2049,6 +2049,7 @@ Give an incident responder room to work while an incident is open: raise their s
      ```
 
      ```java Java
+     import com.anthropic.models.beta.organization.spendlimits.BetaSpendLimitPeriod;
      import com.anthropic.models.beta.organization.spendlimits.effective.EffectiveListParams;
 
      void main() {
@@ -2056,7 +2057,7 @@ Give an incident responder room to work while an incident is open: raise their s
 
          var params = EffectiveListParams.builder()
              .addUserId("user_01AbCdEfGh")
-             .addPeriod(EffectiveListParams.Period.MONTHLY)
+             .addPeriod(BetaSpendLimitPeriod.MONTHLY)
              .build();
          var effectiveLimits = client.beta().organization().spendLimits().effective().list(params);
 
