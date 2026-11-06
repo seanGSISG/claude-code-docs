@@ -81,7 +81,7 @@ Let Claude Code set up your agent for you
         For Linux environments, download the release binary directly.
 
         ```bash
-        VERSION=2.7.0
+        VERSION=2.7.1
         OS=$(uname -s | tr '[:upper:]' '[:lower:]')
         case $(uname -m) in
           x86_64) ARCH=amd64 ;;
@@ -150,7 +150,7 @@ To run the CLI examples, install the CLI:
     For Linux environments, download the release binary directly.
 
     ```bash
-    VERSION=2.7.0
+    VERSION=2.7.1
     OS=$(uname -s | tr '[:upper:]' '[:lower:]')
     case $(uname -m) in
       x86_64) ARCH=amd64 ;;
