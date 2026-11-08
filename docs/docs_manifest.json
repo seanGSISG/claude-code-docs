@@ -4449,14 +4449,14 @@
     "claude-code__hooks.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks",
       "original_md_url": "https://platform.claude.com/docs/en/hooks.md",
-      "hash": "55757f0fbe69bc20bb184c53c41f9d606e15bb4f8c3cd2a9b088c06b4357b906",
-      "last_updated": "2026-11-07T00:28:36.798575"
+      "hash": "302eb7b421958a10745425535de466903450dc2f4ee601ab182d54e1f747fa56",
+      "last_updated": "2026-11-08T00:32:15.264749"
     },
     "claude-code__hooks-guide.md": {
       "original_url": "https://platform.claude.com/docs/en/hooks-guide",
       "original_md_url": "https://platform.claude.com/docs/en/hooks-guide.md",
-      "hash": "a137a70720739938d89001a688a3e33f4516374dac8a1c2afbece1df61d37fb3",
-      "last_updated": "2026-11-06T06:24:00.867809"
+      "hash": "662e38ddd6af0fcc78f93ab64ecbbb8669a3827528f2a7dac60a73dcf1dc1aee",
+      "last_updated": "2026-11-08T00:32:15.812479"
     },
     "claude-code__interactive-mode.md": {
       "original_url": "https://platform.claude.com/docs/en/interactive-mode",
@@ -5097,8 +5097,8 @@
     "claude-code__mcp.md": {
       "original_url": "https://platform.claude.com/docs/en/mcp",
       "original_md_url": "https://platform.claude.com/docs/en/mcp.md",
-      "hash": "6ffdadb194bdceb4676f0bf6e52637942e1558916afbf4636fb3ef79b4e0e16a",
-      "last_updated": "2026-11-07T00:30:30.155570"
+      "hash": "08a59d3eeeb80da9f94a4f79f1f1179b5cd165c464e7805f8fdc8843ab9c6db7",
+      "last_updated": "2026-11-08T00:34:07.511356"
     },
     "claude-code__memory.md": {
       "original_url": "https://platform.claude.com/docs/en/memory",
@@ -5559,8 +5559,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-11-07T18:29:24.796161",
-    "fetch_duration_seconds": 1352.675093,
+    "last_fetch_completed": "2026-11-08T00:42:05.728828",
+    "fetch_duration_seconds": 1377.046403,
     "total_pages_discovered": 1113,
     "pages_fetched_successfully": 926,
     "pages_failed": 188,
@@ -5759,7 +5759,7 @@
     "total_files": 926,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-11-07T18:29:24.796187",
+  "last_updated": "2026-11-08T00:42:05.728850",
   "base_url": "https://raw.githubusercontent.com/seanGSISG/claude-code-docs/main/docs/",
   "github_repository": "seanGSISG/claude-code-docs",
   "github_ref": "main",
