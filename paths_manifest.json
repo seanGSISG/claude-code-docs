@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-11-09T12:10:05.460141Z",
-    "total_paths": 1113,
+    "generated_at": "2026-11-10T00:15:49.721085Z",
+    "total_paths": 1119,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-11-09T12:10:05.460147Z"
+    "last_regenerated": "2026-11-10T00:15:49.721094Z"
   },
   "categories": {
     "core_documentation": [
@@ -113,6 +113,7 @@
       "/docs/en/build-with-claude/prompt-engineering/overview",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1",
+      "/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-haiku-5-5",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-4-8",
       "/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5",
@@ -317,12 +318,16 @@
       "/docs/en/models/fable-5-1/migration-guide",
       "/docs/en/models/fable-5-1/overview",
       "/docs/en/models/fable-5-1/whats-new-fable-5-1",
+      "/docs/en/models/fable-5-2/migration-guide",
+      "/docs/en/models/fable-5-2/overview",
+      "/docs/en/models/fable-5-2/whats-new-fable-5-2",
       "/docs/en/models/fable-5/overview",
       "/docs/en/models/haiku-4-5/overview",
       "/docs/en/models/haiku-5-5/migration-guide",
       "/docs/en/models/haiku-5-5/overview",
       "/docs/en/models/haiku-5-5/whats-new-haiku-5-5",
       "/docs/en/models/mythos-5-1/overview",
+      "/docs/en/models/mythos-5-2/overview",
       "/docs/en/models/mythos-5/overview",
       "/docs/en/models/opus-4-5/overview",
       "/docs/en/models/opus-4-6/overview",
@@ -1106,6 +1111,7 @@
       "/docs/en/release-notes/overview",
       "/docs/en/release-notes/system-prompts/claude-fable-5",
       "/docs/en/release-notes/system-prompts/claude-fable-5-1",
+      "/docs/en/release-notes/system-prompts/claude-fable-5-2",
       "/docs/en/release-notes/system-prompts/claude-haiku-3",
       "/docs/en/release-notes/system-prompts/claude-haiku-3-5",
       "/docs/en/release-notes/system-prompts/claude-haiku-4-5",
