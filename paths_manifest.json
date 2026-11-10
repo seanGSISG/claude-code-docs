@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-11-10T00:15:49.721085Z",
-    "total_paths": 1119,
+    "generated_at": "2026-11-10T06:10:36.225261Z",
+    "total_paths": 1122,
     "source": "sitemap_discovery",
-    "last_regenerated": "2026-11-10T00:15:49.721094Z"
+    "last_regenerated": "2026-11-10T06:10:36.225269Z"
   },
   "categories": {
     "core_documentation": [
@@ -699,6 +699,7 @@
       "/docs/en/api/beta/organization/users/list",
       "/docs/en/api/beta/organization/users/remove",
       "/docs/en/api/beta/organization/users/retrieve",
+      "/docs/en/api/beta/organization/users/sign_out",
       "/docs/en/api/beta/organization/users/update",
       "/docs/en/api/beta/organization/webhooks",
       "/docs/en/api/beta/organization/webhooks/create",
@@ -862,6 +863,8 @@
       "/docs/en/api/compliance/organizations/roles/permissions",
       "/docs/en/api/compliance/organizations/roles/permissions/list",
       "/docs/en/api/compliance/organizations/roles/retrieve",
+      "/docs/en/api/compliance/organizations/security_posture",
+      "/docs/en/api/compliance/organizations/security_posture/retrieve",
       "/docs/en/api/compliance/organizations/settings",
       "/docs/en/api/compliance/organizations/settings/retrieve",
       "/docs/en/api/compliance/organizations/user_preferences",
